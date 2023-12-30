@@ -1,4 +1,4 @@
-{ config, inputs, lib, ... }:
+{ inputs, lib, ... }:
 
 with lib;
 {
@@ -6,7 +6,7 @@ with lib;
     inputs.impermanence.nixosModules.impermanence
   ];
 
-  config.environment.persistence."/persist" = {
+  environment.persistence."/persist" = {
     hideMounts = true;
 
     directories = [
