@@ -1,4 +1,4 @@
-{ pkgs ? import ../nixpkgs.nix }:
+{ pkgs }:
 
 pkg: appName: from: to: pkgs.lib.hiPrio (pkgs.runCommand "$patched-desktop-entry-for-${appName}" {} ''
   ${pkgs.coreutils}/bin/mkdir -p $out/share/applications
