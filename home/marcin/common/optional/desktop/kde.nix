@@ -106,6 +106,7 @@ in
         };
 
         Windeco = {
+          CornerRadius = 2;
           DrawBackgroundGradient = true;
           IntegratedRoundedRectangleBottomPadding = 0;
           OpaqueMaximizedTitlebars = false;
