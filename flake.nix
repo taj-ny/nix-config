@@ -45,10 +45,7 @@
     pkgsFor = lib.genAttrs systems (system: import nixpkgs {
       inherit system;
 
-      config = {
-        allowUnfree = true;
-        allowUnfreePredicate = (_: true);
-      };
+      config.allowUnfree = true;
     });
   in
   rec {
