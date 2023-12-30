@@ -32,7 +32,7 @@ stdenv.mkDerivation {
     convert nixos.png -channel RGB -region +125 -negate -fx 'a==0 ? 0 : u' nixos-inverted.png # Invert text
     rascii -w 96 -H 16 -c nixos-inverted.png | tee $out/nixos-96x16.txt
 
-    echo "" >> tee $out/nix-snowflake-32x14.txt
+    echo "" >> $out/nix-snowflake-32x16.txt
     echo "" >> $out/nix-snowflake-64x32.txt
     echo "" >> $out/nixos-96x16.txt
   '';
