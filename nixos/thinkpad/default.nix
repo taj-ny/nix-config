@@ -48,8 +48,6 @@
     initrd.availableKernelModules = [ "xhci_pci" "nvme" "uas" "usb_storage" "sd_mod" ];
   };
 
-  programs.usbkill.enable = true;
-
   networking.hostName = "thinkpad";
   system.stateVersion = "23.05";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
