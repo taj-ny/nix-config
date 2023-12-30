@@ -46,8 +46,6 @@
     initrd.availableKernelModules = [ "xhci_pci" "nvme" "uas" "usb_storage" "sd_mod" ];
   };
 
-  boot.initrd.systemd.enable = true;
-
   programs.usbkill.enable = true;
 
   networking.hostName = "thinkpad";
