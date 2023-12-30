@@ -2,11 +2,9 @@
 
 {
   imports = [
-    outputs.homeManagerModules.kde
-
     ./nixpkgs.nix
     ./xdg.nix
-  ];
+  ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   home = {
     username = "marcin";

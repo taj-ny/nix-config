@@ -1,8 +1,10 @@
-{ config, lib, modulesPath, ... }:
+{ config, lib, modulesPath, inputs, ... }:
 
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+
+    inputs.hardware.nixosModules.lenovo-thinkpad-t480
 
     ./throttled.nix
 

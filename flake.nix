@@ -59,25 +59,12 @@
 
     nixosConfigurations = {
       andromeda = lib.nixosSystem {
-        modules = [
-          ./nixos/andromeda.nix
-          hardware.nixosModules.common-cpu-intel-cpu-only
-          hardware.nixosModules.common-gpu-nvidia-nonprime
-          hardware.nixosModules.common-pc
-          hardware.nixosModules.common-pc-ssd
-          lanzaboote.nixosModules.lanzaboote
-        ];
+        modules = [ ./nixos/andromeda.nix ];
         specialArgs = { inherit inputs outputs; };
       };
 
       thinkpad = lib.nixosSystem {
-        modules = [
-          ./nixos/thinkpad
-          hardware.nixosModules.lenovo-thinkpad-t480
-          lanzaboote.nixosModules.lanzaboote
-
-          outputs.nixosModules.usbkill
-        ];
+        modules = [ ./nixos/thinkpad ];
         specialArgs = { inherit inputs outputs; };
       };
     };

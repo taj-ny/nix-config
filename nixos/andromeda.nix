@@ -1,8 +1,13 @@
-{ config, lib, modulesPath, pkgs, ... }:
+{ config, lib, modulesPath, pkgs, inputs, ... }:
 
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+
+    inputs.hardware.nixosModules.common-cpu-intel-cpu-only
+    inputs.hardware.nixosModules.common-gpu-nvidia-nonprime
+    inputs.hardware.nixosModules.common-pc
+    inputs.hardware.nixosModules.common-pc-ssd
 
     ./common
 
