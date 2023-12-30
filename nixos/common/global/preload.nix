@@ -1,0 +1,3 @@
+{
+  services.preload.enable = true;
+}

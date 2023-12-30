@@ -1,0 +1,3 @@
+{
+  services.kdeconnect.enable = true;
+}

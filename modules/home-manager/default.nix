@@ -1,0 +1,3 @@
+{
+  kde = import ./kde.nix;
+}

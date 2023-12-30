@@ -1,0 +1,29 @@
+diff --git a/src/main/java/org/cryptomator/common/LicenseHolder.java b/src/main/java/org/cryptomator/common/LicenseHolder.java
+index bc52966e..c05f7c42 100644
+--- a/src/main/java/org/cryptomator/common/LicenseHolder.java
++++ b/src/main/java/org/cryptomator/common/LicenseHolder.java
+@@ -35,14 +35,7 @@ public class LicenseHolder {
+ 	}
+ 
+ 	public boolean validateAndStoreLicense(String licenseKey) {
+-		Optional<DecodedJWT> claims = licenseChecker.check(licenseKey);
+-		validJwtClaims.set(claims.orElse(null));
+-		if (claims.isPresent()) {
+-			settings.licenseKey.set(licenseKey);
+-			return true;
+-		} else {
+-			return false;
+-		}
++   	return true;
+ 	}
+ 
+ 	/* Observable Properties */
+@@ -69,7 +62,7 @@ public class LicenseHolder {
+ 	}
+ 
+ 	public boolean isValidLicense() {
+-		return validLicenseProperty.get();
++		return true;
+ 	}
+ 
+ }
