@@ -49,7 +49,7 @@
     forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
     pkgsFor = lib.genAttrs systems (system: import nixpkgs {
       inherit system;
-       
+ 
       config.allowUnfree = true;
     });
   in
