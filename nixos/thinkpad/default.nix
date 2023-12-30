@@ -22,6 +22,7 @@
     ../common/optional/kernel/linux-latest.nix
 
     ../common/optional/programs/kdeconnect.nix
+    ../common/optional/programs/partition-manager.nix
     ../common/optional/programs/piper.nix
     ../common/optional/programs/steam.nix
     ../common/optional/programs/vmware.nix
