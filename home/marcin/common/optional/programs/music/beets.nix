@@ -1,9 +1,6 @@
-{ inputs, pkgs, ... }:
-
 {
   programs.beets = {
     enable = true;
-    package = inputs.nixpkgs-stable.legacyPackages."${pkgs.system}".beets; # TODO aacgain fails to build on unstable https://github.com/NixOS/nixpkgs/issues/273907
     settings = {
       plugins = [
         "deezer"
