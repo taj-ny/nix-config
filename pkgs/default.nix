@@ -6,4 +6,5 @@ rec {
   paneltransparencybutton = pkgs.callPackage ./paneltransparencybutton.nix { };
   rascii = pkgs.callPackage ./rascii.nix { };
   usbkill = pkgs.python3Packages.callPackage ./usbkill.nix { };
+  vscode-nvim = pkgs.callPackage ./vscode-nvim.nix { buildVimPlugin = pkgs.vimUtils.buildVimPlugin; };
 }
