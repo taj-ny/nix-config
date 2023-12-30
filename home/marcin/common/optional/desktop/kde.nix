@@ -142,6 +142,8 @@ in
           contrastEnabled = false;
         };
       };
+
+      plasmanotifyrc.Notifications.LowPriorityHistory = true;
     };
   };
 }
