@@ -18,7 +18,7 @@ in
 
   desktop.kde = {
     appearance = {
-      wallpaper.image = "/run/current-system/sw/share/wallpapers/Kay";
+      wallpaper.image = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Kay";
 
       layout.panels = [
         (mkPanel 38 ([
