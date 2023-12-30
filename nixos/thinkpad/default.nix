@@ -31,10 +31,8 @@
     ../common/optional/security/u2f-pam.nix
 
     ../common/optional/encrypted-dns.nix
-    ../common/optional/tor-service.nix
 
     ../common/users/marcin
-    ../common/users/root.nix
   ];
 
   boot = {
