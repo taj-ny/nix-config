@@ -59,7 +59,7 @@ in
       extensions =
         let
           # "nixpkgs.config.allowUnfree = true" in flake.nix doesn't work for firefox-addons for some reason
-          mkFree = pkg: pkgs.overrideAttrs (old: {
+          mkFree = pkg: pkg.overrideAttrs (old: {
             meta.license.free = true;
           });
         in
