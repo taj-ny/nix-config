@@ -125,6 +125,7 @@ in
       lightlyrc.Style = {
         DolphinSidebarOpacity = 40;
         MenuOpacity = 40;
+        TabDrawHighlight = true;
       };
 
       kwinrc = {
