@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -7,6 +7,8 @@
 
   programs.nixvim = {
     enable = true;
+    colorscheme = "vscode";
+    extraPlugins = with pkgs; [ vscode-nvim ];
 
     plugins = {
       barbar.enable = true;
