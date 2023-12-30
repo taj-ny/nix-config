@@ -30,10 +30,10 @@ stdenv.mkDerivation {
 
     rsvg-convert -w 319 -h 100 ${nixos} -o nixos.png
     convert nixos.png -channel RGB -region +125 -negate -fx 'a==0 ? 0 : u' nixos-inverted.png # Invert text
-    rascii -w 96 -H 16 -c nixos-inverted.png | tee $out/nixos-96x16.txt
+    rascii -w 106 -H 16 -c nixos-inverted.png | tee $out/nixos-106x16.txt
 
     echo "" >> $out/nix-snowflake-32x16.txt
     echo "" >> $out/nix-snowflake-64x32.txt
-    echo "" >> $out/nixos-96x16.txt
+    echo "" >> $out/nixos-100x16.txt
   '';
 }

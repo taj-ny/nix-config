@@ -11,7 +11,7 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      clear = "command clear; echo; cat ${pkgs.nix-ascii-art}/nixos-96x16.txt";
+      clear = "command clear; echo; cat ${pkgs.nix-ascii-art}/nixos-106x16.txt";
       colors = ''for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}''${(l:3::0:)i}%f " ''${''${(M)$((i%6)):#3}:+$'\n'}; done'';
       deemix-dl = "deemix -p /home/marcin/Music/import -b flac";
       sudo = "doas";
@@ -44,7 +44,7 @@
       bindkey "''${key[Up]}" up-line-or-search
 
       echo
-      cat ${pkgs.nix-ascii-art}/nixos-96x16.txt
+      cat ${pkgs.nix-ascii-art}/nixos-106x16.txt
       echo
 
       if zmodload zsh/terminfo && (( terminfo[colors] >= 256 )); then
