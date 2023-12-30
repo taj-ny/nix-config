@@ -57,14 +57,14 @@ in
       userContent = "@import url(\"firefox-ui-fix/userContent.css\")";
 
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-          clearurls
-          keepassxc-browser
-          plasma-integration
-          sponsorblock
-          switchyomega
-          ublock-origin
-          violentmonkey
-        ];
+        clearurls
+        keepassxc-browser
+        plasma-integration
+        sponsorblock
+        switchyomega
+        ublock-origin
+        violentmonkey
+      ];
 
       search = {
         force = true;
