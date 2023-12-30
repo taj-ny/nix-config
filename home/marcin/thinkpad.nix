@@ -33,7 +33,6 @@
 
     ./common/optional/programs/yubikey/yubikey-manager-qt.nix
     ./common/optional/programs/yubikey/yubikey-manager.nix
-    #./common/optional/programs/yubikey/yubico-authenticator.nix
 
     ./common/optional/programs/terminal/konsole
     ./common/optional/programs/terminal/zsh
