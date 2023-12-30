@@ -68,12 +68,15 @@ in
 
     configs = {
       kdeglobals = {
-        KDE.widgetStyle = "lightly";
-
         General = {
           AccentColor = "0,150,136";
           ColorScheme = "KritaDarkOrange";
           ColorSchemeHash = null;
+        };
+
+        KDE = {
+          SingleClick = false;
+          widgetStyle = "lightly";
         };
       };
 
