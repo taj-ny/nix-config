@@ -34,6 +34,6 @@ stdenv.mkDerivation {
 
     echo "" >> $out/nix-snowflake-32x16.txt
     echo "" >> $out/nix-snowflake-64x32.txt
-    echo "" >> $out/nixos-100x16.txt
+    echo "" >> $out/nixos-106x16.txt
   '';
 }
