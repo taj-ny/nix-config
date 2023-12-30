@@ -56,15 +56,22 @@ in
       userChrome = "@import url(\"firefox-ui-fix/userChrome.css\")";
       userContent = "@import url(\"firefox-ui-fix/userContent.css\")";
 
-      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-        clearurls
-        keepassxc-browser
-        plasma-integration
-        sponsorblock
-        switchyomega
-        tampermonkey
-        ublock-origin
-      ];
+      extensions =
+        let
+          # "nixpkgs.config.allowUnfree = true" in flake.nix doesn't work for firefox-addons for some reason
+          mkFree = pkg: pkgs.overrideAttrs (old: {
+            meta.license.free = true;
+          });
+        in
+        with inputs.firefox-addons.packages.${pkgs.system}; [
+          clearurls
+          keepassxc-browser
+          plasma-integration
+          sponsorblock
+          switchyomega
+          (mkFree tampermonkey)
+          ublock-origin
+        ];
 
       search = {
         force = true;
