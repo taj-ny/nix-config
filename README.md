@@ -4,7 +4,7 @@ Based on [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-st
 
 
 **Highlights:**
-- An attempt of declaratively configuring KDE, including the desktop layout ([module](modules/home-manager/kde.nix), [usage](home/marcin/common/desktop/kde/default.nix))
+- An attempt of declaratively configuring KDE, including the desktop layout ([module](modules/home-manager/kde.nix), [usage](home/marcin/common/optional/desktop/kde.nix))
 
 # Gallery
 ![1](https://github.com/taj-ny/nix-config/assets/79316397/d2022258-eca2-48c9-8578-28d0d4bac399)
