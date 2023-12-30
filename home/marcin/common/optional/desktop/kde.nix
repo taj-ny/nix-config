@@ -9,6 +9,8 @@ let
       expanding = false;
     };
   };
+
+  wallpaper = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Kay";
 in
 {
   home.packages = with pkgs; [
@@ -18,7 +20,7 @@ in
 
   desktop.kde = {
     appearance = {
-      wallpaper.image = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Kay";
+      wallpaper.image = wallpaper;
 
       layout.panels = [
         (mkPanel 38 ([
@@ -75,7 +77,7 @@ in
         };
       };
 
-      klipperrc = {
+      klipperrc.General = {
         KeepClipboardContents = false;
         MaxClipItems = 1000;
       };
@@ -108,6 +110,11 @@ in
           IntegratedRoundedRectangleBottomPadding = 0;
           OpaqueMaximizedTitlebars = false;
         };
+      };
+
+      kscreenlockerrc."Greeter -> Wallpaper -> org.kde.image -> General" = {
+        Image = wallpaper;
+        PreviewImage = wallpaper;
       };
 
       lightlyrc.Style = {
