@@ -75,6 +75,11 @@ in
         };
       };
 
+      klipperrc = {
+        KeepClipboardContents = false;
+        MaxClipItems = 1000;
+      };
+
       krunnerrc = {
         General.FreeFloating = true;
 
