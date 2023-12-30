@@ -1,7 +1,6 @@
-{ inputs, outputs, lib, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 let
-  patchDesktop = outputs.nixosModules.patchDesktop { inherit lib pkgs; };
   firefox = pkgs.firefox;
 in
 {
@@ -170,7 +169,7 @@ in
   home = {
     file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
     packages = [
-      (patchDesktop firefox "firefox" "^Exec=firefox" "Exec=MOZ_ENABLE_WAYLAND=1 firefox")
+      (pkgs.patchDesktop firefox "firefox" "^Exec=firefox" "Exec=MOZ_ENABLE_WAYLAND=1 firefox")
     ];
   };
 }

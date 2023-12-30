@@ -1,9 +1,7 @@
-{ outputs, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 # License keys: https://gist.github.com/PurpleVibe32/30a802c3c8ec902e1487024cdea26251
 let
-  patchDesktop = outputs.nixosModules.patchDesktop { inherit lib pkgs; };
-
   # The following crappy script improves VM performance by temporarily setting swappiness to 10 and disabling memory compaction.
   # TODO Don't set swappiness if already below 10
   # TODO Pkexec is covered by vmware's window

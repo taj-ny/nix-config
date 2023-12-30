@@ -1,8 +1,5 @@
-{ outputs, lib, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  patchDesktop = outputs.nixosModules.patchDesktop { inherit lib pkgs; };
-in
 {
   home.packages = with pkgs; [
     ungoogled-chromium
