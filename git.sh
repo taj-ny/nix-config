@@ -11,8 +11,5 @@ HOME=/home/marcin
 
 mkdir -p /root/.ssh
 cp $HOME/.ssh/* /root/.ssh
-
-# TODO including the user's config is unsafe
-git -c "include.path=$HOME/.config/git/config" "$@"
-
+git "$@"
 rm -r /root/.ssh

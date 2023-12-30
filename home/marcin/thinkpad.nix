@@ -17,7 +17,6 @@
     ./common/optional/programs/office/freeoffice.nix
     ./common/optional/programs/office/libreoffice.nix
 
-    ./common/optional/programs/programming/git.nix
     #./common/optional/programs/programming/unityhub.nix
     ./common/optional/programs/programming/vscode.nix
 
