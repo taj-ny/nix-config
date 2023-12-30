@@ -112,9 +112,13 @@ in
         };
       };
 
-      kscreenlockerrc."Greeter -> Wallpaper -> org.kde.image -> General" = {
-        Image = wallpaper;
-        PreviewImage = wallpaper;
+      kscreenlockerrc = {
+        Daemon.LockGrace = 0; # Doesn't work well with u2f - black screen, process has to be killed in order to unlock
+
+        "Greeter -> Wallpaper -> org.kde.image -> General" = {
+          Image = wallpaper;
+          PreviewImage = wallpaper;
+        };
       };
 
       lightlyrc.Style = {
