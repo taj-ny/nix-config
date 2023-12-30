@@ -2,7 +2,13 @@ let
   btrfsOptions = [ "noatime" "nodiratime" "discard=async" ];
 in
 {
-  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-partlabel/nixos-luks";
+  boot = {
+    # Add kernelParams = [ "resume_offset=..." ]; to device-specific configuration
+    # btrfs inspect-internal map-swapfile -r /swap/swapfile
+    resumeDevice = "/dev/mapper/nixos";
+
+    initrd.luks.devices."nixos".device = "/dev/disk/by-partlabel/nixos-luks";
+  };
 
   fileSystems = {
     "/boot" = {

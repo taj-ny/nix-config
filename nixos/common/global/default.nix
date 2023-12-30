@@ -6,7 +6,6 @@
     ./firejail.nix
     ./fonts.nix
     ./fwupd.nix
-    ./hibernation.nix
     ./impermanence.nix
     ./locale.nix
     ./network.nix
