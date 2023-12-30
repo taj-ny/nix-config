@@ -1,3 +1,5 @@
+{ outputs, ... }:
+
 {
   imports = [
     ./adb.nix
@@ -20,5 +22,5 @@
     ./zsh.nix
 
     ./programs
-  ];
+  ] ++ (builtins.attrValues outputs.nixosModules);
 }
