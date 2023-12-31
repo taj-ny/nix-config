@@ -1,8 +1,8 @@
-{ lib, modulesPath, ... }:
+{ lib, ... }:
 
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
+    ./hardware-configuration.nix
 
     ./common/global
 
@@ -16,5 +16,4 @@
 
   networking.hostName = "vm";
   system.stateVersion = "23.11";
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
