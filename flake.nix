@@ -72,6 +72,11 @@
         modules = [ ./nixos/thinkpad ];
         specialArgs = { inherit inputs outputs; };
       };
+
+      vm = lib.nixosSystem {
+        modules = [ ./vm ];
+        specialArgs = { inherit inputs outputs; };
+      };
     };
 
     homeConfigurations = {
