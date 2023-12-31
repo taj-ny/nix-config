@@ -20,5 +20,4 @@ nixos-generate-config --no-filesystems --show-hardware-config > "nixos/$CONFIGUR
 git add "nixos/$CONFIGURATION/hardware-configuration.nix"
 
 nixos-install --flake ".#$CONFIGURATION"
-
-#reboot
+reboot
