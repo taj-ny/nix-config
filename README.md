@@ -16,7 +16,7 @@ export DISK=/dev/sda
 export DISK_LAYOUT=disks/luks-btrfs-impermanence-swapfile.nix
 export SWAPSIZE=16G
 export CONFIGURATION=vm
-sudo ./install.sh
+sudo -E ./install.sh
 ```
 
 TODO hardware configuration, home-manager
