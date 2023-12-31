@@ -18,8 +18,21 @@ export SWAPSIZE=16G
 export CONFIGURATION=vm
 sudo -E ./install.sh
 ```
+You will be prompted for a root password. You can set it to anything, it's going to get deleted anyways because of impermanence. Root login is disabled by default.
 
-TODO hardware configuration, home-manager
+After the system reboots, run:
+```bash
+# Only needed if using KDE
+rm -r ~/.config/gtk-*
+rm ~/.gtkrc-2.0
+
+mkdir -p ~/.local/state/nix/profiles
+cd /nix/config
+nix develop
+home-manager switch --flake .#marcin@vm
+```
+
+If using KDE, log out and log back in.
 
 # Gallery
 ![1](https://github.com/taj-ny/nix-config/assets/79316397/a74c6177-7abd-4df6-b882-ad19efe27f81)
