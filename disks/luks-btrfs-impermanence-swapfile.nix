@@ -1,6 +1,8 @@
 { disks, ... }:
 
-# TODO This is outdated
+let
+  btrfsOptions = [ "noatime" "nodiratime" "discard=async" ];
+in
 {
   disko.devices = {
     disk.main = {
@@ -39,23 +41,24 @@
                 type = "btrfs";
 
                 subvolumes = {
-                  # TODO /swap
+                  "/@home" = {
+                    mountpoint = "/home";
+                    mountOptions = btrfsOptions;
+                  };
+
                   "/@nix" = {
                     mountpoint = "/nix";
-                    mountOptions = [
-                      "noatime"
-                      "nodiratime"
-                      "discard=async"
-                    ];
+                    mountOptions = btrfsOptions;
                   };
 
                   "/@persist" = {
                     mountpoint = "/persist";
-                      mountOptions = [
-                      "noatime"
-                      "nodiratime"
-                      "discard=async"
-                    ];
+                    mountOptions = btrfsOptions;
+                  };
+
+                  "/@swap" = {
+                    mountpoint = "/swap";
+                    mountOptions = btrfsOptions;
                   };
                 };
               };
