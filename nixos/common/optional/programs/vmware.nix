@@ -12,7 +12,7 @@ let
     fi
 
     SWAPPINESS=$(sysctl -n vm.swappiness)
-    vmware &
+    GTK_THEME=Adwaita:dark vmware & # TODO Breeze doesn't work for some reason
     pkexec /bin/sh -c "sysctl vm.compaction_proactiveness=0; sysctl vm.swappiness=10; while pgrep \"vmware$\" > /dev/null; do sleep .1; done; sysctl vm.swappiness=SWAPPINESS; sysctl vm.compaction_proactiveness=1"
   '';
 in
