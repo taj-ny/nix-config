@@ -41,6 +41,7 @@
     ./common/optional/programs/web-browsers/tor-browser.nix
     ./common/optional/programs/web-browsers/ungoogled-chromium.nix
 
+    ./common/optional/programs/btop.nix
     ./common/optional/programs/cryptomator.nix
     ./common/optional/programs/easyeffects.nix
     ./common/optional/programs/kdeconnect.nix
