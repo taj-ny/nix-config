@@ -74,7 +74,7 @@
       };
 
       vm = lib.nixosSystem {
-        modules = [ ./vm ];
+        modules = [ ./nixos/vm.nix ];
         specialArgs = { inherit inputs outputs; };
       };
     };
