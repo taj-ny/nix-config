@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko "$DISK_LAYOUT" --arg disks '[ "$DISK" ]'
+sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko "$DISK_LAYOUT" --arg disks '[ "'"$DISK"'" ]'
 
 cd ..
 sudo chown -R root:root nix-config
