@@ -19,6 +19,8 @@ mkpasswd -m sha-512 | sudo tee /mnt/persist/passwords/marcin
 sudo nixos-generate-config --no-filesystems --show-hardware-config | sudo tee /tmp/hardware-configuration.nix
 sudo vim /tmp/hardware-configuration.nix
 sudo mv -f /tmp/hardware-configuration.nix "nixos/$CONFIGURATION"
+sudo git add "nixos/$CONFIGURATION/hardware-configuration.nix"
 
 sudo nixos-install --flake ".#$CONFIGURATION"
+
 sudo reboot
