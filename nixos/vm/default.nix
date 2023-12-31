@@ -4,11 +4,11 @@
   imports = [
     ./hardware-configuration.nix
 
-    ./common/global
+    ../common/global
 
-    ./common/optional/fs/luks-btrfs-impermanence-swapfile.nix
+    ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
-    ./common/users/marcin
+    ../common/users/marcin
   ];
 
   # TODO This should be optional
