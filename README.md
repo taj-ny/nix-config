@@ -12,11 +12,11 @@ nix-shell -p git
 git clone https://github.com/taj-ny/nix-config
 cd nix-config
 
-export DISK_LAYOUT=disks/luks-btrfs-impermanence-swapfile.nix
 export DISK=/dev/sda
+export DISK_LAYOUT=disks/luks-btrfs-impermanence-swapfile.nix
 export SWAPSIZE=16G
 export CONFIGURATION=vm
-./install.sh
+sudo ./install.sh
 ```
 
 TODO hardware configuration, home-manager
