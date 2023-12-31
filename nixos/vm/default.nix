@@ -6,6 +6,10 @@
 
     ../common/global
 
+    ../common/optional/desktop/display-manager/lightdm.nix
+
+    ../common/optional/desktop/kde
+
     ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
     ../common/users/marcin
