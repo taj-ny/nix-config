@@ -91,6 +91,12 @@
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
       };
+
+      "marcin@vm" = lib.homeManagerConfiguration {
+        modules = [ ./home/marcin/vm.nix ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+      }; 
     };
   };
 }
