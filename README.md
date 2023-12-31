@@ -7,48 +7,19 @@ Based on [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-st
 - An attempt of declaratively configuring KDE, including the desktop layout ([module](modules/home-manager/kde.nix), [usage](home/marcin/common/optional/desktop/kde.nix))
 
 # Installation
-### 1. Clone the repository
 ```bash
 nix-shell -p git
 git clone https://github.com/taj-ny/nix-config
 cd nix-config
-```
 
-### 2. Partition the drive
-```bash
-sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko disks/luks-btrfs-impermanence-swapfile.nix --arg disks '[ "/dev/sda" ]'
-```
-
-### 3. Copy the configuration to a persistent path
-```bash
-cd ..
-sudo chown -R root:root nix-config
-sudo chmod -R 755 nix-config
-sudo mv nix-config /mnt/nix/config
-cd /mnt/nix/config
-```
-
-### 4. Create swapfile
-```bash
-sudo btrfs filesystem mkswapfile --size 16G /mnt/swap/swapfile
-sudo swapon /mnt/swap/swapfile
-```
-
-### 5. Set password
-```bash
-sudo mkdir /mnt/persist/passwords
-sudo chmod 700 /mnt/persist/passwords
-mkpasswd -m sha-512 | sudo tee /mnt/persist/passwords/marcin
-```
-
-### 6. Install NixOS
-```bash
-sudo nixos-install --flake .#vm
-sudo reboot
+export DISK_LAYOUT=disks/luks-btrfs-impermanence-swapfile.nix
+export DISK=/dev/sda
+export SWAPSIZE=16G
+export CONFIGURATION=vm
+./install.sh
 ```
 
 TODO hardware configuration, home-manager
-
 
 # Gallery
 ![1](https://github.com/taj-ny/nix-config/assets/79316397/a74c6177-7abd-4df6-b882-ad19efe27f81)
