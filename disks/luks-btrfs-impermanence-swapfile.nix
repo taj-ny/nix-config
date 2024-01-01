@@ -1,4 +1,4 @@
-{ disks, lib, ... }:
+{ disks, ... }:
 
 {
   disko = (import ./btrfs-impermanence.nix { 
@@ -14,7 +14,7 @@
 
         content = {
           type = "btrfs";
-          subvolumes = lib.mkMerge (import ./common/btrfs-impermanence-subvolumes.nix { }) {
+          subvolumes = (import ./common/btrfs-impermanence-subvolumes.nix { }) // {
             "/@swap" = {
               mountpoint = "/swap";
               mountOptions = import ./common/btrfs-options.nix { };
