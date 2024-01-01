@@ -1,0 +1,1 @@
+[ "noatime" "nodiratime" "discard=async" ]

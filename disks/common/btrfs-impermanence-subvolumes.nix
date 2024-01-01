@@ -1,4 +1,4 @@
-{ btrfsOptions ? import ./btrfs-options.nix }:
+{ btrfsOptions ? import ./btrfs-options.nix { } }:
 
 {
   "/@home" = {
