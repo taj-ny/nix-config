@@ -1,4 +1,4 @@
-{ disks, ... }:
+{ disks, customNixosPartition ? null, ... }:
 
 {
   disko.devices = {
@@ -22,7 +22,8 @@
             };
           };
 
-          nixos = {
+          # I spent way too much time trying to override this and nothing worked
+          nixos = if (customNixosPartition != null) then customNixosPartition else {
             label = "nixos";
             size = "100%";
 

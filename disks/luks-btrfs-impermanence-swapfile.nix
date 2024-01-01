@@ -1,15 +1,12 @@
 { disks, lib, ... }:
 
 {
-  imports = [
-    ./btrfs-impermanence.nix
-  ]
+  disko = (import ./btrfs-impermanence.nix { 
+    inherit disks; 
 
-  disko.devices.disk.main.content.partitions = {
-    nixos = lib.mkForce null;
-    nixos-luks = {
-      start = "513MiB";
-      end = "100%";
+    customNixosPartition = {
+      label = "nixos-luks";
+      size = "100%";
 
       content = {
         type = "luks";
@@ -25,6 +22,6 @@
           };
         };
       };
-    };
-  };
+    }; 
+  }).disko;
 }
