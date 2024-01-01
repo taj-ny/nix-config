@@ -7,15 +7,13 @@
       device = builtins.elemAt disks 0;
 
       content = {
-        type = "table";
-        format = "gpt";
+        type = "gpt";
 
         partitions = {
           boot = {
-            start = "1MiB";
-            end = "513MiB";
-            fs-type = "fat32";
-            bootable = true;
+            label = "boot";
+            size = "512M";
+            type = "EF00";
 
             content = {
               type = "filesystem";
@@ -25,8 +23,8 @@
           };
 
           nixos = {
-            start = "513MiB";
-            end = "100%";
+            label = "nixos";
+            size = "100%";
 
             content = {
               type = "btrfs";
