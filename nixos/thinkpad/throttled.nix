@@ -28,7 +28,7 @@
       Disable_BDPROCHOT: True
 
       [UNDERVOLT.BATTERY]
-      CORE: -120
+      CORE: -100
       GPU: -100
       CACHE: -100
       UNCORE: 0
