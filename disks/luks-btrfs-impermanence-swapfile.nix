@@ -1,4 +1,4 @@
-{ disks, lib }:
+{ disks, lib, ... }:
 
 {
   imports = [
