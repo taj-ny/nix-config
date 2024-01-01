@@ -1,4 +1,4 @@
-{ outputs, ... }:
+{ lib, outputs, ... }:
 
 {
   imports = [
@@ -23,4 +23,7 @@
 
     ./programs
   ] ++ (builtins.attrValues outputs.nixosModules);
+
+  # Sometimes prevents executables from being started even if steam-run is used. Affects dotnet's ilc. 
+  environment.stub-ld.enable = lib.mkForce false;
 }
