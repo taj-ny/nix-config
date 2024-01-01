@@ -17,7 +17,7 @@
           subvolumes = (import ./common/btrfs-impermanence-subvolumes.nix { }) // {
             "/@swap" = {
               mountpoint = "/swap";
-              mountOptions = import ./common/btrfs-options.nix { };
+              mountOptions = import ./common/btrfs-options.nix;
             };
           };
         };
