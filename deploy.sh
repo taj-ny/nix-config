@@ -2,11 +2,12 @@
 set -e
 
 if [ "$EUID" = 0 ]; then
-    echo "Do not run as root."
+    echo "This script cannot be executed as root."
     exit 1
 fi
 
 hostname=$(cat /etc/hostname)
+
 
 while getopts "hnu" opt; do
     case "${opt}" in
@@ -16,27 +17,37 @@ while getopts "hnu" opt; do
     esac
 done
 
-cd /nix/config
-
+# All commands are combined into one script so that doas doesn't ask twice for the password.
 if [ "$update_flake" = true ]; then
-    root_commands+="flake_before=\$(cat flake.lock); nix flake update; if [ \"\$flake_before\" == \"\$(cat flake.lock)\" ]; then echo \"flake.lock hasn't changed. Exiting.\"; exit 2; fi; ";
+    root_commands=$(cat <<-EOF
+        flake_before=\$(cat flake.lock)
+	nix flake update
+	if [ "\$flake_before" == "\$(cat flake.lock)" ]; then
+	    echo "No updates available."
+	    exit 1
+	fi;
+EOF
+    )
 fi
 
 if [ "$deploy_nixos" = true ]; then
     root_commands+="nixos-rebuild switch --flake .#$hostname"
-    if [ "$?" = 2 ]; then exit 2; fi
 fi
 
-
+cd /nix/config
 if [ -n "$root_commands" ]; then
     doas sh -c "$root_commands"
 fi
 
 if [ "$deploy_home" = true ]; then
-    # Remove files created by KDE that could cause conflicts
+    # Remove files created by KDE that could cause conflicts.
     rm -rf ~/.config/gtk-*
     rm -f ~/.gtkrc-2.0
 
+    # This directory is not present on a fresh installation, which prevents home-manager from working at all.
     mkdir -p ~/.local/state/nix/profiles
-    home-manager switch --flake ".#$USER@$hostname" -j 1
+
+    # /tmp is very likely to run out of free space when unpacking multiple JetBrains IDEs at the same time, so the
+    # amount of jobs is limited to 2.
+    home-manager switch --flake ".#$USER@$hostname" -j 2
 fi
