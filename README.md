@@ -22,17 +22,20 @@ You will be prompted for a root password. You can set it to anything, it's going
 
 After the system reboots, run:
 ```bash
-# Only needed if using KDE
-rm -r ~/.config/gtk-*
-rm ~/.gtkrc-2.0
-
-mkdir -p ~/.local/state/nix/profiles
 cd /nix/config
 nix develop
-home-manager switch --flake .#marcin@vm
+./deploy.sh -h
 ```
 
 If using KDE, log out and log back in.
+
+# Deployment
+```bash
+/nix/config/deploy.sh -hnu
+```
+- ``h`` - deploy home-manager configuration for the current user and host
+- ``n`` - deploy nixos configuration for the current host
+- ``u`` - update flake, exit if flake.lock doesn't change
 
 # Gallery
 ![1](https://github.com/taj-ny/nix-config/assets/79316397/a74c6177-7abd-4df6-b882-ad19efe27f81)
