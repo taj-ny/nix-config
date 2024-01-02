@@ -28,6 +28,7 @@
     ../common/optional/programs/steam.nix
     ../common/optional/programs/vmware.nix
 
+    ../common/optional/services/fwupd.nix
     ../common/optional/services/pipewire.nix
     ../common/optional/services/tor.nix
 

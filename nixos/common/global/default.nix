@@ -7,7 +7,6 @@
     ./doas.nix
     ./firejail.nix
     ./fonts.nix
-    ./fwupd.nix
     ./impermanence.nix
     ./locale.nix
     ./network.nix
