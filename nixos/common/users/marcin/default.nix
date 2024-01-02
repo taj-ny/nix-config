@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./syncthing.nix
-  ];
-
   users.users.marcin = {
     isNormalUser = true;
     hashedPasswordFile = "/persist/passwords/marcin";

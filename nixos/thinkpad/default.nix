@@ -30,6 +30,7 @@
 
     ../common/optional/services/fwupd.nix
     ../common/optional/services/pipewire.nix
+    ../common/optional/services/syncthing.nix
     ../common/optional/services/tor.nix
 
     ../common/optional/security/secure-boot.nix
