@@ -21,11 +21,11 @@ done
 if [ "$update_flake" = true ]; then
     root_commands=$(cat <<-EOF
         flake_before=\$(cat flake.lock)
-	nix flake update
-	if [ "\$flake_before" == "\$(cat flake.lock)" ]; then
-	    echo "No updates available."
-	    exit 1
-	fi;
+        nix flake update
+        if [ "\$flake_before" == "\$(cat flake.lock)" ]; then
+            echo "No updates available."
+            exit 1
+        fi;
 EOF
     )
 fi
