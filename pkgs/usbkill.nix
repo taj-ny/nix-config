@@ -22,6 +22,5 @@ buildPythonPackage rec {
   meta = with lib; {
     description = "An anti-forensic kill-switch that waits for a change on your USB ports and then immediately shuts down your computer";
     homepage = "https://github.com/hephaest0s/usbkill";
-    maintainers = [ "taj_ny" ];
   };
 }

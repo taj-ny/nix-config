@@ -18,6 +18,5 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/orhnk/RASCII";
     changelog = "https://github.com/orhnk/RASCII/releases/tag/${version}";
     license = with lib.licenses; [ mit ];
-    maintainers = [ "taj_ny" ];
   };
 }

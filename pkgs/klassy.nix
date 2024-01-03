@@ -48,6 +48,5 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/paulmcauley/klassy";
     changelog = "https://github.com/paulmcauley/klassy/releases/tag/${version}";
     license = with lib.licenses; [ bsd3 cc0 fdl12Plus gpl2Only gpl2Plus gpl3Only mit ];
-    maintainers = [ "taj_ny" ];
   };
 }

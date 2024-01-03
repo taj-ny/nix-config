@@ -24,6 +24,5 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/psifidotos/paneltransparencybutton";
     changelog = "https://github.com/psifidotos/paneltransparencybutton/releases/tag/${version}";
     license = with lib.licenses; [ gpl2Plus ];
-    maintainers = [ "taj_ny" ];
   };
 }
