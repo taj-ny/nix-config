@@ -1,4 +1,8 @@
+{ pkgs, ... }:
+
 {
+  home.packages = with pkgs; [ opusTools ];
+
   programs.beets = {
     enable = true;
     settings = {
