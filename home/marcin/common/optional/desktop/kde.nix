@@ -37,7 +37,6 @@ in
             };
           })
           (mkSpacer 1)
-          (mkWidget "org.kde.plasma.activitypager" {})
           (mkWidget "org.kde.plasma.icontasks" {
             General.launchers = "";
           })
