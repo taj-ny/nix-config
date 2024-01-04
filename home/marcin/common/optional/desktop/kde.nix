@@ -56,7 +56,7 @@ in
             };
           })
           (mkWidget "org.kde.paneltransparencybutton" {
-            "Configuration -> Appearance".transparencyEnabled = true;
+            Configuration.Appearance.transparencyEnabled = true;
           })
           (mkSpacer 3)
         ]))

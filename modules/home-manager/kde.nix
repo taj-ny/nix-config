@@ -37,25 +37,33 @@ let
           return { widgetName, config };
       }
 
-      function writeConfig(object, config) {
-          const originalConfigGroup = object.currentConfigGroup;
-          for (const [group, values] of Object.entries(config)) {
-              object.currentConfigGroup = group == null ? [] : group.split(" -> ");
-              for (const [key, value] of Object.entries(values))
-                  object.writeConfig(key, value);
+      function writeConfig(widget, config, group) {
+          if (group == null)
+              group = widget.currentConfigGroup;
+
+          for (const [key, value] of Object.entries(config)) {
+              if (typeof value == "object")
+                  writeConfig(widget, value, group.concat([ key ]));
+              else {
+                  widget.currentConfigGroup = group;
+                  widget.writeConfig(key, value);
+              }
           }
       }
 
       ${if (cfg.appearance.wallpaper.image == null) then "" else ''
           for (const desktop of desktopsForActivity(currentActivity())) {
               writeConfig(desktop, {
-                  null: {
-                      plugin: "org.kde.desktopcontainment",
-                      wallpaperPlugin: "org.kde.image"
-                  },
-                  "Wallpaper -> org.kde.image -> General": {
-                      Image: "${cfg.appearance.wallpaper.image}",
-                      PreviewImage: "${cfg.appearance.wallpaper.image}"
+                  plugin: "org.kde.desktopcontainment",
+                  wallpaperplugin: "org.kde.image",
+
+                  Wallpaper: {
+                      "org.kde.image": {
+                          General: {
+                              Image: "${cfg.appearance.wallpaper.image}",
+                              PreviewImage: "${cfg.appearance.wallpaper.image}"
+                          }
+                      }
                   }
               });
           }
@@ -132,6 +140,16 @@ in
           # Only works for one user
           layout = mkIf (length cfg.appearance.layout.panels > 0) (lib.hm.dag.entryAfter [ "writeBoundary" ] ''
             if [[ ! -z "''${DISPLAY+x}" ]]; then
+                # Every time the configuration is deployed, the size of this file increases, which in turn causes
+                # plasmashell to take longer to start. After a few hundred deployments this delay adds up, resulting
+                # in plasmashell taking over 10 seconds to start.
+                rm -f ~/.config/plasma-org.kde.plasma.desktop-appletsrc
+
+                # Since the above file has been deleted, there are no desktop containtments and applying the wallpaper
+                # will not work. Restarting the shell will create them.
+                ${pkgs.libsForQt5.qt5.qttools.bin}/bin/qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.refreshCurrentShell
+                while [ ! -f ~/.config/plasma-org.kde.plasma.desktop-appletsrc ]; do sleep 0.1; done
+
                 ${pkgs.libsForQt5.qt5.qttools.bin}/bin/qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript '${mkLayoutScript cfg.appearance.layout.panels}'
             fi
           '');
