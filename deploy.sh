@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-if [ "$EUID" = 0 ]; then
-    echo "This script cannot be executed as root."
-    exit 1
-fi
-
 hostname=$(cat /etc/hostname)
-
 
 while getopts "hnu" opt; do
     case "${opt}" in
@@ -36,10 +30,19 @@ fi
 
 cd /nix/config
 if [ -n "$root_commands" ]; then
-    doas sh -c "$root_commands"
+    if [ "$EUID" = 0 ]; then
+	sh -c "$root_commands"
+    else
+	doas sh -c "$root_commands"
+    fi
 fi
 
 if [ "$deploy_home" = true ]; then
+    if [ "$EUID" = 0 ]; then
+        echo "Home configuration cannot be deployed if the script is executed as root."
+        exit 1
+    fi
+
     # Remove files created by KDE that could cause conflicts.
     rm -rf ~/.config/gtk-*
     rm -f ~/.gtkrc-2.0
