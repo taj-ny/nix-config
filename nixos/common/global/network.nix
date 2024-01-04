@@ -2,7 +2,7 @@
 
 {
   networking = {
-    useDHCP = lib.mkDefault false;
+    useDHCP = lib.mkForce false;
 
     extraHosts = ''
       192.168.1.100 andromeda

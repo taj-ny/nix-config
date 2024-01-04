@@ -2,9 +2,8 @@
 
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-
     inputs.hardware.nixosModules.lenovo-thinkpad-t480
+    ./hardware-configuration.nix
 
     ./throttled.nix
 
@@ -42,18 +41,13 @@
   ];
 
   boot = {
-    kernelModules = [ "kvm-intel" ];
     kernelParams = [ "resume_offset=53848001" ];
-
     extraModprobeConfig = ''
       options thinkpad_acpi fan_control=1
     '';
-
-    initrd.availableKernelModules = [ "xhci_pci" "nvme" "uas" "usb_storage" "sd_mod" ];
   };
 
   networking.hostName = "thinkpad";
   system.stateVersion = "23.05";
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 }
