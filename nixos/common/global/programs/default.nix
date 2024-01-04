@@ -3,7 +3,6 @@
 {
   imports = [
     ./git.nix
-    ./rclone.nix
   ];
 
   environment.systemPackages = with pkgs; [
