@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./adb.nix
     ./boot.nix
     ./doas.nix
     ./firejail.nix

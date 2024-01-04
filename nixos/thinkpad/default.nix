@@ -20,6 +20,7 @@
 
     ../common/optional/kernel/linux-latest.nix
 
+    ../common/optional/programs/adb.nix
     ../common/optional/programs/kdeconnect.nix
     ../common/optional/programs/neovim.nix
     ../common/optional/programs/partition-manager.nix
