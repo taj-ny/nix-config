@@ -29,7 +29,7 @@
 
       [UNDERVOLT.BATTERY]
       CORE: -100
-      GPU: -100
+      GPU: -50
       CACHE: -100
       UNCORE: 0
       ANALOGIO: 0
