@@ -7,9 +7,6 @@
       outputs.overlays.modifications
     ];
 
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
+    config.allowUnfree = true;
   };
 }
