@@ -2,7 +2,11 @@
 
 # TODO Broken in tty
 {
-  home.file.".p10k.zsh".source = ./p10k.zsh;
+  home = {
+    packages = with pkgs; [ meslo-lgs-nf ];
+
+    file.".p10k.zsh".source = ./p10k.zsh;
+  };
 
   programs.zsh = {
     enable = true;

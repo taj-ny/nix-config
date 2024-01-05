@@ -11,6 +11,8 @@
     homeDirectory = "/home/marcin";
   };
 
+  fonts.fontconfig.enable = true;
+
   programs.home-manager.enable = true;
 
   # Nicely reload system units when changing configs
