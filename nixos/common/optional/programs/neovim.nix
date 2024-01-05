@@ -13,6 +13,7 @@
     plugins = {
       barbar.enable = true;
       nix.enable = true;
+      toggleterm.enable = true;
 
       nvim-tree = {
         enable = true;
