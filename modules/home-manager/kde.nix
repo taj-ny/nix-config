@@ -148,7 +148,7 @@ in
                 # Since the above file has been deleted, there are no desktop containtments and applying the wallpaper
                 # will not work. Restarting the shell will create them.
                 ${pkgs.libsForQt5.qt5.qttools.bin}/bin/qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.refreshCurrentShell
-                while [ ! -f ~/.config/plasma-org.kde.plasma.desktop-appletsrc ]; do sleep 0.1; done
+                while [ ! -f ~/.config/plasma-org.kde.plasma.desktop-appletsrc ]; do sleep 1; done
 
                 ${pkgs.libsForQt5.qt5.qttools.bin}/bin/qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript '${mkLayoutScript cfg.appearance.layout.panels}'
             fi
