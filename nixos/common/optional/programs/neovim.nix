@@ -22,6 +22,12 @@
         servers.nil_ls.enable = true;
       };
 
+      lualine = {
+        enable = true;
+
+        disabledFiletypes.statusline = [ "NvimTree" "toggleterm" "Trouble" ];
+      };
+
       nvim-cmp = {
         enable = true;
         sources = [
@@ -51,6 +57,7 @@
       trouble = {
         enable = true;
         autoOpen = true;
+        autoClose = true;
       };
     };
 
