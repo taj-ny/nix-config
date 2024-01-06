@@ -13,5 +13,6 @@
     unzip
     vim
     wget
+    wl-clipboard
   ];
 }
