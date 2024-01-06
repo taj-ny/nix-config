@@ -8,6 +8,7 @@
         name = "taj-ny";
       };
 
+      push.autoSetupRemote = true;
       safe.directory = "/nix/config";
     };
   };
