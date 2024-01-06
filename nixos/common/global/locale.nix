@@ -5,7 +5,7 @@
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    
+
     extraLocaleSettings = {
       LC_ADDRESS = "pl_PL.UTF-8";
       LC_MEASUREMENT = "pl_PL.UTF-8";

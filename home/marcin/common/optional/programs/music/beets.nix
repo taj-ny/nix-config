@@ -51,7 +51,7 @@
           };
         };
       };
-      
+
       fetchart = {
         maxwidth = 1024;
         quality = 90;

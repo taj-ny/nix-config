@@ -6,8 +6,8 @@ hostname=$(cat /etc/hostname)
 while getopts "hnu" opt; do
     case "${opt}" in
         h) deploy_home=true;;
-	n) deploy_nixos=true;;
-	u) update_flake=true;;
+        n) deploy_nixos=true;;
+        u) update_flake=true;;
     esac
 done
 
@@ -47,9 +47,9 @@ fi
 
 if [ -n "$root_commands" ]; then
     if [ "$EUID" = 0 ]; then
-	sh -c "$root_commands"
+        sh -c "$root_commands"
     else
-	doas sh -c "$root_commands"
+        doas sh -c "$root_commands"
     fi
 fi
 
