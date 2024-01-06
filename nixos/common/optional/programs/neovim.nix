@@ -54,6 +54,14 @@
         };
       };
 
+      telescope = {
+        enable = true;
+
+        keymaps = {
+          "<C-F>".action = "find_files";
+        };
+      };
+
       trouble = {
         enable = true;
         autoOpen = true;
