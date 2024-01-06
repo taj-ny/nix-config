@@ -27,8 +27,7 @@ fi
 
 root_commands+=$(cat <<-EOF
     rm -rf /tmp/nix-config
-    mkdir /tmp/nix-config
-    cp -r /nix/config/* /nix/config/.git /tmp/nix-config
+    cp -r /nix/config /tmp/nix-config
     chown root:root -R /tmp/nix-config
     cd /tmp/nix-config
 
