@@ -11,3 +11,9 @@ mkdir -p /root/.ssh
 cp /home/marcin/.ssh/* /root/.ssh
 git "$@"
 rm -r /root/.ssh
+
+if [ "$1" = "pull" ]; then
+    cd /nix/config
+    chown nixconfig:nixconfig -R .
+    chown root:root .git *.sh
+fi

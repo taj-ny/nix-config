@@ -24,11 +24,27 @@ EOF
     )
 fi
 
+
+root_commands+=$(cat <<-EOF
+    rm -rf /tmp/nix-config
+    mkdir /tmp/nix-config
+    cp -r /nix/config/* /nix/config/.git /tmp/nix-config
+    chown root:root -R /tmp/nix-config
+    cd /tmp/nix-config
+
+    git diff HEAD
+    echo "Deploy? (y/n): "
+    read deploy
+    if [ "\$deploy" = "\${deploy#[Yy]}" ]; then
+        exit 1
+    fi;
+EOF
+)
+
 if [ "$deploy_nixos" = true ]; then
     root_commands+="nixos-rebuild switch --flake .#$hostname"
 fi
 
-cd /nix/config
 if [ -n "$root_commands" ]; then
     if [ "$EUID" = 0 ]; then
 	sh -c "$root_commands"
@@ -37,6 +53,7 @@ if [ -n "$root_commands" ]; then
     fi
 fi
 
+cd /tmp/nix-config
 if [ "$deploy_home" = true ]; then
     if [ "$EUID" = 0 ]; then
         echo "Home configuration cannot be deployed if the script is executed as root."
