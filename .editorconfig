@@ -1,0 +1,20 @@
+root = true
+
+[*]
+end_of_line = lf
+trim_trailing_whitespace = true
+charset = utf-8
+
+[*.patch]
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+
+[*.{nix,sh}]
+indent_style = space
+
+[*.nix]
+indent_size = 2
+
+[*.sh]
+indent_size = 4

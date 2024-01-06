@@ -29,7 +29,7 @@
 
             content = {
               type = "btrfs";
-              subvolumes = import ./common/btrfs-impermanence-subvolumes.nix { }; 
+              subvolumes = import ./common/btrfs-impermanence-subvolumes.nix { };
             };
           };
         };

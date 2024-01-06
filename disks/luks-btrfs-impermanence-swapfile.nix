@@ -1,8 +1,8 @@
 { disks, ... }:
 
 {
-  disko = (import ./btrfs-impermanence.nix { 
-    inherit disks; 
+  disko = (import ./btrfs-impermanence.nix {
+    inherit disks;
 
     customNixosPartition = {
       label = "nixos-luks";
@@ -22,6 +22,6 @@
           };
         };
       };
-    }; 
+    };
   }).disko;
 }

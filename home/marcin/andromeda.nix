@@ -9,12 +9,12 @@
     ./common/programs/keepassxc.nix
 
     ./common/programs/gaming/prismlauncher.nix
-    
+
     ./common/programs/music/beets.nix
     ./common/programs/music/strawberry.nix
-    
+
     ./common/programs/office/libreoffice.nix
-    
+
     ./common/programs/programming/git.nix
     ./common/programs/programming/rider.nix
     ./common/programs/programming/vscode.nix
