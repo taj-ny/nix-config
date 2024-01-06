@@ -12,21 +12,45 @@
 
     plugins = {
       barbar.enable = true;
+      lsp-lines.enable = true;
       nix.enable = true;
       toggleterm.enable = true;
+
+      lsp = {
+        enable = true;
+
+        servers.nil_ls.enable = true;
+      };
+
+      nvim-cmp = {
+        enable = true;
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+        ];
+      };
 
       nvim-tree = {
         enable = true;
         openOnSetup = true;
         openOnSetupFile = true;
 
-        actions.expandAll.exclude = [ ".git" ];
-        view.width.min = 60;
-
         modified = {
           enable = true;
           showOnDirs = true;
         };
+
+        actions.expandAll.exclude = [ ".git" ];
+
+        view.width = {
+          min = 30;
+          max = 60;
+        };
+      };
+
+      trouble = {
+        enable = true;
+        autoOpen = true;
       };
     };
 
