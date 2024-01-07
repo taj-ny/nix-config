@@ -151,6 +151,7 @@ in
         "browser.aboutConfig.showWarning" = false;
         "browser.newtabpage.enabled" = false;
         "browser.search.suggest.enabled" = false;
+        "browser.sessionstore.resume_from_crash" = false;
         "browser.startup.homepage" = "chrome://browser/content/blanktab.html";
         "browser.tabs.inTitlebar" = 0;
         "browser.toolbars.bookmarks.visibility" = "never";
