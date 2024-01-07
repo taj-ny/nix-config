@@ -140,15 +140,16 @@ in
           # Only works for one user
           layout = mkIf (length cfg.appearance.layout.panels > 0) (lib.hm.dag.entryAfter [ "writeBoundary" ] ''
             if [[ ! -z "''${DISPLAY+x}" ]]; then
-                # Every time the configuration is deployed, the size of this file increases, which in turn causes
-                # plasmashell to take longer to start. After a few hundred deployments this delay adds up, resulting
-                # in plasmashell taking over 10 seconds to start.
+                # Every time the layout script is evaluate, the size of this file increases, which in turn causes
+                # plasmashell to take longer to start.
                 rm -f ~/.config/plasma-org.kde.plasma.desktop-appletsrc
 
-                # Since the above file has been deleted, there are no desktop containtments and applying the wallpaper
-                # will not work. Restarting the shell will create them.
-                ${pkgs.libsForQt5.qt5.qttools.bin}/bin/qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.refreshCurrentShell
-                while [ ! -f ~/.config/plasma-org.kde.plasma.desktop-appletsrc ]; do sleep 1; done
+                # Plasmashell stores a copy of the above file in memory and will write it back when refreshed.
+                ${pkgs.procps}/bin/pkill -9 plasmashell
+                PATH="/run/current-system/sw/bin:${config.home.path}/bin:$PATH" ${pkgs.plasma-workspace}/bin/.plasmashell-wrapped > /dev/null 2>&1 & disown
+
+                while ! ${pkgs.procps}/bin/pgrep plasmashell > /dev/null; do sleep 0.1; done
+                while [ ! -f ~/.config/plasma-org.kde.plasma.desktop-appletsrc ]; do sleep 0.1; done
 
                 ${pkgs.libsForQt5.qt5.qttools.bin}/bin/qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript '${mkLayoutScript cfg.appearance.layout.panels}'
             fi
