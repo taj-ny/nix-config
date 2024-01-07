@@ -62,6 +62,7 @@ in
         plasma-integration
         sponsorblock
         switchyomega
+        tree-style-tab
         ublock-origin
         violentmonkey
       ];
