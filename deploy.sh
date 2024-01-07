@@ -31,7 +31,7 @@ root_commands+=$(cat <<-EOF
     chown root:root -R /tmp/nix-config
     cd /tmp/nix-config
 
-    git diff HEAD
+    git --no-pager diff HEAD
     echo "Deploy? (y/n): "
     read deploy
     if [ "\$deploy" = "\${deploy#[Yy]}" ]; then
