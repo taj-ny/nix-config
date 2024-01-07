@@ -59,6 +59,7 @@ in
         clearurls
         darkreader
         keepassxc-browser
+        multi-account-containers
         plasma-integration
         sponsorblock
         switchyomega
