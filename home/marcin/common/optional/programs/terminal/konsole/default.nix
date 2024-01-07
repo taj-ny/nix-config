@@ -2,7 +2,8 @@
   desktop.kde.configs.konsolerc."Desktop Entry".DefaultProfile = "Main.profile";
 
   home.file = {
-    ".local/share/konsole/KritaDark.colorscheme".source = ./KritaDark.colorscheme;
+    # Breeze with background colors from Krita Dark
+    ".local/share/konsole/konsole.colorscheme".source = ./konsole.colorscheme;
     ".local/share/konsole/Main.profile".source = ./Main.profile;
   };
 }
