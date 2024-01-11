@@ -187,13 +187,14 @@ in
             background-color: rgb(25, 25, 25) !important;
         }
 
+        #nav-bar,
         .tab-background:is([selected], [multiselected]) {
-            background-color: rgba(30, 30, 30, 0.75) !important;
+            background-color: transparent !important;
         }
 
         #TabsToolbar #firefox-view-button:hover:not([open]) > .toolbarbutton-icon,
         .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
-            background-color: rgba(35, 35, 35, 0.75) !important;
+            background-color: transparent !important;
         }
       '';
     };
