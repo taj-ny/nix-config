@@ -5,6 +5,7 @@ Based on [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-st
 
 **Highlights:**
 - An attempt of declaratively configuring KDE, including the desktop layout ([module](modules/home-manager/kde.nix), [usage](home/marcin/common/optional/desktop/kde.nix))
+- Force blur on Wayland (WIP, taj-ny/nix-config#29)
 
 # Installation
 ```bash
