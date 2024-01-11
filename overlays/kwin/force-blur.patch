@@ -1,0 +1,13 @@
+diff --git a/src/effects/blur/blur.cpp b/src/effects/blur/blur.cpp
+index 1b6d9997c9..0caeb446eb 100644
+--- a/src/effects/blur/blur.cpp
++++ b/src/effects/blur/blur.cpp
+@@ -319,7 +319,7 @@ void BlurEffect::updateBlurRegion(EffectWindow *w)
+     if (valid) {
+         blurRegions[w] = region;
+     } else {
+-        blurRegions.remove(w);
++	blurRegions[w] = w->rect().toRect();
+     }
+ }
+ 

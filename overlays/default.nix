@@ -5,6 +5,12 @@
 
   modifications = final: prev: {
     cryptomator = import ./cryptomator { inherit prev; };
+
+    plasma5Packages = prev.plasma5Packages // {
+      plasma5 = prev.plasma5Packages.plasma5 // {
+        kwin = import ./kwin { inherit prev; };
+      };
+    };
   };
 
   # Accessible through pkgs.stable
