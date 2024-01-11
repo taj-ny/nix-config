@@ -7,7 +7,7 @@ index 1b6d9997c9..0caeb446eb 100644
          blurRegions[w] = region;
      } else {
 -        blurRegions.remove(w);
-+	blurRegions[w] = w->rect().toRect();
++        blurRegions[w] = w->rect().toRect();
      }
  }
  
