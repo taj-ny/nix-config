@@ -48,4 +48,5 @@ This approach prevents any malicious programs or neovim plugins from modifying t
 # Screenshots
 ![1](https://github.com/taj-ny/nix-config/assets/79316397/a74c6177-7abd-4df6-b882-ad19efe27f81)
 ![2](https://github.com/taj-ny/nix-config/assets/79316397/39bc1719-1aa0-4a2c-90aa-bca3eebc9c13)
-![3](https://github.com/taj-ny/nix-config/assets/79316397/e97ab5cf-6d37-434e-8ae8-bfbdc69c534f)
+![3](https://github.com/taj-ny/nix-config/assets/79316397/2a292966-4d52-4514-8aaa-0619cedf5efb)
+
