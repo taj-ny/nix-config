@@ -164,6 +164,7 @@ in
         "dom.security.https_only_mode" = true;
         "dom.security.https_only_mode_ever_enabled" = true;
         "media.ffmpeg.vaapi.enabled" = true;
+        "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
         "network.trr.mode" = 3;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
