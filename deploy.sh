@@ -31,7 +31,7 @@ root_commands+=$(cat <<-EOF
     chown root:root -R /tmp/nix-config
     cd /tmp/nix-config
 
-    if ! git diff HEAD --exit-code; then
+    if ! git diff HEAD --exit-code > /dev/null 2>&1; then
         git --no-pager diff HEAD
         echo "Deploy? (y/n): "
         read deploy
