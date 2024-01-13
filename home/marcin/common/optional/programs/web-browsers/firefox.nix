@@ -52,7 +52,6 @@ in
 
     profiles.main = {
       extraConfig = builtins.readFile "${inputs.firefox-ui-fix}/user.js";
-      userChrome = "@import url(\"firefox-ui-fix/userChrome.css\")";
       userContent = "@import url(\"firefox-ui-fix/userContent.css\")";
 
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
@@ -168,6 +167,36 @@ in
         "network.trr.mode" = 3;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
+
+      userChrome = ''
+        @import url("firefox-ui-fix/userChrome.css");
+
+        html, #urlbar-background {
+            background-color: rgba(25, 25, 25, 0.5) !important;
+        }
+
+        toolbar, toolbox {
+            background-color: transparent !important;
+        }
+
+        #nav-bar {
+            box-shadow: unset !important;
+        }
+
+        #urlbar[focused=true] {
+            background-color: rgb(25, 25, 25) !important;
+        }
+
+        #nav-bar,
+        .tab-background:is([selected], [multiselected]) {
+            background-color: transparent !important;
+        }
+
+        #TabsToolbar #firefox-view-button:hover:not([open]) > .toolbarbutton-icon,
+        .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
+            background-color: transparent !important;
+        }
+      '';
     };
   };
 
