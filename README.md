@@ -2,11 +2,6 @@
 
 Based on [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-starter-configs).
 
-
-**Highlights:**
-- An attempt of declaratively configuring KDE, including the desktop layout ([module](modules/home-manager/kde.nix), [usage](home/marcin/common/optional/desktop/kde.nix))
-- Force blur on Wayland
-
 # Installation
 ```bash
 nix-shell -p git
@@ -37,14 +32,6 @@ If using KDE, log out and log back in.
 - ``h`` - deploy home-manager configuration for the current user and host
 - ``n`` - deploy nixos configuration for the current host
 - ``u`` - update flake, exit if flake.lock doesn't change
-
-# Security
-### Configuration tampering
-The configuration is stored at ``/nix/config`` and owned by the ``nixconfig`` user, under which neovim is launched. The ``.git`` folder and all scripts are owned by ``root``.
-
-Deployments are done by the ``deploy.sh`` script, which copies ``/nix/config`` to ``/tmp/nix-config``, sets the ownership of all files to ``root`` and shows the diff (``git diff HEAD``). The user has a choice to either approve or reject the changes.
-
-This approach prevents any malicious programs or neovim plugins from modifying the configuration without the user's knowledge.
 
 # Screenshots
 ![1](https://github.com/taj-ny/nix-config/assets/79316397/a74c6177-7abd-4df6-b882-ad19efe27f81)
