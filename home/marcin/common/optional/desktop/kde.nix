@@ -150,6 +150,7 @@ in
           forceblur = true;
           forceblurrule = 2;
           wmclass = "firefox";
+          wmclassmatch = 1;
         };
 
         General = {
