@@ -142,6 +142,22 @@ in
         };
       };
 
+      # KWin doesn't like rule names that aren't a number
+      # TODO This should be moved into a module
+      kwinrulesrc = {
+        "1" = {
+          Description = "Application settings for firefox";
+          forceblur = true;
+          forceblurrule = 2;
+          wmclass = "firefox";
+        };
+
+        General = {
+          count = 1;
+          rules = "1"; # Rule names separated by a comma (1,2)
+        };
+      };
+
       plasmanotifyrc.Notifications.LowPriorityHistory = true;
     };
   };
