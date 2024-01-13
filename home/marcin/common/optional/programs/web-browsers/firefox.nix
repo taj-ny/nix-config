@@ -203,7 +203,7 @@ in
   home = {
     file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
     packages = [
-      (pkgs.patchDesktop firefox "firefox" "^Exec=firefox" "Exec=GDK_BACKEND=x11 firefox")
+      (pkgs.patchDesktop firefox "firefox" "^Exec=firefox" "Exec=MOZ_ENABLE_WAYLAND=1 firefox")
     ];
   };
 }
