@@ -9,6 +9,8 @@
 
     ../common/global
 
+    ../common/optional/boot/plymouth.nix
+
     ../common/optional/desktop/display-manager/lightdm.nix
 
     ../common/optional/desktop/kde
