@@ -11,8 +11,8 @@
     ./common/optional/programs/drawing/krita.nix
 
     ./common/optional/programs/music/beets.nix
+    ./common/optional/programs/music/clementine.nix
     ./common/optional/programs/music/deemix.nix
-    ./common/optional/programs/music/strawberry.nix
 
     ./common/optional/programs/office/freeoffice.nix
     ./common/optional/programs/office/libreoffice.nix
