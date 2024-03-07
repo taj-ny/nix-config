@@ -14,7 +14,6 @@
     ../common/optional/desktop/display-manager/lightdm.nix
 
     ../common/optional/desktop/kde
-    ../common/optional/desktop/kde/optional/wayland-default-session.nix
 
     ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
