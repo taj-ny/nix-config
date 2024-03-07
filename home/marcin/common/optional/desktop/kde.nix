@@ -14,8 +14,8 @@ let
 in
 {
   home.packages = with pkgs; [
-    klassy
-    lightly-boehs
+    #klassy
+    #lightly-boehs
   ];
 
   desktop.kde = {
