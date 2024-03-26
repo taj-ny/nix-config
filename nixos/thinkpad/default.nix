@@ -50,6 +50,10 @@
     '';
   };
 
+  # Software cursor is enabled on Intel GPUs by default, which prevents KWIN_DRM_NO_AMS=1 from fixing cursor issues.
+  # This device is not affected by the stuttering bug, so hardware cursor can be enabled.
+  environment.variables.KWIN_FORCE_SW_CURSOR = "0";
+
   networking.hostName = "thinkpad";
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
