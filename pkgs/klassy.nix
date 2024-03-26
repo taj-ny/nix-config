@@ -6,28 +6,30 @@
 , extra-cmake-modules
 , frameworkintegration
 , kdecoration
-, kirigami2
+, kirigami
 , kcmutils
-, qt5
+, qt6
+, qttools
 }:
 
 stdenv.mkDerivation rec {
   pname = "klassy";
-  version = "4.3.breeze5.27.5";
+  version = "6.0.breeze6.0.2";
 
   src = fetchFromGitHub {
     owner = "paulmcauley";
     repo = "klassy";
     rev = version;
-    hash = "sha256-2qs30L7U5kf1Yf+4Pgsjsyaqf9iIaeuRK25Xtn47AYI=";
+    hash = "sha256-Jp7CLbsEhz+et3PCTAhtopaFvkZkWPf2BGXAj7nlfY4=";
   };
 
   buildInputs = [
     frameworkintegration
     kcmutils
     kdecoration
-    kirigami2
-    qt5.qtx11extras
+    kirigami
+    qt6.full
+    qttools
   ];
 
   nativeBuildInputs = [
@@ -41,6 +43,7 @@ stdenv.mkDerivation rec {
     "-DCMAKE_BUILD_TYPE=Release"
     "-DBUILD_TESTING=OFF"
     "-DKDE_INSTALL_USE_QT_SYS_PATHS=ON"
+    "-DBUILD_QT5=OFF"
   ];
 
   meta = {
