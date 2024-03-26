@@ -14,7 +14,6 @@
     ../common/optional/desktop/display-manager/lightdm.nix
 
     ../common/optional/desktop/kde
-    ../common/optional/desktop/kde/optional/wayland-default-session.nix
 
     ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
@@ -50,6 +49,10 @@
       options thinkpad_acpi fan_control=1
     '';
   };
+
+  # Software cursor is enabled on Intel GPUs by default, which prevents KWIN_DRM_NO_AMS=1 from fixing cursor issues.
+  # This device is not affected by the stuttering bug, so hardware cursor can be enabled.
+  environment.variables.KWIN_FORCE_SW_CURSOR = "0";
 
   networking.hostName = "thinkpad";
   system.stateVersion = "23.05";

@@ -5,13 +5,13 @@
     enable = true;
     excludePackages = with pkgs; [ xterm ];
 
-    desktopManager.plasma5.enable = true;
+    desktopManager.plasma6.enable = true;
   };
 
   environment = {
     systemPackages =
       with pkgs;
-      with plasma5Packages; [
+      with kdePackages; [
         kate
         ark
         kcalc
@@ -21,7 +21,7 @@
         paneltransparencybutton
       ];
 
-    plasma5.excludePackages = with pkgs.libsForQt5; [
+    plasma6.excludePackages = with pkgs.kdePackages; [
       elisa
     ];
 
