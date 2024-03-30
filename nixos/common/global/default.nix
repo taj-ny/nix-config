@@ -1,4 +1,4 @@
-{ lib, outputs, ... }:
+{ lib, outputs, pkgs, ... }:
 
 {
   imports = [
@@ -24,4 +24,11 @@
 
   # Sometimes prevents executables from being started even if steam-run is used. Affects dotnet's ilc.
   environment.stub-ld.enable = lib.mkForce false;
+
+  system.replaceRuntimeDependencies = [
+    {
+      original = pkgs.xz;
+      replacement = pkgs.staging-next.xz;
+    }
+  ];
 }
