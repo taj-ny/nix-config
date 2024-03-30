@@ -1,7 +1,9 @@
 { pkgs }:
 
 rec {
-  klassy = pkgs.libsForQt5.callPackage ./klassy.nix { };
+  klassy = pkgs.kdePackages.callPackage ./klassy.nix { };
+  kwin-effects-forceblur = pkgs.kdePackages.callPackage ./kwin-effects-forceblur.nix { };
+  lightlyshaders = pkgs.kdePackages.callPackage ./lightlyshaders.nix { };
   nix-ascii-art = pkgs.callPackage ./nix-ascii-art.nix { inherit rascii; };
   paneltransparencybutton = pkgs.callPackage ./paneltransparencybutton.nix { };
   rascii = pkgs.callPackage ./rascii.nix { };
