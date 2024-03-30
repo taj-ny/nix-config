@@ -7,9 +7,12 @@
     cryptomator = import ./cryptomator { inherit prev; };
   };
 
-  # Accessible through pkgs.stable
-  stable-packages = final: _prev: {
+  channels = final: _prev: {
     stable = import inputs.nixpkgs-stable {
+      system = final.system;
+      config.allowUnfree = true;
+    };
+    staging-next = import inputs.nixpkgs-staging-next {
       system = final.system;
       config.allowUnfree = true;
     };
