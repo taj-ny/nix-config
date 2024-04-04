@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   services.xserver = {
@@ -19,6 +19,8 @@
         plasma-browser-integration
 
         paneltransparencybutton
+
+        inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
       ];
 
     plasma6.excludePackages = with pkgs.kdePackages; [
