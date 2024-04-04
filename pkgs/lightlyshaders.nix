@@ -10,7 +10,7 @@
 
 stdenv.mkDerivation rec {
   pname = "lightlyshaders";
-  version = "1.0.1";
+  version = "3.0.0";
 
   src = fetchFromGitHub {
     owner = "a-parhom";
