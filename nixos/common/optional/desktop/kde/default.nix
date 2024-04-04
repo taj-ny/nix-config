@@ -20,7 +20,9 @@
 
         paneltransparencybutton
 
+        # Desktop effects
         inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
+        lightlyshaders
       ];
 
     plasma6.excludePackages = with pkgs.kdePackages; [
