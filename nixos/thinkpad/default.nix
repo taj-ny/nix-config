@@ -14,6 +14,7 @@
     ../common/optional/desktop/display-manager/lightdm.nix
 
     ../common/optional/desktop/kde
+    ../common/optional/desktop/hyprland
 
     ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
