@@ -1,6 +1,7 @@
 { pkgs }:
 
 rec {
+  kde-rounded-corners = pkgs.kdePackages.callPackage ./kde-rounded-corners.nix { };
   klassy = pkgs.kdePackages.callPackage ./klassy.nix { };
   lightlyshaders = pkgs.kdePackages.callPackage ./lightlyshaders.nix { };
   nix-ascii-art = pkgs.callPackage ./nix-ascii-art.nix { inherit rascii; };
