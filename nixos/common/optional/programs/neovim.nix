@@ -28,13 +28,13 @@
         disabledFiletypes.statusline = [ "NvimTree" "toggleterm" "Trouble" ];
       };
 
-      nvim-cmp = {
-        enable = true;
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "path"; }
-        ];
-      };
+      #nvim-cmp = {
+      #  enable = true;
+      #  sources = [
+      #    { name = "nvim_lsp"; }
+      #    { name = "path"; }
+      #  ];
+      #};
 
       nvim-tree = {
         enable = true;

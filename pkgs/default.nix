@@ -5,6 +5,7 @@ rec {
   lightlyshaders = pkgs.kdePackages.callPackage ./lightlyshaders.nix { };
   nix-ascii-art = pkgs.callPackage ./nix-ascii-art.nix { inherit rascii; };
   paneltransparencybutton = pkgs.callPackage ./paneltransparencybutton.nix { };
+  plasma-panel-colorizer = pkgs.callPackage ./plasma-panel-colorizer.nix { };
   rascii = pkgs.callPackage ./rascii.nix { };
   usbkill = pkgs.python3Packages.callPackage ./usbkill.nix { };
   vscode-nvim = pkgs.callPackage ./vscode-nvim.nix { buildVimPlugin = pkgs.vimUtils.buildVimPlugin; };
