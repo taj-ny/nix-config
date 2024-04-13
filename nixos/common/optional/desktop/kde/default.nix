@@ -29,6 +29,7 @@
 
         # Desktop effects
         inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
+        kde-rounded-corners
         lightlyshaders
       ];
 
