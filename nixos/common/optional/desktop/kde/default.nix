@@ -22,7 +22,6 @@
         polonium
 
         # Plasmoids
-        paneltransparencybutton
         plasma-panel-colorizer
         plasma-panel-spacer-extended
         plasma-window-title-applet
