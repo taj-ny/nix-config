@@ -21,11 +21,11 @@
     ./common/optional/programs/programming/vscode.nix
 
     ./common/optional/programs/programming/ide/clion.nix
-    ./common/optional/programs/programming/ide/idea-ultimate.nix
+    #./common/optional/programs/programming/ide/idea-ultimate.nix
     ./common/optional/programs/programming/ide/phpstorm.nix
-    ./common/optional/programs/programming/ide/pycharm-professional.nix
+    #./common/optional/programs/programming/ide/pycharm-professional.nix
     ./common/optional/programs/programming/ide/rider.nix
-    ./common/optional/programs/programming/ide/webstorm.nix
+    #./common/optional/programs/programming/ide/webstorm.nix
 
     ./common/optional/programs/programming/sdks/dotnet.nix
     ./common/optional/programs/programming/sdks/php.nix
