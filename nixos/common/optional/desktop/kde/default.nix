@@ -19,6 +19,7 @@
         plasma-browser-integration
 
         paneltransparencybutton
+        plasma-panel-colorizer
 
         # Desktop effects
         inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
