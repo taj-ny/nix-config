@@ -18,6 +18,7 @@
         krita
         plasma-browser-integration
 
+        klassy
         polonium
 
         # Plasmoids
