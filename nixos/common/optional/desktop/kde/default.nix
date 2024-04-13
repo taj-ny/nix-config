@@ -24,6 +24,7 @@
         paneltransparencybutton
         plasma-panel-colorizer
         plasma-panel-spacer-extended
+        plasma-window-title-applet
 
         # Desktop effects
         inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
