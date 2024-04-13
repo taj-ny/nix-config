@@ -7,6 +7,7 @@ rec {
   paneltransparencybutton = pkgs.callPackage ./paneltransparencybutton.nix { };
   plasma-panel-colorizer = pkgs.callPackage ./plasma-panel-colorizer.nix { };
   plasma-panel-spacer-extended = pkgs.callPackage ./plasma-panel-spacer-extended.nix { };
+  plasma-window-title-applet = pkgs.callPackage ./plasma-window-title-applet.nix { };
   rascii = pkgs.callPackage ./rascii.nix { };
   usbkill = pkgs.python3Packages.callPackage ./usbkill.nix { };
   vscode-nvim = pkgs.callPackage ./vscode-nvim.nix { buildVimPlugin = pkgs.vimUtils.buildVimPlugin; };
