@@ -37,6 +37,12 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+   
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = {
@@ -45,6 +51,7 @@
     home-manager,
     lanzaboote,
     nixpkgs,
+    plasma-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
