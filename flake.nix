@@ -24,7 +24,7 @@
     };
 
     kwin-effects-forceblur = {
-      url = "github:taj-ny/kwin-effects-forceblur";
+      url = "github:taj-ny/kwin-effects-forceblur/develop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
