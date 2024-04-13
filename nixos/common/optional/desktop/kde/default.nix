@@ -18,6 +18,9 @@
         krita
         plasma-browser-integration
 
+        klassy
+
+        # Plasmoids
         paneltransparencybutton
         plasma-panel-colorizer
         plasma-panel-spacer-extended
