@@ -1,0 +1,22 @@
+diff --git a/src/ShapeCornersEffect.cpp b/src/ShapeCornersEffect.cpp
+index c2f2afc..e6e4613 100644
+--- a/src/ShapeCornersEffect.cpp
++++ b/src/ShapeCornersEffect.cpp
+@@ -22,6 +22,7 @@
+ #include <QtDBus/QDBusConnection>
+ #include <QDBusError>
+ #include <KX11Extras>
++#include <window.h>
+ 
+ #if QT_VERSION_MAJOR >= 6
+     #include <opengl/glutils.h>
+@@ -200,7 +201,8 @@ bool ShapeCornersEffect::hasEffect(const KWin::EffectWindow *w) const {
+     return m_shaderManager.IsValid()
+            && m_managed.contains(w)
+            && (w->isNormalWindow() || w->isDialog() || ShapeCornersConfig::inclusions().contains(name))
+-           && !ShapeCornersConfig::exclusions().contains(name);
++           && !ShapeCornersConfig::exclusions().contains(name)
++           && !w->window()->isFullScreen();
+ }
+ 
+ QString ShapeCornersEffect::get_window_titles() const {

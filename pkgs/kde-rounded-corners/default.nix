@@ -19,6 +19,8 @@ stdenv.mkDerivation rec {
     hash = "sha256-8QkuIuHC0/fMxh8K3/I8GNhNPX+tw7kUMiU2oK12c0U=";
   };
 
+  patches = [ ./disable-effect-when-fullscreen.patch ];
+
   nativeBuildInputs = [
     cmake
     extra-cmake-modules
