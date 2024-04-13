@@ -1,165 +1,177 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 let
-  mkWidget = name: config: { inherit name config; };
-  mkPanel = height: widgets: { inherit height widgets; };
-  mkSpacer = length: mkWidget "org.kde.plasma.panelspacer" {
-    General = {
-      inherit length;
-      expanding = false;
-    };
-  };
-
-  wallpaper = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Kay";
+  wallpaper = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Canopee";
 in
 {
-  home.packages = with pkgs; [
-    #klassy
-    #lightly-boehs
+  imports = [
+    inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
 
-  desktop.kde = {
-    appearance = {
-      wallpaper.image = wallpaper;
+  programs.plasma = {
+    enable = true;
 
-      layout.panels = [
-        (mkPanel 38 ([
-          (mkSpacer 1)
-          (mkWidget "org.kde.plasma.kickoff" {
-            General = {
-              alphaSort = true;
-              compactMode = true;
-              favoritesDisplay = true;
-              icon = "nix-snowflake";
-              primaryActions = 3;
-              showActionButtonCaptions = false;
-              systemFavorites = "lock-screen\\\\,logout\\\\,save-session\\\\,switch-user\\\\,suspend\\\\,hibernate\\\\,reboot\\\\,shutdown";
-            };
-          })
-          (mkSpacer 1)
-          (mkWidget "org.kde.plasma.icontasks" {
-            General.launchers = "";
-          })
-          (mkWidget "org.kde.plasma.panelspacer" { General.expanding = true; })
-          (mkWidget "org.kde.plasma.systemtray" {
-            General = {
-              iconSpacing = 1;
-              shownItems = "org.kde.plasma.battery";
-            };
-          })
-          (mkSpacer 3)
-          (mkWidget "org.kde.plasma.digitalclock" {
-            Appearance = {
-              dateFormat = "isoDate";
-              showSeconds = true;
-              use24hFormat = true;
-            };
-          })
-          (mkWidget "org.kde.paneltransparencybutton" {
-            Configuration.Appearance.transparencyEnabled = true;
-          })
-          (mkSpacer 3)
-        ]))
-      ];
+    configFile = {
+      kdeglobals.General.AccentColor.value = "0,150,136";
 
-      gtk.useBreezeTheme = true;
-    };
-
-    configs = {
-      kdeglobals = {
-        General = {
-          AccentColor = "0,150,136";
-          ColorScheme = "KritaDarkOrange";
-          ColorSchemeHash = null;
-        };
-
-        KDE = {
-          SingleClick = false;
-          widgetStyle = "lightly";
-        };
+      "klassy/klassyrc".Style = {
+        ButtonGradient.value = true;
+        MenuOpacity.value = 50;
       };
 
       klipperrc.General = {
-        KeepClipboardContents = false;
-        MaxClipItems = 1000;
+        KeepClipboardContents.value = false; # Don't save across desktop sessions
+        MaxClipItems.value = 1000;
       };
 
       krunnerrc = {
-        General.FreeFloating = true;
-
+        General.FreeFloating.value = true;
         Plugins = {
-          baloosearchEnabled = false;
-          recentdocumentsEnabled = false;
+          baloosearchEnabled.value = false;
+          recentdocumentsEnabled.value = false;
         };
       };
 
-      ksmserverrc.General.loginMode = "emptySession";
+      ksmserverrc.General.loginMode.value = "emptySession";
 
       ksplashrc.KSplash = {
-        Engine = "none";
-        Theme = "None";
-      };
-
-      klassyrc = {
-        Common = {
-          ActiveTitlebarOpacity = 50;
-          ButtonIconStyle = "StyleRedmond";
-          InactiveTitlebarOpacity = 50;
-        };
-
-        Windeco = {
-          CornerRadius = 2;
-          DrawBackgroundGradient = true;
-          IntegratedRoundedRectangleBottomPadding = 0;
-          OpaqueMaximizedTitlebars = false;
-        };
+        Engine.value = "none";
+        Theme.value = "None";
       };
 
       kscreenlockerrc = {
-        Daemon.LockGrace = 0; # Doesn't work well with u2f - black screen, process has to be killed in order to unlock
-
-        "Greeter -> Wallpaper -> org.kde.image -> General" = {
-          Image = wallpaper;
-          PreviewImage = wallpaper;
+        Daemon.LockGrace.value = 0; # Doesn't work with u2f
+        "Greeter/Wallpaper/org.kde.image/General" = {
+          Image.value = wallpaper;
+          PreviewImage.value = wallpaper;
         };
-      };
-
-      lightlyrc.Style = {
-        DolphinSidebarOpacity = 40;
-        MenuOpacity = 40;
-        TabDrawHighlight = true;
       };
 
       kwinrc = {
-        "org.kde.kdecoration2" = {
-          ButtonsOnLeft = "MSF";
-          library = "org.kde.klassy";
-          theme = "Klassy";
+        Effect-blurplus = {
+          BlurStrength.value = 6;
+          NoiseStrength.value = 0;
+          WindowClasses.value = ''
+            plasmashell
+            konsole
+            firefox
+          '';
+          BlurDecorations.value = true;
+          PaintAsTranslucent.value = true;
+          TopCornerRadius.value = 10;
+          BottomCornerRadius.value = 10;
+        };
+
+        # The first dash is not actually a dash for some reason
+        "Effect-ًRound-Corners" = {
+          ActiveOutlineUseCustom.value = false;
+          ActiveOutlineUsePalette.value = true;
+          ActiveShadowAlpha.value = 125;
+          DisableOutlineTile.value = false;
+          DisableRoundTile.value = false;
+          ExcludeMaximizedWindows.value = false;
+          InactiveOutlineUseCustom.value = false;
+          InactiveOutlineUsePalette.value = true;
+          InactiveShadowAlpha.value = 125;
+          InactiveShadowSize.value = 30;
+          ShadowSize.value = 30;
         };
 
         Plugins = {
-          contrastEnabled = false;
+          blurEnabled.value = false;
+          contrastEnabled.value = false;
+          forceblurEnabled.value = false;
+          kwin4_effect_shapecornersEnabled.value = true;
+          kwin_effect_lightlyshadersEnabled.value = false;
+          lightlyshaders_blurEnabled.value = false;
+          poloniumEnabled.value = true;
+          slideEnabled.value = false;
         };
+
+        Tiling.padding.value = 12;
       };
 
-      # KWin doesn't like rule names that aren't a number
-      # TODO This should be moved into a module
       kwinrulesrc = {
-        "1" = {
-          Description = "Application settings for firefox";
-          forceblur = true;
-          forceblurrule = 2;
-          wmclass = "firefox";
-          wmclassmatch = 1;
+        General = {
+          count.value = 1;
+          rules.value = "f257328a-0fca-420c-8e09-78e6e5f33053";
         };
 
-        General = {
-          count = 1;
-          rules = "1"; # Rule names separated by a comma (1,2)
+        f257328a-0fca-420c-8e09-78e6e5f33053 = {
+          Description.value = "Disable titlebar and border";
+          noborder.value = true;
+          noborderrule.value = 2;
         };
       };
 
-      plasmanotifyrc.Notifications.LowPriorityHistory = true;
+      plasmanotifyrc.Notifications.LowPriorityHistory.value = true;
+    };
+
+    kwin.virtualDesktops.number = 8;
+
+    panels = [
+      {
+        height = 29;
+        location = "top";
+        floating = true;
+        widgets = [
+          {
+            name = "org.kde.plasma.kickoff";
+            config.General = {
+              alphaSort = "true";
+              compactMode = "true";
+              favoritesDisplay = "true";
+              icon = "nix-snowflake";
+              primaryActions = "3";
+              showActionButtonCaptions = "false";
+              systemFavorites = "lock-screen\\\\,logout\\\\,save-session\\\\,switch-user\\\\,suspend\\\\,hibernate\\\\,reboot\\\\,shutdown";
+            };
+          }
+          {
+            name = "org.kde.windowtitle";
+            config.General = {
+              capitalFont = "false";
+              useActivityIcon = "false";
+            };
+          }
+          "org.kde.plasma.appmenu"
+          "luisbocanegra.panelspacer.extended"
+          "org.kde.plasma.systemtray"
+          {
+            name = "org.kde.plasma.digitalclock";
+            config.Appearance = {
+              showDate = "false";
+              showSeconds = "Always";
+            };
+          }
+          {
+            name = "luisbocanegra.panel.colorizer";
+            config.General = {
+              colorMode = "1";
+              colorModeTheme = "9";
+              enableCustomPadding = "true";
+              fgColorMode = "1";
+              fgContrastFixEnabled = "false";
+              fgLightness = "0.55";
+              hideWidget = "true";
+              marginRules = "org.kde.plasma.kickoff,1,0|org.kde.windowtitle,1,0";
+              panelPadding = "16";
+              panelRealBgOpacity = "0.5";
+              panelSpacing = "10";
+              radius = "7";
+              widgetBgEnabled = "false";
+              widgetBgVMargin = "3";
+            };
+          }
+        ];
+      }
+    ];
+
+    workspace = {
+      clickItemTo = "select";
+      theme = "klassy";
+      colorScheme = "KritaDarkOrange";
+      wallpaper = wallpaper;
     };
   };
 }
