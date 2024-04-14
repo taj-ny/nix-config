@@ -102,6 +102,11 @@ in
         };
 
         Tiling.padding.value = 12;
+
+        Windows = {
+          DelayFocusInterval.value = 0;
+          FocusPolicy.value = "FocusFollowsMouse";
+        };
       };
 
       kwinrulesrc = {
