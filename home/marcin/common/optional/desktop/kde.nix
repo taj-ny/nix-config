@@ -126,10 +126,30 @@ in
     };
 
     hotkeys.commands = {
+      "launch-clementine" = {
+        name = "Launch Clementine";
+        key = "Meta+Shift+C";
+        command = "clementine";
+      };
+      "launch-firefox" = {
+        name = "Launch Firefox";
+        key = "Meta+Shift+F";
+        command = "firefox";
+      };
+      "launch-kate" = {
+        name = "Launch Kate";
+        key = "Meta+Shift+T";
+        command = "kate";
+      };
       "launch-konsole" = {
         name = "Launch Konsole";
-        key = "Meta+Return";
+        key = "Meta+Shift+Return";
         command = "konsole";
+      };
+      "launch-system-settings" = {
+        name = "Launch System Settings";
+        key= "Meta+Shift+X";
+        command = "systemsettings";
       };
     };
 
@@ -195,11 +215,16 @@ in
 
     shortcuts = {
       kwin = {
-        "Overview" = "none";
-        "PoloniumInsertAbove" = "Meta+Shift+W";
-        "PoloniumInsertLeft" = "Meta+Shift+A";
-        "PoloniumInsertBelow" = "Meta+Shift+S";
-        "PoloniumInsertRight" = "Meta+Shift+D";
+        Overview = "none";
+        PoloniumFocusAbove = "Meta+W";
+        PoloniumFocusLeft = "Meta+A";
+        PoloniumFocusBelow = "Meta+S";
+        PoloniumFocusRight = "Meta+D";
+        PoloniumInsertAbove = "Meta+Shift+W";
+        PoloniumInsertLeft = "Meta+Shift+A";
+        PoloniumInsertBelow = "Meta+Shift+S";
+        PoloniumInsertRight = "Meta+Shift+D";
+        PoloniumRetileWindow = "Meta+Space";
         "Show Desktop" = "none";
         "Switch to Desktop 1" = "Meta+1";
         "Switch to Desktop 2" = "Meta+2";
@@ -232,7 +257,7 @@ in
         "stop current activity" = "none";
       };
 
-      "services/org.kde.dolphin.desktop"."_launch" = "Meta+D";
+      "services/org.kde.dolphin.desktop"."_launch" = "Meta+Shift+E";
       "services/org.kde.krunner.desktop"."_launch" = "Meta+X";
       "services/org.kde.spectacle.desktop"."_launch" = "Print";
     };
