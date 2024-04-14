@@ -88,6 +88,7 @@ in
           blurEnabled.value = false;
           contrastEnabled.value = false;
           forceblurEnabled.value = true;
+          kwin4_effect_geometry_changeEnabled.value = true;
           kwin4_effect_shapecornersEnabled.value = true;
           kwin_effect_lightlyshadersEnabled.value = false;
           lightlyshaders_blurEnabled.value = false;
