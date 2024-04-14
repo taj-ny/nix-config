@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 
 let
-  wallpaper = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Canopee";
+  wallpaper = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo";
 in
 {
   imports = [
