@@ -25,7 +25,9 @@ in
 
   home.activation.configure-kwin = lib.hm.dag.entryAfter [ "configure-plasma" ] (
     lib.strings.concatStringsSep "\n" (
-      map (effect: "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect ${effect}") kwinEffectsToReconfigure
+      (map (effect: "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect ${effect}") kwinEffectsToReconfigure) ++ [
+        "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.KWin /KWin org.kde.KWin.reconfigure"
+      ]
     )
   );
 
