@@ -4,6 +4,7 @@ let
   wallpaper = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo";
 
   forceTransparency = [
+    "ark"
     "clementine"
     "dolphin"
     "kate"
