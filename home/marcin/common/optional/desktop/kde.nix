@@ -233,7 +233,7 @@ in
       };
 
       "services/org.kde.dolphin.desktop"."_launch" = "Meta+D";
-      "services/org.kde.krunner.desktop"."_launch" = "Meta+E";
+      "services/org.kde.krunner.desktop"."_launch" = "Meta+X";
       "services/org.kde.spectacle.desktop"."_launch" = "Print";
     };
 
