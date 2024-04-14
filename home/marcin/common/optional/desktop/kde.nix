@@ -12,7 +12,12 @@ in
     enable = true;
 
     configFile = {
-      kdeglobals.General.AccentColor.value = "0,150,136";
+      kdeglobals.General = { 
+        AccentColor.value = "0,150,136";
+        ColorScheme.value = "KritaDarkOrange";
+        ColorSchemeHask.value = "null";
+        test.value = "a";
+      };
 
       "klassy/klassyrc".Style = {
         ButtonGradient.value = true;
@@ -21,7 +26,7 @@ in
 
       klipperrc.General = {
         KeepClipboardContents.value = false; # Don't save across desktop sessions
-        MaxClipItems.value = 1000;
+        MaxClipItems.value = 10000;
       };
 
       krunnerrc = {
@@ -77,16 +82,20 @@ in
           ShadowSize.value = 30;
         };
 
+        ModifierOnlyShortcuts.Meta.value = "";
+
         Plugins = {
           blurEnabled.value = false;
           contrastEnabled.value = false;
-          forceblurEnabled.value = false;
+          forceblurEnabled.value = true;
           kwin4_effect_shapecornersEnabled.value = true;
           kwin_effect_lightlyshadersEnabled.value = false;
           lightlyshaders_blurEnabled.value = false;
           poloniumEnabled.value = true;
           slideEnabled.value = false;
         };
+
+        Script-polonium.InsertionPoint.value = 1;
 
         Tiling.padding.value = 12;
       };
@@ -107,7 +116,15 @@ in
       plasmanotifyrc.Notifications.LowPriorityHistory.value = true;
     };
 
-    kwin.virtualDesktops.number = 8;
+    hotkeys.commands = {
+      "launch-konsole" = {
+        name = "Launch Konsole";
+        key = "Meta+Return";
+        command = "konsole";
+      };
+    };
+
+    kwin.virtualDesktops.number = 10;
 
     panels = [
       {
@@ -167,10 +184,54 @@ in
       }
     ];
 
+    shortcuts = {
+      kwin = {
+        "Overview" = "none";
+        "PoloniumInsertAbove" = "Meta+Shift+W";
+        "PoloniumInsertLeft" = "Meta+Shift+A";
+        "PoloniumInsertBelow" = "Meta+Shift+S";
+        "PoloniumInsertRight" = "Meta+Shift+D";
+        "Show Desktop" = "none";
+        "Switch to Desktop 1" = "Meta+1";
+        "Switch to Desktop 2" = "Meta+2";
+        "Switch to Desktop 3" = "Meta+3";
+        "Switch to Desktop 4" = "Meta+4";
+        "Switch to Desktop 5" = "Meta+5";
+        "Switch to Desktop 6" = "Meta+6";
+        "Switch to Desktop 7" = "Meta+7";
+        "Switch to Desktop 8" = "Meta+8";
+        "Switch to Desktop 9" = "Meta+9";
+        "Switch to Desktop 10" = "Meta+0";
+        "Window Close" = "Meta+Q";
+        "Window Fullscreen" = "Meta+F";
+        "Window to Desktop 1" = "Meta+!";
+        "Window to Desktop 2" = "Meta+@";
+        "Window to Desktop 3" = "Meta+#";
+        "Window to Desktop 4" = "Meta+$";
+        "Window to Desktop 5" = "Meta+%";
+        "Window to Desktop 6" = "Meta+^";
+        "Window to Desktop 7" = "Meta+&";
+        "Window to Desktop 8" = "Meta+*";
+        "Window to Desktop 9" = "Meta+(";
+        "Window to Desktop 10" = "Meta+)";
+      };
+
+      plasmashell = {
+        "manage activities" = "none";
+        "next activity" = "none";
+        "previous activity" = "none";
+        "stop current activity" = "none";
+      };
+
+      "services/org.kde.dolphin.desktop"."_launch" = "Meta+D";
+      "services/org.kde.krunner.desktop"."_launch" = "Meta+E";
+      "services/org.kde.spectacle.desktop"."_launch" = "Print";
+    };
+
     workspace = {
       clickItemTo = "select";
       theme = "klassy";
-      colorScheme = "KritaDarkOrange";
+      # colorScheme = "KritaDarkOrange"; Doesn't work
       wallpaper = wallpaper;
     };
   };

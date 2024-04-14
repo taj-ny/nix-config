@@ -51,10 +51,10 @@
   ];
 
   # TODO Consider using TLP instead
-  desktop.kde.configs.powermanagementprofilesrc = {
-    "AC -> PowerProfile".profile = "performance";
-    "Battery -> PowerProfile".profile = "performance";
-    "LowBattery -> PowerProfile".profile = "power-saver";
+  programs.plasma.configFile.powermanagementprofilesrc = {
+    "AC/PowerProfile".profile.value = "performance";
+    "Battery/PowerProfile".profile.value = "balanced";
+    "LowBattery/PowerProfile".profile.value = "power-saver";
   };
 
   home.stateVersion = "23.05";
