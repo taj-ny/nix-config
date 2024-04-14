@@ -1,6 +1,7 @@
 { lib
 , stdenv
 , fetchgit
+, imagemagick
 }:
 
 stdenv.mkDerivation rec {
@@ -13,9 +14,18 @@ stdenv.mkDerivation rec {
     hash = "sha256-ExE0OsGBV1ERD0KOkOdNmeNE+uh7+GTtybneTDupOsk=";
   };
 
+  nativeBuildInputs = [ imagemagick ];
+
   installPhase = ''
+    dir=$(pwd)
+    cd wallpapers/Bamboo/contents/images
+    mv 5120x2880.png tmp.png
+    convert tmp.png -brightness-contrast -20x30 5120x2880.png
+    rm tmp.png
+    cd $dir
+
     mkdir -p $out/share/wallpapers
-    cp -r $src/wallpapers/* $out/share/wallpapers
+    cp -r wallpapers/* $out/share/wallpapers
   '';
 
   meta = {
