@@ -179,6 +179,11 @@ in
         key = "Meta+Shift+T";
         command = "kate";
       };
+      "launch-keepassxc" = {
+        name = "Launch KeepassXC";
+        key = "Meta+Shift+Z";
+        command = "keepassxc";
+      };
       "launch-konsole" = {
         name = "Launch Konsole";
         key = "Meta+Shift+Return";
