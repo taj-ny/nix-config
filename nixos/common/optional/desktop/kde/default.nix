@@ -21,6 +21,8 @@
         klassy
         polonium
 
+        plasma-breath-wallpapers
+
         # Plasmoids
         plasma-panel-colorizer
         plasma-panel-spacer-extended
