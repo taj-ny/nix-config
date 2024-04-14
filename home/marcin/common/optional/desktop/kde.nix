@@ -1,12 +1,33 @@
-{ inputs, pkgs, ... }:
+{ inputs, lib, pkgs, ... }:
 
 let
   wallpaper = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo";
+
+  forceTransparency = [
+    "clementine"
+    "dolphin"
+    "kate"
+    "konsole"
+    "kwrite"
+    "systemsettings"
+  ];
+
+  kwinEffectsToReconfigure = [
+    "forceblur"
+    "kwin4_effect_geometry_change"
+    "kwin4_effect_shapecorners"
+  ];
 in
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
+
+  home.activation.configure-kwin = lib.hm.dag.entryAfter [ "configure-plasma" ] (
+    lib.strings.concatStringsSep "\n" (
+      map (effect: "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect ${effect}") kwinEffectsToReconfigure
+    )
+  );
 
   programs.plasma = {
     enable = true;
@@ -16,7 +37,6 @@ in
         AccentColor.value = "0,150,136";
         ColorScheme.value = "KritaDarkOrange";
         ColorSchemeHask.value = "null";
-        test.value = "a";
       };
 
       "klassy/klassyrc".Style = {
@@ -56,11 +76,10 @@ in
         Effect-blurplus = {
           BlurStrength.value = 6;
           NoiseStrength.value = 0;
-          WindowClasses.value = ''
-            plasmashell
-            konsole
-            firefox
-          '';
+          WindowClasses.value = lib.strings.concatStringsSep "\n" ([
+            "plasmashell"
+            "firefox"
+          ] ++ forceTransparency);
           BlurDecorations.value = true;
           PaintAsTranslucent.value = true;
           TopCornerRadius.value = 10;
@@ -97,7 +116,13 @@ in
         };
 
         Script-polonium = {
-          FilterProcess.value = "krunner, kded, polkit, plasmashell, ksshaskpass";
+          FilterProcess.value = lib.strings.concatStringsSep ", " [
+            "krunner"
+            "kded"
+            "polkit"
+            "plasmashell"
+            "ksshaskpass"
+          ];
           InsertionPoint.value = 1;
         };
 
@@ -111,8 +136,18 @@ in
 
       kwinrulesrc = {
         General = {
-          count.value = 1;
-          rules.value = "f257328a-0fca-420c-8e09-78e6e5f33053";
+          count.value = 2;
+          rules.value = "50946d8d-701f-4424-9260-136605110dc8,f257328a-0fca-420c-8e09-78e6e5f33053";
+        };
+
+        "50946d8d-701f-4424-9260-136605110dc8" = {
+          Description.value = "Force transparency";
+          opacityactive.value = 85;
+          opacityactiverule.value = 2;
+          opacityinactive.value = 85;
+          opacityinactiverule.value = 2;
+          wmclass.value = lib.strings.concatStringsSep "|" forceTransparency;
+          wmclassmatch.value = 3;
         };
 
         f257328a-0fca-420c-8e09-78e6e5f33053 = {
