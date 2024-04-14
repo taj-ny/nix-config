@@ -7,6 +7,7 @@ let
     "clementine"
     "dolphin"
     "kate"
+    "keepassxc"
     "konsole"
     "kwrite"
     "systemsettings"
