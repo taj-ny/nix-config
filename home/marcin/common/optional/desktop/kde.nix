@@ -96,7 +96,10 @@ in
           slideEnabled.value = false;
         };
 
-        Script-polonium.InsertionPoint.value = 1;
+        Script-polonium = {
+          FilterProcess.value = "krunner, kded, polkit, plasmashell, ksshaskpass";
+          InsertionPoint.value = 1;
+        };
 
         Tiling.padding.value = 12;
       };
