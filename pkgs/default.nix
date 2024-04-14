@@ -3,6 +3,7 @@
 rec {
   kde-rounded-corners = pkgs.kdePackages.callPackage ./kde-rounded-corners { };
   klassy = pkgs.kdePackages.callPackage ./klassy.nix { };
+  kwin-effects-geometry-change = pkgs.callPackage ./kwin-effects-geometry-change { };
   lightlyshaders = pkgs.kdePackages.callPackage ./lightlyshaders.nix { };
   nix-ascii-art = pkgs.callPackage ./nix-ascii-art.nix { inherit rascii; };
   plasma-panel-colorizer = pkgs.callPackage ./plasma-panel-colorizer.nix { };
