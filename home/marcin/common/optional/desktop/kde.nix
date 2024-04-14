@@ -164,32 +164,37 @@ in
     };
 
     hotkeys.commands = {
-      "launch-clementine" = {
+      launch-clementine = {
         name = "Launch Clementine";
         key = "Meta+Shift+C";
         command = "clementine";
       };
-      "launch-firefox" = {
+
+      launch-firefox = {
         name = "Launch Firefox";
         key = "Meta+Shift+F";
         command = "firefox";
       };
-      "launch-kate" = {
+
+      launch-kate = {
         name = "Launch Kate";
         key = "Meta+Shift+T";
         command = "kate";
       };
-      "launch-keepassxc" = {
+
+      launch-keepassxc = {
         name = "Launch KeepassXC";
         key = "Meta+Shift+Z";
         command = "keepassxc";
       };
-      "launch-konsole" = {
+
+      launch-konsole = {
         name = "Launch Konsole";
         key = "Meta+Shift+Return";
         command = "konsole";
       };
-      "launch-system-settings" = {
+
+      launch-system-settings = {
         name = "Launch System Settings";
         key= "Meta+Shift+X";
         command = "systemsettings";
