@@ -230,7 +230,7 @@ in
             };
           }
           "org.kde.plasma.appmenu"
-          "luisbocanegra.panelspacer.extended"
+          "org.kde.plasma.panelspacer"
           "org.kde.plasma.systemtray"
           {
             name = "org.kde.plasma.digitalclock";
