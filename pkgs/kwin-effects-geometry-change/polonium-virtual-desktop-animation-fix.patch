@@ -1,5 +1,5 @@
 diff --git a/package/contents/code/main.js b/package/contents/code/main.js
-index b7cfd32..fca17e3 100644
+index b7cfd32..8249ce3 100644
 --- a/package/contents/code/main.js
 +++ b/package/contents/code/main.js
 @@ -10,6 +10,9 @@ class GeometryChangeEffect {
@@ -27,9 +27,9 @@ index b7cfd32..fca17e3 100644
              return;
          }
  
-+        if ((Date.now() - effects.desktopChangedTime) < 10) {
++        if ((Date.now() - effects.desktopChangedTime) < 100) {
 +            return;
-+        }	
++        }
 +
          const newGeometry = window.geometry;
          const xDelta = newGeometry.x - oldGeometry.x;
