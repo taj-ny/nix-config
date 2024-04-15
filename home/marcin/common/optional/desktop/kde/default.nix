@@ -259,6 +259,28 @@ in
             };
           }
         ];
+
+        extraSettings = lib.readFile (pkgs.substituteAll {
+          src = ./system-tray.js;
+
+          shownItems = lib.strings.concatStringsSep "," [ 
+            "org.kde.plasma.battery"
+            "org.kde.plasma.volume"
+            "org.kde.plasma.notifications"
+            "org.kde.plasma.networkmanagement"
+          ];
+
+          hiddenItems = lib.strings.concatStringsSep "," [
+            "org.kde.plasma.brightness"
+            "org.kde.plasma.cameraindicator"
+            "org.kde.kscreen"
+            "org.kde.kdeconnect"
+            "org.kde.plasma.keyboardlayout"
+            "org.kde.plasma.keyboardindicator"
+            "org.kde.plasma.manage-inputmethod"
+            "org.kde.plasma.mediacontroller"
+          ];
+        });
       }
     ];
 
