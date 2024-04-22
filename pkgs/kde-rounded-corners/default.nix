@@ -19,6 +19,8 @@ stdenv.mkDerivation rec {
     hash = "sha256-4bB1EKK9XUkX8o3ca2dQtJe0UuSDgITVXWnpddTsJDs=";
   };
 
+  patches = [ ./dont-paint-area-behind-windows.patch ];
+
   nativeBuildInputs = [
     cmake
     extra-cmake-modules
