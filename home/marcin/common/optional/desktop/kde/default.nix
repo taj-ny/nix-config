@@ -142,8 +142,8 @@ in
 
       kwinrulesrc = {
         General = {
-          count.value = 2;
-          rules.value = "50946d8d-701f-4424-9260-136605110dc8,f257328a-0fca-420c-8e09-78e6e5f33053";
+          count.value = 1;
+          rules.value = "50946d8d-701f-4424-9260-136605110dc8";
         };
 
         "50946d8d-701f-4424-9260-136605110dc8" = {
@@ -154,12 +154,6 @@ in
           opacityinactiverule.value = 2;
           wmclass.value = lib.strings.concatStringsSep "|" forceTransparency;
           wmclassmatch.value = 3;
-        };
-
-        f257328a-0fca-420c-8e09-78e6e5f33053 = {
-          Description.value = "Disable titlebar and border";
-          noborder.value = true;
-          noborderrule.value = 2;
         };
       };
 
