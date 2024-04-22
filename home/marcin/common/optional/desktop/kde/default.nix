@@ -108,6 +108,11 @@ in
         };
 
         ModifierOnlyShortcuts.Meta.value = "";
+ 
+        "org.kde.kdecoration2" = {
+          library.value = "org.kde.klassy";
+          theme.value = "Klassy";
+        };
 
         Plugins = {
           blurEnabled.value = false;
