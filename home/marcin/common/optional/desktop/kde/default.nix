@@ -95,7 +95,9 @@ in
           ActiveOutlineUseCustom.value = false;
           ActiveOutlineUsePalette.value = true;
           ActiveShadowAlpha.value = 125;
+          DisableOutlineMaximize.value = true;
           DisableOutlineTile.value = false;
+          DisableRoundMaximize.value = true;
           DisableRoundTile.value = false;
           ExcludeMaximizedWindows.value = false;
           InactiveOutlineUseCustom.value = false;
