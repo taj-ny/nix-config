@@ -171,8 +171,12 @@ in
       userChrome = ''
         @import url("firefox-ui-fix/userChrome.css");
 
-        html, #urlbar-background {
+        html {
             background-color: rgba(25, 25, 25, 0.5) !important;
+        }
+
+        #urlbar-background {
+            background-color: transparent !important;
         }
 
         toolbar, toolbox {
