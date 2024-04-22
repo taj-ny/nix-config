@@ -2,7 +2,7 @@
   imports = [
     ./common/global
 
-    ./common/optional/desktop/kde.nix
+    ./common/optional/desktop/kde
 
     ./common/optional/programs/gaming/prismlauncher.nix
 
