@@ -21,6 +21,7 @@ stdenv.mkDerivation rec {
     cd wallpapers/Bamboo/contents/images
     mv 5120x2880.png tmp.png
     convert tmp.png -brightness-contrast -20x30 5120x2880.png
+    convert 5120x2880.png -resize 1920x1080 -blur 0x12 1920x1080_blurred.png
     rm tmp.png
     cd $dir
 
