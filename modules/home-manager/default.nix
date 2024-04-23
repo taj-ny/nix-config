@@ -1,3 +1,2 @@
 {
-  kde = import ./kde.nix;
 }

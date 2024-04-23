@@ -1,0 +1,36 @@
+diff --git a/package/contents/code/main.js b/package/contents/code/main.js
+index b7cfd32..8249ce3 100644
+--- a/package/contents/code/main.js
++++ b/package/contents/code/main.js
+@@ -10,6 +10,9 @@ class GeometryChangeEffect {
+             this.manage(window);
+         }
+ 
++        effects.desktopChanged.connect(this.onDesktopChanged.bind(this));
++        effects.desktopChangedTime = Date.now();
++
+         this.loadConfig();
+     }
+ 
+@@ -48,6 +51,10 @@ class GeometryChangeEffect {
+         return false;
+     }
+ 
++    onDesktopChanged() {
++        effects.desktopChangedTime = Date.now();
++    }
++
+     onWindowFrameGeometryChanged(window, oldGeometry) {
+         if (!window.onCurrentDesktop) {
+             return;
+@@ -71,6 +78,10 @@ class GeometryChangeEffect {
+             return;
+         }
+ 
++        if ((Date.now() - effects.desktopChangedTime) < 100) {
++            return;
++        }
++
+         const newGeometry = window.geometry;
+         const xDelta = newGeometry.x - oldGeometry.x;
+         const yDelta = newGeometry.y - oldGeometry.y;

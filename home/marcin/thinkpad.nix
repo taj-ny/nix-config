@@ -2,7 +2,7 @@
   imports = [
     ./common/global
 
-    ./common/optional/desktop/kde.nix
+    ./common/optional/desktop/kde
 
     ./common/optional/programs/gaming/prismlauncher.nix
 
@@ -21,11 +21,11 @@
     ./common/optional/programs/programming/vscode.nix
 
     ./common/optional/programs/programming/ide/clion.nix
-    ./common/optional/programs/programming/ide/idea-ultimate.nix
+    #./common/optional/programs/programming/ide/idea-ultimate.nix
     ./common/optional/programs/programming/ide/phpstorm.nix
-    ./common/optional/programs/programming/ide/pycharm-professional.nix
+    #./common/optional/programs/programming/ide/pycharm-professional.nix
     ./common/optional/programs/programming/ide/rider.nix
-    ./common/optional/programs/programming/ide/webstorm.nix
+    #./common/optional/programs/programming/ide/webstorm.nix
 
     ./common/optional/programs/programming/sdks/dotnet.nix
     ./common/optional/programs/programming/sdks/php.nix
@@ -51,10 +51,10 @@
   ];
 
   # TODO Consider using TLP instead
-  desktop.kde.configs.powermanagementprofilesrc = {
-    "AC -> PowerProfile".profile = "performance";
-    "Battery -> PowerProfile".profile = "performance";
-    "LowBattery -> PowerProfile".profile = "power-saver";
+  programs.plasma.configFile.powermanagementprofilesrc = {
+    "AC/PowerProfile".profile.value = "performance";
+    "Battery/PowerProfile".profile.value = "balanced";
+    "LowBattery/PowerProfile".profile.value = "power-saver";
   };
 
   home.stateVersion = "23.05";

@@ -1,0 +1,13 @@
+diff --git a/src/ShapeCornersEffect.cpp b/src/ShapeCornersEffect.cpp
+index c1d117b..2ac5afb 100644
+--- a/src/ShapeCornersEffect.cpp
++++ b/src/ShapeCornersEffect.cpp
+@@ -160,7 +160,7 @@ void ShapeCornersEffect::prePaintWindow(KWin::EffectWindow *w, KWin::WindowPrePa
+     reg += QRect(geo.x()+geo.width()-size, geo.y()+geo.height()-size, size, size);
+     data.opaque -= reg;
+     data.paint += reg;
+-    data.setTranslucent();
++    //data.setTranslucent();
+ 
+     OffscreenEffect::prePaintWindow(w, data, time);
+ }

@@ -18,12 +18,28 @@
         krita
         plasma-browser-integration
 
-        paneltransparencybutton
+        # Application styles
+        lightly-boehs
+        lightly-qt6
+
+        # Window decorations
+        klassy
+
+        # KWin scripts
+        polonium
+
+        # Wallpapers
+        plasma-breath-wallpapers
+
+        # Plasmoids
         plasma-panel-colorizer
         plasma-panel-spacer-extended
+        plasma-window-title-applet
 
         # Desktop effects
         inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
+        kde-rounded-corners
+        kwin-effects-geometry-change
         lightlyshaders
       ];
 

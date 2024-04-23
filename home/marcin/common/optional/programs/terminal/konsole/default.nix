@@ -1,5 +1,5 @@
 {
-  desktop.kde.configs.konsolerc."Desktop Entry".DefaultProfile = "konsole.profile";
+  programs.plasma.configFile.konsolerc."Desktop Entry".DefaultProfile.value = "konsole.profile";
 
   home.file = {
     # Breeze with background colors from Krita Dark
