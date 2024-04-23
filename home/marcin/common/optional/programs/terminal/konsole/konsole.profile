@@ -8,3 +8,4 @@ Parent=FALLBACK/
 
 [Scrolling]
 HighlightScrolledLines=false
+ScrollBarPosition=2
