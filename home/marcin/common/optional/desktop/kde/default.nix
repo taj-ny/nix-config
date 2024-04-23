@@ -187,7 +187,7 @@ in
 
         Style = {
           DolphinSidebarOpacity.value = 50;
-          MenuOpacity.value = 50;
+          MenuOpacity.value = 80;
           TabDrawHighlight.value = true;
         };         
       };
