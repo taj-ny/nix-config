@@ -98,6 +98,8 @@ in
         Effect-blurplus = {
           BlurStrength.value = 6;
           NoiseStrength.value = 0;
+          FakeBlur.value = true;
+          FakeBlurImage.value = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo/contents/images/1920x1080_blurred.png";
           WindowClasses.value = lib.strings.concatStringsSep "\n" ([
             "plasmashell"
             "firefox"
