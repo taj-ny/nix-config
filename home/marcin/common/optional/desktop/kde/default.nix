@@ -51,10 +51,14 @@ in
         };
       };
 
-      kdeglobals.General = { 
-        AccentColor.value = "0,150,136";
-        ColorScheme.value = "KritaDarkOrange";
-        ColorSchemeHask.value = "null";
+      kdeglobals = {
+        General = { 
+          AccentColor.value = "0,150,136";
+          ColorScheme.value = "KritaDarkOrange";
+          ColorSchemeHask.value = "null";
+        };
+
+        KDE.widgetStyle.value = "Lightly";
       };
 
       "klassy/klassyrc".Style = {
