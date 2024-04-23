@@ -19,6 +19,7 @@
         plasma-browser-integration
 
         # Application styles
+        lightly-boehs
         lightly-qt6
 
         # Window decorations
