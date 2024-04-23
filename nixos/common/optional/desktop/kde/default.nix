@@ -18,9 +18,16 @@
         krita
         plasma-browser-integration
 
+        # Application styles
+        lightly
+
+        # Window decorations
         klassy
+
+        # KWin scripts
         polonium
 
+        # Wallpapers
         plasma-breath-wallpapers
 
         # Plasmoids
