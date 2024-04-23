@@ -156,8 +156,8 @@ in
 
       kwinrulesrc = {
         General = {
-          count.value = 1;
-          rules.value = "50946d8d-701f-4424-9260-136605110dc8";
+          count.value = 2;
+          rules.value = "50946d8d-701f-4424-9260-136605110dc8,eb1e7304-4128-427a-8022-37c814070998";
         };
 
         "50946d8d-701f-4424-9260-136605110dc8" = {
@@ -168,6 +168,11 @@ in
           opacityinactiverule.value = 2;
           wmclass.value = lib.strings.concatStringsSep "|" forceTransparency;
           wmclassmatch.value = 3;
+        };
+
+        eb1e7304-4128-427a-8022-37c814070998 = {
+          Description.value = "Minimum size";
+          minsizerule.value = 2;
         };
       };
 
