@@ -5,6 +5,7 @@
 , cmake
 , extra-cmake-modules
 , wrapQtAppsHook
+, frameworkintegration
 , kcmutils
 , kdecoration
 , kwindowsystem
@@ -41,6 +42,7 @@ stdenv.mkDerivation rec {
   ];
 
   buildInputs = [
+    frameworkintegration
     kcmutils
     kdecoration
     kwindowsystem
