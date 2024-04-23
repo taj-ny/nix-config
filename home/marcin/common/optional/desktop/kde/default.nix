@@ -37,6 +37,20 @@ in
     enable = true;
 
     configFile = {
+      breezerc = {
+        Common = {
+          OutlineIntensity.value = "OutlineOff";
+          ShadowSize.value = "ShadowNone";
+        };
+
+        "Windeco Exception 0" = {
+          Enabled.value = true;
+          ExceptionPattern.value = ".*";
+          ExceptionType.value = 0;
+          HideTitleBar.value = true;
+        };
+      };
+
       kdeglobals.General = { 
         AccentColor.value = "0,150,136";
         ColorScheme.value = "KritaDarkOrange";
