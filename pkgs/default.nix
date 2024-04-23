@@ -4,6 +4,7 @@ rec {
   kde-rounded-corners = pkgs.kdePackages.callPackage ./kde-rounded-corners { };
   klassy = pkgs.kdePackages.callPackage ./klassy.nix { };
   kwin-effects-geometry-change = pkgs.callPackage ./kwin-effects-geometry-change { };
+  lightly = pkgs.kdePackages.callPackage ./lightly.nix { };
   lightlyshaders = pkgs.kdePackages.callPackage ./lightlyshaders.nix { };
   nix-ascii-art = pkgs.callPackage ./nix-ascii-art.nix { inherit rascii; };
   plasma-breath-wallpapers = pkgs.callPackage ./plasma-breath-wallpapers.nix { };
