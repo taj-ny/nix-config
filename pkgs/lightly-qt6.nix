@@ -24,7 +24,7 @@ let
   };
 in
 stdenv.mkDerivation rec {
-  pname = "lightly";
+  pname = "lightly-qt6";
   version = "0.4.1";
 
   src = fetchFromGitHub {
@@ -63,4 +63,10 @@ stdenv.mkDerivation rec {
 
     runHook postPatch
   '';
+
+  meta = {
+    description = "A modern style for qt applications";
+    homepage = "https://github.com/boehs/lightly";
+    license = lib.licenses.gpl2;
+  };
 }
