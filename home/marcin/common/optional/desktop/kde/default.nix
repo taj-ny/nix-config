@@ -180,6 +180,16 @@ in
         };
       };
 
+      lightlyrc = {
+        Common.CornerRadius.value = 8;
+
+        Style = {
+          DolphinSidebarOpacity.value = 50;
+          MenuOpacity.value = 50;
+          TabDrawHighlight.value = true;
+        };         
+      };
+
       plasmanotifyrc.Notifications.LowPriorityHistory.value = true;
     };
 
