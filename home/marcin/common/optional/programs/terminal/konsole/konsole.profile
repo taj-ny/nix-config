@@ -8,4 +8,5 @@ Parent=FALLBACK/
 
 [Scrolling]
 HighlightScrolledLines=false
+HistorySize=1000000
 ScrollBarPosition=2
