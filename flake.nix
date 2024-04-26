@@ -76,7 +76,7 @@
 
     nixosConfigurations = {
       andromeda = lib.nixosSystem {
-        modules = [ ./nixos/andromeda.nix ];
+        modules = [ ./nixos/andromeda ];
         specialArgs = { inherit inputs outputs; };
       };
 
@@ -93,7 +93,7 @@
 
     homeConfigurations = {
       "marcin@andromeda" = lib.homeManagerConfiguration {
-        modules = [ ./home/marcin/andromeda.nix ];
+        modules = [ ./home/marcin/andromeda ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
       };
