@@ -76,7 +76,7 @@
 
     nixosConfigurations = {
       andromeda = lib.nixosSystem {
-        modules = [ ./nixos/andromeda.nix ];
+        modules = [ ./nixos/andromeda ];
         specialArgs = { inherit inputs outputs; };
       };
 
