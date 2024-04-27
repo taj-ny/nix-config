@@ -302,6 +302,7 @@ in
           ];
 
           hiddenItems = lib.strings.concatStringsSep "," [
+            "Clementine"
             "org.kde.plasma.brightness"
             "org.kde.plasma.cameraindicator"
             "org.kde.kscreen"
