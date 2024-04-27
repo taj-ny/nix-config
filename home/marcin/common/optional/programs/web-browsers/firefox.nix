@@ -56,13 +56,11 @@ in
 
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         clearurls
-        darkreader
         keepassxc-browser
         multi-account-containers
         plasma-integration
         sponsorblock
         switchyomega
-        tree-style-tab
         ublock-origin
         violentmonkey
       ];
