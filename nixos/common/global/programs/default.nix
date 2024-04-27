@@ -6,6 +6,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    axel # CLI download accelerator
     htop
     powertop
     steam-run
