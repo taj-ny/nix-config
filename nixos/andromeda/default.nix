@@ -34,6 +34,8 @@
     ../common/optional/programs/steam.nix
     ../common/optional/programs/vmware.nix
 
+    ../common/optional/security/u2f-pam.nix
+
     ../common/optional/services/fwupd.nix
     ../common/optional/services/pipewire.nix
     ../common/optional/services/ssh-agent.nix
