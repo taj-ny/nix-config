@@ -93,7 +93,7 @@
 
     homeConfigurations = {
       "marcin@andromeda" = lib.homeManagerConfiguration {
-        modules = [ ./home/marcin/andromeda ];
+        modules = [ ./home/marcin/andromeda.nix ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
       };
