@@ -453,7 +453,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-23.11": {
+    "nixpkgs-23-11": {
       "locked": {
         "lastModified": 1713995372,
         "narHash": "sha256-fFE3M0vCoiSwCX02z8VF58jXFRj9enYUSTqjyHAjrds=",
@@ -603,7 +603,7 @@
         "kwin-effects-forceblur": "kwin-effects-forceblur",
         "lanzaboote": "lanzaboote",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-23.11": "nixpkgs-23.11",
+        "nixpkgs-23-11": "nixpkgs-23-11",
         "nixvim": "nixvim",
         "plasma-manager": "plasma-manager"
       }
