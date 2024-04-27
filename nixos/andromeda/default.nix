@@ -43,6 +43,7 @@
   ];
 
   environment.variables.KWIN_FORCE_SW_CURSOR = "1";
+  services.power-profiles-daemon.enable = lib.mkForce false;
 
   networking.hostName = "andromeda";
   system.stateVersion = "23.05";
