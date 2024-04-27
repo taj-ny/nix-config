@@ -1,12 +1,8 @@
 { inputs, pkgs, ... }:
 
-let
-  firefox = pkgs.firefox;
-in
 {
   programs.firefox = {
     enable = true;
-    package = firefox;
 
     policies = {
       CaptivePortal = false;
