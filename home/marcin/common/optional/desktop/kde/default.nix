@@ -311,6 +311,7 @@ in
             "org.kde.plasma.keyboardindicator"
             "org.kde.plasma.manage-inputmethod"
             "org.kde.plasma.mediacontroller"
+            "vmware-tray"
           ];
         });
       }
