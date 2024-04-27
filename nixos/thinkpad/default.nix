@@ -17,7 +17,7 @@
 
     ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
-    ../common/optional/hardware/bluetooth.nix
+    ../common/optional/hardware/internal/bluetooth.nix
 
     ../common/optional/kernel/linux-latest.nix
 

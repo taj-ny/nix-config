@@ -13,10 +13,8 @@
     ./no-root-login.nix
     ./opengl.nix
     ./preload.nix
-    ./printing.nix
     ./ssh.nix
     ./systemd.nix
-    ./yubikey.nix
     ./zsh.nix
 
     ./programs

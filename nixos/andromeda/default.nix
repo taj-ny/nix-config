@@ -17,8 +17,11 @@
 
     ../common/optional/fs/luks-btrfs-impermanence.nix
 
-    ../common/optional/hardware/bluetooth.nix
-    ../common/optional/hardware/gpu/nvidia.nix
+    ../common/optional/hardware/external/printers.nix
+    ../common/optional/hardware/external/yubikey.nix
+
+    ../common/optional/hardware/internal/bluetooth.nix
+    ../common/optional/hardware/internal/gpu/nvidia.nix
 
     ../common/optional/kernel/linux-latest.nix
 
