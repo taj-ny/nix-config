@@ -1,12 +1,8 @@
 { inputs, pkgs, ... }:
 
-let
-  firefox = pkgs.firefox;
-in
 {
   programs.firefox = {
     enable = true;
-    package = firefox;
 
     policies = {
       CaptivePortal = false;
@@ -56,13 +52,11 @@ in
 
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         clearurls
-        darkreader
         keepassxc-browser
         multi-account-containers
         plasma-integration
         sponsorblock
         switchyomega
-        tree-style-tab
         ublock-origin
         violentmonkey
       ];
@@ -200,10 +194,5 @@ in
     };
   };
 
-  home = {
-    file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
-    packages = [
-      (pkgs.patchDesktop firefox "firefox" "^Exec=firefox" "Exec=MOZ_ENABLE_WAYLAND=1 firefox")
-    ];
-  };
+  home.file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
 }
