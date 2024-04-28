@@ -11,6 +11,7 @@ let
     "keepassxc"
     "konsole"
     "kwrite"
+    "org.freedesktop.impl.portal.desktop.kde"
     "systemsettings"
   ];
 
