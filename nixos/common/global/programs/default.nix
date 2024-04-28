@@ -3,6 +3,7 @@
 {
   imports = [
     ./git.nix
+    ./nh.nix
   ];
 
   environment.systemPackages = with pkgs; [
