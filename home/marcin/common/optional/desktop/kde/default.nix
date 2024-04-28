@@ -142,6 +142,7 @@ in
           lightlyshaders_blurEnabled.value = false;
           poloniumEnabled.value = true;
           slideEnabled.value = false;
+          startupfeedback_busy_cursorEnabled.value = true;
         };
 
         Script-polonium = {
