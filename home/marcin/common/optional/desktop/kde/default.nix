@@ -110,6 +110,9 @@ in
           BottomCornerRadius.value = 10;
         };
 
+        # Disable top left screen corner
+        Effect-overview.BorderActivate.value = 9;
+
         # The first dash is not actually a dash for some reason
         "Effect-ًRound-Corners" = {
           ActiveOutlineUseCustom.value = false;
