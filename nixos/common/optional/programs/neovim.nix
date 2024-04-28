@@ -14,7 +14,13 @@
       barbar.enable = true;
       lsp-lines.enable = true;
       nix.enable = true;
+      nvim-cmp.enable = true;
       toggleterm.enable = true;
+
+      cmp.settings.sources = [
+        { name = "nvim_lsp"; }
+        { name = "path"; }
+      ];
 
       lsp = {
         enable = true;
@@ -27,14 +33,6 @@
 
         disabledFiletypes.statusline = [ "NvimTree" "toggleterm" "Trouble" ];
       };
-
-      #nvim-cmp = {
-      #  enable = true;
-      #  sources = [
-      #    { name = "nvim_lsp"; }
-      #    { name = "path"; }
-      #  ];
-      #};
 
       nvim-tree = {
         enable = true;
