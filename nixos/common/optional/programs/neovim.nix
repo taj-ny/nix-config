@@ -63,7 +63,6 @@
       trouble = {
         enable = true;
         autoOpen = true;
-        autoClose = true;
       };
     };
 
