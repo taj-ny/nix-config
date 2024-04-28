@@ -52,7 +52,7 @@ in
       };
 
       kdeglobals = {
-        General = { 
+        General = {
           AccentColor.value = "0,150,136";
           ColorScheme.value = "KritaDarkOrange";
           ColorSchemeHask.value = "null";
@@ -152,6 +152,7 @@ in
             "polkit"
             "plasmashell"
             "ksshaskpass"
+            "org.freedesktop.impl.portal.desktop.kde"
           ];
           InsertionPoint.value = 1;
         };
@@ -193,7 +194,7 @@ in
           DolphinSidebarOpacity.value = 50;
           MenuOpacity.value = 80;
           TabDrawHighlight.value = true;
-        };         
+        };
       };
 
       plasmanotifyrc.Notifications.LowPriorityHistory.value = true;
@@ -298,7 +299,7 @@ in
         extraSettings = lib.readFile (pkgs.substituteAll {
           src = ./system-tray.js;
 
-          shownItems = lib.strings.concatStringsSep "," [ 
+          shownItems = lib.strings.concatStringsSep "," [
             "org.kde.plasma.battery"
             "org.kde.plasma.volume"
             "org.kde.plasma.notifications"
