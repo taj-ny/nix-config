@@ -3,7 +3,6 @@
 {
   imports = [
     ./boot.nix
-    ./doas.nix
     ./firejail.nix
     ./fonts.nix
     ./impermanence.nix
@@ -14,6 +13,7 @@
     ./opengl.nix
     ./preload.nix
     ./ssh.nix
+    ./sudo.nix
     ./systemd.nix
     ./zsh.nix
 
