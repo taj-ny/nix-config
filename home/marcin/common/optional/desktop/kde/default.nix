@@ -11,6 +11,7 @@ let
     "keepassxc"
     "konsole"
     "kwrite"
+    "org.freedesktop.impl.portal.desktop.kde"
     "systemsettings"
   ];
 
@@ -52,7 +53,7 @@ in
       };
 
       kdeglobals = {
-        General = { 
+        General = {
           AccentColor.value = "0,150,136";
           ColorScheme.value = "KritaDarkOrange";
           ColorSchemeHask.value = "null";
@@ -110,6 +111,9 @@ in
           BottomCornerRadius.value = 10;
         };
 
+        # Disable top left screen corner
+        Effect-overview.BorderActivate.value = 9;
+
         # The first dash is not actually a dash for some reason
         "Effect-ًRound-Corners" = {
           ActiveOutlineUseCustom.value = false;
@@ -139,6 +143,7 @@ in
           lightlyshaders_blurEnabled.value = false;
           poloniumEnabled.value = true;
           slideEnabled.value = false;
+          startupfeedback_busy_cursorEnabled.value = true;
         };
 
         Script-polonium = {
@@ -148,6 +153,7 @@ in
             "polkit"
             "plasmashell"
             "ksshaskpass"
+            "org.freedesktop.impl.portal.desktop.kde"
           ];
           InsertionPoint.value = 1;
         };
@@ -189,7 +195,7 @@ in
           DolphinSidebarOpacity.value = 50;
           MenuOpacity.value = 80;
           TabDrawHighlight.value = true;
-        };         
+        };
       };
 
       plasmanotifyrc.Notifications.LowPriorityHistory.value = true;
@@ -294,7 +300,7 @@ in
         extraSettings = lib.readFile (pkgs.substituteAll {
           src = ./system-tray.js;
 
-          shownItems = lib.strings.concatStringsSep "," [ 
+          shownItems = lib.strings.concatStringsSep "," [
             "org.kde.plasma.battery"
             "org.kde.plasma.volume"
             "org.kde.plasma.notifications"
