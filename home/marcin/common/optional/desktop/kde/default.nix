@@ -73,7 +73,11 @@ in
       };
 
       krunnerrc = {
-        General.FreeFloating.value = true;
+        General = {
+          ActivateWhenTypingOnDesktop.value = false;
+          FreeFloating.value = true;
+        };
+
         Plugins = {
           baloosearchEnabled.value = false;
           recentdocumentsEnabled.value = false;
