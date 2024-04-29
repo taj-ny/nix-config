@@ -185,6 +185,7 @@ in
         eb1e7304-4128-427a-8022-37c814070998 = {
           Description.value = "Minimum size";
           minsizerule.value = 2;
+          types.value = 33; # normal, dialog
         };
       };
 
