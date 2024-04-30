@@ -239,8 +239,39 @@ in
 
       launch-system-settings = {
         name = "Launch System Settings";
-        key= "Meta+Shift+X";
+        key = "Meta+Shift+X";
         command = "systemsettings";
+      };
+
+
+      logout = {
+        name = "Log out";
+        key = "Ctrl+Shift+Meta+Alt+L";
+        command = "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.Shutdown /Shutdown org.kde.Shutdown.logout";
+      };
+
+      hibernate = {
+        name = "Hibernate";
+        key = "Ctrl+Shift+Meta+Alt+H";
+        command = "systemctl hibernate";
+      };
+
+      poweroff = {
+        name = "Poweroff";
+        key = "Ctrl+Shift+Meta+Alt+P";
+        command = "systemctl poweroff";
+      };
+
+      reboot = {
+        name = "Reboot";
+        key = "Ctrl+Shift+Meta+Alt+R";
+        command = "systemctl reboot";
+      };
+
+      suspend = {
+        name = "Suspend";
+        key = "Ctrl+Shift+Meta+Alt+S";
+        command = "systemctl suspend";
       };
     };
 
