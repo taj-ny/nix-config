@@ -11,8 +11,8 @@
 
     ../common/optional/boot/plymouth.nix
 
+    ../common/optional/desktop/unlock-after-hibernation.nix
     ../common/optional/desktop/display-manager/sddm.nix
-
     ../common/optional/desktop/kde
 
     ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
