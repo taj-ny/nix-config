@@ -14,13 +14,15 @@
       barbar.enable = true;
       lsp-lines.enable = true;
       nix.enable = true;
-      nvim-cmp.enable = true;
       toggleterm.enable = true;
 
-      cmp.settings.sources = [
-        { name = "nvim_lsp"; }
-        { name = "path"; }
-      ];
+      cmp = {
+        enable = true;
+        settings.sources = [
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+        ];
+      };
 
       lsp = {
         enable = true;
@@ -62,11 +64,12 @@
 
       trouble = {
         enable = true;
-        autoOpen = true;
+
+        settings.auto_open = true;         
       };
     };
 
-    options = {
+    opts = {
       number = true;
     };
   };

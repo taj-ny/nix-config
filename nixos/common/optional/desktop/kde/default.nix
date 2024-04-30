@@ -1,9 +1,11 @@
 { inputs, pkgs, ... }:
 
 {
-  services.xserver = {
-    enable = true;
-    excludePackages = with pkgs; [ xterm ];
+  services = {
+    xserver = {
+      enable = true;
+      excludePackages = with pkgs; [ xterm ];
+    };
 
     desktopManager.plasma6.enable = true;
   };
