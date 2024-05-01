@@ -39,6 +39,7 @@
     ../common/optional/security/secure-boot.nix
     ../common/optional/security/u2f-pam.nix
 
+    ../common/optional/allow-remote-deployment.nix
     ../common/optional/encrypted-dns.nix
 
     ../common/users/marcin

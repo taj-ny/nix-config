@@ -42,6 +42,7 @@
     ../common/optional/services/syncthing.nix
     ../common/optional/services/tor.nix
 
+    ../common/optional/allow-remote-deployment.nix
     ../common/optional/encrypted-dns.nix
 
     ../common/users/marcin
