@@ -4,6 +4,7 @@ in
 {
   boot.initrd.luks.devices."nixos" = {
     allowDiscards = true;
+    bypassWorkqueues = true;
     device = "/dev/disk/by-partlabel/nixos-luks";
   };
 
