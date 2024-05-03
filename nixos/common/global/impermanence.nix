@@ -13,6 +13,7 @@ with lib;
       "/etc/NetworkManager/system-connections"
       "/etc/vmware"
       "/etc/secureboot"
+      "/etc/ssh"
       "/var/lib/bluetooth"
       "/var/lib/systemd"
       "/var/lib/nixos"
