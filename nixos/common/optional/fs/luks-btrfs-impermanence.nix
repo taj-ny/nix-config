@@ -2,7 +2,10 @@ let
   btrfsOptions = [ "noatime" "nodiratime" "discard=async" ];
 in
 {
-  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-partlabel/nixos-luks";
+  boot.initrd.luks.devices."nixos" = {
+    allowDiscards = true;
+    device = "/dev/disk/by-partlabel/nixos-luks";
+  };
 
   fileSystems = {
     "/boot" = {
