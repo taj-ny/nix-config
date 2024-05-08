@@ -7,7 +7,7 @@
     ./common/optional/programs/audio/beets.nix
     ./common/optional/programs/audio/clementine.nix
     ./common/optional/programs/audio/deemix.nix
-    ./common/optional/programs/audio/easyeffects.nix
+    ./common/optional/programs/audio/easyeffects
 
     ./common/optional/programs/gaming/prismlauncher.nix
 
