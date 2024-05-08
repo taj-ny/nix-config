@@ -7,6 +7,7 @@
     ./common/optional/programs/audio/beets.nix
     ./common/optional/programs/audio/clementine.nix
     ./common/optional/programs/audio/deemix.nix
+    ./common/optional/programs/audio/easyeffects.nix
 
     ./common/optional/programs/gaming/prismlauncher.nix
 
@@ -43,7 +44,6 @@
 
     ./common/optional/programs/btop.nix
     ./common/optional/programs/cryptomator.nix
-    ./common/optional/programs/easyeffects.nix
     ./common/optional/programs/kdeconnect.nix
     ./common/optional/programs/keepassxc.nix
     ./common/optional/programs/obs-studio.nix
