@@ -28,11 +28,11 @@ with lib.hm.gvariant;
 
     "com/github/wwmm/easyeffects/streamoutputs" = {
       output-device = "alsa_output.pci-0000_00_1f.3.analog-stereo.7";
-      plugins = [ "equalizer#2" "bass_enhancer#0" "equalizer#0" "crystalizer#0" "crossfeed#0" ];
+      plugins = [ "equalizer#0" "equalizer#2" "bass_enhancer#0" "crystalizer#0" "crossfeed#0" ];
     };
 
     "com/github/wwmm/easyeffects/streamoutputs/bassenhancer/0" = {
-      amount = 6.0;
+      amount = 5.0000000000000036;
       blend = 0.0;
       bypass = false;
       input-gain = 0.0;
