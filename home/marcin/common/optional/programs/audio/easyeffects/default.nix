@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./_preset.nix
+    ./_config.nix
   ];
 
   home = {
