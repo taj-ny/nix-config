@@ -21,6 +21,7 @@ stdenv.mkDerivation rec {
 
   patches = [ 
     ./dont-paint-area-behind-windows.patch
+    ./fix-outline-on-some-transparent-windows.patch
     ./force-full-outline-opacity.patch 
   ];
 
