@@ -9,6 +9,7 @@
       };
 
       push.autoSetupRemote = true;
+      rebase.autoStash = true;
       safe.directory = "/nix/config";
     };
   };
