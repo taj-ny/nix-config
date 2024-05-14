@@ -31,6 +31,7 @@
     ../common/optional/programs/vmware.nix
 
     ../common/optional/services/fwupd.nix
+    ../common/optional/services/mysql.nix
     ../common/optional/services/pipewire.nix
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
