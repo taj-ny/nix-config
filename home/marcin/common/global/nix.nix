@@ -10,4 +10,11 @@
 
     config.allowUnfree = true;
   };
+
+  # TODO Deduplicate
+  nix.gc = {
+    automatic = true;
+    frequency = "daily";
+    options = "--delete-older-than 7d";
+  };
 }

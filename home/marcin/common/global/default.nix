@@ -3,7 +3,7 @@
 {
   imports = [
     ./nixos-update-notifier.nix
-    ./nixpkgs.nix
+    ./nix.nix
     ./xdg.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
