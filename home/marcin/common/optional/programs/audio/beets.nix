@@ -35,6 +35,7 @@
 
       replaygain = {
         backend = "ffmpeg";
+        r128 = "";
       };
 
       convert = {
