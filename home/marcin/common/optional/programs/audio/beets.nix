@@ -26,6 +26,10 @@
 
       badfiles = {
         check_on_import = true;
+
+        commands = {
+          ogg = "${pkgs.liboggz}/bin/oggz-validate";
+        };
       };
 
       import = {
