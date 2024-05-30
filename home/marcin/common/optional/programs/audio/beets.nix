@@ -13,6 +13,7 @@
         "badfiles"
         "convert"
         "deezer"
+        "edit"
         "embedart"
         "fetchart"
         "fromfilename" 
