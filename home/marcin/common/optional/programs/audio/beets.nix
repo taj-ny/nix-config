@@ -8,6 +8,7 @@
     settings = {
       plugins = [
         "deezer"
+        "embedart"
         "spotify"
         "missing"
         "fromfilename"
@@ -16,8 +17,8 @@
         "convert"
         "replaygain"
         "fetchart"
-        "embedart"
         "badfiles"
+        "zero"
       ];
 
       library = "~/Music/lib.db";
@@ -52,7 +53,7 @@
           };
         };
       };
-
+  
       fetchart = {
         maxwidth = 1024;
         quality = 90;
@@ -60,12 +61,14 @@
         cover_format = "jpeg";
       };
 
-      embedart = {
-        quality = 90;
-      };
-
       badfiles = {
         check_on_import = true;
+      };
+
+      zero = {
+        auto = "yes";
+        fields = "comments";
+        update_database = true;
       };
     };
   };
