@@ -5,6 +5,8 @@
 
   programs.beets = {
     enable = true;
+    package = pkgs.beets-unstable;
+
     settings = {
       directory = "~/Music/lib";
       library = "~/Music/lib.db";
