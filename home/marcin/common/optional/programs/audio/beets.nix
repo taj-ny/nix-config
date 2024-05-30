@@ -6,23 +6,27 @@
   programs.beets = {
     enable = true;
     settings = {
+      directory = "~/Music/lib";
+      library = "~/Music/lib.db";
+ 
       plugins = [
+        "badfiles"
+        "convert"
         "deezer"
         "embedart"
-        "spotify"
-        "missing"
-        "fromfilename"
-        "scrub"
-        "lastgenre"
-        "convert"
-        "replaygain"
         "fetchart"
-        "badfiles"
+        "fromfilename" 
+        "lastgenre"
+        "missing"
+        "replaygain"
+        "scrub"
+        "spotify"
         "zero"
       ];
 
-      library = "~/Music/lib.db";
-      directory = "~/Music/lib";
+      badfiles = {
+        check_on_import = true;
+      };
 
       import = {
         write = true;
@@ -36,7 +40,7 @@
 
       replaygain = {
         backend = "ffmpeg";
-        r128 = "";
+        r128 = ""; # Use REPLAYGAIN_* fields for opus, since some players don't support R128
       };
 
       convert = {
@@ -59,10 +63,6 @@
         quality = 90;
         enforce_ratio = true;
         cover_format = "jpeg";
-      };
-
-      badfiles = {
-        check_on_import = true;
       };
 
       zero = {
