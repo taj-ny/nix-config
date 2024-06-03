@@ -119,23 +119,6 @@ in
         # Disable top left screen corner
         Effect-overview.BorderActivate.value = 9;
 
-        # The first dash is not actually a dash for some reason
-        "Effect-ًRound-Corners" = {
-          ActiveOutlineUseCustom.value = false;
-          ActiveOutlineUsePalette.value = true;
-          ActiveShadowAlpha.value = 125;
-          DisableOutlineMaximize.value = true;
-          DisableOutlineTile.value = false;
-          DisableRoundMaximize.value = true;
-          DisableRoundTile.value = false;
-          ExcludeMaximizedWindows.value = false;
-          InactiveOutlineUseCustom.value = false;
-          InactiveOutlineUsePalette.value = true;
-          InactiveShadowAlpha.value = 125;
-          InactiveShadowSize.value = 30;
-          ShadowSize.value = 30;
-        };
-
         ModifierOnlyShortcuts.Meta.value = "";
 
         Plugins = {
@@ -169,6 +152,26 @@ in
         Windows = {
           DelayFocusInterval.value = 0;
           FocusPolicy.value = "FocusFollowsMouse";
+        };
+
+        # KDE Rounded Corners
+        MaximizeTile = {
+          DisableOutlineTile.value = false;
+          DisableRoundTile.value = false;
+        };
+
+        PrimaryOutline = {
+          ActiveOutlineUseCustom.value = false;
+          ActiveOutlineUsePalette.value = true;
+          InactiveOutlineUseCustom.value = false;
+          InactiveOutlineUsePalette.value = false;
+        };
+
+        Round-Corners {
+          AnimationEnabled.value = false;
+          InactiveCornerRadius.value = 15;
+          InactiveShadowSize.value = 25;
+          Size.value = 15;
         };
       };
 
