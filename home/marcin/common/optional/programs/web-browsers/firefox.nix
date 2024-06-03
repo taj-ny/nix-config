@@ -162,6 +162,7 @@
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
 
+      # chrome://browser/content/browser.xhtml
       userChrome = ''
         @import url("firefox-ui-fix/userChrome.css");
 
@@ -175,6 +176,7 @@
 
         #nav-bar {
             box-shadow: unset !important;
+            border-top: unset !important;
         }
 
         #urlbar[focused=true] {
