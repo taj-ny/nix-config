@@ -166,14 +166,19 @@ in
           ActiveOutlineUseCustom.value = false;
           ActiveOutlineUsePalette.value = true;
           InactiveOutlineUseCustom.value = false;
-          InactiveOutlineUsePalette.value = false;
+          InactiveOutlineUsePalette.value = true;
         };
 
-        Round-Corners {
+        "ًRound-Corners" = {
           AnimationEnabled.value = false;
           InactiveCornerRadius.value = cornerRadius;
           InactiveShadowSize.value = 25;
           Size.value = cornerRadius;
+        };
+
+        SecondOutline = {
+          InactiveSecondOutlineThickness.value = 0;
+          SecondOutlineThickness.value = 0;
         };
       };
 
