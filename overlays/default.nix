@@ -4,7 +4,7 @@
   additions = final: _prev: import ../pkgs { pkgs = final; };
 
   channels = final: _prev: {
-    "23-11" = import inputs."nixpkgs-23-11" {
+    stable = import inputs.nixpkgs-stable {
       system = final.system;
       config.allowUnfree = true;
     };
