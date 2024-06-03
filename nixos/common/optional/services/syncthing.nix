@@ -28,21 +28,7 @@
             params.keep = "10";
           };
         };
-
-        Music = {
-          path = "/home/marcin/Music";
-          devices = [ "andromeda" "thinkpad" ];
-          ignorePerms = false;
-        };
-
-        Music_opus = {
-          path = "/home/marcin/Music/lib_opus";
-          devices = [ "rn10pro" ];
-          ignorePerms = false;
-        };
       };
     };
   };
-
-  systemd.services.syncthing-init.wantedBy = lib.mkForce [];
 }
