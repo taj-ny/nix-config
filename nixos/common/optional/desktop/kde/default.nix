@@ -24,9 +24,6 @@
         lightly-boehs
         lightly-qt6
 
-        # Window decorations
-        klassy
-
         # KWin scripts
         polonium
 

@@ -1,7 +1,6 @@
 { pkgs }:
 
 rec {
-  klassy = pkgs.kdePackages.callPackage ./klassy.nix { };
   kwin-effects-geometry-change = pkgs.callPackage ./kwin-effects-geometry-change { };
   lightly-qt6 = pkgs.kdePackages.callPackage ./lightly-qt6.nix { };
   lightlyshaders = pkgs.kdePackages.callPackage ./lightlyshaders.nix { };
