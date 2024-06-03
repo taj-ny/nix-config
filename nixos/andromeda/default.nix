@@ -9,8 +9,6 @@
 
     ../common/global
 
-    ../common/optional/boot/plymouth.nix
-
     ../common/optional/desktop/display-manager/sddm.nix
  
     ../common/optional/desktop/kde
@@ -30,7 +28,7 @@
     ../common/optional/programs/piper.nix
     ../common/optional/programs/rclone.nix
     ../common/optional/programs/steam.nix
-    #../common/optional/programs/vmware.nix
+    ../common/optional/programs/vmware.nix
 
     ../common/optional/security/u2f-pam.nix
 
@@ -46,8 +44,29 @@
     ../common/users/marcin
   ];
 
-  environment.variables.KWIN_FORCE_SW_CURSOR = "1";
-  services.power-profiles-daemon.enable = lib.mkForce false;
+  environment = {
+    variables.KWIN_FORCE_SW_CURSOR = "1";
+
+    etc.crypttab.text = ''
+      data PARTLABEL=data /persist/luks_keyfiles/data.key noauto
+    '';
+  };
+
+
+  fileSystems."/home/marcin/Music" = {
+    device = "/dev/mapper/data";
+    fsType = "btrfs";
+    options = [ "noatime" "nofail" "noauto" "x-systemd.automount" "subvol=@music" ];
+  };
+
+  services = {
+    power-profiles-daemon.enable = lib.mkForce false;
+
+    syncthing.settings.folders.music_lossy = {
+      path = "/home/marcin/Music/lib_opus";
+      devices = [ "thinkpad" "rn10pro" ];
+    };
+  };
 
   networking.hostName = "andromeda";
   system.stateVersion = "23.05";
