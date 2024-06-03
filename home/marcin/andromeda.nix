@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./common/global
@@ -50,5 +52,11 @@
     ./common/optional/programs/vlc.nix
   ];
 
-  home.stateVersion = "23.05";
+  home = {
+    stateVersion = "23.05";
+
+    packages = with pkgs; [
+      nicotine-plus
+    ];
+  };
 }
