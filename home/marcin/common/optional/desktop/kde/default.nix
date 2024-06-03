@@ -42,7 +42,7 @@ in
       breezerc = {
         Common = {
           OutlineIntensity.value = "OutlineOff";
-          ShadowSize.value = "ShadowNone";
+          ShadowSize.value = "ShadowVeryLarge";
         };
 
         "Windeco Exception 0" = {
