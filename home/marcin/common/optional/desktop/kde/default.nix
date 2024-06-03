@@ -36,6 +36,12 @@ in
     )
   );
 
+  gtk = {
+    enable = true;
+
+    theme.name = "Breeze";
+  };
+
   programs.plasma = {
     enable = true;
     overrideConfig = true;
