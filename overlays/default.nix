@@ -12,5 +12,6 @@
 
   modifications = final: prev: {
     cryptomator = import ./cryptomator { inherit prev; };
+    kde-rounded-corners = import ./kde-rounded-corners { inherit prev; };
   };
 }
