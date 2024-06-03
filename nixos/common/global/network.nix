@@ -11,7 +11,7 @@
 
     networkmanager.enable = true;
 
-    #firewall.enable = true;
+    firewall.enable = false;
   };
 
   systemd.targets.network-online.wantedBy = lib.mkForce [];
