@@ -14,6 +14,7 @@ let
     "konsole"
     "kwrite"
     "org.freedesktop.impl.portal.desktop.kde"
+    "org.nicotine_plus.Nicotine"
     "systemsettings"
   ];
 
