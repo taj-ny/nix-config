@@ -56,9 +56,11 @@
       };
 
       convert = {
-        auto = true;
+        auto = "yes";
         dest = "~/Music/lib";
+        max_bitrate = 0;
         never_convert_lossy_files = true;
+        no_convert = "";
         delete_originals = true;
         format = "flac";
 
