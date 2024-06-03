@@ -36,6 +36,7 @@ in
 
   programs.plasma = {
     enable = true;
+    overrideConfig = true;
 
     configFile = {
       breezerc = {
