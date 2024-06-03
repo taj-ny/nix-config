@@ -3,6 +3,8 @@
 let
   wallpaper = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo";
 
+  cornerRadius = 15;
+
   forceTransparency = [
     "ark"
     "clementine"
@@ -112,8 +114,8 @@ in
           ] ++ forceTransparency);
           BlurDecorations.value = true;
           PaintAsTranslucent.value = true;
-          TopCornerRadius.value = 10;
-          BottomCornerRadius.value = 10;
+          TopCornerRadius.value = cornerRadius;
+          BottomCornerRadius.value = cornerRadius;
         };
 
         # Disable top left screen corner
@@ -169,9 +171,9 @@ in
 
         Round-Corners {
           AnimationEnabled.value = false;
-          InactiveCornerRadius.value = 15;
+          InactiveCornerRadius.value = cornerRadius;
           InactiveShadowSize.value = 25;
-          Size.value = 15;
+          Size.value = cornerRadius;
         };
       };
 
