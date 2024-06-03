@@ -12,6 +12,5 @@
 
   modifications = final: prev: {
     cryptomator = import ./cryptomator { inherit prev; };
-    throttled = import ./throttled.nix { inherit prev; };
   };
 }
