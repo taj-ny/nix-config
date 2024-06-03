@@ -70,6 +70,8 @@ in
         MenuOpacity.value = 50;
       };
 
+      klaunchrc.FeedbackStyle.BusyCursor.value = false;
+
       klipperrc.General = {
         KeepClipboardContents.value = false; # Don't save across desktop sessions
         MaxClipItems.value = 10000;
@@ -133,6 +135,7 @@ in
           lightlyshaders_blurEnabled.value = false;
           poloniumEnabled.value = true;
           slideEnabled.value = false;
+          startupfeedbackEnabled.value = false;
           startupfeedback_busy_cursorEnabled.value = true;
         };
 
