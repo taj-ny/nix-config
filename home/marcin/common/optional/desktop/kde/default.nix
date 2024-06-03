@@ -56,8 +56,8 @@ in
       kdeglobals = {
         General = {
           AccentColor.value = "0,150,136";
-          ColorScheme.value = "KritaDarkOrange";
-          ColorSchemeHask.value = "null";
+          #ColorScheme.value = "KritaDarkOrange";
+          ColorSchemeHash.value = "null";
         };
 
         KDE.widgetStyle.value = "Lightly";
@@ -411,7 +411,8 @@ in
 
     workspace = {
       clickItemTo = "select";
-      theme = "klassy";
+      colorScheme = "KritaDarkOrange";
+      #theme = "klassy";
       # colorScheme = "KritaDarkOrange"; Doesn't work
       wallpaper = wallpaper;
     };
