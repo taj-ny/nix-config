@@ -66,6 +66,10 @@ stdenv.mkDerivation rec {
     runHook postPatch
   '';
 
+  cmakeFlags = [
+    "-DWITH_DECORATIONS=OFF"
+  ];
+
   meta = {
     description = "A modern style for qt applications";
     homepage = "https://github.com/boehs/lightly";
