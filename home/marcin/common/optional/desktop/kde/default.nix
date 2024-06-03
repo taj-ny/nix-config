@@ -152,6 +152,7 @@ in
         };
 
         Script-polonium = {
+          Borders.value = 3;
           FilterProcess.value = lib.strings.concatStringsSep ", " [
             "krunner"
             "kded"
