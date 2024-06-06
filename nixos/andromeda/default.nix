@@ -31,7 +31,6 @@
     ../common/optional/security/u2f-pam.nix
 
     ../common/optional/services/fwupd.nix
-    ../common/optional/services/pipewire.nix
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
     ../common/optional/services/tor.nix
@@ -71,7 +70,11 @@
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
 
   modules.hardware = {
+    internal = {
+      audio.enable = true;
+      bluetooth.enable = true;
+    };
+
     external.yubikey.enable = true;
-    internal.bluetooth.enable = true;
   };
 }
