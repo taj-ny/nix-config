@@ -10,6 +10,7 @@
     axel # CLI download accelerator
     htop
     powertop
+    rsync
     steam-run
     tmux
     unzip
