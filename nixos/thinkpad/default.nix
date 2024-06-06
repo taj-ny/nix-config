@@ -24,7 +24,6 @@
     ../common/optional/programs/piper.nix
     ../common/optional/programs/rclone.nix
     ../common/optional/programs/steam.nix
-    #../common/optional/programs/vmware.nix
 
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
@@ -72,6 +71,10 @@
       };
 
       external.yubikey.enable = true;
+    };
+
+    programs = {
+      #vmwareWorkstation.enable = true; TODO Broken
     };
 
     services = {
