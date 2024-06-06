@@ -17,8 +17,6 @@
 
     ../common/optional/hardware/external/printers.nix
 
-    ../common/optional/hardware/internal/gpu/nvidia.nix
-
     ../common/optional/programs/adb.nix
     ../common/optional/programs/kdeconnect.nix
     ../common/optional/programs/neovim.nix
@@ -73,6 +71,8 @@
     internal = {
       audio.enable = true;
       bluetooth.enable = true;
+
+      gpu.nvidia.enable = true;
     };
 
     external.yubikey.enable = true;
