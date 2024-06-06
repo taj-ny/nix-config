@@ -34,9 +34,9 @@ If using KDE, log out and log back in.
 - ``u`` - update flake, exit if flake.lock doesn't change
 
 # Screenshots
-![image](https://github.com/taj-ny/nix-config/assets/79316397/46712284-3a30-467d-b2fa-bd11bb3098b3)
-![image](https://github.com/taj-ny/nix-config/assets/79316397/ed0c4193-148b-4999-ad68-6c6d00d01b86)
-![image](https://github.com/taj-ny/nix-config/assets/79316397/5c769e65-6ae3-403e-94fd-6944b3327424)
+![1](https://github.com/taj-ny/nix-config/assets/79316397/bd833655-4f26-40df-b6b4-7cea704bd28c)
+![2](https://github.com/taj-ny/nix-config/assets/79316397/6268f989-3657-4c24-9409-7377c7234528)
+![3](https://github.com/taj-ny/nix-config/assets/79316397/3251da43-2c46-46be-b902-803de52bbf36)
 
 
 
