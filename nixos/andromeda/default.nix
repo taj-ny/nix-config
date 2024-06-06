@@ -17,13 +17,9 @@
 
     ../common/optional/hardware/external/printers.nix
 
-    ../common/optional/programs/adb.nix
-    ../common/optional/programs/kdeconnect.nix
     ../common/optional/programs/neovim.nix
-    ../common/optional/programs/partition-manager.nix
     ../common/optional/programs/piper.nix
     ../common/optional/programs/rclone.nix
-    ../common/optional/programs/steam.nix
 
     ../common/optional/security/u2f-pam.nix
 
@@ -47,6 +43,13 @@
     device = "/dev/mapper/data";
     fsType = "btrfs";
     options = [ "noatime" "nofail" "noauto" "x-systemd.automount" "subvol=@music" ];
+  };
+
+  programs = {
+    adb.enable = true;
+    kdeconnect.enable = true;
+    partition-manager.enable = true;
+    steam.enable = true;
   };
 
   services = {

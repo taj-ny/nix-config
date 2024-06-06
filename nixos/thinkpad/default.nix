@@ -17,13 +17,9 @@
 
     ../common/optional/kernel/linux-latest.nix
 
-    ../common/optional/programs/adb.nix
-    ../common/optional/programs/kdeconnect.nix
     ../common/optional/programs/neovim.nix
-    ../common/optional/programs/partition-manager.nix
     ../common/optional/programs/piper.nix
     ../common/optional/programs/rclone.nix
-    ../common/optional/programs/steam.nix
 
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
@@ -51,6 +47,12 @@
   networking.hostName = "thinkpad";
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+
+  programs = {
+    kdeconnect.enable = true;
+    partition-manager.enable = true;
+    steam.enable = true;
+  };
 
   services = {
     fwupd.enable = true;
