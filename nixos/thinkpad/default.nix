@@ -15,8 +15,6 @@
 
     ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
-    ../common/optional/kernel/linux-latest.nix
-
     ../common/optional/programs/neovim.nix
     ../common/optional/programs/piper.nix
     ../common/optional/programs/rclone.nix
@@ -64,6 +62,8 @@
   };
 
   modules = {
+    kernel = "latest";
+
     hardware = {
       internal = {
         audio.enable = true;
