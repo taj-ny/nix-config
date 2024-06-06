@@ -78,6 +78,7 @@
     };
 
     services = {
+      mysql.enable = true;
       tor.enable = true;
     };
 

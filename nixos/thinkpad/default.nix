@@ -27,10 +27,8 @@
     #../common/optional/programs/vmware.nix
 
     ../common/optional/services/fwupd.nix
-    ../common/optional/services/mysql.nix
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
-    ../common/optional/services/tor.nix
 
     ../common/optional/security/secure-boot.nix
     ../common/optional/security/u2f-pam.nix
@@ -74,6 +72,7 @@
     };
 
     services = {
+      mysql.enable = true;
       tor.enable = true;
     };
 
