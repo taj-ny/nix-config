@@ -15,8 +15,6 @@
 
     ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
-    ../common/optional/hardware/internal/bluetooth.nix
-
     ../common/optional/kernel/linux-latest.nix
 
     ../common/optional/programs/adb.nix
@@ -64,4 +62,6 @@
     path = "/home/marcin/Music";
     devices = [ "andromeda" ];
   };
+
+  modules.hardware.internal.bluetooth.enable = true;
 }

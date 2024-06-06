@@ -1,0 +1,25 @@
+{ config, lib, pkgs, ... }:
+
+with lib;
+let
+  cfg = config.modules.hardware.internal.bluetooth;
+in
+{
+  options.modules.hardware.internal.bluetooth.enable = mkEnableOption "Bluetooth support";
+
+  config = mkIf cfg.enable {
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
+
+    # Headset buttons support
+    systemd.user.services.mpris-proxy = {
+      description = "Mpris proxy";
+      after = [ "network.target" "sound.target" ];
+      wantedBy = [ "default.target" ];
+
+      serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+    };
+  };
+}
