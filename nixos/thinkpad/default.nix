@@ -75,6 +75,7 @@
 
     programs = {
       git.enable = true;
+      nh.enable = true;
       #vmwareWorkstation.enable = true; TODO Broken
     };
 
