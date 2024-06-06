@@ -1,7 +1,7 @@
 {
   hardware = import ./hardware;
-  kernel = import ./kernel.nix;
   network = import ./network;
+  nixos = import ./nixos;
   programs = import ./programs;
   security = import ./security;
   services = import ./services;

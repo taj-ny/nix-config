@@ -44,7 +44,6 @@
 
   networking.hostName = "thinkpad";
   system.stateVersion = "23.05";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
   programs = {
     kdeconnect.enable = true;
@@ -62,8 +61,6 @@
   };
 
   modules = {
-    kernel = "latest";
-
     hardware = {
       internal = {
         audio.enable = true;
@@ -73,6 +70,12 @@
       };
 
       external.yubikey.enable = true;
+    };
+
+    nixos = {
+      deviceType = "laptop";
+
+      impermanence.rootSize = 8;
     };
 
     programs = {

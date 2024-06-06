@@ -52,7 +52,6 @@
 
   services = {
     fwupd.enable = true;
-    power-profiles-daemon.enable = lib.mkForce false;
 
     syncthing.settings.folders.music_lossy = {
       path = "/home/marcin/Music/lib_opus";
@@ -62,7 +61,6 @@
 
   networking.hostName = "andromeda";
   system.stateVersion = "23.05";
-  powerManagement.cpuFreqGovernor = lib.mkForce "performance";
 
   modules = {
     hardware = {
@@ -74,6 +72,13 @@
       };
 
       external.yubikey.enable = true;
+    };
+
+    nixos = {
+      deviceType = "pc";
+      kernel = "lts"; # Nvidia moment
+
+      impermanence.rootSize = 16;
     };
 
     programs = {
