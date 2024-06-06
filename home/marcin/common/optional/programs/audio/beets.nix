@@ -73,7 +73,7 @@
       };
   
       fetchart = {
-        maxwidth = 1024;
+        maxwidth = 1500;
         quality = 90;
         enforce_ratio = true;
         cover_format = "jpeg";
