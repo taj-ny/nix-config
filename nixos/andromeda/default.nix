@@ -31,7 +31,6 @@
     ../common/optional/services/fwupd.nix
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
-    ../common/optional/services/tor.nix
 
     ../common/optional/allow-remote-deployment.nix
 
@@ -76,6 +75,10 @@
       };
 
       external.yubikey.enable = true;
+    };
+
+    services = {
+      tor.enable = true;
     };
 
     network.encryptedDns.enable = true;

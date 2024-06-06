@@ -73,6 +73,10 @@
       external.yubikey.enable = true;
     };
 
+    services = {
+      tor.enable = true;
+    };
+
     network.encryptedDns.enable = true;
   };
 }
