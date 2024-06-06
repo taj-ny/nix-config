@@ -63,5 +63,8 @@
     devices = [ "andromeda" ];
   };
 
-  modules.hardware.internal.bluetooth.enable = true;
+  modules.hardware = {
+    external.yubikey.enable = true;
+    internal.bluetooth.enable = true;
+  };
 }

@@ -16,7 +16,6 @@
     ../common/optional/fs/luks-btrfs-impermanence.nix
 
     ../common/optional/hardware/external/printers.nix
-    ../common/optional/hardware/external/yubikey.nix
 
     ../common/optional/hardware/internal/gpu/nvidia.nix
 
@@ -71,5 +70,8 @@
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
 
-  modules.hardware.internal.bluetooth.enable = true;
+  modules.hardware = {
+    external.yubikey.enable = true;
+    internal.bluetooth.enable = true;
+  };
 }
