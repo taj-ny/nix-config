@@ -26,7 +26,6 @@
     ../common/optional/programs/steam.nix
     #../common/optional/programs/vmware.nix
 
-    ../common/optional/services/fwupd.nix
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
 
@@ -54,9 +53,13 @@
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
-  services.syncthing.settings.folders.music_lossy = {
-    path = "/home/marcin/Music";
-    devices = [ "andromeda" ];
+  services = {
+    fwupd.enable = true;
+
+    syncthing.settings.folders.music_lossy = {
+      path = "/home/marcin/Music";
+      devices = [ "andromeda" ];
+    };
   };
 
   modules = {
