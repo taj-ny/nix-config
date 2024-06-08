@@ -13,8 +13,6 @@
     ../common/optional/desktop/display-manager/sddm.nix
     ../common/optional/desktop/kde
 
-    ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
-
     ../common/optional/programs/neovim.nix
     ../common/optional/programs/piper.nix
     ../common/optional/programs/rclone.nix
@@ -58,6 +56,15 @@
   };
 
   modules = {
+    fs = {
+      usePredefinedLayout = true;
+
+      layout = {
+        luks = true;
+        swap = true;
+      };
+    };
+
     hardware = {
       internal = {
         audio.enable = true;

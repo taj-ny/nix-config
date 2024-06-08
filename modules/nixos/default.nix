@@ -1,4 +1,5 @@
 {
+  fs = import ./fs;
   hardware = import ./hardware;
   network = import ./network;
   nixos = import ./nixos;
