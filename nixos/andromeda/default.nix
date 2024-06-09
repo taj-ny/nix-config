@@ -17,6 +17,10 @@
 
     ../common/optional/hardware/external/printers.nix
 
+    ../common/optional/hardware/internal/gpu/nvidia.nix
+
+    ../common/optional/programs/adb.nix
+    ../common/optional/programs/kdeconnect.nix
     ../common/optional/programs/neovim.nix
     ../common/optional/programs/piper.nix
     ../common/optional/programs/rclone.nix
@@ -43,7 +47,6 @@
       data PARTLABEL=data /nix/persist/luks_keyfiles/data.key noauto
     '';
   };
-
 
   fileSystems."/home/marcin/Music" = {
     device = "/dev/mapper/data";
@@ -75,8 +78,6 @@
     internal = {
       audio.enable = true;
       bluetooth.enable = true;
-
-      gpu.nvidia.enable = true;
     };
 
     external.yubikey.enable = true;
