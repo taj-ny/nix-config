@@ -24,6 +24,7 @@
 
     ../common/optional/services/fwupd.nix
     ../common/optional/services/mysql.nix
+    ../common/optional/services/pipewire.nix
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
     ../common/optional/services/tor.nix
@@ -67,12 +68,7 @@
   };
 
   modules.hardware = {
-    internal = {
-      audio.enable = true;
-      bluetooth.enable = true;
-    };
-
     external.yubikey.enable = true;
+    internal.bluetooth.enable = true;
   };
-
 }
