@@ -22,6 +22,7 @@
     ../common/optional/programs/rclone.nix
     ../common/optional/programs/steam.nix
 
+    ../common/optional/services/fwupd.nix
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
 
@@ -56,8 +57,6 @@
   };
 
   services = {
-    fwupd.enable = true;
-
     syncthing.settings.folders.music_lossy = {
       path = "/home/marcin/Music";
       devices = [ "andromeda" ];

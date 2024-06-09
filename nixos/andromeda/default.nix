@@ -25,6 +25,7 @@
 
     ../common/optional/security/u2f-pam.nix
 
+    ../common/optional/services/fwupd.nix
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
 
@@ -41,6 +42,7 @@
     '';
   };
 
+
   fileSystems."/home/marcin/Music" = {
     device = "/dev/mapper/data";
     fsType = "btrfs";
@@ -55,7 +57,6 @@
   };
 
   services = {
-    fwupd.enable = true;
     power-profiles-daemon.enable = lib.mkForce false;
 
     syncthing.settings.folders.music_lossy = {
