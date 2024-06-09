@@ -21,6 +21,8 @@
     ../common/optional/programs/piper.nix
     ../common/optional/programs/rclone.nix
 
+    ../common/optional/security/u2f-pam.nix
+
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
 
@@ -88,6 +90,5 @@
     };
 
     network.encryptedDns.enable = true;
-    security.pam-u2f.enable = true;
   };
 }

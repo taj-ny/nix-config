@@ -79,10 +79,6 @@
       #vmwareWorkstation.enable = true; TODO Broken
     };
 
-    security = {
-      pam-u2f.enable = true;
-    };
-
     services = {
       mysql.enable = true;
       tor.enable = true;
