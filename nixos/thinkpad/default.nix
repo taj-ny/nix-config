@@ -67,8 +67,5 @@
     };
   };
 
-  modules.hardware = {
-    external.yubikey.enable = true;
-    internal.bluetooth.enable = true;
-  };
+  modules.hardware.internal.bluetooth.enable = true;
 }
