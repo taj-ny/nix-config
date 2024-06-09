@@ -10,8 +10,10 @@
     ../common/global
 
     ../common/optional/desktop/display-manager/sddm.nix
-
+ 
     ../common/optional/desktop/kde
+
+    ../common/optional/fs/luks-btrfs-impermanence.nix
 
     ../common/optional/hardware/external/printers.nix
 
@@ -26,6 +28,20 @@
 
     ../common/users/marcin
   ];
+
+  environment = {
+    variables.KWIN_FORCE_SW_CURSOR = "1";
+
+    etc.crypttab.text = ''
+      data PARTLABEL=data /nix/persist/luks_keyfiles/data.key noauto
+    '';
+  };
+
+  fileSystems."/home/marcin/Music" = {
+    device = "/dev/mapper/data";
+    fsType = "btrfs";
+    options = [ "noatime" "nofail" "noauto" "x-systemd.automount" "subvol=@music" ];
+  };
 
   programs = {
     adb.enable = true;
@@ -43,20 +59,10 @@
     };
   };
 
+  networking.hostName = "andromeda";
+  system.stateVersion = "23.05";
+
   modules = {
-    fs = {
-      layout = {
-        predefined = true;
-        withLuks = true;
-      };
-
-      extraDevices."data" = {
-        keyFile = "/nix/persist/luks_keyfiles/data.key";
-
-        subvolumes."@music" = "/home/marcin/Music";
-      };
-    };
-
     hardware = {
       internal = {
         audio.enable = true;
@@ -89,9 +95,4 @@
     network.encryptedDns.enable = true;
     security.pam-u2f.enable = true;
   };
-
-  networking.hostName = "andromeda";
-  system.stateVersion = "23.05";
-
-  environment.variables.KWIN_FORCE_SW_CURSOR = "1";
 }
