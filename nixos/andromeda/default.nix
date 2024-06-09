@@ -31,6 +31,7 @@
     ../common/optional/services/tor.nix
 
     ../common/optional/allow-remote-deployment.nix
+    ../common/optional/encrypted-dns.nix
 
     ../common/users/marcin
   ];
@@ -70,18 +71,14 @@
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
 
-  modules = {
-    hardware = {
-      internal = {
-        audio.enable = true;
-        bluetooth.enable = true;
+  modules.hardware = {
+    internal = {
+      audio.enable = true;
+      bluetooth.enable = true;
 
-        gpu.nvidia.enable = true;
-      };
-
-      external.yubikey.enable = true;
+      gpu.nvidia.enable = true;
     };
 
-    network.encryptedDns.enable = true;
+    external.yubikey.enable = true;
   };
 }

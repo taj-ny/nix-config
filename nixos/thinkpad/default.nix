@@ -32,6 +32,7 @@
     ../common/optional/security/u2f-pam.nix
 
     ../common/optional/allow-remote-deployment.nix
+    ../common/optional/encrypted-dns.nix
 
     ../common/users/marcin
   ];
@@ -65,22 +66,13 @@
     };
   };
 
-  modules = {
-    hardware = {
-      internal = {
-        audio.enable = true;
-        bluetooth.enable = true;
-      };
-
-      external.yubikey.enable = true;
+  modules.hardware = {
+    internal = {
+      audio.enable = true;
+      bluetooth.enable = true;
     };
 
-    network.encryptedDns.enable = true;
-
-    fs.layout = {
-      predefined = true;
-      withLuks = true;
-      withSwap = true;
-    };
+    external.yubikey.enable = true;
   };
+
 }

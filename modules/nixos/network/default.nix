@@ -1,5 +1,0 @@
-{
-  imports = [
-    ./encrypted-dns.nix
-  ];
-}
