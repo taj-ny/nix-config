@@ -18,6 +18,7 @@
     ../common/optional/hardware/external/printers.nix
     ../common/optional/hardware/external/yubikey.nix
 
+    ../common/optional/hardware/internal/bluetooth.nix
     ../common/optional/hardware/internal/gpu/nvidia.nix
 
     ../common/optional/programs/adb.nix
@@ -75,6 +76,4 @@
   networking.hostName = "andromeda";
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
-
-  modules.hardware.internal.bluetooth.enable = true;
 }

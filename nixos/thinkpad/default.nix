@@ -15,6 +15,8 @@
 
     ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
+    ../common/optional/hardware/internal/bluetooth.nix
+
     ../common/optional/kernel/linux-latest.nix
 
     ../common/optional/programs/neovim.nix
@@ -66,6 +68,4 @@
       devices = [ "andromeda" ];
     };
   };
-
-  modules.hardware.internal.bluetooth.enable = true;
 }
