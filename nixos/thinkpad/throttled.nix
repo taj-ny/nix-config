@@ -1,3 +1,20 @@
+let
+  maxTemperature = 97;
+
+  undervolt = {
+    ac = {
+      core = 100;
+      cache = 50;
+      gpu = 0;
+    };
+
+    battery = {
+      core = 100;
+      cache = 100;
+      gpu = 50;
+    };
+  };
+in
 {
   services.throttled = {
     enable = true;
@@ -13,9 +30,9 @@
       PL1_Duration_s: 28
       PL2_Tdp_W: 44
       PL2_Duration_S: 0.002
-      Trip_Temp_C: 85
+      Trip_Temp_C: ${toString maxTemperature}
       cTDP: 0
-      Disable_BDPROCHOT: False
+      Disable_BDPROCHOT: true
 
       [AC]
       Update_Rate_s: 5
@@ -23,21 +40,21 @@
       PL1_Duration_s: 28
       PL2_Tdp_W: 44
       PL2_Duration_S: 0.002
-      Trip_Temp_C: 97
+      Trip_Temp_C: ${toString maxTemperature}
       cTDP: 2
       Disable_BDPROCHOT: True
 
       [UNDERVOLT.BATTERY]
-      CORE: -100
-      GPU: -50
-      CACHE: -100
+      CORE: ${toString (undervolt.battery.core * -1)}
+      GPU: ${toString (undervolt.battery.gpu * -1)}
+      CACHE: ${toString (undervolt.battery.cache * -1)}
       UNCORE: 0
       ANALOGIO: 0
 
       [UNDERVOLT.AC]
-      CORE: -100
-      GPU: 0
-      CACHE: -100
+      CORE: ${toString (undervolt.ac.core * -1)}
+      GPU: ${toString (undervolt.ac.gpu * -1)}
+      CACHE: ${toString (undervolt.ac.cache * -1)}
       UNCORE: 0
       ANALOGIO: 0
     '';
