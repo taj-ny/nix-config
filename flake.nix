@@ -95,25 +95,5 @@
         specialArgs = { inherit inputs outputs; };
       };
     };
-
-    homeConfigurations = {
-      "marcin@andromeda" = lib.homeManagerConfiguration {
-        modules = [ ./home/marcin/andromeda.nix ];
-        pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
-
-      "marcin@thinkpad" = lib.homeManagerConfiguration {
-        modules = [ ./home/marcin/thinkpad.nix ];
-        pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
-
-      "marcin@vm" = lib.homeManagerConfiguration {
-        modules = [ ./home/marcin/vm.nix ];
-        pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
-    };
   };
 }
