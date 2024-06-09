@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./impermanence.nix
     ./nixos-update-notifier.nix
     ./nix.nix
     ./xdg.nix

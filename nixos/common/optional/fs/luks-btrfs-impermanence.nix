@@ -14,11 +14,11 @@ in
       fsType = "vfat";
     };
 
-    "/home" = {
-      device = "/dev/mapper/nixos";
-      fsType = "btrfs";
-      options = [ "subvol=/@home" ] ++ btrfsOptions;
-    };
+    #"/home" = {
+    #  device = "/dev/mapper/nixos";
+    #  fsType = "btrfs";
+    #  options = [ "subvol=/@home" ] ++ btrfsOptions;
+    #};
 
     "/nix" = {
       device = "/dev/mapper/nixos";
@@ -26,11 +26,11 @@ in
       options = [ "subvol=/@nix" ] ++ btrfsOptions;
     };
 
-    "/persist" = {
-      device = "/dev/mapper/nixos";
-      fsType = "btrfs";
-      neededForBoot = true;
-      options = [ "subvol=/@persist" ] ++ btrfsOptions;
-    };
+    #"/persist" = {
+    #  device = "/dev/mapper/nixos";
+    #  fsType = "btrfs";
+    #  neededForBoot = true;
+    #  options = [ "subvol=/@persist" ] ++ btrfsOptions;
+    #};
   };
 }

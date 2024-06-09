@@ -1,9 +1,14 @@
 { inputs, lib, pkgs, ... }:
 
 let
+  cornerRadius = 15;
+  tilingGap = 12;
   wallpaper = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo";
 
-  cornerRadius = 15;
+  forceBlur = [
+    "firefox"
+    "plasmashell"
+  ];
 
   forceTransparency = [
     "ark"
@@ -29,13 +34,13 @@ in
     inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
 
-  home.activation.configure-kwin = lib.hm.dag.entryAfter [ "configure-plasma" ] (
-    lib.strings.concatStringsSep "\n" (
-      (map (effect: "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect ${effect}") kwinEffectsToReconfigure) ++ [
-        "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.KWin /KWin org.kde.KWin.reconfigure"
-      ]
-    )
-  );
+  #home.activation.configure-kwin = lib.hm.dag.entryAfter [ "configure-plasma" ] (
+  #  lib.strings.concatStringsSep "\n" (
+  #    (map (effect: "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect ${effect}") kwinEffectsToReconfigure) ++ [
+  #      "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.KWin /KWin org.kde.KWin.reconfigure"
+  #    ]
+  #  )
+  #);
 
   gtk = {
     enable = true;
@@ -45,7 +50,7 @@ in
 
   programs.plasma = {
     enable = true;
-    overrideConfig = true;
+    overrideConfig = lib.mkForce false;
 
     configFile = {
       breezerc = {
@@ -62,19 +67,34 @@ in
         };
       };
 
+      dolphinrc = {
+        ContentDisplay = {
+          DirectorysizeMode.value = "ContentSize";
+          RecursiveDirectorySizeLimit.value = 20;
+          UsePermissionsFormat.value = "CombinedFormat";
+        };
+
+        General = {
+          BrowseThroughArchives.value = true;
+          RememberOpenedTabs.value = false;
+        };
+        
+        DetailsMode.PreviewSize.value = 16;
+        VersionControl.enabledPlugins.value = "Git";
+      };
+
+      katerc = {
+        "KTextEditor Renderer"."Color Theme".value = "VSCodium Dark";
+      };
+
       kdeglobals = {
         General = {
-          AccentColor.value = "0,150,136";
+          AccentColor.value = "0,150,135";
           #ColorScheme.value = "KritaDarkOrange";
           ColorSchemeHash.value = "null";
         };
 
         KDE.widgetStyle.value = "Lightly";
-      };
-
-      "klassy/klassyrc".Style = {
-        ButtonGradient.value = true;
-        MenuOpacity.value = 50;
       };
 
       klaunchrc.FeedbackStyle.BusyCursor.value = false;
@@ -104,7 +124,6 @@ in
       };
 
       kscreenlockerrc = {
-        Daemon.LockGrace.value = 0; # Doesn't work with u2f
         "Greeter/Wallpaper/org.kde.image/General" = {
           Image.value = wallpaper;
           PreviewImage.value = wallpaper;
@@ -117,10 +136,7 @@ in
           NoiseStrength.value = 0;
           FakeBlur.value = true;
           FakeBlurImage.value = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo/contents/images/1920x1080_blurred.png";
-          WindowClasses.value = lib.strings.concatStringsSep "\n" ([
-            "plasmashell"
-            "firefox"
-          ] ++ forceTransparency);
+          WindowClasses.value = lib.strings.concatStringsSep "\n" (forceBlur ++ forceTransparency);
           BlurDecorations.value = true;
           PaintAsTranslucent.value = true;
           TopCornerRadius.value = cornerRadius;
@@ -159,7 +175,7 @@ in
           InsertionPoint.value = 1;
         };
 
-        Tiling.padding.value = 12;
+        Tiling.padding.value = tilingGap;
 
         Windows = {
           DelayFocusInterval.value = 0;

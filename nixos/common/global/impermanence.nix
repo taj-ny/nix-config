@@ -6,7 +6,7 @@ with lib;
     inputs.impermanence.nixosModules.impermanence
   ];
 
-  environment.persistence."/persist" = {
+  environment.persistence."/nix/persist" = {
     hideMounts = true;
 
     directories = [
@@ -25,9 +25,17 @@ with lib;
     ];
   };
 
-  fileSystems."/" = {
-    device = "tmpfs";
-    fsType = "tmpfs";
-    options = [ "size=8G" "mode=755" ];
+  fileSystems= { 
+    "/" = {
+      device = "tmpfs";
+      fsType = "tmpfs";
+      options = [ "size=8G" "mode=755" ];
+    };
+
+    #"/home/marcin" = {
+    #  device = "tmpfs";
+    #  fsType = "tmpfs";
+    #  options = [ "size=8G" "mode=755" ];
+    #};
   };
 }

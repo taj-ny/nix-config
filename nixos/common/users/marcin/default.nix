@@ -1,6 +1,15 @@
-{ pkgs, ... }:
+{ config, inputs, outputs, pkgs, ... }:
 
 {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users.marcin = import (./. + "../../../../../home/marcin/${config.networking.hostName}.nix");
+  }; 
+
   users.users.marcin = {
     isNormalUser = true;
     hashedPasswordFile = "/nix/persist/passwords/marcin";
