@@ -3,7 +3,7 @@
 {
   users.users.marcin = {
     isNormalUser = true;
-    hashedPasswordFile = "/persist/passwords/marcin";
+    hashedPasswordFile = "/nix/persist/passwords/marcin";
     extraGroups = [ "wheel" "adbusers" ];
     shell = pkgs.zsh;
 

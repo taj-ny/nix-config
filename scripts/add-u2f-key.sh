@@ -14,4 +14,4 @@ if [ $# -eq 0 ]; then
 fi
 
 echo "Adding key for $1"
-nix shell nixpkgs#pam_u2f --command sh -c "pamu2fcfg --username=$1 >> /persist/u2f_keys"
+nix shell nixpkgs#pam_u2f --command sh -c "pamu2fcfg --username=$1 >> /nix/persist/u2f_keys"

@@ -51,7 +51,7 @@
       };
 
       extraDevices."data" = {
-        keyFile = "/persist/luks_keyfiles/data.key";
+        keyFile = "/nix/persist/luks_keyfiles/data.key";
 
         subvolumes."@music" = "/home/marcin/Music";
       };

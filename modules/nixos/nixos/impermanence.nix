@@ -24,7 +24,7 @@ in
   }; 
 
   config = mkIf cfg.enable {
-    environment.persistence."/persist" = {
+    environment.persistence."/nix/persist" = {
       hideMounts = true;
 
       directories = [

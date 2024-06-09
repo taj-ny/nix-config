@@ -17,7 +17,7 @@ in
         cue = true;
         interactive = true;
         control = "required";
-        authFile = "/persist/u2f_keys";
+        authFile = "/nix/persist/u2f_keys";
       };
 
       services.kde.u2fAuth = false;

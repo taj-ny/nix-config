@@ -69,13 +69,6 @@ in
           options = [ "subvol=/@nix" ] ++ btrfsOptions;
         };
 
-        "/persist" = mkIf config.modules.nixos.impermanence.enable {
-          inherit device;
-          fsType = "btrfs";
-          neededForBoot = true;
-          options = [ "subvol=/@persist" ] ++ btrfsOptions;
-        };
-
         "/swap" = mkIf cfg.layout.withSwap {
           inherit device;
           fsType = "btrfs";
