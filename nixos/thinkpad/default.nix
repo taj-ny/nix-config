@@ -56,21 +56,10 @@
   };
 
   modules = {
-    fs = {
-      usePredefinedLayout = true;
-
-      layout = {
-        luks = true;
-        swap = true;
-      };
-    };
-
     hardware = {
       internal = {
         audio.enable = true;
         bluetooth.enable = true;
-
-        gpu.nvidia.enable = true;
       };
 
       external.yubikey.enable = true;
@@ -99,5 +88,11 @@
     };
 
     network.encryptedDns.enable = true;
+
+    fs.layout = {
+      predefined = true;
+      withLuks = true;
+      withSwap = true;
+    };
   };
 }
