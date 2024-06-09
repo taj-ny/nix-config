@@ -22,6 +22,9 @@
     ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
 
+    ../common/optional/security/secure-boot.nix
+    ../common/optional/security/u2f-pam.nix
+
     ../common/optional/allow-remote-deployment.nix
 
     ../common/users/marcin
@@ -80,7 +83,6 @@
     };
 
     security = {
-      secureBoot.enable = true;
       pam-u2f.enable = true;
     };
 
