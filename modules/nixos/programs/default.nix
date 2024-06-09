@@ -1,5 +1,0 @@
-{
-  imports = [
-    ./vmware-workstation.nix
-  ];
-}

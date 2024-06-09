@@ -20,6 +20,8 @@
     ../common/optional/programs/neovim.nix
     ../common/optional/programs/piper.nix
     ../common/optional/programs/rclone.nix
+    ../common/optional/programs/steam.nix
+    ../common/optional/programs/vmware.nix
 
     ../common/optional/security/u2f-pam.nix
 
@@ -76,10 +78,6 @@
       };
 
       external.yubikey.enable = true;
-    };
-
-    programs = {
-      vmwareWorkstation.enable = true;
     };
 
     services = {
