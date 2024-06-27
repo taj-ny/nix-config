@@ -51,10 +51,8 @@
       userContent = "@import url(\"firefox-ui-fix/userContent.css\")";
 
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-        clearurls
         keepassxc-browser
         multi-account-containers
-        plasma-integration
         sponsorblock
         switchyomega
         ublock-origin
@@ -195,6 +193,8 @@
       '';
     };
   };
+
+  custom.impermanence.persistentDirectories = [ ".mozilla/firefox" ];
 
   home.file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
 }

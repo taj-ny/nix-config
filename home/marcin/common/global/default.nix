@@ -1,22 +1,33 @@
-{ outputs, ... }:
+{ inputs, outputs, pkgs, ... }:
 
+let
+  username = "marcin";
+in
 {
   imports = [
-    ./impermanence.nix
     ./nixos-update-notifier.nix
     ./nix.nix
     ./xdg.nix
+
+    "${inputs.impermanence}/home-manager.nix"
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   home = {
-    username = "marcin";
-    homeDirectory = "/home/marcin";
+    inherit username;
+    homeDirectory = "/home/${username}";
+
+    packages = with pkgs; [
+      gimp
+      keepassxc
+      libreoffice-fresh
+      obs-studio
+      vlc
+    ];
   };
 
+  custom.impermanence.enable = true;
+
   fonts.fontconfig.enable = true;
-
   programs.home-manager.enable = true;
-
-  # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 }

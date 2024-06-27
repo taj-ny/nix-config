@@ -67,4 +67,6 @@
       fi
     '';
   };
+
+  custom.impermanence.persistentFiles = [ ".zsh_history" ];
 }

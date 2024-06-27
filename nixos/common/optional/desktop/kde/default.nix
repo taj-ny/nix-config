@@ -32,7 +32,6 @@
 
         # Plasmoids
         plasma-panel-colorizer
-        plasma-panel-spacer-extended
         plasma-window-title-applet
 
         # Desktop effects
@@ -40,7 +39,6 @@
         inputs.kwin-effects-startupfeedback-busy-cursor.packages.${pkgs.system}.default
         kde-rounded-corners
         kwin-effects-geometry-change
-        lightlyshaders
       ];
 
     plasma6.excludePackages = with pkgs.kdePackages; [

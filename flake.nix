@@ -25,12 +25,12 @@
 
     kwin-effects-forceblur = {
       url = "github:taj-ny/kwin-effects-forceblur/develop";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     kwin-effects-startupfeedback-busy-cursor = {
       url = "github:taj-ny/kwin-effects-startupfeedback-busy-cursor";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     lanzaboote = {
@@ -44,7 +44,7 @@
     };
    
     plasma-manager = {
-      url = "github:pjones/plasma-manager";
+      url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };

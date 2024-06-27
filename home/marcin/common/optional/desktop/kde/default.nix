@@ -48,6 +48,13 @@ in
     theme.name = "Breeze";
   };
 
+  custom.impermanence.persistentDirectories = [
+    ".local/share/baloo"
+    ".local/share/dolphin"
+    ".local/share/kwalletd"
+    ".local/share/Trash"
+  ];
+
   programs.plasma = {
     enable = true;
     overrideConfig = lib.mkForce false;
@@ -132,15 +139,17 @@ in
 
       kwinrc = {
         Effect-blurplus = {
-          BlurStrength.value = 6;
+          BlurStrength.value = 3;
           NoiseStrength.value = 0;
           FakeBlur.value = true;
-          FakeBlurImage.value = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo/contents/images/1920x1080_blurred.png";
+          FakeBlurImage.value = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo/contents/images/5120x2880.png";
           WindowClasses.value = lib.strings.concatStringsSep "\n" (forceBlur ++ forceTransparency);
           BlurDecorations.value = true;
           PaintAsTranslucent.value = true;
-          TopCornerRadius.value = cornerRadius;
-          BottomCornerRadius.value = cornerRadius;
+          TransparentBlur.value = false;
+          TopCornerRadius.value = cornerRadius + 2;
+          BottomCornerRadius.value = cornerRadius + 2;
+          MenuCornerRadius.value = 10;
         };
 
         # Disable top left screen corner

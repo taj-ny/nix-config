@@ -8,6 +8,7 @@
 
   environment.systemPackages = with pkgs; [
     axel # CLI download accelerator
+    bc
     htop
     powertop
     rsync

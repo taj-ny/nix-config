@@ -1,4 +1,4 @@
-{ config, lib, modulesPath, inputs, ... }:
+{ config, lib, modulesPath, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -23,7 +23,7 @@
 
     #../common/optional/programs/adb.nix
     #../common/optional/programs/kdeconnect.nix
-    ../common/optional/programs/neovim.nix
+    #../common/optional/programs/neovim.nix
     ../common/optional/programs/piper.nix
     #../common/optional/programs/rclone.nix
     #../common/optional/programs/steam.nix
@@ -43,9 +43,8 @@
     ../common/users/marcin
   ];
 
-  environment = {
-    variables.KWIN_FORCE_SW_CURSOR = "1";
 
+  environment = {
     etc.crypttab.text = ''
       data PARTLABEL=data /nix/persist/luks_keyfiles/data.key noauto
     '';

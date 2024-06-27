@@ -7,8 +7,6 @@
     ./common/optional/desktop/kde
 
     ./common/optional/programs/audio/beets.nix
-    ./common/optional/programs/audio/clementine.nix
-    ./common/optional/programs/audio/deemix.nix
     ./common/optional/programs/audio/easyeffects
 
     ./common/optional/programs/gaming/prismlauncher.nix
@@ -42,21 +40,19 @@
 
     ./common/optional/programs/web-browsers/firefox.nix
     ./common/optional/programs/web-browsers/tor-browser.nix
-    ./common/optional/programs/web-browsers/ungoogled-chromium.nix
+    #./common/optional/programs/web-browsers/ungoogled-chromium.nix
 
     ./common/optional/programs/btop.nix
     ./common/optional/programs/cryptomator.nix
     ./common/optional/programs/kdeconnect.nix
-    ./common/optional/programs/keepassxc.nix
-    ./common/optional/programs/obs-studio.nix
-    ./common/optional/programs/vlc.nix
   ];
 
-  home = {
-    stateVersion = "23.05";
+  home.stateVersion = "23.05";
 
-    packages = with pkgs; [
-      nicotine-plus
-    ];
+  custom.programs = {
+    clementine.enable = true;
+    deemix.enable = true;
+    keepassxc.enable = true;
+    nicotine-plus.enable = true;
   };
 }

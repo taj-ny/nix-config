@@ -1,20 +1,12 @@
-{ outputs, ... }:
+{ osConfig, ... }:
 
 {
   nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.channels
-      outputs.overlays.modifications
-    ];
-
-    config.allowUnfree = true;
+    inherit (osConfig.nixpkgs) overlays config;
   };
 
-  # TODO Deduplicate
   nix.gc = {
-    automatic = true;
-    frequency = "daily";
-    options = "--delete-older-than 7d";
+    inherit (osConfig.nix.gc) automatic options;
+    frequency = osConfig.nix.gc.dates;
   };
 }
