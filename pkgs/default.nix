@@ -8,7 +8,6 @@ rec {
   nixos-update-notifier = pkgs.callPackage ./nixos-update-notifier { };
   plasma-breath-wallpapers = pkgs.callPackage ./plasma-breath-wallpapers.nix { };
   plasma-panel-colorizer = pkgs.kdePackages.callPackage ./plasma-panel-colorizer.nix { };
-  plasma-panel-spacer-extended = pkgs.callPackage ./plasma-panel-spacer-extended.nix { };
   plasma-window-title-applet = pkgs.callPackage ./plasma-window-title-applet.nix { };
   polonium = pkgs.callPackage ./polonium.nix { };
   rascii = pkgs.callPackage ./rascii.nix { };
