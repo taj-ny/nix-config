@@ -19,7 +19,6 @@
     ../common/optional/hardware/external/yubikey.nix
 
     ../common/optional/hardware/internal/bluetooth.nix
-    ../common/optional/hardware/internal/gpu/nvidia.nix
 
     #../common/optional/programs/adb.nix
     #../common/optional/programs/kdeconnect.nix
@@ -43,6 +42,11 @@
     ../common/users/marcin
   ];
 
+  custom = {
+    hardware = {
+      internal.gpu.nvidia.enable = true;
+    };
+  };
 
   environment = {
     etc.crypttab.text = ''
