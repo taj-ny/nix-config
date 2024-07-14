@@ -2,7 +2,6 @@
 
 let
   cornerRadius = 15;
-  tilingGap = 12;
   wallpaper = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo";
 
   forceBlur = [
@@ -198,8 +197,6 @@ in
           ];
           InsertionPoint.value = 1;
         };
-
-        Tiling.padding.value = tilingGap;
 
         Windows = {
           DelayFocusInterval.value = 0;
@@ -476,6 +473,15 @@ in
       "services/org.kde.krunner.desktop"."_launch" = "Meta+X";
       "services/org.kde.spectacle.desktop"."_launch" = "Print";
     };
+
+    startup.startupScript.tilingGap.text = ''
+      qdbus org.kde.KWin /Scripting org.kde.kwin.Scripting.loadScript ${pkgs.writeText "tilingGap.js" ''
+        for (const screen of workspace.screens) {
+            workspace.tilingForScreen(screen.name).rootTile.padding = 12;
+        }
+      ''}
+      qdbus org.kde.KWin /Scripting org.kde.kwin.Scripting.start
+    '';
 
     workspace = {
       clickItemTo = "select";
