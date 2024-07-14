@@ -77,7 +77,7 @@
     devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
     overlays = import ./overlays { inherit inputs; };
     nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
+    homeManagerModules = import ./modules/home;
 
     nixosConfigurations = {
       andromeda = lib.nixosSystem {
