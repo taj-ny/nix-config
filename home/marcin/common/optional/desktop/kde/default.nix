@@ -137,6 +137,8 @@ in
       };
 
       kscreenlockerrc = {
+        "Greeter/LnF/General".showMediaControls.value = false;
+
         "Greeter/Wallpaper/org.kde.image/General" = {
           Image.value = wallpaper;
           PreviewImage.value = wallpaper;
