@@ -107,7 +107,10 @@ in
           ColorSchemeHash.value = "null";
         };
 
-        KDE.widgetStyle.value = "Lightly";
+        KDE = {
+          AnimationDurationFactor.value = "1.414213562373095";
+          widgetStyle.value = "Lightly";
+        };
       };
 
       klaunchrc.FeedbackStyle.BusyCursor.value = false;
