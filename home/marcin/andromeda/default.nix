@@ -24,6 +24,8 @@
     packages = with pkgs; [
       jetbrains.clion
     ];
+
+    sessionVariables.MOZ_ENABLE_WAYLAND = 0;
   };
 
   custom.programs = {
