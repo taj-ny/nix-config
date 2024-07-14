@@ -6,13 +6,13 @@
 
 buildNpmPackage rec {
   pname = "polonium";
-  version = "1.0rc";
+  version = "2024-07-09";
 
   src = fetchFromGitHub {
     owner = "zeroxoneafour";
     repo = pname;
-    rev = "v${version}";
-    hash = "sha256-AdMeIUI7ZdctpG/kblGdk1DBy31nDyolPVcTvLEHnNs=";
+    rev = "f17754a76efb3b07a4dbde53e0d2c055271a4882";
+    hash = "sha256-GCSL3eg4729uNVZVAFUgCO3i0BiOkFgxQNgXbBCz1XA=";
   };
 
   npmDepsHash = "sha256-kaT3Uyq+/JkmebakG9xQuR4Kjo7vk6BzI1/LffOj/eo=";
