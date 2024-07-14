@@ -25,12 +25,12 @@
 
     kwin-effects-forceblur = {
       url = "github:taj-ny/kwin-effects-forceblur/develop";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     kwin-effects-startupfeedback-busy-cursor = {
       url = "github:taj-ny/kwin-effects-startupfeedback-busy-cursor";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     lanzaboote = {

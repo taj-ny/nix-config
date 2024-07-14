@@ -7,6 +7,7 @@ let
 
   forceBlur = [
     "firefox"
+    "konsole"
     "plasmashell"
   ];
 
@@ -16,7 +17,6 @@ let
     "dolphin"
     "kate"
     "keepassxc"
-    "konsole"
     "kwrite"
     "org.freedesktop.impl.portal.desktop.kde"
     "org.nicotine_plus.Nicotine"
@@ -48,18 +48,24 @@ in
     theme.name = "Breeze";
   };
 
-  custom.impermanence.persistentDirectories = [
-    ".local/share/baloo"
-    ".local/share/dolphin"
-    ".local/share/kwalletd"
-    ".local/share/Trash"
-  ];
+  custom.impermanence = {
+    persistentDirectories = [
+      ".local/share/baloo"
+      ".local/share/dolphin"
+      ".local/share/kwalletd"
+      ".local/share/Trash"
+    ];
+
+    persistentFiles = [ ".config/kwinoutputconfig.json" ];
+  };
 
   programs.plasma = {
     enable = true;
     overrideConfig = lib.mkForce false;
 
     configFile = {
+      bluedevilglobalrc.Global.launchState.value = "disable";
+
       breezerc = {
         Common = {
           OutlineIntensity.value = "OutlineOff";
@@ -140,9 +146,9 @@ in
       kwinrc = {
         Effect-blurplus = {
           BlurStrength.value = 3;
+          BlurMenus.value = true;
           NoiseStrength.value = 0;
           FakeBlur.value = true;
-          FakeBlurImage.value = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo/contents/images/5120x2880.png";
           WindowClasses.value = lib.strings.concatStringsSep "\n" (forceBlur ++ forceTransparency);
           BlurDecorations.value = true;
           PaintAsTranslucent.value = true;
@@ -166,6 +172,7 @@ in
           kwin_effect_lightlyshadersEnabled.value = false;
           lightlyshaders_blurEnabled.value = false;
           poloniumEnabled.value = true;
+          shakecursorEnabled.value = false;
           slideEnabled.value = false;
           startupfeedbackEnabled.value = false;
           startupfeedback_busy_cursorEnabled.value = true;
@@ -238,6 +245,11 @@ in
           minsizerule.value = 2;
           types.value = 33; # normal, dialog
         };
+      };
+
+      kxkbrc.Layout = {
+        LayoutList.value = "pl";
+        Use.value = true;
       };
 
       lightlyrc = {
@@ -328,7 +340,7 @@ in
       {
         height = 29;
         location = "top";
-        floating = true;
+        floating = false; # TODO Breaks Polonium
         widgets = [
           {
             name = "org.kde.plasma.kickoff";
@@ -444,6 +456,7 @@ in
       };
 
       plasmashell = {
+        "activate application launcher" = "none";
         "manage activities" = "none";
         "next activity" = "none";
         "previous activity" = "none";

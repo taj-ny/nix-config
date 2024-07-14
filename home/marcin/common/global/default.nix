@@ -5,6 +5,8 @@ let
 in
 {
   imports = [
+    ./programs
+
     ./nixos-update-notifier.nix
     ./nix.nix
     ./xdg.nix
@@ -18,14 +20,64 @@ in
 
     packages = with pkgs; [
       gimp
-      keepassxc
       libreoffice-fresh
       obs-studio
+      tor-browser-bundle-bin
       vlc
+      yubikey-manager
     ];
   };
 
-  custom.impermanence.enable = true;
+  custom = {
+    impermanence = {
+      enable = true;
+
+      persistentDirectories =
+        let
+          symlink = directory: {
+            inherit directory;
+            method = "symlink";
+          };
+        in
+        [
+          ".cert" # NetworkManager OpenVPN
+          ".config/JetBrains"
+          ".java/.userPrefs"
+          ".local/share/JetBrains"
+          (symlink ".local/share/Steam")
+          ".local/state/wireplumber"
+          ".ssh"
+          ".syncthing"
+          "Documents"
+          "Downloads"
+          "Pictures"
+          "Projects"
+          "Virtual Machines"
+        ];
+
+      persistentFiles = [
+        ".config/rclone/rclone.conf"
+      ];
+    };
+
+    programs = {
+      clementine.enable = true;
+      google-chrome.enable = true; # Just in case something doesn't work on Firefox. It's sandboxed.
+      kdeconnect.enable = true;
+      keepassxc.enable = true;
+    };
+  };
+
+  home.file =
+    let
+      mkDesktopFile = icon: ''
+        [Desktop Entry]
+        Icon=${icon}
+      '';
+    in
+    {
+      "Projects/.directory".text = mkDesktopFile "code-context";
+    };
 
   fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;

@@ -2,8 +2,6 @@
 
 {
   programs.firefox = {
-    enable = true;
-
     policies = {
       CaptivePortal = false;
       DisableFirefoxStudies = true;
@@ -64,82 +62,6 @@
         default = "DuckDuckGo";
       };
 
-      bookmarks = [
-        {
-          name = "Toolbar";
-          toolbar = true;
-          bookmarks = [
-            {
-              name = "Home Manager - Option Search";
-              keyword = "hm";
-              tags = [ "nix" ];
-              url = "https://mipmip.github.io/home-manager-option-search";
-            }
-            {
-              name = "NixOS Search";
-              keyword = "ns";
-              tags = [ "nix" ];
-              url = "https://search.nixos.org/packages";
-            }
-            {
-              name = "Noogle";
-              keyword = "n";
-              tags = [ "nix" ];
-              url = "https://noogle.dev";
-            }
-
-            {
-              name = "Deezer Search";
-              tags = [ "piracy" ];
-              url = "https://www.deezer.com/asdasdasdasd";
-            }
-            {
-              name = "Divolt";
-              keyword = "divolt";
-              tags = [ "piracy" ];
-              url = "https://divolt.xyz";
-            }
-            {
-              name = "DoubleDouble";
-              keyword = "dd";
-              tags = [ "piracy" ];
-              url = "https://doubledouble.top";
-            }
-            {
-              name = "FMHY";
-              keyword = "fmhy";
-              tags = [ "piracy" ];
-              url = "https://fmhy.pages.dev";
-            }
-
-            {
-              name = "Discord";
-              url = "https://discord.com/app";
-            }
-            {
-              name = "monkeytype";
-              keyword = "monkeytype";
-              url = "https://monkeytype.com";
-            }
-            {
-              name = "ProtonMail";
-              keyword = "mail";
-              url = "https://mail.proton.me";
-            }
-            {
-              name = "Spotify";
-              keyword = "spotify";
-              url = "https://open.spotify.com";
-            }
-            {
-              name = "YouTube";
-              keyword = "yt";
-              url = "https://youtube.com";
-            }
-          ];
-        }
-      ];
-
       settings = {
         "browser.aboutConfig.showWarning" = false;
         "browser.newtabpage.enabled" = false;
@@ -194,7 +116,6 @@
     };
   };
 
-  custom.impermanence.persistentDirectories = [ ".mozilla/firefox" ];
-
   home.file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
+  custom.programs.firefox.enable = true;
 }

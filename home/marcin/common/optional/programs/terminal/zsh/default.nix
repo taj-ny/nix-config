@@ -26,7 +26,6 @@
       plugins = [
         "git"
         "sudo"
-        "thefuck"
       ];
     };
 
