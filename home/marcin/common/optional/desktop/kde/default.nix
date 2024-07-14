@@ -152,6 +152,7 @@ in
           NoiseStrength.value = 0;
           FakeBlur.value = true;
           FakeBlurImage.value = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo/contents/images/5120x2880.png";
+          FakeBlurImageSourceCustom.value = true;
           WindowClasses.value = lib.strings.concatStringsSep "\n" (forceBlur ++ forceTransparency);
           BlurDecorations.value = true;
           PaintAsTranslucent.value = true;
