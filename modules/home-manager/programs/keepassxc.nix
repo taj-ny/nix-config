@@ -11,6 +11,7 @@ in
     home.packages = with pkgs; [ keepassxc ];
 
     custom.impermanence.persistentDirectories = [
+      ".cache/keepassxc"
       ".config/keepassxc"
       "keepass"
     ];
