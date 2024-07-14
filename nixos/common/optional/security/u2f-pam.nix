@@ -13,6 +13,9 @@
       authFile = "/nix/persist/u2f_keys";
     };
 
-    services.kde.u2fAuth = false;
+    services = {
+      kde.u2fAuth = false;
+      login.u2fAuth = false;
+    };
   };
 }
