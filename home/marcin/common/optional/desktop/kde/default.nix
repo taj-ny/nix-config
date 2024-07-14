@@ -221,7 +221,8 @@ in
         "ًRound-Corners" = {
           AnimationEnabled.value = false;
           InactiveCornerRadius.value = cornerRadius;
-          InactiveShadowSize.value = 25;
+          InactiveShadowSize.value = 40;
+          ShadowSize.value = 40;
           Size.value = cornerRadius;
         };
 
