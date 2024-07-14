@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
     dir=$(pwd)
     cd wallpapers/Bamboo/contents/images
     mv 5120x2880.png tmp.png
-    convert tmp.png -brightness-contrast -20x30 5120x2880.png
+    convert tmp.png -gamma 0.5 -brightness-contrast 0x10 5120x2880.png
     rm tmp.png
     cd $dir
 
