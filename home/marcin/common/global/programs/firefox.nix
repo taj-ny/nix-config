@@ -74,6 +74,7 @@
         "browser.urlbar.suggest.engines" = false;
         "browser.urlbar.suggest.history" = false;
         "browser.urlbar.suggest.topsites" = false;
+        "dom.private-attribution.submission.enabled" = false;
         "dom.security.https_only_mode" = true;
         "dom.security.https_only_mode_ever_enabled" = true;
         "media.ffmpeg.vaapi.enabled" = true;
