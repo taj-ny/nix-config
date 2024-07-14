@@ -31,4 +31,7 @@
       };
     };
   };
+
+  # Start Syncthing after ~/.syncthing has been mounted
+  systemd.services.syncthing.requires = [ "basic.target" ];
 }
