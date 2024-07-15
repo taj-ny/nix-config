@@ -19,11 +19,22 @@ in
     homeDirectory = "/home/${username}";
 
     packages = with pkgs; [
+      axel
+      duf
+      eza
+      fastfetch
+      ffmpeg
       gimp
       libreoffice-fresh
       obs-studio
+      rclone
+      rsync
+      tmux
       tor-browser-bundle-bin
+      unzip
       vlc
+      wl-clipboard
+      yt-dlp
       yubikey-manager
     ];
   };

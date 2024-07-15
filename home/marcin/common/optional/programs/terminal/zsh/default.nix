@@ -18,6 +18,8 @@
       clear = "command clear; echo; cat ${pkgs.nix-ascii-art}/nixos-106x16.txt";
       colors = ''for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}''${(l:3::0:)i}%f " ''${''${(M)$((i%6)):#3}:+$'\n'}; done'';
       deemix-dl = "deemix -p /home/marcin/Music/import -b flac";
+      ls = "eza -lbghMUa --group-directories-first --git --git-repos";
+      nh = "rm /home/marcin/.gtkrc-2.0; nh";
     };
 
     oh-my-zsh = {
