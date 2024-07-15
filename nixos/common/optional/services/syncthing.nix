@@ -5,7 +5,7 @@
     enable = true;
     user = "marcin";
     dataDir = "/home/marcin";
-    configDir = "/home/marcin/.syncthing";
+    configDir = "/nix/persist/home/marcin/.syncthing";
     overrideDevices = true;
     overrideFolders = true;
 
@@ -32,6 +32,6 @@
     };
   };
 
-  # Start Syncthing after ~/.syncthing has been mounted
+  # Start syncthing after all persistent directories have been mounted in /home
   systemd.services.syncthing.requires = [ "basic.target" ];
 }
