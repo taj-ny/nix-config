@@ -100,7 +100,7 @@
             border-top: unset !important;
         }
 
-        #urlbar[focused=true] {
+        #urlbar[focused=""] #urlbar-background {
             background-color: rgb(25, 25, 25) !important;
         }
 
