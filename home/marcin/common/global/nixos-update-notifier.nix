@@ -10,7 +10,7 @@
       "lanzaboote"
       "impermanence"
       "nixpkgs"
-      "nixpkgs-23-11"
+      "nixpkgs-stable"
       "nixvim"
       "plasma-manager"
     ];
