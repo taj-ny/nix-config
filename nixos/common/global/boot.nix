@@ -13,6 +13,7 @@
       efi.canTouchEfiVariables = true;
     };
 
+    kernel.sysctl."fs.file-max" = 524288;
     initrd.verbose = false;
   };
 }

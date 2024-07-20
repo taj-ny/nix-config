@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 let
   cornerRadius = 15;
@@ -8,18 +8,6 @@ let
     "firefox"
     "konsole"
     "plasmashell"
-  ];
-
-  forceTransparency = [
-    "ark"
-    "clementine"
-    "dolphin"
-    "kate"
-    "keepassxc"
-    "kwrite"
-    "org.freedesktop.impl.portal.desktop.kde"
-    "org.nicotine_plus.Nicotine"
-    "systemsettings"
   ];
 
   kwinEffectsToReconfigure = [
@@ -47,19 +35,30 @@ in
     theme.name = "Breeze";
   };
 
-  custom.impermanence = {
-    persistentDirectories = [
-      ".local/share/baloo"
-      ".local/share/dolphin"
-      ".local/share/kwalletd"
-      ".local/share/Trash"
-    ];
+  custom.programs.plasma = {
+    enable = true;
 
-    persistentFiles = [ ".config/kwinoutputconfig.json" ];
+    kwin = {
+      tilingGap = 12;
+
+      forceTransparency = {
+        opacity = 85;
+        windowClasses = [
+          "ark"
+          "clementine"
+          "dolphin"
+          "kate"
+          "keepassxc"
+          "kwrite"
+          "org.freedesktop.impl.portal.desktop.kde"
+          "org.nicotine_plus.Nicotine"
+          "systemsettings"
+        ];
+      };
+    };
   };
 
   programs.plasma = {
-    enable = true;
     overrideConfig = lib.mkForce false;
 
     configFile = {
@@ -156,7 +155,7 @@ in
           FakeBlurImage.value = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo/contents/images/5120x2880.png";
           FakeBlurImageSourceCustom.value = true;
           FakeBlurImageSourceDesktopWallpaper.value = false;
-          WindowClasses.value = lib.strings.concatStringsSep "\n" (forceBlur ++ forceTransparency);
+          WindowClasses.value = lib.strings.concatStringsSep "\n" (forceBlur ++ config.custom.programs.plasma.kwin.forceTransparency.windowClasses);
           BlurDecorations.value = true;
           PaintAsTranslucent.value = true;
           TransparentBlur.value = false;
@@ -227,29 +226,6 @@ in
         SecondOutline = {
           InactiveSecondOutlineThickness.value = 0;
           SecondOutlineThickness.value = 0;
-        };
-      };
-
-      kwinrulesrc = {
-        General = {
-          count.value = 2;
-          rules.value = "50946d8d-701f-4424-9260-136605110dc8,eb1e7304-4128-427a-8022-37c814070998";
-        };
-
-        "50946d8d-701f-4424-9260-136605110dc8" = {
-          Description.value = "Force transparency";
-          opacityactive.value = 85;
-          opacityactiverule.value = 2;
-          opacityinactive.value = 85;
-          opacityinactiverule.value = 2;
-          wmclass.value = lib.strings.concatStringsSep "|" forceTransparency;
-          wmclassmatch.value = 3;
-        };
-
-        eb1e7304-4128-427a-8022-37c814070998 = {
-          Description.value = "Minimum size";
-          minsizerule.value = 2;
-          types.value = 33; # normal, dialog
         };
       };
 
@@ -474,14 +450,17 @@ in
       "services/org.kde.spectacle.desktop"."_launch" = "Print";
     };
 
-    startup.startupScript.tilingGap.text = ''
-      qdbus org.kde.KWin /Scripting org.kde.kwin.Scripting.loadScript ${pkgs.writeText "tilingGap.js" ''
-        for (const screen of workspace.screens) {
-            workspace.tilingForScreen(screen.name).rootTile.padding = 12;
-        }
-      ''}
-      qdbus org.kde.KWin /Scripting org.kde.kwin.Scripting.start
-    '';
+    window-rules = [
+      {
+        description = "Minimum size";
+
+        match.window-types = [ "normal" "dialog" ];
+        apply.minsize = {
+          apply = "force";
+          value = "0,0";
+        };
+      }
+    ];
 
     workspace = {
       clickItemTo = "select";

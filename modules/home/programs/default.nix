@@ -1,5 +1,7 @@
 {
   imports = [
+    ./plasma
+
     ./clementine.nix
     ./clion.nix
     ./deemix.nix

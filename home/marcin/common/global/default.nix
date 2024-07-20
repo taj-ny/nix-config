@@ -55,7 +55,7 @@ in
           ".config/JetBrains"
           ".java/.userPrefs"
           ".local/share/JetBrains"
-          (symlink ".local/share/Steam")
+          ".local/share/Steam"
           ".local/state/wireplumber"
           ".ssh"
           ".syncthing"
