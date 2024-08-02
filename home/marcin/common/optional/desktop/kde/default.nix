@@ -202,6 +202,8 @@ in
           FocusPolicy.value = "FocusFollowsMouse";
         };
 
+        Xwayland.XwaylandEavesdrops.value = "None";
+
         # KDE Rounded Corners
         MaximizeTile = {
           DisableOutlineTile.value = false;
