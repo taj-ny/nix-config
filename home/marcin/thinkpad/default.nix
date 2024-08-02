@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   imports = [
     ./../common/global
@@ -20,7 +22,7 @@
       "Libinput/2/10/TPPS\\/2 IBM TrackPoint".PointerAcceleration.value = "1.000";
     };
 
-    powerdevilrc = {
+    powerdevilrc = lib.mkForce {
       "AC/Display" = {
         DimDisplayWhenIdle.value = false;
         TurnOffDisplayWhenIdle.value = false;
