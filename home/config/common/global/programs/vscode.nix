@@ -7,9 +7,11 @@
 
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
+      shd101wyy.markdown-preview-enhanced
     ];
 
     userSettings = {
+      "markdown-preview-enhanced.previewTheme" = "github-dark.css";
       "material-icon-theme.folders.theme" = "classic";
       "material-icon-theme.folders.color" = "#009688";
       "nix.enableLanguageServer" = true;
