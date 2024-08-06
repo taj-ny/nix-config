@@ -95,10 +95,6 @@ in
         VersionControl.enabledPlugins.value = "Git";
       };
 
-      katerc = {
-        "KTextEditor Renderer"."Color Theme".value = "VSCodium Dark";
-      };
-
       kdeglobals = {
         General = {
           AccentColor.value = "0,150,135";
@@ -261,12 +257,6 @@ in
         name = "Launch Firefox";
         key = "Meta+Shift+F";
         command = "firefox";
-      };
-
-      launch-kate = {
-        name = "Launch Kate";
-        key = "Meta+Shift+T";
-        command = "kate";
       };
 
       launch-keepassxc = {
