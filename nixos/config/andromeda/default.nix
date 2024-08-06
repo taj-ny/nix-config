@@ -22,7 +22,6 @@
 
     #../common/optional/programs/adb.nix
     #../common/optional/programs/kdeconnect.nix
-    #../common/optional/programs/neovim.nix
     ../common/optional/programs/piper.nix
     #../common/optional/programs/rclone.nix
     #../common/optional/programs/steam.nix

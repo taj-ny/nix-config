@@ -19,7 +19,6 @@
 
     ../common/optional/kernel/linux-latest.nix
 
-    #../common/optional/programs/neovim.nix
     ../common/optional/programs/piper.nix
 
     ../common/optional/services/fwupd.nix
