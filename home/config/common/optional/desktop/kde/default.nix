@@ -53,6 +53,7 @@ in
           "org.freedesktop.impl.portal.desktop.kde"
           "org.nicotine_plus.Nicotine"
           "systemsettings"
+          "vscodium"
         ];
       };
     };
