@@ -10,9 +10,9 @@
       control = "required";
 
       settings = {
+        authfile = "/nix/persist/u2f_keys";
         cue = true;
         interactive = true;
-        authFile = "/nix/persist/u2f_keys";
       };
     };
 
