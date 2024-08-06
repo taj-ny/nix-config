@@ -277,6 +277,12 @@ in
         command = "systemsettings";
       };
 
+      launch-vscode = {
+        name = "Launch VSCode";
+        key = "Meta+Shift+V";
+        command = "codium";
+      };
+
 
       logout = {
         name = "Log out";
