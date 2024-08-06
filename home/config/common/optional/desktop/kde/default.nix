@@ -9,25 +9,11 @@ let
     "konsole"
     "plasmashell"
   ];
-
-  kwinEffectsToReconfigure = [
-    "forceblur"
-    "kwin4_effect_geometry_change"
-    "kwin4_effect_shapecorners"
-  ];
 in
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
-
-  #home.activation.configure-kwin = lib.hm.dag.entryAfter [ "configure-plasma" ] (
-  #  lib.strings.concatStringsSep "\n" (
-  #    (map (effect: "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect ${effect}") kwinEffectsToReconfigure) ++ [
-  #      "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.KWin /KWin org.kde.KWin.reconfigure"
-  #    ]
-  #  )
-  #);
 
   gtk = {
     enable = true;
@@ -47,7 +33,6 @@ in
           "ark"
           "clementine"
           "dolphin"
-          "kate"
           "keepassxc"
           "kwrite"
           "org.freedesktop.impl.portal.desktop.kde"
@@ -56,6 +41,12 @@ in
           "vscodium"
         ];
       };
+      
+      reconfigure.effects = [
+        "forceblur"
+        "kwin4_effect_geometry_change"
+        "kwin4_effect_shapecorners"
+      ];
     };
   };
 
@@ -98,7 +89,6 @@ in
       kdeglobals = {
         General = {
           AccentColor.value = "0,150,135";
-          #ColorScheme.value = "KritaDarkOrange";
           ColorSchemeHash.value = "null";
         };
 
@@ -149,7 +139,7 @@ in
           BlurMenus.value = true;
           NoiseStrength.value = 0;
           FakeBlur.value = true;
-          FakeBlurImage.value = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo/contents/images/5120x2880.png";
+          FakeBlurImage.value = "${wallpaper}/Bamboo/contents/images/5120x2880.png";
           FakeBlurImageSourceCustom.value = true;
           FakeBlurImageSourceDesktopWallpaper.value = false;
           WindowClasses.value = lib.strings.concatStringsSep "\n" (forceBlur ++ config.custom.programs.plasma.kwin.forceTransparency.windowClasses);
@@ -324,16 +314,7 @@ in
         floating = false; # TODO Breaks Polonium
         widgets = [
           {
-            name = "org.kde.plasma.kickoff";
-            config.General = {
-              alphaSort = "true";
-              compactMode = "true";
-              favoritesDisplay = "true";
-              icon = "nix-snowflake";
-              primaryActions = "3";
-              showActionButtonCaptions = "false";
-              systemFavorites = "lock-screen\\\\,logout\\\\,save-session\\\\,switch-user\\\\,suspend\\\\,hibernate\\\\,reboot\\\\,shutdown";
-            };
+            kickoff.icon = "nix-snowflake"; # Used only for the icon, it's better than media frame
           }
           {
             name = "org.kde.windowtitle";
@@ -344,12 +325,33 @@ in
           }
           "org.kde.plasma.appmenu"
           "org.kde.plasma.panelspacer"
-          "org.kde.plasma.systemtray"
           {
-            name = "org.kde.plasma.digitalclock";
-            config.Appearance = {
-              showDate = "false";
-              showSeconds = "Always";
+            systemTray.items = {
+              hidden = [
+                "Clementine"
+                "org.kde.plasma.brightness"
+                "org.kde.plasma.cameraindicator"
+                "org.kde.kscreen"
+                "org.kde.kdeconnect"
+                "org.kde.plasma.keyboardlayout"
+                "org.kde.plasma.keyboardindicator"
+                "org.kde.plasma.manage-inputmethod"
+                "org.kde.plasma.mediacontroller"
+                "vmware-tray"
+              ];
+
+              shown = [
+                "org.kde.plasma.battery"
+                "org.kde.plasma.volume"
+                "org.kde.plasma.notifications"
+                "org.kde.plasma.networkmanagement"
+              ];
+            };
+          }
+          {
+            digitalClock = {
+              date.enable = false;
+              time.showSeconds = "always";
             };
           }
           {
@@ -372,30 +374,6 @@ in
             };
           }
         ];
-
-        extraSettings = lib.readFile (pkgs.substituteAll {
-          src = ./system-tray.js;
-
-          shownItems = lib.strings.concatStringsSep "," [
-            "org.kde.plasma.battery"
-            "org.kde.plasma.volume"
-            "org.kde.plasma.notifications"
-            "org.kde.plasma.networkmanagement"
-          ];
-
-          hiddenItems = lib.strings.concatStringsSep "," [
-            "Clementine"
-            "org.kde.plasma.brightness"
-            "org.kde.plasma.cameraindicator"
-            "org.kde.kscreen"
-            "org.kde.kdeconnect"
-            "org.kde.plasma.keyboardlayout"
-            "org.kde.plasma.keyboardindicator"
-            "org.kde.plasma.manage-inputmethod"
-            "org.kde.plasma.mediacontroller"
-            "vmware-tray"
-          ];
-        });
       }
     ];
 
@@ -462,11 +440,10 @@ in
     ];
 
     workspace = {
+      inherit wallpaper;
+
       clickItemTo = "select";
       colorScheme = "KritaDarkOrange";
-      #theme = "klassy";
-      # colorScheme = "KritaDarkOrange"; Doesn't work
-      wallpaper = wallpaper;
     };
   };
 }

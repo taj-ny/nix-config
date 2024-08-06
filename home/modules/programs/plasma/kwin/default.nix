@@ -18,6 +18,11 @@ in
       };
     };
 
+    reconfigure.effects = mkOption {
+      default = [ ];
+      type = listOf str;
+    };
+
     tilingGap = mkOption {
       default = null;
       type = nullOr int;
@@ -59,5 +64,20 @@ in
         }
       ];
     };
+
+    home.activation.configure-kwin = hm.dag.entryAfter [ "configure-plasma" ] (
+    let 
+      qdbus = "${pkgs.kdePackages.qttools}/bin/qdbus";
+    in
+    ''
+      ${qdbus} org.kde.KWin
+
+      if [ $? -eq 0 ]; then
+        ${qdbus} org.kde.KWin /KWin org.kde.KWin.reconfigure
+        ${strings.concatStringsSep "\n"
+        (map (effect: "${qdbus} org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect ${effect}") cfg.reconfigure.effects)
+        }
+      fi
+    '');
   };
 }
