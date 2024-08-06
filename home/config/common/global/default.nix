@@ -1,17 +1,19 @@
-{ inputs, outputs, pkgs, ... }:
+{
+  inputs,
+  osConfig,
+  outputs,
+  pkgs,
+  username,
+  ...
+}:
 
-let
-  username = "marcin";
-in
 {
   imports = [
-    ./programs
-
-    ./nixos-update-notifier.nix
-    ./nix.nix
-    ./xdg.nix
-
     "${inputs.impermanence}/home-manager.nix"
+
+    ./programs
+    ./colors.nix
+    ./xdg.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   home = {
@@ -27,6 +29,7 @@ in
       gimp
       imagemagick
       libreoffice-fresh
+      meslo-lgs-nf
       obs-studio
       rsync
       tmux
@@ -74,6 +77,15 @@ in
       keepassxc.enable = true;
       rclone.enable = true;
     };
+  };
+
+  nixpkgs = {
+    inherit (osConfig.nixpkgs) overlays config;
+  };
+
+  nix.gc = {
+    inherit (osConfig.nix.gc) automatic options;
+    frequency = osConfig.nix.gc.dates;
   };
 
   home.file =

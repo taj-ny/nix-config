@@ -2,16 +2,12 @@
 
 # TODO Broken in tty
 {
-  home = {
-    packages = with pkgs; [ meslo-lgs-nf ];
-
-    file.".p10k.zsh".source = ./p10k.zsh;
-  };
+  home.file.".p10k.zsh".source = ./p10k.zsh;
 
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
 
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {
@@ -20,7 +16,6 @@
       deemix-dl = "deemix -p /home/marcin/Music/import -b flac";
       kwin-query-window-info = "qdbus org.kde.KWin /KWin org.kde.KWin.queryWindowInfo";
       ls = "eza -lbghMUa --group-directories-first --git --git-repos";
-      nh = "rm /home/marcin/.gtkrc-2.0; nh";
     };
 
     oh-my-zsh = {

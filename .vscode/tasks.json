@@ -4,7 +4,7 @@
         {
             "label": "deploy",
             "type": "shell",
-            "command": "/nix/config/nh.sh os switch",
+            "command": "/nix/config/deploy.sh",
             "problemMatcher": []
         }
     ]

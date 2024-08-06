@@ -1,5 +1,13 @@
-{ config, inputs, lib, pkgs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  nix-colors,
+  pkgs,
+  ...
+}:
 
+with nix-colors.lib.conversions;
 let
   cornerRadius = 15;
   wallpaper = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo";
@@ -41,7 +49,7 @@ in
           "vscodium"
         ];
       };
-      
+
       reconfigure.effects = [
         "forceblur"
         "kwin4_effect_geometry_change"
@@ -81,14 +89,14 @@ in
           BrowseThroughArchives.value = true;
           RememberOpenedTabs.value = false;
         };
-        
+
         DetailsMode.PreviewSize.value = 16;
         VersionControl.enabledPlugins.value = "Git";
       };
 
       kdeglobals = {
         General = {
-          AccentColor.value = "0,150,135";
+          AccentColor.value = lib.strings.concatStringsSep "," (map (x: toString x) (hexToRGB config.colorScheme.palette.accent));
           ColorSchemeHash.value = "null";
         };
 

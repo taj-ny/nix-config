@@ -1,5 +1,6 @@
 {
   imports = [
     ./gpu
+    ./bluetooth.nix
   ];
 }

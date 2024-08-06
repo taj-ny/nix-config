@@ -1,5 +1,3 @@
-{ lib, ... }:
-
 {
   time.timeZone = "Europe/Warsaw";
 

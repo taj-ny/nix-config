@@ -10,7 +10,7 @@
     ../common/global
 
     ../common/optional/desktop/display-manager/sddm.nix
- 
+
     ../common/optional/desktop/kde
 
     ../common/optional/fs/luks-btrfs-impermanence.nix
@@ -18,32 +18,25 @@
     ../common/optional/hardware/external/printers.nix
     ../common/optional/hardware/external/yubikey.nix
 
-    ../common/optional/hardware/internal/bluetooth.nix
-
-    #../common/optional/programs/adb.nix
-    #../common/optional/programs/kdeconnect.nix
     ../common/optional/programs/piper.nix
-    #../common/optional/programs/rclone.nix
-    #../common/optional/programs/steam.nix
     ../common/optional/programs/vmware.nix
 
     ../common/optional/security/u2f-pam.nix
 
-    ../common/optional/services/fwupd.nix
     ../common/optional/services/pipewire.nix
-    ../common/optional/services/ssh-agent.nix
     ../common/optional/services/syncthing.nix
     ../common/optional/services/tor.nix
 
     ../common/optional/allow-remote-deployment.nix
     ../common/optional/encrypted-dns.nix
-
-    ../common/users/marcin
   ];
 
   custom = {
     hardware = {
-      internal.gpu.nvidia.enable = true;
+      internal = {
+        bluetooth.enable = true;
+        gpu.nvidia.enable = true;
+      };
     };
   };
 

@@ -7,10 +7,13 @@
   security.pam = {
     u2f = {
       enable = true;
-      cue = true;
-      interactive = true;
       control = "required";
-      authFile = "/nix/persist/u2f_keys";
+
+      settings = {
+        cue = true;
+        interactive = true;
+        authFile = "/nix/persist/u2f_keys";
+      };
     };
 
     services = {

@@ -1,27 +1,71 @@
-{ lib, outputs, ... }:
+{
+  lib,
+  outputs,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
+    ./programs
     ./boot.nix
-    ./firejail.nix
-    ./fonts.nix
     ./impermanence.nix
     ./locale.nix
     ./network.nix
     ./nix.nix
-    ./no-root-login.nix
-    ./opengl.nix
-    ./preload.nix
     ./ssh.nix
-    ./sudo.nix
-    ./systemd.nix
-    ./zsh.nix
-
-    ./programs
+    ./user.nix
   ] ++ (builtins.attrValues outputs.nixosModules);
 
-  # Sometimes prevents executables from being started even if steam-run is used. Affects dotnet's ilc.
-  environment.stub-ld.enable = lib.mkForce false;
+  environment = {
+    pathsToLink = [ "/share/zsh" ];
+    systemPackages = with pkgs; [
+      htop
+      fontconfig
+      nix-output-monitor
+      powertop
+      steam-run
+      vim
+    ];
 
-  programs.fuse.userAllowOther = true;
+    stub-ld.enable = lib.mkForce false;
+  };
+
+  programs = {
+    firejail.enable = true;
+    fuse.userAllowOther = true;
+    ssh.startAgent = true;
+    zsh.enable = true;
+  };
+
+  services = {
+    fwupd.enable = true;
+    ratbagd.enable = true;
+  };
+
+  services.preload.enable = true;
+  users.users.root.hashedPassword = "!";
+
+  fonts.packages = with pkgs; [
+    corefonts
+    noto-fonts
+    noto-fonts-emoji
+    liberation_ttf
+  ];
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  security.sudo = {
+    enable = true;
+    extraConfig = ''
+      Defaults		timestamp_timeout=1
+    '';
+  };
+
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=3s
+  '';
 }

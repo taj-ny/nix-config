@@ -1,6 +1,8 @@
-{ inputs, lib, ... }:
+{
+  inputs,
+  ...
+}:
 
-with lib;
 {
   imports = [
     inputs.impermanence.nixosModules.impermanence
@@ -10,14 +12,14 @@ with lib;
     hideMounts = true;
 
     directories = [
-      "/etc/NetworkManager/system-connections"
-      "/etc/vmware"
-      "/etc/secureboot"
-      "/etc/ssh"
       "/var/lib/bluetooth"
       "/var/lib/systemd"
       "/var/lib/nixos"
       "/var/log"
+      "/etc/NetworkManager/system-connections"
+      "/etc/secureboot"
+      "/etc/ssh"
+      "/etc/vmware"
     ];
 
     files = [
@@ -25,17 +27,9 @@ with lib;
     ];
   };
 
-  fileSystems= { 
-    "/" = {
-      device = "tmpfs";
-      fsType = "tmpfs";
-      options = [ "size=8G" "mode=755" ];
-    };
-
-    #"/home/marcin" = {
-    #  device = "tmpfs";
-    #  fsType = "tmpfs";
-    #  options = [ "size=8G" "mode=755" ];
-    #};
+  fileSystems."/" = {
+    device = "tmpfs";
+    fsType = "tmpfs";
+    options = [ "size=8G" "mode=755" ];
   };
 }

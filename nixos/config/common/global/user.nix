@@ -1,18 +1,28 @@
-{ config, inputs, outputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  nix-colors,
+  outputs,
+  pkgs,
+  ...
+}:
 
+let
+  username = "marcin";
+in
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users.marcin = import (./. + "../../../../../../home/config/${config.networking.hostName}/default.nix");
-  }; 
+    extraSpecialArgs = { inherit inputs nix-colors outputs username; };
+    users.marcin = import (./. + "../../../../../home/config/${config.networking.hostName}/default.nix");
+  };
 
-  users.users.marcin = {
+  users.users.${username} = {
     isNormalUser = true;
-    hashedPasswordFile = "/nix/persist/passwords/marcin";
+    hashedPasswordFile = "/nix/persist/passwords/${username}";
     extraGroups = [ "wheel" "adbusers" ];
     shell = pkgs.zsh;
 
@@ -23,6 +33,6 @@
 
   services.displayManager.autoLogin = {
     enable = true;
-    user = "marcin";
+    user = username;
   };
 }
