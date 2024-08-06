@@ -14,7 +14,6 @@
     systemPackages =
       with pkgs;
       with kdePackages; [
-        kate
         ark
         kcalc
         krita
