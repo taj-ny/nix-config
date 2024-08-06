@@ -7,7 +7,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
-    users.marcin = import (./. + "../../../../../home/${config.networking.hostName}/default.nix");
+    users.marcin = import (./. + "../../../../../../home/config/${config.networking.hostName}/default.nix");
   }; 
 
   users.users.marcin = {

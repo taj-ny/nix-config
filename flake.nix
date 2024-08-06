@@ -76,22 +76,22 @@
     packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
     devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
     overlays = import ./overlays { inherit inputs; };
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home;
+    nixosModules = import ./nixos/modules;
+    homeManagerModules = import ./home/modules;
 
     nixosConfigurations = {
       andromeda = lib.nixosSystem {
-        modules = [ ./nixos/andromeda ];
+        modules = [ ./nixos/config/andromeda ];
         specialArgs = { inherit inputs outputs; };
       };
 
       thinkpad = lib.nixosSystem {
-        modules = [ ./nixos/thinkpad ];
+        modules = [ ./nixos/config/thinkpad ];
         specialArgs = { inherit inputs outputs; };
       };
 
       vm = lib.nixosSystem {
-        modules = [ ./nixos/vm ];
+        modules = [ ./nixos/config/vm ];
         specialArgs = { inherit inputs outputs; };
       };
     };
