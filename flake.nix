@@ -7,6 +7,7 @@
 
     hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
+    nix-colors.url = "github:misterio77/nix-colors";
 
     firefox-ui-fix = {
       url = "github:black7375/Firefox-UI-Fix/photon-style";
@@ -51,6 +52,7 @@
     home-manager,
     lanzaboote,
     nixpkgs,
+    nix-colors,
     plasma-manager,
     ...
   } @ inputs: let
@@ -77,17 +79,17 @@
     nixosConfigurations = {
       andromeda = lib.nixosSystem {
         modules = [ ./nixos/config/andromeda ];
-        specialArgs = { inherit inputs outputs; };
+        specialArgs = { inherit inputs outputs nix-colors; };
       };
 
       thinkpad = lib.nixosSystem {
         modules = [ ./nixos/config/thinkpad ];
-        specialArgs = { inherit inputs outputs; };
+        specialArgs = { inherit inputs outputs nix-colors; };
       };
 
       vm = lib.nixosSystem {
         modules = [ ./nixos/config/vm ];
-        specialArgs = { inherit inputs outputs; };
+        specialArgs = { inherit inputs outputs nix-colors; };
       };
     };
   };
