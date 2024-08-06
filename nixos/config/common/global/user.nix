@@ -17,7 +17,9 @@ in
 
   home-manager = {
     extraSpecialArgs = { inherit inputs nix-colors outputs username; };
-    users.marcin = import (./. + "../../../../../home/config/${config.networking.hostName}/default.nix");
+    useGlobalPkgs = true;
+
+    users.marcin = (import (./. + "../../../../../home/config/${config.networking.hostName}/default.nix"));
   };
 
   users.users.${username} = {
