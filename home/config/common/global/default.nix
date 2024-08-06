@@ -25,6 +25,7 @@ in
       fastfetch
       ffmpeg
       gimp
+      imagemagick
       libreoffice-fresh
       obs-studio
       rclone
