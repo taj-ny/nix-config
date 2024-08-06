@@ -11,6 +11,7 @@
     ./keepassxc.nix
     ./nicotine-plus.nix
     ./prismlauncher.nix
+    ./rclone.nix
     ./rider.nix
   ];
 }

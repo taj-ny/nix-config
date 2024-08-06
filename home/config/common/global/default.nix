@@ -28,7 +28,6 @@ in
       imagemagick
       libreoffice-fresh
       obs-studio
-      rclone
       rsync
       tmux
       tor-browser-bundle-bin
@@ -66,10 +65,6 @@ in
           "Projects"
           "Virtual Machines"
         ];
-
-      persistentFiles = [
-        ".config/rclone/rclone.conf"
-      ];
     };
 
     programs = {
@@ -77,6 +72,7 @@ in
       google-chrome.enable = true; # Just in case something doesn't work on Firefox. It's sandboxed.
       kdeconnect.enable = true;
       keepassxc.enable = true;
+      rclone.enable = true;
     };
   };
 
