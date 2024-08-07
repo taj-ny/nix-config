@@ -69,6 +69,7 @@
           "Downloads"
           "Pictures"
           "Projects"
+          "Videos"
           "Virtual Machines"
         ] ++ (lib.optionals osConfig.programs.steam.enable [ ".local/share/Steam" ])
           ++ (lib.optionals osConfig.services.syncthing.enable [ ".syncthing" ]);
