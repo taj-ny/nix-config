@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.programs.nixos-update-notifier;
+  cfg = config.custom.programs.nixos-update-notifier;
 in
 {
-  options.programs.nixos-update-notifier = with types; {
+  options.custom.programs.nixos-update-notifier = with types; {
     enable = mkEnableOption "nixos-update-notifier";
     watchedFlakeInputs = mkOption {
       type = listOf str;

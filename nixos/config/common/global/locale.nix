@@ -1,22 +1,26 @@
+let
+  en = "en_US.UTF-8";
+  pl = "pl_PL.UTF-8";
+in
 {
-  time.timeZone = "Europe/Warsaw";
-
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = en;
 
     extraLocaleSettings = {
-      LC_ADDRESS = "pl_PL.UTF-8";
-      LC_MEASUREMENT = "pl_PL.UTF-8";
-      LC_MONETARY = "pl_PL.UTF-8";
-      LC_NUMERIC = "pl_PL.UTF-8";
-      LC_PAPER = "pl_PL.UTF-8";
-      LC_TELEPHONE = "pl_PL.UTF-8";
-      LC_TIME = "pl_PL.UTF-8";
+      LC_ADDRESS = pl;
+      LC_MEASUREMENT = pl;
+      LC_MONETARY = pl;
+      LC_NUMERIC = pl;
+      LC_PAPER = pl;
+      LC_TELEPHONE = pl;
+      LC_TIME = pl;
     };
 
     supportedLocales = [
-      "en_US.UTF-8/UTF-8"
-      "pl_PL.UTF-8/UTF-8"
+      "${en}/UTF-8"
+      "${pl}/UTF-8"
     ];
   };
+
+  time.timeZone = "Europe/Warsaw";
 }

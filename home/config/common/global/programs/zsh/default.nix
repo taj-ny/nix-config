@@ -1,12 +1,13 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 # TODO Broken in tty
 {
   home.file.".p10k.zsh".source = ./p10k.zsh;
 
   programs.zsh = {
-    enable = true;
-
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 

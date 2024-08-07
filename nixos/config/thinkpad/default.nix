@@ -39,6 +39,7 @@
 
   custom = {
     hardware.internal.bluetooth.enable = true;
+    impermanence.rootFsSize = "8G";
     security.secureBoot.enable = true;
   };
 

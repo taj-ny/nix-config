@@ -21,6 +21,8 @@ in
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
+
+    ./konsole
   ];
 
   gtk = {
@@ -30,8 +32,6 @@ in
   };
 
   custom.programs.plasma = {
-    enable = true;
-
     kwin = {
       tilingGap = 12;
 
@@ -311,6 +311,13 @@ in
         key = "Ctrl+Shift+Meta+Alt+S";
         command = "systemctl suspend";
       };
+    };
+
+    kscreenlocker.appearance = {
+      inherit wallpaper;
+
+      alwaysShowClock = true;
+      showMediaControls = false;
     };
 
     kwin.virtualDesktops.number = 10;

@@ -6,11 +6,11 @@
 
 {
   programs.vscode = {
-    enable = true;
     package = pkgs.vscodium;
 
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
+      pkief.material-icon-theme
       shd101wyy.markdown-preview-enhanced
     ];
 

@@ -1,5 +1,14 @@
 {
-    "workbench.colorCustomizations": {
-
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true,
+        "rules": {
+            "macro": "#fdbc4b",
+            "method": "#3daee9",
+            "number": "#fdbc4b",
+            "regexp": "#008779",
+            "string": "#8e44ad",
+            "variable": "#008779",
+            "interface": "#008779"
+        }
     }
 }

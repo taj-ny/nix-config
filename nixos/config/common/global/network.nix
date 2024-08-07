@@ -9,9 +9,8 @@
       192.168.1.101 thinkpad
     '';
 
-    networkmanager.enable = true;
-
     firewall.enable = false;
+    networkmanager.enable = true;
   };
 
   systemd.targets.network-online.wantedBy = lib.mkForce [];

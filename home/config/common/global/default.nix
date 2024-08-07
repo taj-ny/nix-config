@@ -22,6 +22,7 @@
 
     packages = with pkgs; [
       axel
+      dotnet-sdk_8
       duf
       eza
       fastfetch
@@ -30,7 +31,10 @@
       imagemagick
       libreoffice-fresh
       meslo-lgs-nf
+      mono
       obs-studio
+      php
+      python3Full
       rsync
       tmux
       tor-browser-bundle-bin
@@ -72,12 +76,23 @@
 
     programs = {
       clementine.enable = true;
+      firefox.enable = true;
       google-chrome.enable = true; # Just in case something doesn't work on Firefox. It's sandboxed.
       kdeconnect.enable = true;
       keepassxc.enable = true;
+      nixos-update-notifier.enable = true;
+      plasma.enable = true;
       rclone.enable = true;
     };
   };
+
+  programs = {
+    btop.enable = true;
+    vscode.enable = true;
+    zsh.enable = true;
+  };
+
+  services.easyeffects.enable = true;
 
   nix.gc = {
     inherit (osConfig.nix.gc) automatic options;

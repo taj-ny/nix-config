@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   programs.firefox = {
@@ -118,5 +122,4 @@
   };
 
   home.file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
-  custom.programs.firefox.enable = true;
 }

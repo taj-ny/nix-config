@@ -1,19 +1,11 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 
 {
   imports = [
-    ./../common/global
-
-    ./../common/optional/desktop/kde
-
-    ./../common/optional/programs/easyeffects
-
-    ./../common/optional/programs/programming/sdks/dotnet.nix
-    ./../common/optional/programs/programming/sdks/php.nix
-    ./../common/optional/programs/programming/sdks/python.nix
-
-    ./../common/optional/programs/terminal/konsole
-    ./../common/optional/programs/terminal/zsh
+    ../common/global
   ];
 
   programs.plasma.configFile = {

@@ -70,9 +70,7 @@ in
       qdbus = "${pkgs.kdePackages.qttools}/bin/qdbus";
     in
     ''
-      ${qdbus} org.kde.KWin
-
-      if [ $? -eq 0 ]; then
+      if ${qdbus} org.kde.KWin; then
         ${qdbus} org.kde.KWin /KWin org.kde.KWin.reconfigure
         ${strings.concatStringsSep "\n"
         (map (effect: "${qdbus} org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect ${effect}") cfg.reconfigure.effects)

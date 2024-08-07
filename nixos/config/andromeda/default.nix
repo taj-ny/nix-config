@@ -38,6 +38,8 @@
         gpu.nvidia.enable = true;
       };
     };
+
+    impermanence.rootFsSize = "12G";
   };
 
   environment = {
