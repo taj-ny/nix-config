@@ -2,9 +2,27 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "deploy",
+            "label": "Build (andromeda)",
+            "type": "shell",
+            "command": "/nix/config/.vscode/tasks/build.sh andromeda",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build (thinkpad)",
+            "type": "shell",
+            "command": "/nix/config/.vscode/tasks/build.sh thinkpad",
+            "problemMatcher": []
+        },
+        {
+            "label": "Deploy (current)",
             "type": "shell",
             "command": "/nix/config/deploy.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "Update flake.lock",
+            "type": "shell",
+            "command": "sudo nix flake update /nix/config",
             "problemMatcher": []
         }
     ]

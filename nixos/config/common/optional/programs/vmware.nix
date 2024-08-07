@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 
 # License keys: https://gist.github.com/PurpleVibe32/30a802c3c8ec902e1487024cdea26251
 let
@@ -29,7 +33,7 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    (patchDesktop vmware-workstation "vmware-workstation" "^Exec=${vmware-workstation}/bin/vmware" "Exec=${launchScript}")
+    (lib.patchDesktop vmware-workstation "vmware-workstation" "^Exec=${vmware-workstation}/bin/vmware" "Exec=${launchScript}")
   ];
 
   custom.impermanence.persistentDirectories = [ "/etc/vmware" ];

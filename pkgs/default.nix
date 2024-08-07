@@ -11,6 +11,5 @@ rec {
   polonium = pkgs.callPackage ./polonium.nix { };
   rascii = pkgs.callPackage ./rascii.nix { };
   usbkill = pkgs.python3Packages.callPackage ./usbkill.nix { };
-
-  patchDesktop = import ./patch-desktop.nix { inherit pkgs; };
+  vscode-taskexplorer = pkgs.callPackage ./vscode-taskexplorer.nix { };
 }

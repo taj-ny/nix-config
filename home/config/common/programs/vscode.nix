@@ -8,11 +8,16 @@
   programs.vscode = {
     package = pkgs.vscodium;
 
-    extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
-      pkief.material-icon-theme
-      shd101wyy.markdown-preview-enhanced
-    ];
+    extensions =
+      with pkgs;
+      with vscode-extensions;
+      [
+        vscode-taskexplorer
+
+        jnoortheen.nix-ide
+        pkief.material-icon-theme
+        shd101wyy.markdown-preview-enhanced
+      ];
 
     userSettings = {
       "editor.bracketPairColorization.enabled" = false;

@@ -40,10 +40,10 @@
 
   services = {
     fwupd.enable = true;
+    preload.enable = true;
     ratbagd.enable = true;
   };
 
-  services.preload.enable = true;
   users.users.root.hashedPassword = "!";
 
   fonts.packages = with pkgs; [

@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  lib,
   nix-colors,
   outputs,
   pkgs,
@@ -16,10 +17,22 @@ in
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs nix-colors outputs username; };
     useGlobalPkgs = true;
 
-    users.marcin = (import (./. + "../../../../../home/config/${config.networking.hostName}/default.nix"));
+    extraSpecialArgs = {
+      inherit inputs nix-colors outputs username;
+
+      lib = lib.extend (_: _: inputs.home-manager.lib);
+    };
+
+    users.${username}.imports =
+      let
+        homeConfig = "${toString ./.}../../../../../home/config";
+      in
+      [
+        "${homeConfig}/common/default.nix"
+        "${homeConfig}/${config.networking.hostName}/default.nix"
+      ];
   };
 
   users.users.${username} = {

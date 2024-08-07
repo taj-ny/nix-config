@@ -7,8 +7,6 @@
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
 
-    ../common/global
-
     ../common/optional/desktop/display-manager/sddm.nix
 
     ../common/optional/desktop/kde

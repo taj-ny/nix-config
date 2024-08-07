@@ -10,9 +10,9 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ clementine ];
 
-    custom.impermanence.persistentDirectories = [ 
+    custom.impermanence.persistentDirectories = [
       ".cache/Clementine"
-      ".config/Clementine" 
+      ".config/Clementine"
     ];
   };
 }

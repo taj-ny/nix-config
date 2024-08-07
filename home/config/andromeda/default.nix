@@ -1,8 +1,6 @@
 {
   imports = [
     ./beets.nix
-
-    ../common/global
   ];
 
   home = {

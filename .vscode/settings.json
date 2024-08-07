@@ -10,5 +10,13 @@
             "variable": "#008779",
             "interface": "#008779"
         }
-    }
+    },
+
+    "taskExplorer.excludeTask": [
+        "result",
+    ],
+    "taskExplorer.exclude": [
+        "!.vscode/tasks.json"
+    ],
+    "taskExplorer.autoRefresh": true,
 }

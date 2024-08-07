@@ -58,7 +58,7 @@
   } @ inputs: let
     inherit (self) outputs;
 
-    lib = nixpkgs.lib // home-manager.lib;
+    lib = nixpkgs.lib.extend (_: _: import ./lib { pkgs = nixpkgs; });
     systems = [ "x86_64-linux" ];
     forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
     pkgsFor = lib.genAttrs systems (system: import nixpkgs {
@@ -76,25 +76,33 @@
     nixosModules = import ./nixos/modules;
     homeManagerModules = import ./home/modules;
 
-    nixosConfigurations = {
-      andromeda = lib.nixosSystem {
-        modules = [ ./nixos/config/andromeda ];
-        specialArgs = { inherit inputs outputs nix-colors; };
-      };
+    nixosConfigurations =
+      lib.listToAttrs (
+        lib.mapAttrsToList (name: value: {
+          inherit name;
 
-      thinkpad = lib.nixosSystem {
-        modules = [ ./nixos/config/thinkpad ];
-        specialArgs = { inherit inputs outputs nix-colors; };
-      };
+          value = lib.nixosSystem {
+            specialArgs = { inherit inputs outputs nix-colors; };
 
-      vm = lib.nixosSystem {
-        modules = [ ./nixos/config/vm ];
-        specialArgs = { inherit inputs outputs nix-colors; };
-      };
-    };
+            lib = lib.extend (_: _: import ./lib {
+              pkgs = import nixpkgs {
+                system = value;
+              };
+            });
+
+            modules = [
+              ./nixos/config/common/global
+              ./nixos/config/${name}
+            ];
+          };
+        }) {
+          andromeda = "x86_64-linux";
+          thinkpad = "x86_64-linux";
+        }
+      );
 
     # Hack to get home suggestions when using the home-manager NixOS module
-    homeConfigurations.nixd = lib.homeManagerConfiguration {
+    homeConfigurations.nixd = home-manager.lib.homeManagerConfiguration {
       modules = [
         nix-colors.homeManagerModules.default
 

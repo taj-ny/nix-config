@@ -4,10 +4,6 @@
 }:
 
 {
-  imports = [
-    ../common/global
-  ];
-
   programs.plasma.configFile = {
     kcminputrc = {
       "Libinput/1739/0/Synaptics TM3276-022".PointerAcceleration.value = "0.100";
