@@ -1,4 +1,5 @@
 {
+  lib,
   osConfig,
   pkgs,
   username,
@@ -62,16 +63,15 @@
           ".config/JetBrains"
           ".java/.userPrefs"
           ".local/share/JetBrains"
-          ".local/share/Steam"
           ".local/state/wireplumber"
           ".ssh"
-          ".syncthing"
           "Documents"
           "Downloads"
           "Pictures"
           "Projects"
           "Virtual Machines"
-        ];
+        ] ++ (lib.optionals osConfig.programs.steam.enable [ ".local/share/Steam" ])
+          ++ (lib.optionals osConfig.services.syncthing.enable [ ".syncthing" ]);
     };
 
     programs = {
