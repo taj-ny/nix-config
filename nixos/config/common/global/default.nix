@@ -1,6 +1,5 @@
 {
   lib,
-  outputs,
   pkgs,
   ...
 }:
@@ -14,7 +13,7 @@
     ./network.nix
     ./nix.nix
     ./user.nix
-  ] ++ (builtins.attrValues outputs.nixosModules);
+  ];
 
   custom = {
     impermanence.enable = true;

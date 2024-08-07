@@ -94,7 +94,7 @@
               {
                 networking.hostName = name;
               }
-            ];
+            ] ++ (builtins.attrValues nixosModules);
           };
         }) {
           andromeda = "x86_64-linux";
