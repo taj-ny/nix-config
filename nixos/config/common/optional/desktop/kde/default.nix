@@ -1,10 +1,23 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   services = {
     xserver = {
       enable = true;
       excludePackages = with pkgs; [ xterm ];
+    };
+
+    displayManager.sddm = {
+      enable = true;
+
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
     };
 
     desktopManager.plasma6.enable = true;
@@ -14,11 +27,6 @@
     systemPackages =
       with pkgs;
       with kdePackages; [
-        ark
-        kcalc
-        krita
-        plasma-browser-integration
-
         # Application styles
         lightly-boehs
         lightly-qt6
@@ -45,7 +53,4 @@
       kate
     ];
   };
-
-  # Required for GTK configuration
-  programs.dconf.enable = true;
 }

@@ -1,4 +1,8 @@
-{ config, lib, modulesPath, inputs, pkgs, ... }:
+{
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -7,16 +11,12 @@
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
 
-    ../common/optional/desktop/display-manager/sddm.nix
-
     ../common/optional/desktop/kde
 
     ../common/optional/fs/luks-btrfs-impermanence.nix
 
     ../common/optional/hardware/external/printers.nix
-    ../common/optional/hardware/external/yubikey.nix
 
-    ../common/optional/programs/piper.nix
     ../common/optional/programs/vmware.nix
 
     ../common/optional/security/u2f-pam.nix
@@ -68,7 +68,6 @@
     };
   };
 
-  networking.hostName = "andromeda";
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
 }

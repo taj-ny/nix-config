@@ -16,20 +16,9 @@ in
 
   options.custom.impermanence = with types; {
     enable = mkEnableOption "impermanence";
-
-    persistentDirectories = mkOption {
-      default = [ ];
-      type = listOf anything;
-    };
-
-    persistentFiles = mkOption {
-      default = [ ];
-      type = listOf anything;
-    };
-
-    rootFsSize = mkOption {
-      type = str;
-    };
+    persistentDirectories = mkOptionSimpleDefault (listOf anything) [ ];
+    persistentFiles = mkOptionSimpleDefault (listOf anything) [ ];
+    rootFsSize = mkOptionSimple str;
   };
 
   config = mkIf cfg.enable {

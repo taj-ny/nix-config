@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
@@ -6,27 +11,14 @@ let
 in
 {
   options.custom.programs.plasma.kwin = with types; {
+    tilingGap = mkOptionSimpleDefault (nullOr int) null;
+
     forceTransparency = {
-      opacity = mkOption {
-        default = 85;
-        type = int;
-      };
-
-      windowClasses = mkOption {
-        default = [ ];
-        type = listOf str;
-      };
+      opacity = mkOptionSimpleDefault int 85;
+      windowClasses = mkOptionSimpleDefault (listOf str) [ ];
     };
 
-    reconfigure.effects = mkOption {
-      default = [ ];
-      type = listOf str;
-    };
-
-    tilingGap = mkOption {
-      default = null;
-      type = nullOr int;
-    };
+    reconfigure.effects = mkOptionSimpleDefault (listOf str) [ ];
   };
 
   config = mkIf config.programs.plasma.enable {
@@ -66,7 +58,7 @@ in
     };
 
     home.activation.configure-kwin = hm.dag.entryAfter [ "configure-plasma" ] (
-    let 
+    let
       qdbus = "${pkgs.kdePackages.qttools}/bin/qdbus";
     in
     ''

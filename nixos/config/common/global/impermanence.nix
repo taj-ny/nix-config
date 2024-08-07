@@ -1,7 +1,5 @@
 {
   custom.impermanence = {
-    enable = true;
-
     persistentDirectories = [
       "/etc/NetworkManager/system-connections"
       "/etc/ssh"

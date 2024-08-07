@@ -1,4 +1,9 @@
-{ config, lib, modulesPath, inputs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -7,19 +12,11 @@
 
     ./throttled.nix
 
-    ../common/global
-
     ../common/optional/desktop/unlock-after-hibernation.nix
-    ../common/optional/desktop/display-manager/sddm.nix
     ../common/optional/desktop/kde
 
     ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
-    ../common/optional/kernel/linux-latest.nix
-
-    ../common/optional/programs/piper.nix
-
-    ../common/optional/services/mysql.nix
     ../common/optional/services/pipewire.nix
     ../common/optional/services/syncthing.nix
     ../common/optional/services/tor.nix
@@ -31,6 +28,7 @@
   ];
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "resume_offset=53848001" ];
     extraModprobeConfig = ''
       options thinkpad_acpi fan_control=1
@@ -60,7 +58,7 @@
     KWIN_DRM_NO_AMS = "1";
     KWIN_FORCE_SW_CURSOR = "0";
   };
-  networking.hostName = "thinkpad";
+
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 }

@@ -7,10 +7,7 @@ in
 {
   options.custom.programs.nixos-update-notifier = with types; {
     enable = mkEnableOption "nixos-update-notifier";
-    watchedFlakeInputs = mkOption {
-      type = listOf str;
-      description = "Flake inputs to watch";
-    };
+    watchedFlakeInputs = mkOptionSimple (listOf str);
   };
 
   config = mkIf cfg.enable {

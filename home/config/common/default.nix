@@ -19,6 +19,7 @@
     homeDirectory = "/home/${username}";
 
     packages = with pkgs; [
+      ark
       axel
       dotnet-sdk_8
       duf
@@ -28,11 +29,13 @@
       gimp
       imagemagick
       jetbrains-mono
+      krita
       libreoffice-fresh
       meslo-lgs-nf
       mono
       obs-studio
       php
+      piper
       python3Full
       rsync
       tmux

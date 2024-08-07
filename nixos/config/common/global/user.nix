@@ -25,14 +25,10 @@ in
       lib = lib.extend (_: _: inputs.home-manager.lib);
     };
 
-    users.${username}.imports =
-      let
-        homeConfig = "${toString ./.}../../../../../home/config";
-      in
-      [
-        "${homeConfig}/common/default.nix"
-        "${homeConfig}/${config.networking.hostName}/default.nix"
-      ];
+    users.${username}.imports = [
+      "${lib.flakeRoot}/home/config/common/default.nix"
+      "${lib.flakeRoot}/home/config/${config.networking.hostName}/default.nix"
+    ];
   };
 
   users.users.${username} = {

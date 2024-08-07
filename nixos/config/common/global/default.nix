@@ -13,9 +13,14 @@
     ./locale.nix
     ./network.nix
     ./nix.nix
-    ./ssh.nix
     ./user.nix
   ] ++ (builtins.attrValues outputs.nixosModules);
+
+  custom = {
+    impermanence.enable = true;
+
+    hardware.external.yubikey.enable = true;
+  };
 
   environment = {
     pathsToLink = [ "/share/zsh" ];
@@ -32,14 +37,27 @@
   };
 
   programs = {
+    dconf.enable = true;
     firejail.enable = true;
     fuse.userAllowOther = true;
+    git.enable = true;
     ssh.startAgent = true;
     zsh.enable = true;
   };
 
   services = {
+    openssh = {
+      enable = true;
+
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "no";
+      };
+    };
+
     fwupd.enable = true;
+    mysql.package = pkgs.mariadb;
     preload.enable = true;
     ratbagd.enable = true;
   };

@@ -1,3 +1,0 @@
-{
-  programs.usbkill.enable = true;
-}

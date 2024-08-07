@@ -26,7 +26,10 @@ in
   gtk = {
     enable = true;
 
-    theme.name = "Breeze";
+    theme = {
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze-gtk;
+    };
   };
 
   custom.programs.plasma = {
@@ -145,7 +148,7 @@ in
           BlurMenus.value = true;
           NoiseStrength.value = 0;
           FakeBlur.value = true;
-          FakeBlurImage.value = "${wallpaper}/Bamboo/contents/images/5120x2880.png";
+          FakeBlurImage.value = "${wallpaper}/contents/images/5120x2880.png";
           FakeBlurImageSourceCustom.value = true;
           FakeBlurImageSourceDesktopWallpaper.value = false;
           WindowClasses.value = lib.strings.concatStringsSep "\n" (forceBlur ++ config.custom.programs.plasma.kwin.forceTransparency.windowClasses);

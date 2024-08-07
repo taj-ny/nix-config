@@ -35,7 +35,7 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.3.0";
+      url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -48,12 +48,9 @@
 
   outputs = {
     self,
-    hardware,
     home-manager,
-    lanzaboote,
     nixpkgs,
     nix-colors,
-    plasma-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -93,6 +90,10 @@
             modules = [
               ./nixos/config/common/global
               ./nixos/config/${name}
+
+              {
+                networking.hostName = name;
+              }
             ];
           };
         }) {
@@ -103,6 +104,9 @@
 
     # Hack to get home suggestions when using the home-manager NixOS module
     homeConfigurations.nixd = home-manager.lib.homeManagerConfiguration {
+      extraSpecialArgs = { inherit inputs outputs; };
+      pkgs = pkgsFor.x86_64-linux;
+
       modules = [
         nix-colors.homeManagerModules.default
 
@@ -113,8 +117,6 @@
           home.stateVersion = "24.05";
         }
       ];
-      pkgs = pkgsFor.x86_64-linux;
-      extraSpecialArgs = { inherit inputs outputs; };
     };
   };
 }

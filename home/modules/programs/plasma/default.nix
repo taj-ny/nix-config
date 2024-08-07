@@ -16,9 +16,7 @@ in
     ./kwin
   ];
 
-  options.custom.programs.plasma = {
-    enable = mkEnableOption "Plasma";
-  };
+  options.custom.programs.plasma.enable = mkEnableOption "Plasma";
 
   config = mkIf config.custom.programs.plasma.enable {
     custom.impermanence = {

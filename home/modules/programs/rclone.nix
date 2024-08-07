@@ -9,6 +9,6 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ rclone ];
-    custom.impermanence.persistentFiles = [ ".config/rclone/rclone.conf" ];
+    custom.impermanence.persistentDirectories = [ ".config/rclone" ];
   };
 }
