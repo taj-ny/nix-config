@@ -1,7 +1,5 @@
 {
-  inputs,
   osConfig,
-  outputs,
   pkgs,
   username,
   ...
@@ -12,7 +10,7 @@
     ./programs
     ./colors.nix
     ./xdg.nix
-  ] ++ (builtins.attrValues outputs.homeManagerModules);
+  ];
 
   home = {
     inherit username;

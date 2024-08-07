@@ -28,7 +28,7 @@ in
     users.${username}.imports = [
       "${lib.flakeRoot}/home/config/common/default.nix"
       "${lib.flakeRoot}/home/config/${config.networking.hostName}/default.nix"
-    ];
+    ] ++ (builtins.attrValues outputs.homeManagerModules);
   };
 
   users.users.${username} = {
