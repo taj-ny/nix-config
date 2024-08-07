@@ -1,4 +1,9 @@
-{ inputs, outputs, lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  outputs,
+  ...
+}:
 
 {
   nix = {
@@ -25,17 +30,5 @@
       outputs.overlays.modifications
       outputs.overlays.stable
     ];
-  };
-
-  # Owner of the /nix/config directory.
-  users = {
-    groups.nixconfig = { };
-    users.nixconfig = {
-      createHome = true;
-      group = "nixconfig";
-      home = "/tmp/nixconfig";
-      isSystemUser = true;
-      shell = pkgs.bash;
-    };
   };
 }
