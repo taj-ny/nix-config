@@ -20,8 +20,6 @@ let
 in
 {
   imports = [
-    inputs.plasma-manager.homeManagerModules.plasma-manager
-
     ./konsole
   ];
 

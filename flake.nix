@@ -92,5 +92,21 @@
         specialArgs = { inherit inputs outputs nix-colors; };
       };
     };
+
+    # Hack to get home suggestions when using the home-manager NixOS module
+    homeConfigurations.nixd = lib.homeManagerConfiguration {
+      modules = [
+        nix-colors.homeManagerModules.default
+
+        {
+          imports = builtins.attrValues homeManagerModules;
+          home.username = "nixd";
+          home.homeDirectory = "/home/nixd";
+          home.stateVersion = "24.05";
+        }
+      ];
+      pkgs = pkgsFor.x86_64-linux;
+      extraSpecialArgs = { inherit inputs outputs; };
+    };
   };
 }

@@ -15,12 +15,20 @@
     ];
 
     userSettings = {
+      "editor.bracketPairColorization.enabled" = false;
+      "editor.fontFamily" = "'JetBrains Mono'";
+      "editor.wordWrap" = "on";
+      "files.autoSave" = "afterDelay";
       "files.trimTrailingWhitespace" = true;
       "markdown-preview-enhanced.previewTheme" = "github-dark.css";
       "material-icon-theme.folders.color" = "#${config.colorScheme.palette.accent}";
       "material-icon-theme.folders.theme" = "classic";
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
+      "nix.serverSettings".nixd.options = {
+        home.expr = "(builtins.getFlake \"/nix/config\").homeConfigurations.nixd.options";
+        nixos.expr = "(builtins.getFlake \"/nix/config\").nixosConfigurations.andromeda.options";
+      };
       "terminal.integrated.fontFamily" = "MesloLGS NF";
       "terminal.integrated.fontSize" = 13;
       "terminal.integrated.lineHeight" = 1;
@@ -35,6 +43,7 @@
         "focusBorder" = "#${config.colorScheme.palette.accent}";
         "list.activeSelectionBackground" = "#${config.colorScheme.palette.accentDarker}";
         "list.focusAndSelectionOutline" = "#${config.colorScheme.palette.accent}";
+        "panelTitle.activeBorder" = "#${config.colorScheme.palette.accent}";
         "tab.activeBorder" = "#${config.colorScheme.palette.accent}";
         "terminal.tab.activeBorder" = "#${config.colorScheme.palette.accent}";
         "textLink.activeForeground" = "#${config.colorScheme.palette.accentDark}";

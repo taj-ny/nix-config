@@ -9,8 +9,6 @@
 
 {
   imports = [
-    "${inputs.impermanence}/home-manager.nix"
-
     ./programs
     ./colors.nix
     ./xdg.nix
@@ -29,6 +27,7 @@
       ffmpeg
       gimp
       imagemagick
+      jetbrains-mono
       libreoffice-fresh
       meslo-lgs-nf
       mono

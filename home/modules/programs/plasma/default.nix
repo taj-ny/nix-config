@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 
 with lib;
 let
@@ -6,6 +11,8 @@ let
 in
 {
   imports = [
+    inputs.plasma-manager.homeManagerModules.plasma-manager
+
     ./kwin
   ];
 
