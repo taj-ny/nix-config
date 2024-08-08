@@ -12,5 +12,6 @@
     ./prismlauncher.nix
     ./rclone.nix
     ./rider.nix
+    ./vscode.nix
   ];
 }
