@@ -1,35 +1,16 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   home.packages = with pkgs; [ opusTools ];
-
   programs.beets = {
     enable = true;
     package = pkgs.beets-unstable;
-
     settings = {
-      directory = "~/Music/lib";
-      library = "~/Music/lib.db";
- 
-      plugins = [
-        "badfiles"
-        "convert"
-        "deezer"
-        "edit"
-        "embedart"
-        "fetchart"
-        "fromfilename" 
-        "lastgenre"
-        "missing"
-        "replaygain"
-        "scrub"
-        "spotify"
-        "zero"
-      ];
-
       badfiles = {
         check_on_import = true;
-
         commands =
           let
             oggChecker = "${pkgs.liboggz}/bin/oggz-validate";
@@ -39,22 +20,6 @@
             opus = oggChecker;
           };
       };
-
-      import = {
-        write = true;
-        move = true;
-      };
-
-      paths = {
-        default = "$albumartist/$album%aunique{}/$track - $title";
-        comp = "Compilations/$album%aunique{}/$track - $title";
-      };
-
-      replaygain = {
-        backend = "ffmpeg";
-        r128 = ""; # Use REPLAYGAIN_* fields for opus, since some players don't support R128
-      };
-
       convert = {
         auto = "yes";
         dest = "~/Music/lib";
@@ -63,7 +28,6 @@
         no_convert = "";
         delete_originals = true;
         format = "flac";
-
         formats = {
           flac = {
             command = "ffmpeg -y -i $source -c:a flac -sample_fmt s16 -ar 44100 $dest";
@@ -71,14 +35,41 @@
           };
         };
       };
-  
+      directory = "~/Music/lib";
       fetchart = {
         maxwidth = 1500;
         quality = 90;
         enforce_ratio = true;
         cover_format = "jpeg";
       };
-
+      import = {
+        write = true;
+        move = true;
+      };
+      library = "~/Music/lib.db";
+      paths = {
+        default = "$albumartist/$album%aunique{}/$track - $title";
+        comp = "Compilations/$album%aunique{}/$track - $title";
+      };
+      plugins = [
+        "badfiles"
+        "convert"
+        "deezer"
+        "edit"
+        "embedart"
+        "fetchart"
+        "fromfilename"
+        "lastgenre"
+        "missing"
+        "replaygain"
+        "scrub"
+        "spotify"
+        "zero"
+      ];
+      replaygain = {
+        backend = "ffmpeg";
+        r128 = ""; # Use REPLAYGAIN_* fields for opus, since some players don't support R128
+      };
       zero = {
         auto = "yes";
         fields = "comments";

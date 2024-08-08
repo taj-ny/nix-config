@@ -5,6 +5,7 @@
 }:
 
 {
+  home.file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
   programs.firefox = {
     policies = {
       CaptivePortal = false;
@@ -13,16 +14,11 @@
       DisableTelemetry = true;
       DisableFirefoxAccounts = true;
       DisableFormHistory = true;
-      DontCheckDefaultBrowser = true;
-      OfferToSaveLogins = false;
-      OfferToSaveLoginsDefault = false;
-      PasswordManagerEnabled = false;
-
       DNSOverHTTPS = {
         Enabled = true;
         ProviderURL = "https://firefox.dns.nextdns.io";
       };
-
+      DontCheckDefaultBrowser = true;
       FirefoxHome = {
         Search = true;
         Pocket = false;
@@ -30,7 +26,9 @@
         TopSites = false;
         Highlights = false;
       };
-
+      OfferToSaveLogins = false;
+      OfferToSaveLoginsDefault = false;
+      PasswordManagerEnabled = false;
       SanitizeOnShutdown = {
         Cache = true;
         Cookies = false;
@@ -41,17 +39,12 @@
         SiteSettings = false;
         OfflineApps = false;
       };
-
       UserMessaging = {
         ExtensionRecommendations = false;
         SkipOnboarding = true;
       };
     };
-
     profiles.main = {
-      extraConfig = builtins.readFile "${inputs.firefox-ui-fix}/user.js";
-      userContent = "@import url(\"firefox-ui-fix/userContent.css\")";
-
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         keepassxc-browser
         multi-account-containers
@@ -60,12 +53,11 @@
         ublock-origin
         violentmonkey
       ];
-
+      extraConfig = builtins.readFile "${inputs.firefox-ui-fix}/user.js";
       search = {
         force = true;
         default = "DuckDuckGo";
       };
-
       settings = {
         "browser.aboutConfig.showWarning" = false;
         "browser.newtabpage.enabled" = false;
@@ -86,7 +78,6 @@
         "network.trr.mode" = 3;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
-
       # chrome://browser/content/browser.xhtml
       userChrome = ''
         @import url("firefox-ui-fix/userChrome.css");
@@ -118,8 +109,7 @@
             background-color: transparent !important;
         }
       '';
+      userContent = "@import url(\"firefox-ui-fix/userContent.css\")";
     };
   };
-
-  home.file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
 }

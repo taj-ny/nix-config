@@ -13,7 +13,6 @@
       accent = "009688";
       accentDark = "008B7D";
       accentDarker = "008779";
-
       accentBrighter = "00988A";
     };
   };

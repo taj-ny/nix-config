@@ -10,13 +10,12 @@
 with nix-colors.lib.conversions;
 let
   cornerRadius = 15;
-  wallpaper = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo";
-
   forceBlur = [
     "firefox"
     "konsole"
     "plasmashell"
   ];
+  wallpaper = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo";
 in
 {
   imports = [
@@ -25,38 +24,33 @@ in
 
   gtk = {
     enable = true;
-
     theme = {
       name = "Breeze-Dark";
       package = pkgs.kdePackages.breeze-gtk;
     };
   };
 
-  custom.programs.plasma = {
-    kwin = {
-      tilingGap = 12;
-
-      forceTransparency = {
-        opacity = 85;
-        windowClasses = [
-          "ark"
-          "clementine"
-          "dolphin"
-          "keepassxc"
-          "kwrite"
-          "org.freedesktop.impl.portal.desktop.kde"
-          "org.nicotine_plus.Nicotine"
-          "systemsettings"
-          "vscodium"
-        ];
-      };
-
-      reconfigure.effects = [
-        "forceblur"
-        "kwin4_effect_geometry_change"
-        "kwin4_effect_shapecorners"
+  custom.programs.plasma.kwin = {
+    forceTransparency = {
+      opacity = 85;
+      windowClasses = [
+        "ark"
+        "clementine"
+        "dolphin"
+        "keepassxc"
+        "kwrite"
+        "org.freedesktop.impl.portal.desktop.kde"
+        "org.nicotine_plus.Nicotine"
+        "systemsettings"
+        "vscodium"
       ];
     };
+    reconfigure.effects = [
+      "forceblur"
+      "kwin4_effect_geometry_change"
+      "kwin4_effect_shapecorners"
+    ];
+    tilingGap = 12;
   };
 
   programs.plasma = {
@@ -64,13 +58,11 @@ in
 
     configFile = {
       bluedevilglobalrc.Global.launchState.value = "disable";
-
       breezerc = {
         Common = {
           OutlineIntensity.value = "OutlineOff";
           ShadowSize.value = "ShadowVeryLarge";
         };
-
         "Windeco Exception 0" = {
           Enabled.value = true;
           ExceptionPattern.value = ".*";
@@ -78,70 +70,56 @@ in
           HideTitleBar.value = true;
         };
       };
-
       dolphinrc = {
         ContentDisplay = {
           DirectorysizeMode.value = "ContentSize";
           RecursiveDirectorySizeLimit.value = 20;
           UsePermissionsFormat.value = "CombinedFormat";
         };
-
+        DetailsMode.PreviewSize.value = 16;
         General = {
           BrowseThroughArchives.value = true;
           RememberOpenedTabs.value = false;
         };
-
-        DetailsMode.PreviewSize.value = 16;
         VersionControl.enabledPlugins.value = "Git";
       };
-
       kdeglobals = {
         General = {
           AccentColor.value = lib.strings.concatStringsSep "," (map (x: toString x) (hexToRGB config.colorScheme.palette.accent));
           ColorSchemeHash.value = "null";
         };
-
         KDE = {
           AnimationDurationFactor.value = "1.414213562373095";
           widgetStyle.value = "Lightly";
         };
       };
-
       klaunchrc.FeedbackStyle.BusyCursor.value = false;
-
       klipperrc.General = {
         KeepClipboardContents.value = false; # Don't save across desktop sessions
         MaxClipItems.value = 10000;
       };
-
       krunnerrc = {
         General = {
           ActivateWhenTypingOnDesktop.value = false;
           FreeFloating.value = true;
         };
-
         Plugins = {
           baloosearchEnabled.value = false;
           recentdocumentsEnabled.value = false;
         };
       };
-
       ksmserverrc.General.loginMode.value = "emptySession";
-
       ksplashrc.KSplash = {
         Engine.value = "none";
         Theme.value = "None";
       };
-
       kscreenlockerrc = {
         "Greeter/LnF/General".showMediaControls.value = false;
-
         "Greeter/Wallpaper/org.kde.image/General" = {
           Image.value = wallpaper;
           PreviewImage.value = wallpaper;
         };
       };
-
       kwinrc = {
         Effect-blurplus = {
           BlurStrength.value = 3;
@@ -159,12 +137,8 @@ in
           BottomCornerRadius.value = cornerRadius + 2;
           MenuCornerRadius.value = 10;
         };
-
-        # Disable top left screen corner
         Effect-overview.BorderActivate.value = 9;
-
         ModifierOnlyShortcuts.Meta.value = "";
-
         Plugins = {
           blurEnabled.value = false;
           contrastEnabled.value = false;
@@ -179,7 +153,6 @@ in
           startupfeedbackEnabled.value = false;
           startupfeedback_busy_cursorEnabled.value = true;
         };
-
         Script-polonium = {
           Borders.value = 3;
           FilterProcess.value = lib.strings.concatStringsSep ", " [
@@ -192,12 +165,10 @@ in
           ];
           InsertionPoint.value = 1;
         };
-
         Windows = {
           DelayFocusInterval.value = 0;
           FocusPolicy.value = "FocusFollowsMouse";
         };
-
         Xwayland.XwaylandEavesdrops.value = "None";
 
         # KDE Rounded Corners
@@ -205,14 +176,12 @@ in
           DisableOutlineTile.value = false;
           DisableRoundTile.value = false;
         };
-
         PrimaryOutline = {
           ActiveOutlineUseCustom.value = false;
           ActiveOutlineUsePalette.value = true;
           InactiveOutlineUseCustom.value = false;
           InactiveOutlineUsePalette.value = true;
         };
-
         "ًRound-Corners" = {
           AnimationEnabled.value = false;
           InactiveCornerRadius.value = cornerRadius;
@@ -220,109 +189,88 @@ in
           ShadowSize.value = 40;
           Size.value = cornerRadius;
         };
-
         SecondOutline = {
           InactiveSecondOutlineThickness.value = 0;
           SecondOutlineThickness.value = 0;
         };
       };
-
       kxkbrc.Layout = {
         LayoutList.value = "pl";
         Use.value = true;
       };
-
       lightlyrc = {
         Common.CornerRadius.value = 8;
-
         Style = {
           DolphinSidebarOpacity.value = 50;
           MenuOpacity.value = 80;
           TabDrawHighlight.value = true;
         };
       };
-
       plasmanotifyrc.Notifications.LowPriorityHistory.value = true;
     };
-
     hotkeys.commands = {
       launch-clementine = {
         name = "Launch Clementine";
         key = "Meta+Shift+C";
         command = "clementine";
       };
-
       launch-firefox = {
         name = "Launch Firefox";
         key = "Meta+Shift+F";
         command = "firefox";
       };
-
       launch-keepassxc = {
         name = "Launch KeepassXC";
         key = "Meta+Shift+Z";
         command = "keepassxc";
       };
-
       launch-konsole = {
         name = "Launch Konsole";
         key = "Meta+Shift+Return";
         command = "konsole";
       };
-
       launch-system-settings = {
         name = "Launch System Settings";
         key = "Meta+Shift+X";
         command = "systemsettings";
       };
-
       launch-vscode = {
         name = "Launch VSCode";
         key = "Meta+Shift+V";
         command = "codium";
       };
-
-
       logout = {
         name = "Log out";
         key = "Ctrl+Shift+Meta+Alt+L";
         command = "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.Shutdown /Shutdown org.kde.Shutdown.logout";
       };
-
       hibernate = {
         name = "Hibernate";
         key = "Ctrl+Shift+Meta+Alt+H";
         command = "systemctl hibernate";
       };
-
       poweroff = {
         name = "Poweroff";
         key = "Ctrl+Shift+Meta+Alt+P";
         command = "systemctl poweroff";
       };
-
       reboot = {
         name = "Reboot";
         key = "Ctrl+Shift+Meta+Alt+R";
         command = "systemctl reboot";
       };
-
       suspend = {
         name = "Suspend";
         key = "Ctrl+Shift+Meta+Alt+S";
         command = "systemctl suspend";
       };
     };
-
     kscreenlocker.appearance = {
       inherit wallpaper;
-
       alwaysShowClock = true;
       showMediaControls = false;
     };
-
     kwin.virtualDesktops.number = 10;
-
     panels = [
       {
         height = 29;
@@ -355,7 +303,6 @@ in
                 "org.kde.plasma.mediacontroller"
                 "vmware-tray"
               ];
-
               shown = [
                 "org.kde.plasma.battery"
                 "org.kde.plasma.volume"
@@ -392,7 +339,6 @@ in
         ];
       }
     ];
-
     shortcuts = {
       kwin = {
         Overview = "none";
@@ -429,7 +375,6 @@ in
         "Window to Desktop 9" = "Meta+(";
         "Window to Desktop 10" = "Meta+)";
       };
-
       plasmashell = {
         "activate application launcher" = "none";
         "manage activities" = "none";
@@ -437,27 +382,22 @@ in
         "previous activity" = "none";
         "stop current activity" = "none";
       };
-
       "services/org.kde.dolphin.desktop"."_launch" = "Meta+Shift+E";
       "services/org.kde.krunner.desktop"."_launch" = "Meta+X";
       "services/org.kde.spectacle.desktop"."_launch" = "Print";
     };
-
     window-rules = [
       {
         description = "Minimum size";
-
-        match.window-types = [ "normal" "dialog" ];
         apply.minsize = {
           apply = "force";
           value = "0,0";
         };
+        match.window-types = [ "normal" "dialog" ];
       }
     ];
-
     workspace = {
       inherit wallpaper;
-
       clickItemTo = "select";
       colorScheme = "KritaDarkOrange";
     };

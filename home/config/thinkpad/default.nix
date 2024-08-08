@@ -4,12 +4,13 @@
 }:
 
 {
+  custom.impermanence.persistentDirectories = [ "Music" ];
+  home.stateVersion = "23.05";
   programs.plasma.configFile = {
     kcminputrc = {
       "Libinput/1739/0/Synaptics TM3276-022".PointerAcceleration.value = "0.100";
       "Libinput/2/10/TPPS\\/2 IBM TrackPoint".PointerAcceleration.value = "1.000";
     };
-
     powerdevilrc = lib.mkForce {
       "AC/Display" = {
         DimDisplayWhenIdle.value = false;
@@ -22,7 +23,6 @@
         PowerDownAction.value = 0;
         SleepMode.value = 3;
       };
-
       "Battery/Display" = {
         DimDisplayWhenIdle.value = false;
         TurnOffDisplayWhenIdle.value = false;
@@ -34,7 +34,6 @@
         PowerDownAction.value = 0;
         SleepMode.value = 3;
       };
-
       "LowBattery/Display" = {
         DimDisplayWhenIdle.value = false;
         TurnOffDisplayWhenIdle.value = false;
@@ -50,8 +49,4 @@
       };
     };
   };
-
-  home.stateVersion = "23.05";
-
-  custom.impermanence.persistentDirectories = [ "Music" ];
 }

@@ -6,8 +6,6 @@
 
 {
   programs.vscode = {
-    package = pkgs.vscodium;
-
     extensions =
       with pkgs;
       with vscode-extensions;
@@ -18,7 +16,6 @@
         pkief.material-icon-theme
         shd101wyy.markdown-preview-enhanced
       ];
-
     userSettings = {
       "editor.bracketPairColorization.enabled" = false;
       "editor.fontFamily" = "'JetBrains Mono'";
@@ -60,5 +57,6 @@
       };
       "workbench.iconTheme" = "material-icon-theme";
     };
+    package = pkgs.vscodium;
   };
 }

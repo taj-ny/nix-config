@@ -5,42 +5,10 @@
 
 # TODO Broken in tty
 {
+  custom.impermanence.persistentFiles = [ ".zsh_history" ];
   home.file.".p10k.zsh".source = ./p10k.zsh;
-
   programs.zsh = {
     autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      clear = "command clear; echo; cat ${pkgs.nix-ascii-art}/nixos-106x16.txt";
-      colors = ''for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}''${(l:3::0:)i}%f " ''${''${(M)$((i%6)):#3}:+$'\n'}; done'';
-      deemix-dl = "deemix -p /home/marcin/Music/import -b flac";
-      kwin-query-window-info = "qdbus org.kde.KWin /KWin org.kde.KWin.queryWindowInfo";
-      ls = "eza -lbghMUa --group-directories-first --git --git-repos";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-
-      plugins = [
-        "git"
-        "sudo"
-      ];
-    };
-
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "zsh-autocomplete";
-        src = pkgs.zsh-autocomplete;
-        file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
-      }
-    ];
-
     initExtra = ''
       bindkey "''${key[Up]}" up-line-or-search
 
@@ -64,7 +32,32 @@
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       fi
     '';
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "sudo"
+      ];
+    };
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "zsh-autocomplete";
+        src = pkgs.zsh-autocomplete;
+        file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
+      }
+    ];
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      clear = "command clear; echo; cat ${pkgs.nix-ascii-art}/nixos-106x16.txt";
+      colors = ''for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}''${(l:3::0:)i}%f " ''${''${(M)$((i%6)):#3}:+$'\n'}; done'';
+      deemix-dl = "deemix -p /home/marcin/Music/import -b flac";
+      kwin-query-window-info = "qdbus org.kde.KWin /KWin org.kde.KWin.queryWindowInfo";
+      ls = "eza -lbghMUa --group-directories-first --git --git-repos";
+    };
   };
-
-  custom.impermanence.persistentFiles = [ ".zsh_history" ];
 }
