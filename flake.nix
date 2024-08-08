@@ -105,7 +105,10 @@
 
     # Hack to get home suggestions when using the home-manager NixOS module
     homeConfigurations.nixd = home-manager.lib.homeManagerConfiguration {
-      extraSpecialArgs = { inherit inputs outputs; };
+      extraSpecialArgs = {
+        inherit inputs outputs;
+        lib = lib.extend (_: _: inputs.home-manager.lib);
+      };
       pkgs = pkgsFor.x86_64-linux;
 
       modules = [
