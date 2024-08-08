@@ -25,10 +25,16 @@ in
       lib = lib.extend (_: _: inputs.home-manager.lib);
     };
 
-    users.${username}.imports = [
-      "${lib.flakeRoot}/home/config/common/default.nix"
-      "${lib.flakeRoot}/home/config/${config.networking.hostName}/default.nix"
-    ] ++ (builtins.attrValues outputs.homeManagerModules);
+    users.${username}.imports =
+      let
+        homeConfig = "${lib.flakeRoot}/home/config";
+        private = "${homeConfig}/_shared/private/default.nix";
+      in
+      [
+        "${homeConfig}/_shared/global/default.nix"
+        "${homeConfig}/${config.networking.hostName}/default.nix"
+      ] ++ (builtins.attrValues outputs.homeManagerModules)
+        ++ (lib.optionals (builtins.pathExists private) [ (import "${private}") ]);
   };
 
   users.users.${username} = {
