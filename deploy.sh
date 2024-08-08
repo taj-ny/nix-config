@@ -11,6 +11,7 @@ rm -f ~/.gtkrc-2.0
 sudo rm -rf /tmp/nix-config
 sudo cp -r /nix/config /tmp/nix-config
 sudo chown root:root -R /tmp/nix-config
+sudo rm -rf /tmp/nix-config/.git
 
 if test -f /etc/current-config; then
     EXIT_CODE=0
