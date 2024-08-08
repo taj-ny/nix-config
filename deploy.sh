@@ -19,7 +19,7 @@ if test -f /etc/current-config; then
         echo "No changes."
         exit 1
     fi
-    diff -Naur --color=always --exclude=.git $(cat /etc/current-config) /tmp/nix-config | less -R
+    diff -Naur --color=always --exclude=.git --exclude=result $(cat /etc/current-config) /tmp/nix-config | less -R
     read -n 1 -p "Deploy? (y/n)" confirm
     echo $confirm > /home/marcin/test
     if [ "$confirm" = "${confirm#[Yy]}" ]; then
