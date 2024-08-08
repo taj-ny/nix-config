@@ -29,7 +29,6 @@ in
       package = pkgs.kdePackages.breeze-gtk;
     };
   };
-
   custom.programs.plasma.kwin = {
     forceTransparency = {
       opacity = 85;
@@ -52,11 +51,9 @@ in
     ];
     tilingGap = 12;
   };
-
   programs.plasma = {
-    overrideConfig = lib.mkForce false;
-
     configFile = {
+      baloofilerc."Basic Settings".Indexing-Enabled.value = false;
       bluedevilglobalrc.Global.launchState.value = "disable";
       breezerc = {
         Common = {
@@ -271,6 +268,7 @@ in
       showMediaControls = false;
     };
     kwin.virtualDesktops.number = 10;
+    overrideConfig = lib.mkForce false;
     panels = [
       {
         height = 29;
