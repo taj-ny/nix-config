@@ -92,6 +92,7 @@
               ./nixos/config/${name}
 
               {
+                environment.etc.current-config.text = "${toString self}";
                 networking.hostName = name;
               }
             ] ++ (builtins.attrValues nixosModules);
