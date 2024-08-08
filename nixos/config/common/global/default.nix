@@ -40,7 +40,6 @@
     firejail.enable = true;
     fuse.userAllowOther = true;
     git.enable = true;
-    ssh.startAgent = true;
     zsh.enable = true;
   };
 

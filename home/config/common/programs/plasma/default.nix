@@ -384,6 +384,9 @@ in
       "services/org.kde.krunner.desktop"."_launch" = "Meta+X";
       "services/org.kde.spectacle.desktop"."_launch" = "Print";
     };
+    startup.startupScript.sshAgent.text = ''
+      eval $(${pkgs.openssh}/bin/ssh-agent -a $XDG_RUNTIME_DIR/ssh-agent)
+    '';
     window-rules = [
       {
         description = "Minimum size";

@@ -83,6 +83,7 @@
       yt-dlp
       yubikey-manager
     ];
+    sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
   };
   nix.gc = {
     inherit (osConfig.nix.gc) automatic options;
