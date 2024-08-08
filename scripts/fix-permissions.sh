@@ -1,7 +1,5 @@
-#!/usr/bin/env bash
-
-shopt -s extglob
+#!/bin/sh
 
 cd /nix/config
-chown marcin:users -R .
-chown root:root -R .git *.sh .vscode/tasks* **/*.sh scripts
+chown root:root -R .
+chown marcin:users -R home lib nixos overlays pkgs .editorconfig .gitignore flake.nix LICENSE nixpkgs.nix README.md shell.nix
