@@ -13,7 +13,6 @@ let
   forceBlur = [
     "firefox"
     "konsole"
-    "org.kde.kate"
     "plasmashell"
   ];
   wallpaper = "${pkgs.plasma-breath-bamboo-wallpaper}/share/wallpapers/Bamboo";
@@ -37,6 +36,7 @@ in
         "dolphin"
         "keepassxc"
         "kwrite"
+        "org.kde.kate"
         "org.freedesktop.impl.portal.desktop.kde"
         "org.nicotine_plus.Nicotine"
         "systemsettings"
