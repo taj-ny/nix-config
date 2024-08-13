@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
-    kwin-effects-forceblur = {
+    kwin-better-blur = {
       url = "github:taj-ny/kwin-effects-forceblur/develop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
