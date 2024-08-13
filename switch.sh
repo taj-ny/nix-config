@@ -21,7 +21,7 @@ if test -f /etc/current-config; then
         exit 1
     fi
     diff -Naur --color=always --exclude=.git --exclude=result $(cat /etc/current-config) /tmp/nix-config | less -R
-    read -n 1 -p "Deploy? (y/n)" confirm
+    read -n 1 -p "Switch? (y/n)" confirm
     echo $confirm > /home/marcin/test
     if [ "$confirm" = "${confirm#[Yy]}" ]; then
         exit 1

@@ -14,9 +14,9 @@
             "problemMatcher": []
         },
         {
-            "label": "Deploy (current)",
+            "label": "Switch (current)",
             "type": "shell",
-            "command": "/nix/config/deploy.sh",
+            "command": "/nix/config/switch.sh",
             "problemMatcher": []
         },
         {
