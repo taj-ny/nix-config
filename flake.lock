@@ -219,7 +219,7 @@
         "type": "github"
       }
     },
-    "kwin-effects-forceblur": {
+    "kwin-better-blur": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -428,7 +428,7 @@
         "hardware": "hardware",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
-        "kwin-effects-forceblur": "kwin-effects-forceblur",
+        "kwin-better-blur": "kwin-better-blur",
         "kwin-effects-startupfeedback-busy-cursor": "kwin-effects-startupfeedback-busy-cursor",
         "lanzaboote": "lanzaboote",
         "nix-colors": "nix-colors",
