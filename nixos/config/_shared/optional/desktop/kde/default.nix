@@ -42,7 +42,7 @@
         plasma-window-title-applet
 
         # Desktop effects
-        #inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
+        inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
         inputs.kwin-effects-startupfeedback-busy-cursor.packages.${pkgs.system}.default
         kde-rounded-corners
         kwin-effects-geometry-change
