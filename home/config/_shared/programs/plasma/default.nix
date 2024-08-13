@@ -284,6 +284,9 @@ in
           "org.kde.plasma.appmenu"
           "org.kde.plasma.panelspacer"
           {
+            plasmusicToolbar.musicControls.showPlaybackControls = false;
+          }
+          {
             systemTray.items = {
               hidden = [
                 "Clementine"
@@ -321,7 +324,7 @@ in
               fgContrastFixEnabled = "false";
               fgLightness = "0.55";
               hideWidget = "true";
-              marginRules = "org.kde.plasma.kickoff,1,0|org.kde.windowtitle,1,0";
+              marginRules = "org.kde.plasma.kickoff,1,0|org.kde.windowtitle,1,0|plasmusic-toolbar,0,-15";
               panelPadding = "16";
               panelRealBgOpacity = "0.5";
               panelSpacing = "10";
