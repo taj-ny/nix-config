@@ -62,6 +62,7 @@
       gimp
       imagemagick
       jetbrains-mono
+      kate
       krita
       libreoffice-fresh
       meslo-lgs-nf
