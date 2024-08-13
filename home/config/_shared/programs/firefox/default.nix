@@ -14,10 +14,6 @@
       DisableTelemetry = true;
       DisableFirefoxAccounts = true;
       DisableFormHistory = true;
-      DNSOverHTTPS = {
-        Enabled = true;
-        ProviderURL = "https://firefox.dns.nextdns.io";
-      };
       DontCheckDefaultBrowser = true;
       FirefoxHome = {
         Search = true;
@@ -75,7 +71,7 @@
         "dom.security.https_only_mode_ever_enabled" = true;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
-        "network.trr.mode" = 3;
+        "network.trr.mode" = 5;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
       # chrome://browser/content/browser.xhtml
