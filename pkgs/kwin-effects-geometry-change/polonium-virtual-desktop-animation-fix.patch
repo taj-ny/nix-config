@@ -27,7 +27,7 @@ index b7cfd32..8249ce3 100644
              return;
          }
 
-+        if ((Date.now() - effects.desktopChangedTime) < 50) {
++        if ((Date.now() - effects.desktopChangedTime) < 500) {
 +            return;
 +        }
 +
