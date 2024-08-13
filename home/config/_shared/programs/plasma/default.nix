@@ -264,7 +264,7 @@ in
       showMediaControls = false;
     };
     kwin.virtualDesktops.number = 10;
-    overrideConfig = lib.mkForce false;
+    overrideConfig = true;
     panels = [
       {
         height = 29;
