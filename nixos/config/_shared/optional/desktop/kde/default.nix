@@ -35,7 +35,7 @@
         polonium
 
         # Wallpapers
-        plasma-breath-wallpapers
+        plasma-breath-bamboo-wallpaper
 
         # Plasmoids
         plasma-panel-colorizer

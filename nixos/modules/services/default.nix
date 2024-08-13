@@ -1,5 +1,8 @@
 {
-  imports = [
-    ./throttled.nix
-  ];
+  lib,
+  ...
+}:
+
+{
+  imports = lib.allExceptThisDefault ./.;
 }

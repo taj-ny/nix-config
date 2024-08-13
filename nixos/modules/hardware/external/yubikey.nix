@@ -14,7 +14,6 @@ in
 
   config.services = mkIf cfg.enable {
     pcscd.enable = true;
-
     udev.packages = with pkgs; [
       yubikey-personalization
       libu2f-host

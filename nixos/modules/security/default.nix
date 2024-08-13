@@ -1,5 +1,8 @@
 {
-  imports = [
-    ./secure-boot.nix
-  ];
+  lib,
+  ...
+}:
+
+{
+  imports = lib.allExceptThisDefault ./.;
 }

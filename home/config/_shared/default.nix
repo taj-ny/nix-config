@@ -7,11 +7,7 @@
 }:
 
 {
-  imports = [
-    ./programs
-    ./colors.nix
-    ./xdg.nix
-  ];
+  imports = lib.allExceptThisDefault ./.;
 
   custom = {
     impermanence = {

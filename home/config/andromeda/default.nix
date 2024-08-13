@@ -1,7 +1,10 @@
 {
-  imports = [
-    ./beets.nix
-  ];
+  lib,
+  ...
+}:
+
+{
+  imports = lib.allExceptThisDefault ./.;
 
   custom.programs = {
     clion.enable = true;

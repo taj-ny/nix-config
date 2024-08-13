@@ -1,6 +1,6 @@
-{ stdenv
-, lib
-, libnotify
+{
+  libnotify,
+  stdenv,
 }:
 
 stdenv.mkDerivation rec {

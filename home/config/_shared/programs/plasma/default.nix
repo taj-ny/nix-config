@@ -13,14 +13,13 @@ let
   forceBlur = [
     "firefox"
     "konsole"
+    "org.kde.kate"
     "plasmashell"
   ];
-  wallpaper = "${pkgs.plasma-breath-wallpapers}/share/wallpapers/Bamboo";
+  wallpaper = "${pkgs.plasma-breath-bamboo-wallpaper}/share/wallpapers/Bamboo";
 in
 {
-  imports = [
-    ./konsole
-  ];
+  imports = lib.allExceptThisDefault ./.;
 
   gtk = {
     enable = true;
@@ -191,10 +190,6 @@ in
           SecondOutlineThickness.value = 0;
         };
       };
-      kxkbrc.Layout = {
-        LayoutList.value = "pl";
-        Use.value = true;
-      };
       lightlyrc = {
         Common.CornerRadius.value = 8;
         Style = {
@@ -262,6 +257,7 @@ in
         command = "systemctl suspend";
       };
     };
+    input.keyboard.layouts = [ { layout = "pl"; }];
     kscreenlocker.appearance = {
       inherit wallpaper;
       alwaysShowClock = true;

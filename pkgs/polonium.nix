@@ -1,7 +1,8 @@
-{ lib
-, fetchFromGitHub
-, buildNpmPackage
-, kdePackages
+{
+  buildNpmPackage,
+  fetchFromGitHub,
+  kdePackages,
+  lib
 }:
 
 buildNpmPackage rec {
@@ -10,7 +11,7 @@ buildNpmPackage rec {
 
   src = fetchFromGitHub {
     owner = "zeroxoneafour";
-    repo = pname;
+    repo = "polonium";
     rev = "f17754a76efb3b07a4dbde53e0d2c055271a4882";
     hash = "sha256-GCSL3eg4729uNVZVAFUgCO3i0BiOkFgxQNgXbBCz1XA=";
   };

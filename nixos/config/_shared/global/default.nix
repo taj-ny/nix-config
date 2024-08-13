@@ -5,15 +5,7 @@
 }:
 
 {
-  imports = [
-    ./programs
-    ./boot.nix
-    ./impermanence.nix
-    ./locale.nix
-    ./network.nix
-    ./nix.nix
-    ./user.nix
-  ];
+  imports = lib.allExceptThisDefault ./.;
 
   custom = {
     impermanence.enable = true;

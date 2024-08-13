@@ -1,5 +1,8 @@
 {
-  imports = [
-    ./yubikey.nix
-  ];
+  lib,
+  ...
+}:
+
+{
+  imports = lib.allExceptThisDefault ./.;
 }

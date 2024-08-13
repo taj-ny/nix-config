@@ -18,7 +18,6 @@ in
         disableBdProchot = mkOptionSimpleDefault bool false;
         maxTemperature = mkOptionSimpleDefault int 75;
       };
-
       undervoltType.options = {
         analogio = mkOptionSimpleDefault int 0;
         cache = mkOptionSimpleDefault int 0;
@@ -29,12 +28,10 @@ in
     in
     {
       enable = mkEnableOption "throttled";
-
       general = {
         ac = mkOptionSimpleDefault (submodule generalType) { };
         battery = mkOptionSimpleDefault (submodule generalType) { };
       };
-
       undervolt = {
         ac = mkOptionSimpleDefault (submodule undervoltType) { };
         battery = mkOptionSimpleDefault (submodule undervoltType) { };
@@ -43,7 +40,6 @@ in
 
   config.services.throttled = mkIf cfg.enable {
     enable = true;
-
     extraConfig = ''
       [GENERAL]
       Enabled: True

@@ -27,7 +27,6 @@ in
       directories = cfg.persistentDirectories;
       files = cfg.persistentFiles;
     };
-
     fileSystems."/" = {
       device = "tmpfs";
       fsType = "tmpfs";

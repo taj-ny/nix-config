@@ -12,9 +12,7 @@ in
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
-
-    ./kwin
-  ];
+  ] ++ (lib.allExceptThisDefault ./.);
 
   options.custom.programs.plasma.enable = mkEnableOption "Plasma";
 

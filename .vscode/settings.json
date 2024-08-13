@@ -19,4 +19,5 @@
         "!.vscode/tasks.json"
     ],
     "taskExplorer.autoRefresh": true,
+    "editor.lineHeight": 1.5
 }

@@ -55,7 +55,7 @@
   } @ inputs: let
     inherit (self) outputs;
 
-    lib = nixpkgs.lib.extend (_: _: import ./lib { pkgs = nixpkgs; });
+    lib = nixpkgs.lib.extend (_: _: import ./lib { lib = nixpkgs.lib; });
     systems = [ "x86_64-linux" ];
     forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
     pkgsFor = lib.genAttrs systems (system: import nixpkgs {
@@ -67,40 +67,30 @@
   rec {
     inherit lib;
 
-    packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+    packages = forEachSystem (pkgs: import ./pkgs/default.nix { inherit lib pkgs; });
     devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
-    overlays = import ./overlays { inherit inputs; };
+    overlays = import ./overlays { inherit inputs lib; };
     nixosModules = import ./nixos/modules;
     homeManagerModules = import ./home/modules;
 
     nixosConfigurations =
-      lib.listToAttrs (
-        lib.mapAttrsToList (name: value: {
-          inherit name;
-
-          value = lib.nixosSystem {
-            specialArgs = { inherit inputs outputs nix-colors; };
-
-            lib = lib.extend (_: _: import ./lib {
-              pkgs = import nixpkgs {
-                system = value;
-              };
-            });
-
-            modules = [
-              ./nixos/config/common/global
+      lib.mapAttrs (name: value:
+        lib.nixosSystem {
+          inherit lib;
+          modules = [
+              ./nixos/config/_shared/global
               ./nixos/config/${name}
-
               {
                 environment.etc.current-config.text = "${toString self}";
                 networking.hostName = name;
               }
             ] ++ (builtins.attrValues nixosModules);
-          };
-        }) {
-          andromeda = "x86_64-linux";
-          thinkpad = "x86_64-linux";
+          specialArgs = { inherit inputs outputs nix-colors; };
         }
+      ) (
+        builtins.removeAttrs (
+          builtins.readDir ./nixos/config
+        ) [ "common" ]
       );
 
     # Hack to get home suggestions when using the home-manager NixOS module
@@ -109,18 +99,18 @@
         inherit inputs outputs;
         lib = lib.extend (_: _: inputs.home-manager.lib);
       };
-      pkgs = pkgsFor.x86_64-linux;
-
       modules = [
         nix-colors.homeManagerModules.default
-
         {
           imports = builtins.attrValues homeManagerModules;
-          home.username = "nixd";
-          home.homeDirectory = "/home/nixd";
-          home.stateVersion = "24.05";
+          home = {
+            homeDirectory = "/";
+            stateVersion = "24.11";
+            username = "nixd";
+          };
         }
       ];
+      pkgs = pkgsFor.x86_64-linux;
     };
   };
 }

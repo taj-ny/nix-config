@@ -1,0 +1,28 @@
+@import url("firefox-ui-fix/userChrome.css");
+
+html, #urlbar #urlbar-background {
+    background-color: rgba(25, 25, 25, 0.5) !important;
+}
+
+toolbar, toolbox {
+    background-color: transparent !important;
+}
+
+#nav-bar {
+    box-shadow: unset !important;
+    border-top: unset !important;
+}
+
+#urlbar[focused=""] #urlbar-background {
+    background-color: rgb(25, 25, 25) !important;
+}
+
+#nav-bar,
+.tab-background:is([selected], [multiselected]) {
+    background-color: transparent !important;
+}
+
+#TabsToolbar #firefox-view-button:hover:not([open]) > .toolbarbutton-icon,
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
+    background-color: transparent !important;
+}

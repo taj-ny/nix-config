@@ -1,29 +1,19 @@
-{ lib
-, stdenv
-, fetchurl
-, fetchFromGitHub
-, cmake
-, extra-cmake-modules
-, wrapQtAppsHook
-, frameworkintegration
-, kcmutils
-, kdecoration
-, kwindowsystem
-, qt6
-, qttools
+{
+  cmake,
+  extra-cmake-modules,
+  fetchFromGitHub,
+  fetchurl,
+  frameworkintegration,
+  kcmutils,
+  kdecoration,
+  kwindowsystem,
+  lib,
+  stdenv,
+  qt6,
+  qttools,
+  wrapQtAppsHook
 }:
 
-let
-  config-tar-gz = fetchurl {
-    url = "https://github.com/boehs/Lightly/files/14445309/config.tar.gz";
-    hash = "sha256-eCIRm2z1+eTBcCCg8Wdt2DfTTbc767Rv+m1LI+t058I=";
-  };
-
-  lightlystyleconfig-json = fetchurl {
-    url = "https://github.com/boehs/Lightly/files/14444935/lightlystyleconfig.json";
-    hash = "sha256-ORQk0QirDB9dF3RdgmH5sstqQqqSEfOE6lh1YEUz+iM=";
-  };
-in
 stdenv.mkDerivation rec {
   pname = "lightly-qt6";
   version = "0.4.1";
@@ -50,21 +40,33 @@ stdenv.mkDerivation rec {
     qttools
   ];
 
-  patchPhase = ''
-    runHook prePatch
+  patchPhase =
+    let
+      config-tar-gz = fetchurl {
+        url = "https://github.com/boehs/Lightly/files/14445309/config.tar.gz";
+        hash = "sha256-eCIRm2z1+eTBcCCg8Wdt2DfTTbc767Rv+m1LI+t058I=";
+      };
 
-    mkdir tmp
-    cd tmp
-    tar -xv -f ${config-tar-gz}
-    cd ..
+      lightlystyleconfig-json = fetchurl {
+        url = "https://github.com/boehs/Lightly/files/14444935/lightlystyleconfig.json";
+        hash = "sha256-ORQk0QirDB9dF3RdgmH5sstqQqqSEfOE6lh1YEUz+iM=";
+      };
+    in
+    ''
+      runHook prePatch
 
-    cp -v tmp/config/CMakeLists.txt kdecoration/config/CMakeLists.txt
-    cp -v tmp/config/kcm_lightlydecoration.json kdecoration/config/kcm_lightlydecoration.json
-    cp -v tmp/config/kcm_lightlydecoration.cpp kdecoration/config/kcm_lightlydecoration.cpp
-    cp -v ${lightlystyleconfig-json} kstyle/config/lightlystyleconfig.json
+      mkdir tmp
+      cd tmp
+      tar -xv -f ${config-tar-gz}
+      cd ..
 
-    runHook postPatch
-  '';
+      cp -v tmp/config/CMakeLists.txt kdecoration/config/CMakeLists.txt
+      cp -v tmp/config/kcm_lightlydecoration.json kdecoration/config/kcm_lightlydecoration.json
+      cp -v tmp/config/kcm_lightlydecoration.cpp kdecoration/config/kcm_lightlydecoration.cpp
+      cp -v ${lightlystyleconfig-json} kstyle/config/lightlystyleconfig.json
+
+      runHook postPatch
+    '';
 
   cmakeFlags = [
     "-DWITH_DECORATIONS=OFF"

@@ -33,7 +33,7 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    (lib.patchDesktop vmware-workstation "vmware-workstation" "^Exec=${vmware-workstation}/bin/vmware" "Exec=${launchScript}")
+    (patchDesktop vmware-workstation "vmware-workstation" "^Exec=${vmware-workstation}/bin/vmware" "Exec=${launchScript}")
   ];
 
   custom.impermanence.persistentDirectories = [ "/etc/vmware" ];

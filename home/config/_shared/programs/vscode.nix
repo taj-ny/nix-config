@@ -13,12 +13,15 @@
         vscode-taskexplorer
 
         jnoortheen.nix-ide
+        ms-vscode.cmake-tools
+        ms-vscode.cpptools
         pkief.material-icon-theme
         shd101wyy.markdown-preview-enhanced
       ];
     userSettings = {
       "editor.bracketPairColorization.enabled" = false;
       "editor.fontFamily" = "'JetBrains Mono'";
+      "editor.lineHeight" = 1.5;
       "editor.wordWrap" = "on";
       "files.autoSave" = "afterDelay";
       "files.trimTrailingWhitespace" = true;

@@ -1,4 +1,10 @@
-{ fetchurl, stdenv, rascii, librsvg, imagemagick }:
+{
+  fetchurl,
+  imagemagick,
+  librsvg,
+  stdenv,
+  rascii
+}:
 
 let
   rev = "e3a74d1c40086393f2b1b9f218497da2db0ff3ae";

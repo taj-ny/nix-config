@@ -8,24 +8,21 @@
 {
   imports = [
     inputs.hardware.nixosModules.lenovo-thinkpad-t480
-    ./hardware-configuration.nix
 
-    ./throttled.nix
+    ../_shared/optional/desktop/unlock-after-hibernation.nix
+    ../_shared/optional/desktop/kde
 
-    ../common/optional/desktop/unlock-after-hibernation.nix
-    ../common/optional/desktop/kde
+    ../_shared/optional/fs/luks-btrfs-impermanence-swapfile.nix
 
-    ../common/optional/fs/luks-btrfs-impermanence-swapfile.nix
+    ../_shared/optional/services/pipewire.nix
+    ../_shared/optional/services/syncthing.nix
+    ../_shared/optional/services/tor.nix
 
-    ../common/optional/services/pipewire.nix
-    ../common/optional/services/syncthing.nix
-    ../common/optional/services/tor.nix
+    ../_shared/optional/security/u2f-pam.nix
 
-    ../common/optional/security/u2f-pam.nix
-
-    ../common/optional/allow-remote-deployment.nix
-    ../common/optional/encrypted-dns.nix
-  ];
+    ../_shared/optional/allow-remote-deployment.nix
+    ../_shared/optional/encrypted-dns.nix
+  ] ++ (lib.allExceptThisDefault ./.);
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

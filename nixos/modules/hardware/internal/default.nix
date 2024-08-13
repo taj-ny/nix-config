@@ -1,6 +1,8 @@
 {
-  imports = [
-    ./gpu
-    ./bluetooth.nix
-  ];
+  lib,
+  ...
+}:
+
+{
+  imports = lib.allExceptThisDefault ./.;
 }

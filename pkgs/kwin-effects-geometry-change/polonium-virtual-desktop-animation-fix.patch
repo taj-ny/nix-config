@@ -5,17 +5,17 @@ index b7cfd32..8249ce3 100644
 @@ -10,6 +10,9 @@ class GeometryChangeEffect {
              this.manage(window);
          }
- 
+
 +        effects.desktopChanged.connect(this.onDesktopChanged.bind(this));
 +        effects.desktopChangedTime = Date.now();
 +
          this.loadConfig();
      }
- 
+
 @@ -48,6 +51,10 @@ class GeometryChangeEffect {
          return false;
      }
- 
+
 +    onDesktopChanged() {
 +        effects.desktopChangedTime = Date.now();
 +    }
@@ -26,8 +26,8 @@ index b7cfd32..8249ce3 100644
 @@ -71,6 +78,10 @@ class GeometryChangeEffect {
              return;
          }
- 
-+        if ((Date.now() - effects.desktopChangedTime) < 100) {
+
++        if ((Date.now() - effects.desktopChangedTime) < 50) {
 +            return;
 +        }
 +

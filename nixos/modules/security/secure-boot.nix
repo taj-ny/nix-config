@@ -23,11 +23,9 @@ in
         enable = true;
         pkiBundle = "/etc/secureboot";
       };
-
       loader.systemd-boot.enable = mkForce false;
     };
-
-    environment.systemPackages = with pkgs; [ sbctl ];
     custom.impermanence.persistentDirectories = [ "/etc/secureboot" ];
+    environment.systemPackages = with pkgs; [ sbctl ];
   };
 }
