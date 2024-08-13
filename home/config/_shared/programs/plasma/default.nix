@@ -66,19 +66,6 @@ in
           HideTitleBar.value = true;
         };
       };
-      dolphinrc = {
-        ContentDisplay = {
-          DirectorysizeMode.value = "ContentSize";
-          RecursiveDirectorySizeLimit.value = 20;
-          UsePermissionsFormat.value = "CombinedFormat";
-        };
-        DetailsMode.PreviewSize.value = 16;
-        General = {
-          BrowseThroughArchives.value = true;
-          RememberOpenedTabs.value = false;
-        };
-        VersionControl.enabledPlugins.value = "Git";
-      };
       kdeglobals = {
         General = {
           AccentColor.value = lib.strings.concatStringsSep "," (map (x: toString x) (hexToRGB config.colorScheme.palette.accent));

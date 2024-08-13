@@ -19,5 +19,8 @@
         "!.vscode/tasks.json"
     ],
     "taskExplorer.autoRefresh": true,
-    "editor.lineHeight": 1.5
+    "editor.lineHeight": 1.5,
+    "material-icon-theme.folders.color": "#009688",
+    "material-icon-theme.folders.theme": "classic",
+    "workbench.iconTheme": "material-icon-theme"
 }

@@ -20,7 +20,6 @@ in
     custom.impermanence = {
       persistentDirectories = [
         ".local/share/baloo"
-        ".local/share/dolphin"
         ".local/share/kwalletd"
         ".local/share/Trash"
       ];
