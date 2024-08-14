@@ -12,7 +12,6 @@ rec {
   nixos-update-notifier = pkgs.callPackage ./nixos-update-notifier { };
   plasma-breath-bamboo-wallpaper = pkgs.callPackage ./plasma-breath-bamboo-wallpaper.nix { };
   plasma-window-title-applet = pkgs.callPackage ./plasma-window-title-applet.nix { };
-  polonium = pkgs.callPackage ./polonium.nix { };
   rascii = pkgs.callPackage ./rascii.nix { };
   vscode-taskexplorer = pkgs.callPackage ./vscode-taskexplorer.nix { };
 
