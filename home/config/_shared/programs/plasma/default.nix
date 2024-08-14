@@ -39,6 +39,7 @@ in
         "kwrite"
         "org.kde.kate"
         "org.freedesktop.impl.portal.desktop.kde"
+        "org.kde.ksshaskpass"
         "org.nicotine_plus.Nicotine"
         "systemsettings"
         "vscodium"
