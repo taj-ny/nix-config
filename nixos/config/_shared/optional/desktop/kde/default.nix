@@ -31,9 +31,6 @@
         lightly-boehs
         lightly-qt6
 
-        # KWin scripts
-        polonium
-
         # Wallpapers
         plasma-breath-bamboo-wallpaper
 
