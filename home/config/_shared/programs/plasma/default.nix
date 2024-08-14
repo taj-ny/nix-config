@@ -49,7 +49,6 @@ in
       "kwin4_effect_geometry_change"
       "kwin4_effect_shapecorners"
     ];
-    tilingGap = 12;
   };
   programs.plasma = {
     configFile = {
