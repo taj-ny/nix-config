@@ -10,6 +10,7 @@
 with nix-colors.lib.conversions;
 let
   cornerRadius = 15;
+  tilingGap = 12;
   forceBlur = [
     "firefox"
     "konsole"
@@ -126,27 +127,30 @@ in
           blurEnabled.value = false;
           contrastEnabled.value = false;
           forceblurEnabled.value = true;
+          krohnkiteEnabled.value = true;
           kwin4_effect_geometry_changeEnabled.value = true;
           kwin4_effect_shapecornersEnabled.value = true;
           kwin_effect_lightlyshadersEnabled.value = false;
           lightlyshaders_blurEnabled.value = false;
-          poloniumEnabled.value = true;
           shakecursorEnabled.value = false;
           slideEnabled.value = false;
           startupfeedbackEnabled.value = false;
           startupfeedback_busy_cursorEnabled.value = true;
         };
-        Script-polonium = {
-          Borders.value = 3;
-          FilterProcess.value = lib.strings.concatStringsSep ", " [
-            "krunner"
-            "kded"
-            "polkit"
-            "plasmashell"
-            "ksshaskpass"
-            "org.freedesktop.impl.portal.desktop.kde"
-          ];
-          InsertionPoint.value = 1;
+        Script-krohnkite = {
+          enableBTreeLayout.value = true;
+          enableMonocleLayout.value = false;
+          enableSpiralLayout.value = false;
+          enableSpreadLayout.value = false;
+          enableStairLayout.value = false;
+          enableThreeColumnLayout.value = false;
+          enableTileLayout.value = false;
+          monocleMaximize.value = false;
+          screenGapBottom.value = tilingGap;
+          screenGapLeft.value = tilingGap;
+          screenGapRight.value = tilingGap;
+          screenGapTop.value = tilingGap;
+          tileLayoutGap.value = tilingGap;
         };
         Windows = {
           DelayFocusInterval.value = 0;
@@ -325,16 +329,17 @@ in
     ];
     shortcuts = {
       kwin = {
+        KrohnkiteFocusDown = "Meta+S";
+        KrohnkiteFocusLeft = "Meta+A";
+        KrohnkiteFocusRight = "Meta+D";
+        KrohnkiteFocusUp = "Meta+W";
+        KrohnkiteShiftDown = "Meta+Shift+S";
+        KrohnkiteShiftLeft = "Meta+Shift+A";
+        KrohnkiteShiftRight = "Meta+Shift+D";
+        KrohnkiteShiftUp = "Meta+Shift+W";
+        KrohnkiteToggleFloat = "Meta+Space";
         Overview = "none";
-        PoloniumFocusAbove = "Meta+W";
-        PoloniumFocusLeft = "Meta+A";
-        PoloniumFocusBelow = "Meta+S";
-        PoloniumFocusRight = "Meta+D";
-        PoloniumInsertAbove = "Meta+Shift+W";
-        PoloniumInsertLeft = "Meta+Shift+A";
-        PoloniumInsertBelow = "Meta+Shift+S";
-        PoloniumInsertRight = "Meta+Shift+D";
-        PoloniumRetileWindow = "Meta+Space";
+
         "Show Desktop" = "none";
         "Switch to Desktop 1" = "Meta+1";
         "Switch to Desktop 2" = "Meta+2";
@@ -389,4 +394,5 @@ in
       colorScheme = "KritaDarkOrange";
     };
   };
+  home.packages = with pkgs; [ krohnkite ];
 }
