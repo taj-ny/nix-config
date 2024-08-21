@@ -70,6 +70,7 @@
         "dom.private-attribution.submission.enabled" = false;
         "dom.security.https_only_mode" = true;
         "dom.security.https_only_mode_ever_enabled" = true;
+        "gfx.webrender.all" = true;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
         "network.trr.mode" = 5;
