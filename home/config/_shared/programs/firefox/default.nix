@@ -45,6 +45,7 @@
         keepassxc-browser
         multi-account-containers
         sponsorblock
+        stylus
         switchyomega
         ublock-origin
         violentmonkey
