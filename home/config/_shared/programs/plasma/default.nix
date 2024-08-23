@@ -145,6 +145,19 @@ in
           enableStairLayout.value = false;
           enableThreeColumnLayout.value = false;
           enableTileLayout.value = false;
+          ignoreClass = lib.concatStringsSep "," [
+            "kded"
+            "krunner"
+            "ksshaskpass"
+            "org.freedesktop.impl.portal.desktop.kde"
+            "org.kde.plasmashell"
+            "org.kde.polkit-kde-authentication-agent-1"
+            "spectacle"
+            "xwaylandvideobridge"
+          ];
+          ignoreTitle = lib.concatStringsSep "," [
+            "Configure — System Settings"
+          ];
           monocleMaximize.value = false;
           screenGapBottom.value = tilingGap;
           screenGapLeft.value = tilingGap;
@@ -274,9 +287,6 @@ in
           }
           "org.kde.plasma.appmenu"
           "org.kde.plasma.panelspacer"
-          {
-            plasmusicToolbar.musicControls.showPlaybackControls = false;
-          }
           {
             systemTray.items = {
               hidden = [
