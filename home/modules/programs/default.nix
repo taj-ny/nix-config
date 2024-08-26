@@ -6,15 +6,14 @@
 
 let
   mkProgramOption = name: package: {
-    options.programs.${lib.toLower name}.enable = lib.mkEnableOption name;
+    options.programs.${lib.replaceStrings [ " " ] [ "-" ] (lib.toLower name)}.enable = lib.mkEnableOption name;
     config.home.packages = [ package ];
   };
 in
 {
   imports = lib.allExceptThisDefault ./.;
 } // (lib.mkMergeRecursive [
-  (mkProgramOption "clementine" pkgs.clementine)
+  (mkProgramOption "Clementine" pkgs.clementine)
   (mkProgramOption "KeepassXC" pkgs.keepassxc)
+  (mkProgramOption "Prism Launcher" pkgs.prismlauncher)
 ])
-
-

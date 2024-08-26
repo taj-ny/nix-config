@@ -30,7 +30,7 @@ rec {
   mkOptionSimple = type: lib.mkOption {
     inherit type;
   };
-  mkOptionSimpleDefault = type: default: mkOption {
+  mkOptionSimpleDefault = type: default: lib.mkOption {
     inherit type default;
   };
 }
