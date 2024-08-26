@@ -39,7 +39,6 @@
       clementine.enable = true;
       firefox.enable = true;
       google-chrome.enable = true; # Just in case something doesn't work on Firefox. It's sandboxed.
-      kdeconnect.enable = true;
       nixos-update-notifier.enable = true;
       plasma.enable = true;
       rclone.enable = true;
@@ -91,6 +90,9 @@
     vscode.enable = true;
     zsh.enable = true;
   };
-  services.easyeffects.enable = true;
+  services = {
+    easyeffects.enable = true;
+    kdeconnect.enable = true;
+  };
   systemd.user.startServices = "sd-switch";
 }
