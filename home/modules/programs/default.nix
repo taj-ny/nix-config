@@ -12,5 +12,9 @@ let
 in
 {
   imports = lib.allExceptThisDefault ./.;
-}
-// (mkProgramOption "KeepassXC" pkgs.keepassxc)
+} // (lib.mkMergeRecursive [
+  (mkProgramOption "clementine" pkgs.clementine)
+  (mkProgramOption "KeepassXC" pkgs.keepassxc)
+])
+
+

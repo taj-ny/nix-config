@@ -36,7 +36,6 @@
           ++ (lib.optionals osConfig.services.syncthing.enable [ ".syncthing" ]);
     };
     programs = {
-      clementine.enable = true;
       firefox.enable = true;
       google-chrome.enable = true; # Just in case something doesn't work on Firefox. It's sandboxed.
       nixos-update-notifier.enable = true;
@@ -85,6 +84,7 @@
   };
   programs = {
     btop.enable = true;
+    clementine.enable = true;
     home-manager.enable = true;
     keepassxc.enable = true;
     vscode.enable = true;
