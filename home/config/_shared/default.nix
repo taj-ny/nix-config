@@ -44,7 +44,6 @@
       nixos-update-notifier.enable = true;
       plasma.enable = true;
       rclone.enable = true;
-      vscode.enable = true;
     };
   };
   fonts.fontconfig.enable = true;
@@ -89,6 +88,7 @@
   programs = {
     btop.enable = true;
     home-manager.enable = true;
+    vscode.enable = true;
     zsh.enable = true;
   };
   services.easyeffects.enable = true;

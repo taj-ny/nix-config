@@ -1,10 +1,17 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
 
+lib.mkIf config.programs.vscode.enable
 {
+  custom.impermanence.persistentDirectories = [
+    ".config/VSCodium/User/globalStorage"
+    ".config/VSCodium/User/History"
+    ".config/VSCodium/User/workspaceStorage"
+  ];
   programs.vscode = {
     extensions =
       with pkgs;
