@@ -15,6 +15,7 @@ let
     "firefox"
     "konsole"
     "plasmashell"
+    "yakuake"
   ];
   wallpaper = "${pkgs.plasma-breath-bamboo-wallpaper}/share/wallpapers/Bamboo";
 in
@@ -154,6 +155,7 @@ in
             "org.kde.polkit-kde-authentication-agent-1"
             "spectacle"
             "xwaylandvideobridge"
+            "yakuake"
           ];
           ignoreTitle = lib.concatStringsSep "," [
             "Configure — System Settings"
@@ -203,6 +205,14 @@ in
         };
       };
       plasmanotifyrc.Notifications.LowPriorityHistory.value = true;
+      yakuakerc = {
+        Appearance.HideSkinBorders.value = true;
+        Dialogs.FirstRun.value = false;
+        Window = {
+          ShowTabBar.value = false;
+          ShowTitleBar.value = false;
+        };
+      };
     };
     hotkeys.commands = {
       launch-clementine = {
@@ -300,6 +310,7 @@ in
                 "org.kde.plasma.manage-inputmethod"
                 "org.kde.plasma.mediacontroller"
                 "vmware-tray"
+                "Yakuake"
               ];
               shown = [
                 "org.kde.plasma.battery"
@@ -385,9 +396,12 @@ in
       "services/org.kde.krunner.desktop"."_launch" = "Meta+X";
       "services/org.kde.spectacle.desktop"."_launch" = "Print";
     };
-    startup.startupScript.sshAgent.text = ''
-      eval $(${pkgs.openssh}/bin/ssh-agent -a $XDG_RUNTIME_DIR/ssh-agent)
-    '';
+    startup.startupScript = {
+      sshAgent.text = ''
+        eval $(${pkgs.openssh}/bin/ssh-agent -a $XDG_RUNTIME_DIR/ssh-agent)
+      '';
+      yakuake.text = "yakuake &";
+    };
     window-rules = [
       {
         description = "Minimum size";

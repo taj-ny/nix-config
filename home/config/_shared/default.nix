@@ -77,7 +77,8 @@
         ark
         kate
         krdc
-        krfb;
+        krfb
+        yakuake;
     };
     sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
   };
