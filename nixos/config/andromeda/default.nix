@@ -47,6 +47,7 @@
     fsType = "btrfs";
     options = [ "noatime" "nofail" "noauto" "x-systemd.automount" "subvol=@music" ];
   };
+  hardware.nvidia.open = false;
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
   programs = {
     adb.enable = true;
