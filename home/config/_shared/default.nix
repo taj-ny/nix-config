@@ -46,35 +46,39 @@
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
-    packages = with pkgs; [
-      ark
-      axel
-      dotnet-sdk_8
-      duf
-      eza
-      fastfetch
-      ffmpeg
-      gimp
-      imagemagick
-      jetbrains-mono
-      kate
-      krita
-      libreoffice-fresh
-      meslo-lgs-nf
-      mono
-      obs-studio
-      php
-      piper
-      python3Full
-      rsync
-      tmux
-      tor-browser-bundle-bin
-      unzip
-      vlc
-      wl-clipboard
-      yt-dlp
-      yubikey-manager
-    ];
+    packages = builtins.attrValues {
+      inherit (pkgs)
+        axel
+        dotnet-sdk_8
+        duf
+        eza
+        fastfetch
+        ffmpeg
+        gimp
+        imagemagick
+        jetbrains-mono
+        krita
+        libreoffice-fresh
+        meslo-lgs-nf
+        mono
+        obs-studio
+        php
+        piper
+        python3Full
+        rsync
+        tmux
+        tor-browser-bundle-bin
+        unzip
+        vlc
+        wl-clipboard
+        yt-dlp
+        yubikey-manager;
+      inherit (pkgs.kdePackages)
+        ark
+        kate
+        krdc
+        krfb;
+    };
     sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
   };
   nix.gc = {
