@@ -1,14 +1,14 @@
-{ lib, ... }:
+{
+  ...
+}:
 
 {
   services.syncthing = {
     enable = true;
-    user = "marcin";
-    dataDir = "/home/marcin";
     configDir = "/nix/persist/home/marcin/.syncthing";
+    dataDir = "/home/marcin";
     overrideDevices = true;
     overrideFolders = true;
-
     settings = {
       devices = {
         andromeda.id = "SUIYSAQ-STGZIJU-JI3DTRF-4IG4RNS-B4CMRGW-ZZICAON-AJG3V5O-I6G4NAD";
@@ -17,12 +17,20 @@
       };
 
       folders = {
+        Aegis = {
+          devices = [ "andromeda" "thinkpad" "rn10pro" ];
+          ignoreDelete = true;
+          path = "/home/marcin/Backups/Aegis";
+          versioning = {
+            type = "simple";
+            params.keep = "10";
+          };
+        };
         keepass = {
-          path = "/home/marcin/keepass";
           devices = [ "andromeda" "thinkpad" ];
           ignorePerms = false;
           ignoreDelete = true;
-
+          path = "/home/marcin/keepass";
           versioning = {
             type = "simple";
             params.keep = "10";
@@ -30,6 +38,7 @@
         };
       };
     };
+    user = "marcin";
   };
 
   # Start syncthing after all persistent directories have been mounted in /home
