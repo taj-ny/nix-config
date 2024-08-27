@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   ...
 }:
 
@@ -12,6 +13,9 @@
     rider.enable = true;
   };
   home = {
+    packages = builtins.attrValues {
+      inherit (pkgs) spek;
+    };
     stateVersion = "23.05";
     sessionVariables.MOZ_ENABLE_WAYLAND = 0; # TODO Remove when 130 is out
   };
