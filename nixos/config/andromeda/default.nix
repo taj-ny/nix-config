@@ -42,10 +42,17 @@
       data PARTLABEL=data /nix/persist/luks_keyfiles/data.key noauto
     '';
   };
-  fileSystems."/home/marcin/Music" = {
-    device = "/dev/mapper/data";
-    fsType = "btrfs";
-    options = [ "noatime" "nofail" "noauto" "x-systemd.automount" "subvol=@music" ];
+  fileSystems = {
+    "/home/marcin/Backups" = {
+      device = "/dev/mapper/data";
+      fsType = "btrfs";
+      options = [ "noatime" "nofail" "noauto" "x-systemd.automount" "subvol=@backups" ];
+    };
+    "/home/marcin/Music" = {
+      device = "/dev/mapper/data";
+      fsType = "btrfs";
+      options = [ "noatime" "nofail" "noauto" "x-systemd.automount" "subvol=@music" ];
+    };
   };
   hardware.nvidia.open = false;
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";

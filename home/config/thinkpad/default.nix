@@ -4,7 +4,10 @@
 }:
 
 {
-  custom.impermanence.persistentDirectories = [ "Music" ];
+  custom.impermanence.persistentDirectories = [
+    "Backups"
+    "Music"
+  ];
   home.stateVersion = "23.05";
   programs.plasma.configFile = {
     kcminputrc = {

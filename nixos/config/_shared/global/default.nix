@@ -47,9 +47,6 @@
       Defaults		timestamp_timeout=1
     '';
   };
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=3s
-  '';
   services = {
     fwupd.enable = true;
     mysql.package = pkgs.mariadb;
@@ -64,5 +61,6 @@
     preload.enable = true;
     ratbagd.enable = true;
   };
+  systemd.services."user@".serviceConfig.TimeoutStopSec = "2s"; # TODO workaround
   users.users.root.hashedPassword = "!";
 }
