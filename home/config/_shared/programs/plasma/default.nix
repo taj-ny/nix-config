@@ -14,7 +14,6 @@ let
   forceBlur = [
     "firefox"
     "konsole"
-    "plasmashell"
     "yakuake"
   ];
   wallpaper = "${pkgs.plasma-breath-bamboo-wallpaper}/share/wallpapers/Bamboo";
@@ -35,6 +34,7 @@ in
         "org.freedesktop.impl.portal.desktop.kde"
         "org.kde.ksshaskpass"
         "org.nicotine_plus.Nicotine"
+        "plasmashell"
         "systemsettings"
         "vscodium"
       ];
