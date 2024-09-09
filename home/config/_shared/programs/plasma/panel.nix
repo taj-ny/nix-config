@@ -37,6 +37,7 @@
           }
           "org.kde.plasma.appmenu"
           "org.kde.plasma.panelspacer"
+          "org.kde.plasma.colorpicker"
           {
             systemTray.items = {
               hidden = [
