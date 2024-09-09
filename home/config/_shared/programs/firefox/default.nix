@@ -60,6 +60,7 @@ lib.mkIf config.programs.firefox.enable
         default = "DuckDuckGo";
       };
       settings = {
+        "apz.overscroll.enabled" = false;
         "browser.aboutConfig.showWarning" = false;
         "browser.newtabpage.enabled" = false;
         "browser.search.suggest.enabled" = false;
