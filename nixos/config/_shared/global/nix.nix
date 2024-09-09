@@ -29,7 +29,7 @@
           system = "x86_64-linux";
         }
       ];
-    distributedBuilds = true;
+    #distributedBuilds = true;
     nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 

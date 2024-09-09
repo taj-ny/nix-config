@@ -16,6 +16,13 @@ in
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  environment.persistence."/nix/persist".users.${username} = {
+    directories = [
+    ] ++ (lib.optionals config.programs.steam.enable [
+      ".local/share/Steam"
+      ".steam"
+    ]);
+  };
   home-manager =
     let
       homeConfig = "${lib.flakeRoot}/home/config/${config.networking.hostName}";

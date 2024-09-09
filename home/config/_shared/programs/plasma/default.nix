@@ -22,13 +22,6 @@ in
 {
   imports = lib.allExceptThisDefault ./.;
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Breeze-Dark";
-      package = pkgs.kdePackages.breeze-gtk;
-    };
-  };
   custom.programs.plasma.kwin = {
     forceTransparency = {
       opacity = 85;
@@ -51,6 +44,18 @@ in
       "kwin4_effect_geometry_change"
       "kwin4_effect_shapecorners"
     ];
+  };
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze-gtk;
+    };
+  };
+  home.packages = lib.attrValues {
+    inherit (pkgs)
+      kara
+      krohnkite;
   };
   programs.plasma = {
     configFile = {
@@ -289,10 +294,25 @@ in
             kickoff.icon = "nix-snowflake"; # Used only for the icon, it's better than media frame
           }
           {
+            name = "org.dhruv8sh.kara";
+            config = {
+              general.type = 2;
+              type2.fixedLen = 32;
+              type3.iconsList = lib.concatStringsSep "\\n" [
+                "applications-internet-symbolic"
+                "library-music-symbolic"
+                "code-context-symbolic"
+                "applications-games-symbolic"
+              ];
+            };
+          }
+          "org.kde.plasma.panelspacer"
+          {
             name = "org.kde.windowtitle";
             config.General = {
-              capitalFont = "false";
-              useActivityIcon = "false";
+              capitalFont = false;
+              filterActivityInfo = false;
+              useActivityIcon = false;
             };
           }
           "org.kde.plasma.appmenu"
@@ -411,6 +431,23 @@ in
         };
         match.window-types = [ "normal" "dialog" ];
       }
+      {
+        description = "Yakuake";
+        apply = {
+          above = {
+            apply = "force";
+            value = true;
+          };
+          desktops = {
+            apply = "force";
+            value = "\\0";
+          };
+        };
+        match.window-class = {
+          type = "exact";
+          value = "org.kde.yakuake";
+        };
+      }
     ];
     workspace = {
       inherit wallpaper;
@@ -418,5 +455,4 @@ in
       colorScheme = "KritaDarkOrange";
     };
   };
-  home.packages = with pkgs; [ krohnkite ];
 }

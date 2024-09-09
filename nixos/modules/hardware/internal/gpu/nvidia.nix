@@ -18,7 +18,7 @@ in
     };
     hardware.nvidia = {
       modesetting.enable = true;
-      nvidiaSettings = true;
+      nvidiaSettings = false;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       powerManagement.enable = true;
     };
