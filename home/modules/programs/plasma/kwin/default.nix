@@ -49,6 +49,13 @@ in
             type = "regex";
             value = strings.concatStringsSep "|" cfg.forceTransparency.windowClasses;
           };
+          window-types = [
+            "dialog"
+            "normal"
+            "toolbar"
+            "torn-of-menu"
+            "utility"
+          ];
         };
       }
     ];
