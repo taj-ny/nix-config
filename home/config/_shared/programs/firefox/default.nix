@@ -8,7 +8,10 @@
 
 lib.mkIf config.programs.firefox.enable
 {
-  custom.impermanence.persistentDirectories = [ ".mozilla/firefox" ];
+  custom.impermanence.persistentDirectories = [
+    ".mozilla/firefox"
+    ".mozilla/native-messaging-hosts"
+  ];
   home.file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
   programs.firefox = {
     policies = {
