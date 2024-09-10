@@ -9,6 +9,7 @@
 }:
 
 let
+  homeConfig = "${lib.flakeRoot}/home/config/${config.networking.hostName}";
   username = "marcin";
 in
 {
@@ -16,28 +17,22 @@ in
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  environment.persistence."/nix/persist".users.${username} = {
-    directories = [
-    ] ++ (lib.optionals config.programs.steam.enable [
-      ".local/share/Steam"
-      ".steam"
-    ]);
+  # TODO Use lib.mkMerge
+  environment.persistence."/nix/persist".users.${username} = lib.mkIf (builtins.pathExists homeConfig) {
+    directories = config.home-manager.users.${username}.custom.impermanence.persistentDirectories;
+    files = config.home-manager.users.${username}.custom.impermanence.persistentFiles;
   };
-  home-manager =
-    let
-      homeConfig = "${lib.flakeRoot}/home/config/${config.networking.hostName}";
-    in
-    lib.mkIf (builtins.pathExists homeConfig) {
-      extraSpecialArgs = {
-        inherit inputs nix-colors outputs username;
-        lib = lib.extend (_: _: inputs.home-manager.lib);
-      };
-      useGlobalPkgs = true;
-      users.${username}.imports = [
-        "${lib.flakeRoot}/home/config/_shared"
-        "${homeConfig}"
-      ] ++ (builtins.attrValues outputs.homeManagerModules);
+  home-manager = lib.mkIf (builtins.pathExists homeConfig) {
+    extraSpecialArgs = {
+      inherit inputs nix-colors outputs username;
+      lib = lib.extend (_: _: inputs.home-manager.lib);
     };
+    useGlobalPkgs = true;
+    users.${username}.imports = [
+      "${lib.flakeRoot}/home/config/_shared"
+      homeConfig
+    ] ++ (builtins.attrValues outputs.homeManagerModules);
+  };
 
   users.users.${username} = {
     isNormalUser = true;

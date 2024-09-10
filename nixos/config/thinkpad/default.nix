@@ -57,5 +57,5 @@
   };
 
   system.stateVersion = "23.05";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+  powerManagement.cpuFreqGovernor = lib.mkForce "performance";
 }
