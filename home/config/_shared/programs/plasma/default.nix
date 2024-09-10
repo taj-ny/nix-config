@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   nix-colors,
   pkgs,
@@ -210,14 +209,6 @@ in
         };
       };
       plasmanotifyrc.Notifications.LowPriorityHistory.value = true;
-      yakuakerc = {
-        Appearance.HideSkinBorders.value = true;
-        Dialogs.FirstRun.value = false;
-        Window = {
-          ShowTabBar.value = false;
-          ShowTitleBar.value = false;
-        };
-      };
     };
     input.keyboard.layouts = [ { layout = "pl"; }];
     kscreenlocker.appearance = {
@@ -231,7 +222,7 @@ in
       sshAgent.text = ''
         eval $(${pkgs.openssh}/bin/ssh-agent -a $XDG_RUNTIME_DIR/ssh-agent)
       '';
-      yakuake.text = "yakuake &";
+
     };
     window-rules = [
       {
@@ -241,23 +232,6 @@ in
           value = "0,0";
         };
         match.window-types = [ "normal" "dialog" ];
-      }
-      {
-        description = "Yakuake";
-        apply = {
-          above = {
-            apply = "force";
-            value = true;
-          };
-          desktops = {
-            apply = "force";
-            value = "\\0";
-          };
-        };
-        match.window-class = {
-          type = "exact";
-          value = "org.kde.yakuake";
-        };
       }
     ];
     workspace = {

@@ -12,14 +12,7 @@
   custom = {
     impermanence = {
       enable = true;
-      persistentDirectories =
-        let
-          symlink = directory: {
-            inherit directory;
-            method = "symlink";
-          };
-        in
-        [
+      persistentDirectories = [
           ".cert" # NetworkManager OpenVPN
           ".config/JetBrains"
           ".java/.userPrefs"
@@ -32,7 +25,10 @@
           "Projects"
           "Videos"
           "Virtual Machines"
-        ]
+        ] ++ (lib.optionals osConfig.programs.steam.enable [
+            ".local/share/Steam"
+            ".steam"
+          ])
           ++ (lib.optionals osConfig.services.syncthing.enable [ ".syncthing" ]);
     };
     programs = {
@@ -93,6 +89,7 @@
     home-manager.enable = true;
     keepassxc.enable = true;
     vscode.enable = true;
+    yakuake.enable = true;
     zsh.enable = true;
   };
   services = {

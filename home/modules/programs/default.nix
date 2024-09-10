@@ -17,4 +17,5 @@ in
   (mkProgramOption "deemix" pkgs.python311Packages.deemix)
   (mkProgramOption "KeepassXC" pkgs.keepassxc)
   (mkProgramOption "Prism Launcher" pkgs.prismlauncher)
+  (mkProgramOption "Yakuake" pkgs.kdePackages.yakuake)
 ])
