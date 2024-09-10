@@ -21,6 +21,7 @@
           ".ssh"
           "Documents"
           "Downloads"
+          "keepass"
           "Pictures"
           "Projects"
           "Videos"
