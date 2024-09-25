@@ -53,7 +53,6 @@ in
   };
   home.packages = lib.attrValues {
     inherit (pkgs)
-      kara
       krohnkite;
   };
   programs.plasma = {
