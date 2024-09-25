@@ -1,5 +1,4 @@
 {
-  lib,
   ...
 }:
 
@@ -13,20 +12,6 @@
         {
           kickoff.icon = "nix-snowflake"; # Used only for the icon, it's better than media frame
         }
-        {
-          name = "org.dhruv8sh.kara";
-          config = {
-            general.type = 2;
-            type2.fixedLen = 32;
-            type3.iconsList = lib.concatStringsSep "\\n" [
-              "applications-internet-symbolic"
-              "library-music-symbolic"
-              "code-context-symbolic"
-              "applications-games-symbolic"
-            ];
-          };
-        }
-        "org.kde.plasma.panelspacer"
         {
           name = "org.kde.windowtitle";
           config.General = {

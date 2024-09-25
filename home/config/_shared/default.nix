@@ -36,7 +36,6 @@
       google-chrome.enable = true; # Just in case something doesn't work on Firefox. It's sandboxed.
       nixos-update-notifier.enable = true;
       plasma.enable = true;
-      rclone.enable = true;
     };
   };
   fonts.fontconfig.enable = true;
@@ -89,6 +88,7 @@
     firefox.enable = true;
     home-manager.enable = true;
     keepassxc.enable = true;
+    rclone.enable = true;
     vscode.enable = true;
     yakuake.enable = true;
     zsh.enable = true;

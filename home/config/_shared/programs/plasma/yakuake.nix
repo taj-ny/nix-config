@@ -15,7 +15,7 @@ lib.mkIf config.programs.yakuake.enable
         ShowTitleBar.value = false;
       };
     };
-    startup.yakuake.text = "yakuake &";
+    startup.startupScript.yakuake.text = "yakuake &";
     window-rules = [
       {
         description = "Yakuake";
@@ -30,8 +30,8 @@ lib.mkIf config.programs.yakuake.enable
           };
         };
         match.window-class = {
-          type = "exact";
-          value = "org.kde.yakuake";
+          type = "substring";
+          value = "yakuake";
         };
       }
     ];
