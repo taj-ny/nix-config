@@ -8,13 +8,13 @@
 
 buildNpmPackage {
   pname = "krohnkite";
-  version = "2024-08-14";
+  version = "2024-09-22";
 
   src = fetchFromGitHub {
     owner = "anametologin";
     repo = "krohnkite";
-    rev = "1de17a204248afb0be8950f4891c50fc1e8b8c3a";
-    hash = "sha256-22HNH87AuXaJ3yJjRdXHHnjLgu3IwZZxo6hcaTvYXOw=";
+    rev = "aa4d21cc924422001bc1a5c7f5cd66623cf9cef4";
+    hash = "sha256-k4BXG/TQevqX2Fd7jmOkKAfyNje/O3ETqKe2o4WHcao=";
   };
 
   nativeBuildInputs = with kdePackages; [
@@ -26,18 +26,18 @@ buildNpmPackage {
 
   dontWrapQtApps = true;
 
-  npmDepsHash = "sha256-/XUO3bzbLGMrFd1J5TqqTrRCmbOSzs1SzYQB6Y9blyU=";
+  npmDepsHash = "sha256-HHrYHxksfhODKPhHeG4mMEQkhyOVAg8dLvY0GHfre/U=";
 
   dontNpmBuild = true;
 
   patchPhase = ''
+    runHook prePatch
+
     substituteInPlace Makefile \
       --replace "npm install --save-dev" "" \
       --replace "npm run tsc --" "tsc"
-  '';
 
-  postPatch = ''
-    cp ${./package-lock.json} package-lock.json
+    runHook postPatch
   '';
 
   installPhase = ''
