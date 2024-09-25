@@ -6,7 +6,7 @@
 
 rec {
   kara = pkgs.callPackage ./kara.nix { };
-  krohnkite = pkgs.callPackage ./krohnkite { };
+  krohnkite = pkgs.callPackage ./krohnkite.nix { };
   kwin-effects-geometry-change = pkgs.callPackage ./kwin-effects-geometry-change { };
   lightly-qt6 = pkgs.kdePackages.callPackage ./lightly-qt6.nix { };
   nix-ascii-art = pkgs.callPackage ./nix-ascii-art.nix { inherit rascii; };
