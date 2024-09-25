@@ -2,7 +2,6 @@
   cmake,
   extra-cmake-modules,
   fetchFromGitHub,
-  fetchurl,
   frameworkintegration,
   kcmutils,
   kdecoration,
@@ -14,15 +13,15 @@
   wrapQtAppsHook
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "lightly-qt6";
-  version = "0.4.1";
+  version = "2024-09-21";
 
   src = fetchFromGitHub {
-    owner = "boehs";
+    owner = "Bali10050";
     repo = "Lightly";
-    rev = "00ca23447844114d41bfc0d37cf8823202c082e8";
-    hash = "sha256-NpgOcN9sDqgQMjqcfx92bfKohxaJpnwMgxb9MCu9uJM=";
+    rev = "c27211515fc72752a818a1dab9377a4a9dd3815e";
+    hash = "sha256-XKadGPn2y7lu+8I58loi/BJZcJNmCUy5/uuoTXUYa9s=";
   };
 
   nativeBuildInputs = [
@@ -40,41 +39,13 @@ stdenv.mkDerivation rec {
     qttools
   ];
 
-  patchPhase =
-    let
-      config-tar-gz = fetchurl {
-        url = "https://github.com/boehs/Lightly/files/14445309/config.tar.gz";
-        hash = "sha256-eCIRm2z1+eTBcCCg8Wdt2DfTTbc767Rv+m1LI+t058I=";
-      };
-
-      lightlystyleconfig-json = fetchurl {
-        url = "https://github.com/boehs/Lightly/files/14444935/lightlystyleconfig.json";
-        hash = "sha256-ORQk0QirDB9dF3RdgmH5sstqQqqSEfOE6lh1YEUz+iM=";
-      };
-    in
-    ''
-      runHook prePatch
-
-      mkdir tmp
-      cd tmp
-      tar -xv -f ${config-tar-gz}
-      cd ..
-
-      cp -v tmp/config/CMakeLists.txt kdecoration/config/CMakeLists.txt
-      cp -v tmp/config/kcm_lightlydecoration.json kdecoration/config/kcm_lightlydecoration.json
-      cp -v tmp/config/kcm_lightlydecoration.cpp kdecoration/config/kcm_lightlydecoration.cpp
-      cp -v ${lightlystyleconfig-json} kstyle/config/lightlystyleconfig.json
-
-      runHook postPatch
-    '';
-
   cmakeFlags = [
     "-DWITH_DECORATIONS=OFF"
   ];
 
   meta = {
     description = "A modern style for qt applications";
-    homepage = "https://github.com/boehs/lightly";
+    homepage = "https://github.com/Bali10050/Lightly";
     license = lib.licenses.gpl2;
   };
 }
