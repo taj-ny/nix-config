@@ -15,15 +15,15 @@ in
 
     undervolt = {
       ac = {
-        cache = 50;
-        core = 100;
-        gpu = 0;
+        cache = 100;
+        core = 125;
+        gpu = 75;
       };
 
       battery = {
         cache = 100;
-        core = 100;
-        gpu = 50;
+        core = 120;
+        gpu = 75;
       };
     };
   };

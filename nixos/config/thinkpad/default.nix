@@ -49,6 +49,7 @@
       path = "/home/marcin/Music";
       devices = [ "andromeda" ];
     };
+    flatpak.enable = true;
   };
 
   environment.variables = {
