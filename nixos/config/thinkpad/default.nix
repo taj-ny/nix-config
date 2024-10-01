@@ -52,11 +52,7 @@
     flatpak.enable = true;
   };
 
-  environment.variables = {
-    KWIN_DRM_NO_AMS = "1";
-    KWIN_FORCE_SW_CURSOR = "0";
-  };
-
+  environment.variables.KWIN_FORCE_SW_CURSOR = "0";
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
 }

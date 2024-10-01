@@ -7,14 +7,7 @@
 {
   imports = lib.allExceptThisDefault ./.;
 
-  custom = {
-    impermanence.persistentDirectories = [ ".local/share/Terraria" ];
-    programs = {
-      clion.enable = true;
-      nicotine-plus.enable = true;
-      rider.enable = true;
-    };
-  };
+  custom.impermanence.persistentDirectories = [ ".local/share/Terraria" ];
   home = {
     packages = builtins.attrValues {
       inherit (pkgs) spek;
@@ -23,6 +16,7 @@
   };
   programs = {
     deemix.enable = true;
+    nicotine-plus.enable = true;
     prism-launcher.enable = true;
   };
 }

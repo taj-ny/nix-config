@@ -8,7 +8,8 @@ let
   mkProgramOption = {
     name,
     optionName ? lib.replaceStrings [ " " ] [ "-" ] (lib.toLower name),
-    package,
+    package ? null,
+    packages ? [ ],
     persistentDirectories ? [ ],
     persistentFiles ? [ ]
   }:
@@ -18,7 +19,7 @@ let
       custom.impermanence = {
         inherit persistentDirectories persistentFiles;
       };
-      home.packages = [ package ];
+      home.packages = if package != null then [ package ] else packages;
     };
   };
 in
@@ -50,7 +51,7 @@ in
     name = "Nicotine+";
     optionName = "nicotine-plus";
     package = pkgs.nicotine-plus;
-      persistentDirectories = [
+    persistentDirectories = [
       ".config/nicotine"
       ".local/share/nicotine"
     ];

@@ -31,15 +31,12 @@
         lightly-boehs
         lightly-qt6
 
-        # Wallpapers
-        plasma-breath-bamboo-wallpaper
-
         # Plasmoids
         plasma-panel-colorizer
         plasma-window-title-applet
 
         # Desktop effects
-        inputs.kwin-better-blur.packages.${pkgs.system}.default
+        # inputs.kwin-better-blur.packages.${pkgs.system}.default
         inputs.kwin-effects-startupfeedback-busy-cursor.packages.${pkgs.system}.default
         kde-rounded-corners
         kwin-effects-geometry-change

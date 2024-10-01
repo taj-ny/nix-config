@@ -1,28 +1,73 @@
-@import url("firefox-ui-fix/userChrome.css");
 
-html, #urlbar #urlbar-background {
+html, #main-window {
     background-color: rgba(25, 25, 25, 0.5) !important;
 }
 
-toolbar, toolbox {
-    background-color: transparent !important;
+/* Transparency */
+toolbar, toolbox, /* Top bar */
+#tabbrowser-tabbox, #tabbrowser-tabpanels /* Browser */ {
+    background: transparent !important;
+}
+
+#customizableui-special-spring1,
+#customizableui-special-spring2 {
+    max-width: unset !important;
+}
+
+#urlbar-container {
+    max-width: 50% !important;
+
+    #urlbar {
+        #urlbar-background {
+            background-color: rgba(25, 25, 25) !important;
+            border: none !important;
+            opacity: 0.3;
+        }
+
+        &:is([open]) #urlbar-background {
+            opacity: 1;
+        }
+
+        #identity-icon-box {
+            background-color: rgba(25, 25, 25, 0.15) !important;
+        }
+
+        #pageAction-urlbar-_testpilot-containers,
+        #reader-mode-button,
+        #star-button-box,
+        #tracking-protection-icon-container,
+        .search-one-offs {
+            display: none !important;
+        }
+    }
 }
 
 #nav-bar {
-    box-shadow: unset !important;
-    border-top: unset !important;
+    padding: 4px 0 3px 0 !important;
 }
 
-#urlbar[focused=""] #urlbar-background {
-    background-color: rgb(25, 25, 25) !important;
+#navigator-toolbox {
+    border-bottom: none !important;
 }
 
-#nav-bar,
-.tab-background:is([selected], [multiselected]) {
+/* Hide horizontal tabs */
+#TabsToolbar {
+    display: none !important;
+}
+
+
+/* Sidebar */
+#sidebar-box, #webextpanels-window {
     background-color: transparent !important;
 }
 
-#TabsToolbar #firefox-view-button:hover:not([open]) > .toolbarbutton-icon,
-.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
-    background-color: transparent !important;
+@-moz-document regexp("^moz-extension://.*?/sidebar/sidebar.html") {
+    :root, .root, #root {
+        background-color: transparent !important;
+        --frame-bg: transparent !important;
+    }
+
+    #nav_bar {
+        background-color: transparent !important;
+    }
 }

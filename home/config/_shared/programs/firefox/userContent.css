@@ -1,0 +1,9 @@
+@-moz-document url("about:blank"), url("about:home"), url("about:newtab") {
+    html, body {
+        background: transparent !important;
+    }
+}
+
+:root {
+    --in-content-page-background: transparent !important;
+}

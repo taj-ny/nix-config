@@ -9,10 +9,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    firefox-ui-fix = {
-      url = "github:black7375/Firefox-UI-Fix/photon-style";
-      flake = false;
-    };
     hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";

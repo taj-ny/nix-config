@@ -22,7 +22,7 @@ in
 
       battery = {
         cache = 100;
-        core = 120;
+        core = 110;
         gpu = 75;
       };
     };

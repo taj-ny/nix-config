@@ -12,7 +12,6 @@ lib.mkIf config.programs.firefox.enable
     ".mozilla/firefox"
     ".mozilla/native-messaging-hosts"
   ];
-  home.file.".mozilla/firefox/main/chrome/firefox-ui-fix".source = inputs.firefox-ui-fix;
   programs.firefox = {
     policies = {
       CaptivePortal = false;
@@ -32,16 +31,6 @@ lib.mkIf config.programs.firefox.enable
       OfferToSaveLogins = false;
       OfferToSaveLoginsDefault = false;
       PasswordManagerEnabled = false;
-      SanitizeOnShutdown = {
-        Cache = true;
-        Cookies = false;
-        Downloads = true;
-        FormData = true;
-        History = true;
-        Sessions = false;
-        SiteSettings = false;
-        OfflineApps = false;
-      };
       UserMessaging = {
         ExtensionRecommendations = false;
         SkipOnboarding = true;
@@ -51,13 +40,13 @@ lib.mkIf config.programs.firefox.enable
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         keepassxc-browser
         multi-account-containers
+        sidebery
         sponsorblock
         stylus
         switchyomega
         ublock-origin
         violentmonkey
       ];
-      extraConfig = builtins.readFile "${inputs.firefox-ui-fix}/user.js";
       search = {
         force = true;
         default = "DuckDuckGo";
@@ -83,9 +72,8 @@ lib.mkIf config.programs.firefox.enable
         "network.trr.mode" = 5;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
-      # chrome://browser/content/browser.xhtml
       userChrome = builtins.readFile ./userChrome.css;
-      userContent = "@import url(\"firefox-ui-fix/userContent.css\")";
+      userContent = builtins.readFile ./userContent.css;
     };
   };
 }

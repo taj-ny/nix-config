@@ -15,7 +15,7 @@ let
     "konsole"
     "yakuake"
   ];
-  wallpaper = "${pkgs.plasma-breath-bamboo-wallpaper}/share/wallpapers/Bamboo";
+  wallpaper = "${pkgs.wallpaper}/wallpaper.png";
 in
 {
   imports = lib.allExceptThisDefault ./.;
@@ -29,7 +29,6 @@ in
         "dolphin"
         "keepassxc"
         "kwrite"
-        "org.kde.kate"
         "org.freedesktop.impl.portal.desktop.kde"
         "org.kde.ksshaskpass"
         "org.nicotine_plus.Nicotine"
@@ -112,9 +111,9 @@ in
         Effect-blurplus = {
           BlurStrength.value = 3;
           BlurMenus.value = true;
-          NoiseStrength.value = 0;
+          NoiseStrength.value = 5;
           FakeBlur.value = true;
-          FakeBlurImage.value = "${wallpaper}/contents/images/5120x2880.png";
+          FakeBlurImage.value = wallpaper;
           FakeBlurImageSourceCustom.value = true;
           FakeBlurImageSourceDesktopWallpaper.value = false;
           WindowClasses.value = lib.strings.concatStringsSep "\n" (forceBlur ++ config.custom.programs.plasma.kwin.forceTransparency.windowClasses);

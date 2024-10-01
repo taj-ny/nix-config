@@ -32,11 +32,7 @@
           ])
           ++ (lib.optionals osConfig.services.syncthing.enable [ ".syncthing" ]);
     };
-    programs = {
-      google-chrome.enable = true; # Just in case something doesn't work on Firefox. It's sandboxed.
-      nixos-update-notifier.enable = true;
-      plasma.enable = true;
-    };
+    programs.plasma.enable = true;
   };
   fonts.fontconfig.enable = true;
   home = {
@@ -71,7 +67,6 @@
         yubikey-manager;
       inherit (pkgs.kdePackages)
         ark
-        kate
         krdc
         krfb
         yakuake;
