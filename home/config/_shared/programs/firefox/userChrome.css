@@ -20,16 +20,26 @@ toolbar, toolbox, /* Top bar */
     #urlbar {
         #urlbar-background {
             background-color: rgba(25, 25, 25) !important;
+            box-shadow: black 1px 1px 5px;
             border: none !important;
             opacity: 0.3;
+            outline: none !important;
         }
 
         &:is([open]) #urlbar-background {
             opacity: 1;
         }
 
-        #identity-icon-box {
-            background-color: rgba(25, 25, 25, 0.15) !important;
+        #identity-box.chromeUI #identity-icon-box {
+            background-color: rgba(100, 100, 100, 0.15) !important;
+
+            &:hover {
+                background-color: var(--urlbar-box-hover-bgcolor) !important;
+            }
+
+            &:is(:hover:active, [open]) {
+                background-color: var(--urlbar-box-active-bgcolor) !important;
+            }
         }
 
         #pageAction-urlbar-_testpilot-containers,
@@ -59,6 +69,10 @@ toolbar, toolbox, /* Top bar */
 /* Sidebar */
 #sidebar-box, #webextpanels-window {
     background-color: transparent !important;
+}
+
+#sidebar-splitter {
+    display: none !important;
 }
 
 @-moz-document regexp("^moz-extension://.*?/sidebar/sidebar.html") {

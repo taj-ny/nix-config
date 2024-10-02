@@ -14,10 +14,8 @@
       enable = true;
       persistentDirectories = [
           ".cert" # NetworkManager OpenVPN
-          ".config/JetBrains"
-          ".java/.userPrefs"
-          ".local/share/JetBrains"
           ".local/state/wireplumber"
+          ".nuget"
           ".ssh"
           "Documents"
           "Downloads"
@@ -67,6 +65,7 @@
         yubikey-manager;
       inherit (pkgs.kdePackages)
         ark
+        kate
         krdc
         krfb
         yakuake;

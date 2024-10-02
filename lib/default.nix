@@ -33,4 +33,31 @@ rec {
   mkOptionSimpleDefault = type: default: lib.mkOption {
     inherit type default;
   };
+  mkProgramOption = {
+    name,
+    optionName ? lib.replaceStrings [ " " ] [ "-" ] (lib.toLower name),
+    package ? null,
+    packages ? [ ],
+    persistentDirectories ? [ ],
+    persistentFiles ? [ ]
+  }: {
+    imports = [
+      (
+        {
+          config,
+          ...
+        }:
+
+        {
+          options.programs.${optionName}.enable = lib.mkEnableOption name;
+          config = lib.mkIf config.programs.${optionName}.enable {
+            custom.impermanence = {
+              inherit persistentDirectories persistentFiles;
+            };
+            home.packages = if package != null then [ package ] else packages;
+          };
+        }
+      )
+    ];
+  };
 }
