@@ -7,8 +7,5 @@
 lib.mkProgramOption {
   name = "Clementine";
   package = pkgs.clementine;
-  persistentDirectories = [
-    ".cache/Clementine"
-    ".config/Clementine"
-  ];
+  persistentDirectories = [ ".config/Clementine" ];
 }

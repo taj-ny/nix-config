@@ -17,16 +17,17 @@ in
   options.custom.programs.plasma.enable = mkEnableOption "Plasma";
 
   config = mkIf config.custom.programs.plasma.enable {
-    custom.impermanence = {
-      persistentDirectories = [
+    persistence = {
+      directories = [
+        ".config/krdp-serverrc"
+        ".config/krdpserverrc"
         ".local/share/baloo"
+        ".local/share/krdpserver"
         ".local/share/kwalletd"
         ".local/share/Trash"
       ];
-
-      persistentFiles = [ ".config/kwinoutputconfig.json" ];
+      files = [ ".config/kwinoutputconfig.json" ];
     };
-
     programs.plasma.enable = true;
   };
 }

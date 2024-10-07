@@ -19,8 +19,8 @@ in
 
   # TODO Use lib.mkMerge
   environment.persistence."/nix/persist".users.${username} = lib.mkIf (builtins.pathExists homeConfig) {
-    directories = lib.lists.unique config.home-manager.users.${username}.custom.impermanence.persistentDirectories;
-    files = lib.lists.unique config.home-manager.users.${username}.custom.impermanence.persistentFiles;
+    directories = lib.lists.unique config.home-manager.users.${username}.persistence.directories;
+    files = lib.lists.unique config.home-manager.users.${username}.persistence.files;
   };
   home-manager = lib.mkIf (builtins.pathExists homeConfig) {
     extraSpecialArgs = {

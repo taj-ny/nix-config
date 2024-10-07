@@ -2,10 +2,11 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
+      "application/json" = "org.kde.kwrite.desktop";
       "application/pdf" = "okularApplication_pdf.desktop";
-      "text/html" = "firefox.desktop";
-      "text/plain" = "org.kde.kate.desktop";
-      "text/x-patch" = "org.kde.kate.desktop";
+      "text/markdown" = "org.kde.kwrite.desktop";
+      "text/plain" = "org.kde.kwrite.desktop";
+      "text/x-patch" = "org.kde.kwrite.desktop";
       "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https" = "firefox.desktop";
       "x-scheme-handler/about" = "firefox.desktop";

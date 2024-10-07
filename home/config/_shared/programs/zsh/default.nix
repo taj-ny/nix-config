@@ -5,8 +5,8 @@
 
 # TODO Broken in tty
 {
-  custom.impermanence.persistentFiles = [ ".zsh_history" ];
   home.file.".p10k.zsh".source = ./p10k.zsh;
+  persistence.files = [ ".zsh_history" ];
   programs.zsh = {
     autosuggestion.enable = true;
     initExtra = ''
@@ -24,12 +24,13 @@
       zstyle :bracketed-paste-magic paste-init pasteinit
       zstyle :bracketed-paste-magic paste-finish pastefinish
 
-      echo
-      cat ${pkgs.nix-ascii-art}/nixos-106x16.txt
-      echo
-
       if zmodload zsh/terminfo && (( terminfo[colors] >= 256 )); then
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      fi
+    '';
+    initExtraFirst = ''
+      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
     '';
     oh-my-zsh = {
@@ -53,7 +54,6 @@
     ];
     syntaxHighlighting.enable = true;
     shellAliases = {
-      clear = "command clear; echo; cat ${pkgs.nix-ascii-art}/nixos-106x16.txt";
       colors = ''for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}''${(l:3::0:)i}%f " ''${''${(M)$((i%6)):#3}:+$'\n'}; done'';
       deemix-dl = "deemix -p /home/marcin/Music/import -b flac";
       kwin-query-window-info = "qdbus org.kde.KWin /KWin org.kde.KWin.queryWindowInfo";

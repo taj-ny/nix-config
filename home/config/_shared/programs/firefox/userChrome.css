@@ -20,25 +20,38 @@ toolbar, toolbox, /* Top bar */
     #urlbar {
         #urlbar-background {
             background-color: rgba(25, 25, 25) !important;
-            box-shadow: black 1px 1px 5px;
             border: none !important;
             opacity: 0.3;
             outline: none !important;
+        }
+
+        &[breakout][breakout-extend] {
+            top: calc((var(--urlbar-container-height) - var(--urlbar-height)) / 2) !important;
+            left: 0 !important;
+            width: 100% !important;
+        }
+        &[breakout][breakout-extend] > #urlbar-input-container,
+        &[breakout][breakout-extend] > .urlbar-input-container {
+            height: var(--urlbar-height) !important;
+            padding-block: 0 !important;
+            padding-inline: var(--urlbar-container-padding) !important;
+        }
+        &urlbar[breakout][breakout-extend] > #urlbar-background {
+            animation-name: none !important;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .05) !important;
         }
 
         &:is([open]) #urlbar-background {
             opacity: 1;
         }
 
-        #identity-box.chromeUI #identity-icon-box {
-            background-color: rgba(100, 100, 100, 0.15) !important;
-
-            &:hover {
-                background-color: var(--urlbar-box-hover-bgcolor) !important;
+        #identity-icon-box {
+            &:not(:hover) {
+                background: transparent !important;
             }
 
-            &:is(:hover:active, [open]) {
-                background-color: var(--urlbar-box-active-bgcolor) !important;
+            #identity-icon-label {
+                font-weight: bold !important;
             }
         }
 
@@ -53,7 +66,7 @@ toolbar, toolbox, /* Top bar */
 }
 
 #nav-bar {
-    padding: 4px 0 3px 0 !important;
+    padding: 2px 0 1px 0 !important;
 }
 
 #navigator-toolbox {
@@ -65,23 +78,24 @@ toolbar, toolbox, /* Top bar */
     display: none !important;
 }
 
-
 /* Sidebar */
+#sidebar-box {
+    width: 15% !important;
+    max-width: 250px !important;
+    min-width: 100px !important;
+    box-shadow: rgba(0, 0, 0, .5) 1px 0px 10px;
+    clip-path: inset(0 -10px 0 0);
+    z-index: 1;
+
+    #sidebar-header {
+        display: none !important;
+    }
+}
+
 #sidebar-box, #webextpanels-window {
     background-color: transparent !important;
 }
 
 #sidebar-splitter {
     display: none !important;
-}
-
-@-moz-document regexp("^moz-extension://.*?/sidebar/sidebar.html") {
-    :root, .root, #root {
-        background-color: transparent !important;
-        --frame-bg: transparent !important;
-    }
-
-    #nav_bar {
-        background-color: transparent !important;
-    }
 }

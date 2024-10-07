@@ -1,67 +1,38 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  shortcuts = {
+    "Ctrl+Shift+Meta+Alt+L" = "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.Shutdown /Shutdown org.kde.Shutdown.logout";
+    "Ctrl+Shift+Meta+Alt+H" = "systemctl hibernate";
+    "Ctrl+Shift+Meta+Alt+P" = "systemctl poweroff";
+    "Ctrl+Shift+Meta+Alt+R" = "systemctl reboot";
+    "Ctrl+Shift+Meta+Alt+S" = "systemctl suspend";
+    "Meta+Shift+C" = "clementine";
+    "Meta+Shift+F" = "firefox";
+    "Meta+Shift+Return" = "konsole";
+    "Meta+Shift+T" = "kwrite";
+    "Meta+Shift+V" = "codium";
+    "Meta+Shift+X" = "systemsettings";
+    "Meta+Shift+Z" = "keepassxc";
+  };
+in
 {
   programs.plasma = {
-    hotkeys.commands = {
-      launch-clementine = {
-        name = "Launch Clementine";
-        key = "Meta+Shift+C";
-        command = "clementine";
-      };
-      launch-firefox = {
-        name = "Launch Firefox";
-        key = "Meta+Shift+F";
-        command = "firefox";
-      };
-      launch-keepassxc = {
-        name = "Launch KeepassXC";
-        key = "Meta+Shift+Z";
-        command = "keepassxc";
-      };
-      launch-konsole = {
-        name = "Launch Konsole";
-        key = "Meta+Shift+Return";
-        command = "konsole";
-      };
-      launch-system-settings = {
-        name = "Launch System Settings";
-        key = "Meta+Shift+X";
-        command = "systemsettings";
-      };
-      launch-vscode = {
-        name = "Launch VSCode";
-        key = "Meta+Shift+V";
-        command = "codium";
-      };
-      logout = {
-        name = "Log out";
-        key = "Ctrl+Shift+Meta+Alt+L";
-        command = "${pkgs.kdePackages.qttools}/bin/qdbus org.kde.Shutdown /Shutdown org.kde.Shutdown.logout";
-      };
-      hibernate = {
-        name = "Hibernate";
-        key = "Ctrl+Shift+Meta+Alt+H";
-        command = "systemctl hibernate";
-      };
-      poweroff = {
-        name = "Poweroff";
-        key = "Ctrl+Shift+Meta+Alt+P";
-        command = "systemctl poweroff";
-      };
-      reboot = {
-        name = "Reboot";
-        key = "Ctrl+Shift+Meta+Alt+R";
-        command = "systemctl reboot";
-      };
-      suspend = {
-        name = "Suspend";
-        key = "Ctrl+Shift+Meta+Alt+S";
-        command = "systemctl suspend";
-      };
-    };
+    hotkeys.commands =
+      lib.mapAttrs'
+        (name: value:
+          lib.nameValuePair
+            (lib.replaceStrings [ "+" ] [ "" ] name)
+            {
+              command = value;
+              key = name;
+            }
+        )
+        shortcuts;
     shortcuts = {
       kwin = {
         KrohnkiteFocusDown = "Meta+S";

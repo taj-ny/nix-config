@@ -7,7 +7,7 @@
     {
       height = 29;
       location = "top";
-      floating = false; # TODO Breaks Polonium
+      floating = false;
       widgets = [
         {
           kickoff.icon = "nix-snowflake"; # Used only for the icon, it's better than media frame
@@ -22,7 +22,6 @@
         }
         "org.kde.plasma.appmenu"
         "org.kde.plasma.panelspacer"
-        "org.kde.plasma.colorpicker"
         {
           systemTray.items = {
             hidden = [

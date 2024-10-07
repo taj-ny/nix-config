@@ -8,7 +8,6 @@
   imports =
     let
       persistentDirectories = [
-        ".cache/JetBrains"
         ".config/JetBrains"
         ".java/.userPrefs"
         ".local/share/JetBrains"

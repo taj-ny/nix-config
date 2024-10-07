@@ -14,14 +14,15 @@
   environment = {
     pathsToLink = [ "/share/zsh" ];
     stub-ld.enable = lib.mkForce false;
-    systemPackages = with pkgs; [
-      htop
-      fontconfig
-      nix-output-monitor
-      powertop
-      steam-run
-      vim
-    ];
+    systemPackages = builtins.attrValues {
+      inherit (pkgs)
+        htop
+        fontconfig
+        nix-output-monitor
+        powertop
+        steam-run
+        vim;
+    };
     variables.EDITOR = "vim";
   };
   fonts.packages = with pkgs; [

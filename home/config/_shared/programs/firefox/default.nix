@@ -8,7 +8,7 @@
 
 lib.mkIf config.programs.firefox.enable
 {
-  custom.impermanence.persistentDirectories = [
+  persistence.directories = [
     ".mozilla/firefox"
     ".mozilla/native-messaging-hosts"
   ];
@@ -43,7 +43,6 @@ lib.mkIf config.programs.firefox.enable
         sidebery
         sponsorblock
         stylus
-        switchyomega
         ublock-origin
         violentmonkey
       ];
@@ -54,22 +53,30 @@ lib.mkIf config.programs.firefox.enable
       settings = {
         "apz.overscroll.enabled" = false;
         "browser.aboutConfig.showWarning" = false;
+        "browser.ctrlTab.sortByRecentlyUsed" = true;
         "browser.newtabpage.enabled" = false;
         "browser.search.suggest.enabled" = false;
         "browser.sessionstore.resume_from_crash" = false;
         "browser.startup.homepage" = "chrome://browser/content/blanktab.html";
+        "browser.startup.page" = 3;
+        "browser.tabs.allow_transparent_browser" = true;
+        "browser.tabs.crashReporting.sendReport" = false;
         "browser.tabs.inTitlebar" = 0;
         "browser.toolbars.bookmarks.visibility" = "never";
         "browser.translations.automaticallyPopup" = false;
         "browser.urlbar.suggest.engines" = false;
         "browser.urlbar.suggest.history" = false;
         "browser.urlbar.suggest.topsites" = false;
+        "devtools.chrome.enabled" = true;
+        "devtools.debugger.remote-enabled" = true;
         "dom.private-attribution.submission.enabled" = false;
         "dom.security.https_only_mode" = true;
         "dom.security.https_only_mode_ever_enabled" = true;
+        "extensions.formautofill.creditCards.enabled" = false;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
         "network.trr.mode" = 5;
+        "ui.key.menuAccessKeyFocuses" = false;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
       userChrome = builtins.readFile ./userChrome.css;

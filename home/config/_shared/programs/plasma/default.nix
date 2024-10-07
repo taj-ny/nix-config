@@ -33,6 +33,8 @@ in
         "org.kde.ksshaskpass"
         "org.nicotine_plus.Nicotine"
         "plasmashell"
+        "prismlauncher"
+        "qalculate-qt"
         "systemsettings"
         "vscodium"
       ];
@@ -52,7 +54,10 @@ in
   };
   home.packages = lib.attrValues {
     inherit (pkgs)
-      krohnkite;
+      krohnkite
+      kwin-effects-geometry-change
+      plasma-panel-colorizer
+      plasma-window-title-applet;
   };
   programs.plasma = {
     configFile = {
@@ -155,6 +160,7 @@ in
             "org.freedesktop.impl.portal.desktop.kde"
             "org.kde.plasmashell"
             "org.kde.polkit-kde-authentication-agent-1"
+            "qalculate-qt"
             "spectacle"
             "xwaylandvideobridge"
             "yakuake"

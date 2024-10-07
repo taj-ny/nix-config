@@ -9,29 +9,7 @@
 {
   imports = lib.allExceptThisDefault ./.;
 
-  custom = {
-    impermanence = {
-      enable = true;
-      persistentDirectories = [
-          ".cert" # NetworkManager OpenVPN
-          ".local/state/wireplumber"
-          ".nuget"
-          ".ssh"
-          "Documents"
-          "Downloads"
-          "keepass"
-          "Pictures"
-          "Projects"
-          "Videos"
-          "Virtual Machines"
-        ] ++ (lib.optionals osConfig.programs.steam.enable [
-            ".local/share/Steam"
-            ".steam"
-          ])
-          ++ (lib.optionals osConfig.services.syncthing.enable [ ".syncthing" ]);
-    };
-    programs.plasma.enable = true;
-  };
+  custom.programs.plasma.enable = true;
   fonts.fontconfig.enable = true;
   home = {
     inherit username;
@@ -55,6 +33,7 @@
         php
         piper
         python3Full
+        qalculate-qt
         rsync
         tmux
         tor-browser-bundle-bin
@@ -76,6 +55,31 @@
     inherit (osConfig.nix.gc) automatic options;
     frequency = osConfig.nix.gc.dates;
   };
+  persistence.directories = [
+    ".cache"
+    ".cert" # NetworkManager OpenVPN
+    ".local/state/wireplumber"
+    ".nuget"
+    ".ssh"
+    "Documents"
+    "Downloads"
+    "keepass"
+    "Pictures"
+    "Projects"
+    "Videos"
+    "Virtual Machines"
+  ] ++ (
+    lib.optionals
+      osConfig.programs.steam.enable
+      [
+        ".local/share/Steam"
+        ".steam"
+      ]
+  ) ++ (
+    lib.optionals
+      osConfig.services.syncthing.enable
+      [ ".syncthing" ]
+  );
   programs = {
     btop.enable = true;
     clementine.enable = true;

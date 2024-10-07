@@ -1,4 +1,4 @@
 {
-  impermanence = import ./impermanence.nix;
+  persistence = import ./persistence.nix;
   programs = import ./programs;
 }

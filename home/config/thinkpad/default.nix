@@ -4,11 +4,11 @@
 }:
 
 {
-  custom.impermanence.persistentDirectories = [
+  home.stateVersion = "23.05";
+  persistence.persistentDirectories = [
     "Backups"
     "Music"
   ];
-  home.stateVersion = "23.05";
   programs = {
     intellij-idea-ultimate.enable = true;
     plasma = {

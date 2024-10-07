@@ -1,6 +1,7 @@
 {
-  lib,
   inputs,
+  lib,
+  pkgs,
   ...
 }:
 
@@ -41,6 +42,7 @@
     etc.crypttab.text = ''
       data PARTLABEL=data /nix/persist/luks_keyfiles/data.key noauto
     '';
+    variables.KWIN_DRM_DISABLE_TRIPLE_BUFFERING = "0";
   };
   fileSystems = {
     "/home/marcin/Backups" = {

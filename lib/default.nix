@@ -4,16 +4,17 @@
 }:
 
 rec {
-  allExceptThisDefault = dir:
-    map (entry:
-      "${toString dir}/${entry}"
-    ) (
-      builtins.attrNames (
-        builtins.removeAttrs (
-          builtins.readDir dir
-        ) [ "default.nix" ]
-      )
-    );
+  allExceptThisDefault =
+    dir:
+      map
+        (entry: "${toString dir}/${entry}")
+        (
+          builtins.attrNames (
+            builtins.removeAttrs (
+              builtins.readDir dir
+            ) [ "default.nix" ]
+          )
+        );
   flakeRoot = "${toString ./.}/..";
   mkMergeRecursive = attrList:
     let f = attrPath:
@@ -51,10 +52,11 @@ rec {
         {
           options.programs.${optionName}.enable = lib.mkEnableOption name;
           config = lib.mkIf config.programs.${optionName}.enable {
-            custom.impermanence = {
-              inherit persistentDirectories persistentFiles;
-            };
             home.packages = if package != null then [ package ] else packages;
+            persistence = {
+              directories = persistentDirectories;
+              files = persistentFiles;
+            };
           };
         }
       )

@@ -8,9 +8,7 @@ rec {
   krohnkite = pkgs.callPackage ./krohnkite.nix { };
   kwin-effects-geometry-change = pkgs.callPackage ./kwin-effects-geometry-change { };
   lightly-qt6 = pkgs.kdePackages.callPackage ./lightly-qt6.nix { };
-  nix-ascii-art = pkgs.callPackage ./nix-ascii-art.nix { inherit rascii; };
   plasma-window-title-applet = pkgs.callPackage ./plasma-window-title-applet.nix { };
-  rascii = pkgs.callPackage ./rascii.nix { };
   vscode-taskexplorer = pkgs.callPackage ./vscode-taskexplorer.nix { };
   wallpaper = pkgs.callPackage ./wallpaper.nix { };
 

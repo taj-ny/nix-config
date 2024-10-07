@@ -7,7 +7,7 @@
 
 lib.mkIf config.programs.vscode.enable
 {
-  custom.impermanence.persistentDirectories = [
+  persistence.directories = [
     ".config/VSCodium/User/globalStorage"
     ".config/VSCodium/User/History"
     ".config/VSCodium/User/workspaceStorage"
