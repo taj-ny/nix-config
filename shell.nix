@@ -12,9 +12,9 @@
   sffs = pkgs.mkShell {
     # nativeBuildInputs = with pkgs; [ fuse3 ];
     # buildInputs = [ pkgs.fuse3 ];
-    packages = [ pkgs.fuse3 pkgs.dotnet-sdk_8 pkgs.gcc14 ];
+    packages = [ pkgs.dotnet-sdk_8 ];
 
 
-    LD_LIBRARY_PATH = lib.makeLibraryPath [ pkgs.fuse3 pkgs.xorg.libX11 pkgs.xorg.libXrandr pkgs.fontconfig pkgs.libGL pkgs.libz pkgs.glibc pkgs.gcc14 ];
+    LD_LIBRARY_PATH = lib.makeLibraryPath [ pkgs.fuse3 pkgs.xorg.libX11 pkgs.xorg.libXrandr pkgs.fontconfig pkgs.libGL ];
   };
 }

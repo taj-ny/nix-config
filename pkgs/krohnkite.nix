@@ -6,15 +6,15 @@
   typescript
 }:
 
-buildNpmPackage {
+buildNpmPackage rec {
   pname = "krohnkite";
-  version = "2024-09-22";
+  version = "0.9.8.2";
 
   src = fetchFromGitHub {
     owner = "anametologin";
     repo = "krohnkite";
-    rev = "aa4d21cc924422001bc1a5c7f5cd66623cf9cef4";
-    hash = "sha256-k4BXG/TQevqX2Fd7jmOkKAfyNje/O3ETqKe2o4WHcao=";
+    rev = version;
+    hash = "sha256-chADfJ1zaufnwi4jHbEN1Oec3XFNw0YsZxLFhnY3T9w=";
   };
 
   nativeBuildInputs = with kdePackages; [
@@ -26,7 +26,7 @@ buildNpmPackage {
 
   dontWrapQtApps = true;
 
-  npmDepsHash = "sha256-HHrYHxksfhODKPhHeG4mMEQkhyOVAg8dLvY0GHfre/U=";
+  npmDepsHash = "sha256-lsABgLU8B2AIGMvn6nvAFcliVQL8tYYnAxOVh1aTto0=";
 
   dontNpmBuild = true;
 

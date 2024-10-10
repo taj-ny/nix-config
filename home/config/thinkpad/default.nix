@@ -5,7 +5,7 @@
 
 {
   home.stateVersion = "23.05";
-  persistence.persistentDirectories = [
+  persistence.directories = [
     "Backups"
     "Music"
   ];

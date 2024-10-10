@@ -16,6 +16,11 @@
     [
       (lib.mkProgramOption {
         inherit persistentDirectories;
+        name = "clion";
+        package = pkgs.jetbrains.clion;
+      })
+      (lib.mkProgramOption {
+        inherit persistentDirectories;
         name = "intellij-idea-ultimate";
         package = pkgs.jetbrains.idea-ultimate;
       })
