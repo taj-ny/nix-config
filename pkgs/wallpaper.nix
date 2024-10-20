@@ -1,4 +1,5 @@
 {
+  fetchgit,
   imagemagick,
   stdenv
 }:
@@ -7,17 +8,23 @@ stdenv.mkDerivation {
   pname = "wallpaper";
   version = "1.0.0";
 
-  dontUnpack = true;
+  src = fetchgit {
+    url = "https://gitlab.manjaro.org/artwork/themes/breath.git";
+    rev = "321ed779885f67187801beb0480890f9b8a87a95";
+    hash = "sha256-ExE0OsGBV1ERD0KOkOdNmeNE+uh7+GTtybneTDupOsk=";
+  };
 
   nativeBuildInputs = [ imagemagick ];
 
   buildPhase = ''
     runHook preBuild
 
-    magick \( xc:'#008478' xc:'#009668' +append \) \
-      \( xc:'#00306B' xc:'#001E28' +append \) -append \
-      -size 1920x1080 xc: +swap -fx 'v.p{i/(w-1),j/(h-1)}' \
-      wallpaper.png;
+    ROOT=$(pwd)
+    cd wallpapers/Bamboo/contents/images
+    mv 5120x2880.png tmp.png
+    magick tmp.png -gamma 0.5 -brightness-contrast 0x10 5120x2880.png
+    rm tmp.png
+    cd $ROOT
 
     runHook postBuild
   '';
@@ -25,8 +32,8 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out
-    cp wallpaper.png $out
+    mkdir -p $out/share/wallpapers
+    cp wallpapers/Bamboo/contents/images/5120x2880.png $out/wallpaper.png
 
     runHook postInstall
   '';

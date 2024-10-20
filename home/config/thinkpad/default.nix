@@ -10,7 +10,8 @@
     "Music"
   ];
   programs = {
-    intellij-idea-ultimate.enable = true;
+    clion.enable = true;
+    # intellij-idea-ultimate.enable = true;
     plasma = {
       configFile = {
         kcminputrc = {
@@ -56,6 +57,6 @@
         };
       };
     };
-    rider.enable = true;
+    # rider.enable = true;
   };
 }

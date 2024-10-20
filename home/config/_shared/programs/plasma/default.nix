@@ -52,12 +52,17 @@ in
       package = pkgs.kdePackages.breeze-gtk;
     };
   };
-  home.packages = lib.attrValues {
-    inherit (pkgs)
-      krohnkite
-      kwin-effects-geometry-change
-      plasma-panel-colorizer
-      plasma-window-title-applet;
+  home = {
+    file.".config/plasma-workspace/env/path.sh".text = ''
+      export QT_PLUGIN_PATH=$QT_PLUGIN_PATH:${pkgs.lightly-boehs}/lib/qt-5.15.14/plugins:${pkgs.lightly-qt6}/lib/qt-6/plugins
+    '';
+    packages = lib.attrValues {
+      inherit (pkgs)
+        krohnkite
+        kwin-effects-geometry-change
+        plasma-panel-colorizer
+        plasma-window-title-applet;
+    };
   };
   programs.plasma = {
     configFile = {
@@ -147,6 +152,7 @@ in
         };
         Script-krohnkite = {
           enableBTreeLayout.value = true;
+          enableColumnsLayout.value = false;
           enableMonocleLayout.value = false;
           enableSpiralLayout.value = false;
           enableSpreadLayout.value = false;
@@ -226,7 +232,6 @@ in
       sshAgent.text = ''
         eval $(${pkgs.openssh}/bin/ssh-agent -a $XDG_RUNTIME_DIR/ssh-agent)
       '';
-
     };
     window-rules = [
       {

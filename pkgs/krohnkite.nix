@@ -8,13 +8,13 @@
 
 buildNpmPackage rec {
   pname = "krohnkite";
-  version = "0.9.8.2";
+  version = "0.9.8.3";
 
   src = fetchFromGitHub {
     owner = "anametologin";
     repo = "krohnkite";
     rev = version;
-    hash = "sha256-chADfJ1zaufnwi4jHbEN1Oec3XFNw0YsZxLFhnY3T9w=";
+    hash = "sha256-PiGpYOKvBpwkPfDWHlOhq7dwyBYzfzfJVURiEC1a78g=";
   };
 
   nativeBuildInputs = with kdePackages; [
@@ -26,7 +26,7 @@ buildNpmPackage rec {
 
   dontWrapQtApps = true;
 
-  npmDepsHash = "sha256-lsABgLU8B2AIGMvn6nvAFcliVQL8tYYnAxOVh1aTto0=";
+  npmDepsHash = "sha256-IUGRxDCn/aEebCgDPElEPKOxfoYmLoFHVROkTJpNISY=";
 
   dontNpmBuild = true;
 

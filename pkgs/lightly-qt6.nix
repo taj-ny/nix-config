@@ -13,15 +13,15 @@
   wrapQtAppsHook
 }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   pname = "lightly-qt6";
-  version = "2024-09-21";
+  version = "0.5.3";
 
   src = fetchFromGitHub {
     owner = "Bali10050";
     repo = "Lightly";
-    rev = "c27211515fc72752a818a1dab9377a4a9dd3815e";
-    hash = "sha256-XKadGPn2y7lu+8I58loi/BJZcJNmCUy5/uuoTXUYa9s=";
+    rev = "v${version}";
+    hash = "sha256-WNcHGmMcmVYn+MKHKHmCBGDcszhtVPevCC033iRZBBw=";
   };
 
   nativeBuildInputs = [
