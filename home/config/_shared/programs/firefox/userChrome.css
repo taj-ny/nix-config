@@ -1,12 +1,25 @@
 
+
 html, #main-window {
     background-color: rgba(25, 25, 25, 0.5) !important;
 }
 
 /* Transparency */
 toolbar, toolbox, /* Top bar */
-#tabbrowser-tabbox, #tabbrowser-tabpanels /* Browser */ {
+#tabbrowser-tabbox, #tabbrowser-tabpanels, notification-anchor-icon
+#tab-notification-deck, .notificationbox-stack {
     background: transparent !important;
+}
+
+.infobar {
+    background: rgba(25, 25, 25, 0.3) !important;
+    border: none !important;
+    margin: 5px !important;
+
+    &:before {
+        background-color: #009688 !important;
+        background-image: none !important;
+    }
 }
 
 #customizableui-special-spring1,
