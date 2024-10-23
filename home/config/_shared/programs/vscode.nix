@@ -11,6 +11,7 @@ lib.mkIf config.programs.vscode.enable
     ".config/VSCodium/User/globalStorage"
     ".config/VSCodium/User/History"
     ".config/VSCodium/User/workspaceStorage"
+    ".vscode-oss/extensions"
   ];
   programs.vscode = {
     extensions =
