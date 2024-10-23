@@ -5,7 +5,7 @@
       GroupedSorting=true
       SortFoldersFirst=false
       SortOrder=1
-      SortRole=modificationtime
+      SortRole=creationtime
       ViewMode=1
     '';
     ".local/share/dolphin/view_properties/global/.directory".text = ''

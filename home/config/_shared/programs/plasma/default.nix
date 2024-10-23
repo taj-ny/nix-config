@@ -119,7 +119,7 @@ in
       };
       kwinrc = {
         Effect-blurplus = {
-          BlurStrength.value = 3;
+          BlurStrength.value = 9;
           BlurMenus.value = true;
           NoiseStrength.value = 5;
           FakeBlur.value = true;

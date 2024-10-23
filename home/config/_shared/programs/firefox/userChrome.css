@@ -59,7 +59,8 @@ toolbar, toolbox, /* Top bar */
         #reader-mode-button,
         #star-button-box,
         #tracking-protection-icon-container,
-        .search-one-offs {
+        .search-one-offs,
+        #downloads-button {
             display: none !important;
         }
     }
