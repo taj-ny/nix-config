@@ -5,6 +5,7 @@ Based on [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-st
 ![Desktop](images/screenshots/desktop.png)
 ![Firefox](images/screenshots/firefox.png)
 ![Random stuff](images/screenshots/randomstuff.png)
+![VSCode](images/screenshots/vscode.png)
 
 ### Plasma
 - [anametologin/krohnkite](https://github.com/anametologin/krohnkite) - Tiling
