@@ -195,10 +195,11 @@ in
         PrimaryOutline = {
           ActiveOutlineUseCustom.value = false;
           ActiveOutlineUsePalette.value = true;
+          InactiveOutlineAlpha.value = 200;
           InactiveOutlineUseCustom.value = false;
           InactiveOutlineUsePalette.value = true;
         };
-        "ًRound-Corners" = {
+        "Round-Corners" = {
           AnimationEnabled.value = false;
           InactiveCornerRadius.value = cornerRadius;
           InactiveShadowSize.value = 40;
