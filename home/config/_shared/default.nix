@@ -50,6 +50,7 @@
         yakuake;
     };
     sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
+    wallpaper = "${pkgs.wallpaper}/wallpaper.png";
   };
   nix.gc = {
     inherit (osConfig.nix.gc) automatic options;

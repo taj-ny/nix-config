@@ -11,6 +11,7 @@ let
 in
 {
   options.custom.programs.plasma.kwin = with types; {
+    cornerRadius = mkOptionSimpleDefault int 0;
     forceTransparency = {
       opacity = mkOptionSimpleDefault int 85;
       windowClasses = mkOptionSimpleDefault (listOf str) [ ];
