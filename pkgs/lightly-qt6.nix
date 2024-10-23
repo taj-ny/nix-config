@@ -15,13 +15,13 @@
 
 stdenv.mkDerivation rec {
   pname = "lightly-qt6";
-  version = "0.5.3";
+  version = "0.5.4";
 
   src = fetchFromGitHub {
     owner = "Bali10050";
     repo = "Lightly";
     rev = "v${version}";
-    hash = "sha256-WNcHGmMcmVYn+MKHKHmCBGDcszhtVPevCC033iRZBBw=";
+    hash = "sha256-h0VCxee0PgMAQerfjIZqRA944Iz6VSGvGAv6AoOtvBM=";
   };
 
   nativeBuildInputs = [
