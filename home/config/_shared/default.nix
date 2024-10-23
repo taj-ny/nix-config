@@ -62,6 +62,7 @@
     ".local/state/wireplumber"
     ".nuget"
     ".ssh"
+    ".vmware"
     "Documents"
     "Downloads"
     "keepass"
