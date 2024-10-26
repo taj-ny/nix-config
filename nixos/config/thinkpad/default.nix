@@ -40,7 +40,7 @@
   environment.variables.KWIN_FORCE_SW_CURSOR = "0";
   nix.settings = {
     substituters = lib.mkBefore [ "http://andromeda:${toString config.services.nix-serve.port}" ];
-    trusted-public-keys = [ "andromeda:7OzqyXVyuvQWs8tK8bOvBnel7tDQPPmE2YMciMrXWgg=" ];
+    trusted-public-keys = [ "andromeda:RKWnCuVLtIChwcxy6ti8u8SH+9ye2peaSlrTjVRQiCk=" ];
   };
   programs = {
     kdeconnect.enable = true;
