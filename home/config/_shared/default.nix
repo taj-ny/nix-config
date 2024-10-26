@@ -17,7 +17,6 @@
     packages = builtins.attrValues {
       inherit (pkgs)
         axel
-        ccache
         dotnet-sdk_8
         duf
         eza

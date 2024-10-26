@@ -22,7 +22,6 @@ if test -f /etc/current-config; then
     fi
     diff -Naur --color=always --exclude=.git --exclude=result $(cat /etc/current-config) /tmp/nix-config | less -R
     read -n 1 -p "Switch? (y/n)" confirm
-    echo $confirm > /home/marcin/test
     if [ "$confirm" = "${confirm#[Yy]}" ]; then
         exit 1
     fi
@@ -30,4 +29,11 @@ else
     echo -e "\033[1;33mwarning:\033[0m /etc/current-config not found. Cannot show diff."
 fi
 
-sudo nixos-rebuild switch --flake /tmp/nix-config#$HOST --log-format internal-json -v |& nom --json
+substituters="https://cache.nixos.org"
+nixServePort=5000
+if [ "$(hostname)" = "andromeda" ] && ping -c 1 -W 1 thinkpad > /dev/null 2>&1; then
+    substituters="http://thinkpad:$nixServePort $substituters"
+elif [ "$(hostname)" = "thinkpad" ] && ping -c 1 -W 1 andromeda > /dev/null 2>&1; then
+    substituters="http://andromeda:$nixServePort $substituters"
+fi
+sudo nixos-rebuild switch --option substituters "$substituters" --flake /tmp/nix-config#$HOST --log-format internal-json -v |& nom --json

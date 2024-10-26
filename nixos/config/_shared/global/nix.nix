@@ -20,6 +20,10 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = "nix-command flakes";
+      trusted-public-keys = [
+        "andromeda:RKWnCuVLtIChwcxy6ti8u8SH+9ye2peaSlrTjVRQiCk="
+        "thinkpad:84A19lzQ57U6+bRnNzjqiTTm4stGeIZ/cCJV8DtveXk="
+      ];
       trusted-users = [ "nixbuild" ];
     };
   };

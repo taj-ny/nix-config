@@ -58,10 +58,6 @@
     };
   };
   hardware.nvidia.open = false;
-  nix.settings = {
-    substituters = lib.mkBefore [ "http://thinkpad:${toString config.services.nix-serve.port}" ];
-    trusted-public-keys = [ "thinkpad:84A19lzQ57U6+bRnNzjqiTTm4stGeIZ/cCJV8DtveXk=" ];
-  };
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
   programs = {
     adb.enable = true;

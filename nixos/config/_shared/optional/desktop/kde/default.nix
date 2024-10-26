@@ -23,7 +23,7 @@
   services = {
     desktopManager.plasma6.enable = true;
     displayManager.sddm = {
-      enable = true;
+      enable = false;
       wayland = {
         enable = true;
         compositor = "kwin";
