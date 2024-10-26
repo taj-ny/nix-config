@@ -17,6 +17,7 @@
     packages = builtins.attrValues {
       inherit (pkgs)
         axel
+        ccache
         dotnet-sdk_8
         duf
         eza
@@ -84,6 +85,7 @@
   );
   programs = {
     btop.enable = true;
+    ccache.enable = true;
     clementine.enable = true;
     firefox.enable = true;
     home-manager.enable = true;

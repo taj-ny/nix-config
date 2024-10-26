@@ -40,7 +40,8 @@ rec {
     package ? null,
     packages ? [ ],
     persistentDirectories ? [ ],
-    persistentFiles ? [ ]
+    persistentFiles ? [ ],
+    customConfig ? { }
   }: {
     imports = [
       (
@@ -51,13 +52,21 @@ rec {
 
         {
           options.programs.${optionName}.enable = lib.mkEnableOption name;
-          config = lib.mkIf config.programs.${optionName}.enable {
-            home.packages = if package != null then [ package ] else packages;
-            persistence = {
-              directories = persistentDirectories;
-              files = persistentFiles;
-            };
-          };
+          config = lib.mkIf
+            config.programs.${optionName}.enable
+            (
+              mkMergeRecursive
+                [
+                  {
+                    home.packages = if package != null then [ package ] else packages;
+                    persistence = {
+                      directories = persistentDirectories;
+                      files = persistentFiles;
+                    };
+                  }
+                  customConfig
+                ]
+            );
         }
       )
     ];
