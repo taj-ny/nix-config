@@ -11,6 +11,7 @@
   };
   modifications = final: prev: {
     kde-rounded-corners = (import ./kde-rounded-corners) prev;
+    plasma-panel-colorizer = (import ./plasma-panel-colorizer.nix) prev;
   } // (
     lib.optionalAttrs
       (builtins.pathExists ./private)
