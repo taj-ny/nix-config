@@ -26,7 +26,6 @@
     ../_shared/optional/services/syncthing.nix
     ../_shared/optional/services/tor.nix
 
-    ../_shared/optional/allow-remote-deployment.nix
     ../_shared/optional/encrypted-dns.nix
   ] ++ (lib.allExceptThisDefault ./.);
 

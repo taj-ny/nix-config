@@ -21,7 +21,6 @@
 
     ../_shared/optional/security/u2f-pam.nix
 
-    ../_shared/optional/allow-remote-deployment.nix
     ../_shared/optional/encrypted-dns.nix
   ] ++ (lib.allExceptThisDefault ./.);
 
