@@ -42,12 +42,7 @@
     git.enable = true;
     zsh.enable = true;
   };
-  security.sudo = {
-    enable = true;
-    extraConfig = ''
-      Defaults		timestamp_timeout=1
-    '';
-  };
+  security.sudo.enable = true;
   services = {
     fwupd.enable = true;
     mysql.package = pkgs.mariadb;
