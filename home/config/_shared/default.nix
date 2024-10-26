@@ -89,6 +89,7 @@
     clementine.enable = true;
     firefox.enable = true;
     home-manager.enable = true;
+    kdeconnect.enable = true;
     keepassxc.enable = true;
     rclone.enable = true;
     vscode.enable = true;
@@ -97,7 +98,6 @@
   };
   services = {
     easyeffects.enable = true;
-    kdeconnect.enable = true;
   };
   systemd.user.startServices = "sd-switch";
 }
