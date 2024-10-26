@@ -38,6 +38,7 @@
   };
   environment.variables.KWIN_FORCE_SW_CURSOR = "0";
   programs = {
+    adb.enable = true;
     kdeconnect.enable = true;
     partition-manager.enable = true;
     steam.enable = true;
