@@ -43,12 +43,9 @@
     partition-manager.enable = true;
     steam.enable = true;
   };
-  services = {
-    syncthing.settings.folders.music_lossy = {
-      path = "/home/marcin/Music";
-      devices = [ "andromeda" ];
-    };
-    flatpak.enable = true;
+  services.syncthing.settings.folders.music_lossy = {
+    path = "/home/marcin/Music";
+    devices = [ "andromeda" ];
   };
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
