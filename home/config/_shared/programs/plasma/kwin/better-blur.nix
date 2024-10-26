@@ -13,7 +13,7 @@ let
 in
 {
   custom.programs.plasma.kwin.reconfigure.effects = [ "forceblur" ];
-  programs.plasma.configFile.kwinrc ={
+  programs.plasma.configFile.kwinrc = {
     Effect-blurplus =
       let
         cornerRadius = config.custom.programs.plasma.kwin.cornerRadius + 2;
