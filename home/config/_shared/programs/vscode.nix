@@ -30,6 +30,7 @@ lib.mkIf config.programs.vscode.enable
       "editor.bracketPairColorization.enabled" = false;
       "editor.fontFamily" = "'JetBrains Mono'";
       "editor.lineHeight" = 1.5;
+      "editor.smoothScrolling" = true;
       "editor.wordWrap" = "on";
       "files.autoSave" = "afterDelay";
       "files.trimTrailingWhitespace" = true;
@@ -45,6 +46,7 @@ lib.mkIf config.programs.vscode.enable
       "terminal.integrated.fontFamily" = "MesloLGS NF";
       "terminal.integrated.fontSize" = 13;
       "terminal.integrated.lineHeight" = 1;
+      "terminal.integrated.smoothScrolling" = true;
       "workbench.colorCustomizations" = {
         "activityBar.activeBorder" = "#${config.colorScheme.palette.accent}";
         "activityBar.foreground" = "#${config.colorScheme.palette.accent}";
@@ -67,6 +69,7 @@ lib.mkIf config.programs.vscode.enable
         "window.activeBorder" = "#${config.colorScheme.palette.accent}";
       };
       "workbench.iconTheme" = "material-icon-theme";
+      "workbench.list.smoothScrolling" = true;
     };
     package = pkgs.vscodium;
   };
