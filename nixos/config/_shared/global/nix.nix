@@ -8,28 +8,6 @@
 
 {
   nix = {
-    buildMachines =
-      let
-        ssh = {
-          sshKey = "/nix/nixbuild_id_ed25519";
-          sshUser = "nixbuild";
-        };
-      in
-      lib.map (machine: machine // ssh) [
-        {
-          hostName = "andromeda";
-          maxJobs = 4;
-          speedFactor = 1;
-          system = "x86_64-linux";
-        }
-        {
-          hostName = "thinkpad";
-          maxJobs = 8;
-          speedFactor = 2;
-          system = "x86_64-linux";
-        }
-      ];
-    #distributedBuilds = true;
     nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
@@ -45,7 +23,6 @@
       trusted-users = [ "nixbuild" ];
     };
   };
-
   nixpkgs = {
     config.allowUnfree = true;
 
@@ -54,6 +31,10 @@
       outputs.overlays.modifications
       outputs.overlays.stable
     ];
+  };
+  services.nix-serve = {
+    enable = true;
+    secretKeyFile = "/nix/nix-serve/private-key";
   };
   users = {
     groups.nixbuild = {};

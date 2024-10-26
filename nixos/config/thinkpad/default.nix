@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -31,19 +32,21 @@
       options thinkpad_acpi fan_control=1
     '';
   };
-
   custom = {
     hardware.internal.bluetooth.enable = true;
     impermanence.rootFsSize = "8G";
     security.secureBoot.enable = true;
   };
-
+  environment.variables.KWIN_FORCE_SW_CURSOR = "0";
+  nix.settings = {
+    substituters = lib.mkBefore [ "http://andromeda:${toString config.services.nix-serve.port}" ];
+    trusted-public-keys = [ "andromeda:7OzqyXVyuvQWs8tK8bOvBnel7tDQPPmE2YMciMrXWgg=" ];
+  };
   programs = {
     kdeconnect.enable = true;
     partition-manager.enable = true;
     steam.enable = true;
   };
-
   services = {
     syncthing.settings.folders.music_lossy = {
       path = "/home/marcin/Music";
@@ -51,8 +54,6 @@
     };
     flatpak.enable = true;
   };
-
-  environment.variables.KWIN_FORCE_SW_CURSOR = "0";
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
 }

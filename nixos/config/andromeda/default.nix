@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -57,6 +58,10 @@
     };
   };
   hardware.nvidia.open = false;
+  nix.settings = {
+    substituters = lib.mkBefore [ "http://thinkpad:${toString config.services.nix-serve.port}" ];
+    trusted-public-keys = [ "thinkpad:jo0eFai7qGHQjaLmT2KdI282+orfEM/NwUK9t39TX5o=" ];
+  };
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
   programs = {
     adb.enable = true;
