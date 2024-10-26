@@ -15,6 +15,7 @@
         "clementine"
         "dolphin"
         "keepassxc"
+        "ksshaskpass"
         "kwrite"
         "org.freedesktop.impl.portal.desktop.kde"
         "org.kde.ksshaskpass"
