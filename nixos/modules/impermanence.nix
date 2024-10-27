@@ -15,13 +15,12 @@ in
   ];
 
   options.custom.impermanence = with types; {
-    enable = mkEnableOption "impermanence";
     persistentDirectories = mkOptionSimpleDefault (listOf anything) [ ];
     persistentFiles = mkOptionSimpleDefault (listOf anything) [ ];
     rootFsSize = mkOptionSimple str;
   };
 
-  config = mkIf cfg.enable {
+  config = {
     environment.persistence."/nix/persist" = {
       hideMounts = true;
       directories = cfg.persistentDirectories;

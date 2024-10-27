@@ -7,7 +7,7 @@
 lib.mkProgramOption rec {
   name = "KDE Connect";
   optionName = "kdeconnect";
-  package = pkgs.python311Packages.deemix;
+  package = pkgs.kdePackages.kdeconnect-kde;
   persistentDirectories = [ ".config/kdeconnect" ];
   customConfig.services.kdeconnect = {
     inherit package;

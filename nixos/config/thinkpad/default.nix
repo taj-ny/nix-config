@@ -10,18 +10,10 @@
   imports = [
     inputs.hardware.nixosModules.lenovo-thinkpad-t480
 
-    ../_shared/optional/desktop/unlock-after-hibernation.nix
-    ../_shared/optional/desktop/kde
-
+    ../_shared/desktop
     ../_shared/optional/fs/luks-btrfs-impermanence-swapfile.nix
-
-    ../_shared/optional/services/pipewire.nix
     ../_shared/optional/services/syncthing.nix
-    ../_shared/optional/services/tor.nix
-
     ../_shared/optional/security/u2f-pam.nix
-
-    ../_shared/optional/encrypted-dns.nix
   ] ++ (lib.allExceptThisDefault ./.);
 
   boot = {

@@ -10,21 +10,12 @@
     inputs.hardware.nixosModules.common-pc
     inputs.hardware.nixosModules.common-pc-ssd
 
-    ../_shared/optional/desktop/kde
-
+    ../_shared/desktop
     ../_shared/optional/fs/luks-btrfs-impermanence.nix
-
     ../_shared/optional/hardware/external/printers.nix
-
     ../_shared/optional/programs/vmware.nix
-
     ../_shared/optional/security/u2f-pam.nix
-
-    ../_shared/optional/services/pipewire.nix
     ../_shared/optional/services/syncthing.nix
-    ../_shared/optional/services/tor.nix
-
-    ../_shared/optional/encrypted-dns.nix
   ] ++ (lib.allExceptThisDefault ./.);
 
   custom = {

@@ -9,10 +9,11 @@ rec {
       map
         (entry: "${toString dir}/${entry}")
         (
-          builtins.attrNames (
-            builtins.removeAttrs (
-              builtins.readDir dir
-            ) [ "default.nix" ]
+          builtins.attrNames
+          (
+            builtins.removeAttrs
+              (builtins.readDir dir)
+               [ "default.nix" ]
           )
         );
   flakeRoot = "${toString ./.}/..";
