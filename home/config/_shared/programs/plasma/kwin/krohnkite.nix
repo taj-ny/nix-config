@@ -31,6 +31,7 @@ in
       ];
       ignoreTitle = lib.concatStringsSep "," [
         "Configure — System Settings"
+        "KDE Wayland Compositor"
       ];
       monocleMaximize.value = false;
       screenGapBottom.value = tilingGap;
