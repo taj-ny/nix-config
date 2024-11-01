@@ -15,6 +15,7 @@
   };
   persistence.directories = [ ".local/share/Terraria" ];
   programs = {
+    clion.enable = true;
     deemix.enable = true;
     nicotine-plus.enable = true;
     rider.enable = true;
