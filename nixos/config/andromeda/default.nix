@@ -50,6 +50,7 @@
   programs = {
     adb.enable = true;
     kdeconnect.enable = true;
+    hyprland.enable = true;
     partition-manager.enable = true;
     steam.enable = true;
   };
