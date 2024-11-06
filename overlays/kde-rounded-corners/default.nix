@@ -6,5 +6,5 @@ prev: prev.kde-rounded-corners.overrideAttrs (old: {
     rev = "17586b06e1d4b71f65611c7f853a21f6afa7aa04"; # Fixes border width on the corners
     hash = "sha256-49BZxgcKyqQGts8I7TUe3N656PhLqcLRp+z8/Iw36yM=";
   };
-  patches = (old.patches or []) ++ [ ./dont-mark-windows-as-translucent.patch ];
+  patches = (old.patches or []) ++ [ ./optimizations.patch ];
 })
