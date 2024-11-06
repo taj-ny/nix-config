@@ -38,10 +38,11 @@
           systemTray.items = {
             hidden = [
               "Clementine"
-              "org.kde.plasma.brightness"
-              "org.kde.plasma.cameraindicator"
               "org.kde.kscreen"
               "org.kde.kdeconnect"
+              "org.kde.plasma.brightness"
+              "org.kde.plasma.cameraindicator"
+              "org.kde.plasma.clipboard"
               "org.kde.plasma.keyboardlayout"
               "org.kde.plasma.keyboardindicator"
               "org.kde.plasma.manage-inputmethod"
