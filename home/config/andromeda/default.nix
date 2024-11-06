@@ -21,8 +21,4 @@
     rider.enable = true;
     prism-launcher.enable = true;
   };
-  wayland.windowManager.hyprland = {
-    enable = true;
-    settings.monitor = [ "WAYLAND-1,disable "];
-  };
 }

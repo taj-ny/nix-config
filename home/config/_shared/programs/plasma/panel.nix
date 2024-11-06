@@ -1,8 +1,10 @@
 {
+  pkgs,
   ...
 }:
 
 {
+  home.packages = [ pkgs.plasma-applet-commandoutput ];
   programs.plasma.panels = [
     {
       height = 29;
@@ -22,6 +24,16 @@
         }
         "org.kde.plasma.appmenu"
         "org.kde.plasma.panelspacer"
+        {
+          name = "com.github.zren.commandoutput";
+          config.General = {
+            command = "echo 1";
+            fontFamily = "Hack";
+            fontSize = 10;
+            interval = 0;
+            waitForCompletion = true;
+          };
+        }
         {
           systemTray.items = {
             hidden = [
