@@ -27,7 +27,7 @@
         {
           name = "com.github.zren.commandoutput";
           config.General = {
-            command = "echo 1";
+            command = "${pkgs.panel-system-info}/bin/panel-system-info";
             fontFamily = "Hack";
             fontSize = 10;
             interval = 0;
