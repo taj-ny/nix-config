@@ -23,9 +23,7 @@ in
         BlurMenus.value = true;
         NoiseStrength.value = 5;
         FakeBlur.value = true;
-        FakeBlurImage.value = config.home.wallpaper;
-        FakeBlurImageSourceCustom.value = true;
-        FakeBlurImageSourceDesktopWallpaper.value = false;
+        FakeBlurImageSourceDesktopWallpaper.value = true;
         WindowClasses.value = lib.strings.concatStringsSep "\n" (forceBlur ++ config.custom.programs.plasma.kwin.forceTransparency.windowClasses);
         BlurDecorations.value = true;
         PaintAsTranslucent.value = true;
