@@ -19,6 +19,7 @@
   };
   security.sudo.enable = true;
   services = {
+    journald.extraConfig = "MaxRetentionSec=1d";
     mysql.package = pkgs.mariadb;
     openssh = {
       enable = true;
