@@ -5,8 +5,12 @@
   ...
 }:
 
+let
+  colors = lib.attrsets.mapAttrs (_: color: "#${lib.colors.rgbToHex color}") config.colors;
+in
 lib.mkIf config.programs.vscode.enable
 {
+  home.sessionVariables.NIXD_FLAGS = "--semantic-tokens=true";
   persistence.directories = [
     ".config/VSCodium/User/globalStorage"
     ".config/VSCodium/User/History"
@@ -35,7 +39,7 @@ lib.mkIf config.programs.vscode.enable
       "files.autoSave" = "afterDelay";
       "files.trimTrailingWhitespace" = true;
       "markdown-preview-enhanced.previewTheme" = "github-dark.css";
-      "material-icon-theme.folders.color" = "#${config.colorScheme.palette.accent}";
+      "material-icon-theme.folders.color" = colors.accent;
       "material-icon-theme.folders.theme" = "classic";
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
@@ -48,25 +52,36 @@ lib.mkIf config.programs.vscode.enable
       "terminal.integrated.lineHeight" = 1;
       "terminal.integrated.smoothScrolling" = true;
       "workbench.colorCustomizations" = {
-        "activityBar.activeBorder" = "#${config.colorScheme.palette.accent}";
-        "activityBar.foreground" = "#${config.colorScheme.palette.accent}";
-        "activityBarBadge.background" = "#${config.colorScheme.palette.accent}";
-        "button.background" = "#${config.colorScheme.palette.accent}";
-        "button.hoverBackground" = "#${config.colorScheme.palette.accentDark}";
-        "button.secondaryBackground" = "#${config.colorScheme.palette.accent}";
-        "editor.selectionBackground" = "#${config.colorScheme.palette.accent}";
-        "focusBorder" = "#${config.colorScheme.palette.accent}";
-        "list.activeSelectionBackground" = "#${config.colorScheme.palette.accentDarker}";
-        "list.focusAndSelectionOutline" = "#${config.colorScheme.palette.accent}";
-        "panelTitle.activeBorder" = "#${config.colorScheme.palette.accent}";
-        "tab.activeBorder" = "#${config.colorScheme.palette.accent}";
-        "terminal.tab.activeBorder" = "#${config.colorScheme.palette.accent}";
-        "textLink.activeForeground" = "#${config.colorScheme.palette.accentDark}";
-        "textLink.foreground" = "#${config.colorScheme.palette.accent}";
-        "selection.background" = "#${config.colorScheme.palette.accent}";
-        "statusBarItem.remoteBackground" = "#${config.colorScheme.palette.accent}";
-        "statusBarItem.remoteHoverBackground" = "#${config.colorScheme.palette.accentDark}";
-        "window.activeBorder" = "#${config.colorScheme.palette.accent}";
+        "activityBar.activeBorder" = colors.accent;
+        "activityBar.background" = colors.background;
+        "activityBar.foreground" = colors.accent;
+        "activityBarBadge.background" = colors.accent;
+        "button.background" = colors.accent;
+        "button.hoverBackground" = colors.accentDark1;
+        "button.secondaryBackground" = colors.accent;
+        "editor.background" = colors.backgroundLight1;
+        "editor.selectionBackground" = colors.accent;
+        "files.autoSaveDelay" = 250;
+        "focusBorder" = colors.accent;
+        "list.activeSelectionBackground" = colors.accentDark2;
+        "list.focusAndSelectionOutline" = colors.accent;
+        "list.hoverBackground" = colors.backgroundLight1; # Also affects notifications
+        "list.inactiveSelectionBackground" = colors.backgroundLight2;
+        "notifications.background" = colors.background;
+        "panelTitle.activeBorder" = colors.accent;
+        "tab.activeBackground" = colors.backgroundLight1;
+        "tab.activeBorder" = colors.backgroundLight1;
+        "tab.activeBorderTop" = colors.backgroundLight1;
+        "tab.hoverBackground" = colors.backgroundLight2;
+        "terminal.tab.activeBorder" = colors.accent;
+        "textLink.activeForeground" = colors.accentDark1;
+        "textLink.foreground" = colors.accent;
+        "selection.background" = colors.accent;
+        "sideBar.background" = colors.background;
+        "statusBarItem.remoteBackground" = colors.accent;
+        "statusBarItem.remoteHoverBackground" = colors.accentDark1;
+        "terminal.background" = colors.background;
+        "window.activeBorder" = colors.background;
       };
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.list.smoothScrolling" = true;

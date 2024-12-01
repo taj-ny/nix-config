@@ -9,7 +9,7 @@
   custom.programs.plasma.kwin = {
     cornerRadius = 15;
     forceTransparency = {
-      opacity = 85;
+      opacity = 90;
       windowClasses = [
         "ark"
         "clementine"
@@ -17,6 +17,7 @@
         "keepassxc"
         "ksshaskpass"
         "kwrite"
+        "filelight"
         "org.freedesktop.impl.portal.desktop.kde"
         "org.kde.ksshaskpass"
         "org.nicotine_plus.Nicotine"
@@ -40,8 +41,6 @@
       Plugins = {
         contrastEnabled.value = false;
         kwin4_effect_geometry_changeEnabled.value = true;
-        kwin_effect_lightlyshadersEnabled.value = false;
-        lightlyshaders_blurEnabled.value = false;
         shakecursorEnabled.value = false;
         slideEnabled.value = false;
         startupfeedbackEnabled.value = false;

@@ -7,9 +7,8 @@
   services.dnscrypt-proxy2 = {
     enable = true;
     settings = {
-      ipv6_servers = true;
       require_dnssec = true;
-      server_names = [ "nextdns" "cloudflare" ];
+      server_names = [ "quad9-dnscrypt-ip4-nofilter-ecs-pri" ];
       sources.public-resolvers = {
         cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
         minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";

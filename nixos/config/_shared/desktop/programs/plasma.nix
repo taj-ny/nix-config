@@ -9,6 +9,7 @@
     systemPackages = (builtins.attrValues {
       inherit (pkgs)
         kde-rounded-corners
+        klassy
         lightly-boehs
         lightly-qt6;
     }) ++ [

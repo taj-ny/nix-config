@@ -17,7 +17,6 @@
     packages = builtins.attrValues {
       inherit (pkgs)
         axel
-        dotnet-sdk_8
         duf
         eza
         fastfetch
@@ -42,11 +41,14 @@
         wl-clipboard
         yt-dlp
         yubikey-manager;
+      inherit (pkgs.dotnetCorePackages)
+        sdk_9_0;
       inherit (pkgs.kdePackages)
         ark
         kate
         krdc
         krfb
+        filelight
         yakuake;
     };
     sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";

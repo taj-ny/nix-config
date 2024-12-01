@@ -15,8 +15,8 @@ Based on [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-st
 - [manjaro/artwork/themes/breath](https://gitlab.manjaro.org/artwork/themes/breath) - Wallpaper (colors were adjusted, see [pkgs/wallpaper.nix](pkgs/wallpaper.nix))
 - [matinlotfali/KDE-Rounded-Corners](https://github.com/matinlotfali/KDE-Rounded-Corners) - Rounded corners, window border, shadows
 - [peterfajdiga/kwin4_effect_geometry_change](https://github.com/peterfajdiga/kwin4_effect_geometry_change) - Window animations
-- [taj-ny/kwin-better-blur](https://github.com/taj-ny/kwin-effects-forceblur) - Force blur with rounded corners, fake blur for lower power usage on my laptop
-- [Zren/plasma-applet-commandoutput](https://github.com/Zren/plasma-applet-commandoutput) - System information on the panel
+- [taj-ny/kwin-better-blur](https://github.com/taj-ny/kwin-effects-forceblur) - Force blur, rounded corners, static blur for lower power usage on my laptop, variable blur strength
+- [Zren/plasma-applet-commandoutput](https://github.com/Zren/plasma-applet-commandoutput) - System information on the panel ([script](pkgs/panel-system-info/main.py))
 
 ### Other programs
 - [Clementine](https://github.com/clementine-player/Clementine) - Music player

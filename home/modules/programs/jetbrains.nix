@@ -15,6 +15,16 @@
     in
     [
       (lib.mkProgramOption {
+        name = "android-studio";
+        package = pkgs.android-studio;
+        persistentDirectories = [
+          ".android"
+          "Android"
+          ".config/Google"
+          ".local/share/Google"
+        ] ++ persistentDirectories;
+      })
+      (lib.mkProgramOption {
         inherit persistentDirectories;
         name = "clion";
         package = pkgs.jetbrains.clion;

@@ -1,12 +1,10 @@
 {
   config,
   lib,
-  nix-colors,
   pkgs,
   ...
 }:
 
-with nix-colors.lib.conversions;
 {
   imports = lib.allExceptThisDefault ./.;
 
@@ -28,23 +26,7 @@ with nix-colors.lib.conversions;
     configFile = {
       baloofilerc."Basic Settings".Indexing-Enabled.value = false;
       bluedevilglobalrc.Global.launchState.value = "disable";
-      breezerc = {
-        Common = {
-          OutlineIntensity.value = "OutlineOff";
-          ShadowSize.value = "ShadowVeryLarge";
-        };
-        "Windeco Exception 0" = {
-          Enabled.value = true;
-          ExceptionPattern.value = ".*";
-          ExceptionType.value = 0;
-          HideTitleBar.value = true;
-        };
-      };
       kdeglobals = {
-        General = {
-          AccentColor.value = lib.strings.concatStringsSep "," (map (x: toString x) (hexToRGB config.colorScheme.palette.accent));
-          ColorSchemeHash.value = "null";
-        };
         KDE.AnimationDurationFactor.value = "1.414213562373095";
       };
       klaunchrc.FeedbackStyle.BusyCursor.value = false;
@@ -90,7 +72,6 @@ with nix-colors.lib.conversions;
     };
     workspace = {
       clickItemTo = "select";
-      colorScheme = "KritaDarkOrange";
       wallpaper = config.home.wallpaper;
     };
   };

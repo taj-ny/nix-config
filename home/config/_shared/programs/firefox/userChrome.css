@@ -39,9 +39,9 @@ toolbar, toolbox, /* Top bar */
         }
 
         &[breakout][breakout-extend] {
-            top: calc((var(--urlbar-container-height) - var(--urlbar-height)) / 2) !important;
-            left: 0 !important;
-            width: 100% !important;
+            top: 6px !important;
+            width: var(--urlbar-width) !important;
+            margin: 0 !important;
         }
         &[breakout][breakout-extend] > #urlbar-input-container,
         &[breakout][breakout-extend] > .urlbar-input-container {

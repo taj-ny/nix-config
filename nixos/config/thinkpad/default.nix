@@ -32,6 +32,7 @@
   programs = {
     adb.enable = true;
     kdeconnect.enable = true;
+    gamescope.enable = true;
     partition-manager.enable = true;
     steam.enable = true;
   };

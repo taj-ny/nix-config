@@ -16,7 +16,7 @@
     };
     impermanence.url = "github:nix-community/impermanence";
     kwin-better-blur = {
-      url = "github:taj-ny/kwin-effects-forceblur";
+      url = "github:taj-ny/kwin-effects-forceblur/window-rules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kwin-effects-startupfeedback-busy-cursor = {
@@ -27,7 +27,6 @@
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-colors.url = "github:misterio77/nix-colors";
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +38,6 @@
     self,
     home-manager,
     nixpkgs,
-    nix-colors,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -62,12 +60,11 @@
         lib = lib.extend (_: _: inputs.home-manager.lib);
       };
       modules = [
-        nix-colors.homeManagerModules.default
         {
           imports = builtins.attrValues homeManagerModules;
           home = {
             homeDirectory = "/";
-            stateVersion = "24.11";
+            stateVersion = "25.05";
             username = "nixd";
           };
         }
@@ -87,7 +84,7 @@
                 networking.hostName = name;
               }
             ] ++ (builtins.attrValues nixosModules);
-          specialArgs = { inherit inputs outputs nix-colors; };
+          specialArgs = { inherit inputs outputs; };
         }
       ) (
         builtins.removeAttrs (

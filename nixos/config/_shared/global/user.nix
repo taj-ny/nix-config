@@ -2,7 +2,6 @@
   config,
   inputs,
   lib,
-  nix-colors,
   outputs,
   pkgs,
   ...
@@ -24,7 +23,7 @@ in
   };
   home-manager = lib.mkIf (builtins.pathExists homeConfig) {
     extraSpecialArgs = {
-      inherit inputs nix-colors outputs username;
+      inherit inputs outputs username;
       lib = lib.extend (_: _: inputs.home-manager.lib);
     };
     useGlobalPkgs = true;

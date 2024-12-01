@@ -4,18 +4,15 @@
 }:
 
 rec {
+  colors = import ./colors.nix { inherit lib; };
+  math = import ./math.nix;
+
   allExceptThisDefault =
     dir:
-      map
-        (entry: "${toString dir}/${entry}")
-        (
-          builtins.attrNames
-          (
-            builtins.removeAttrs
-              (builtins.readDir dir)
-               [ "default.nix" ]
-          )
-        );
+      (builtins.readDir dir)
+      |> (attrs: builtins.removeAttrs attrs [ "default.nix" ])
+      |> builtins.attrNames
+      |> map (entry: "${toString dir}/${entry}");
   flakeRoot = "${toString ./.}/..";
   mkMergeRecursive = attrList:
     let f = attrPath:
