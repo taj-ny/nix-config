@@ -71,7 +71,7 @@ lib.mkIf config.programs.vscode.enable
         "button.secondaryBackground" = colors.accent;
         "editorError.foreground" = colors.redLight1;
         "editor.background" = colors.backgroundLight1;
-        "editor.selectionBackground" = colors.accent;
+        "editor.selectionBackground" = colors.accentDark3;
         "files.autoSaveDelay" = 250;
         "focusBorder" = colors.accent;
         "gitDecoration.addedResourceForeground" = colors.greenLight1;
@@ -105,7 +105,7 @@ lib.mkIf config.programs.vscode.enable
         "terminal.tab.activeBorder" = colors.accent;
         "textLink.activeForeground" = colors.accentDark1;
         "textLink.foreground" = colors.accent;
-        "selection.background" = colors.accent;
+        "selection.background" = colors.accentDark3;
         "sideBar.background" = colors.background;
         "statusBarItem.remoteBackground" = colors.accent;
         "statusBarItem.remoteHoverBackground" = colors.accentDark1;
