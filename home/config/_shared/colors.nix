@@ -17,10 +17,10 @@ let
 in
 {
   colors = {
-    background = [ 25 25 25 ];
-    backgroundLight1 = [ 30 30 30 ];
-    backgroundLight2 = [ 35 35 35 ];
-    backgroundLight3 = [ 40 40 40 ];
+    background = [ 20 20 20 ];
+    backgroundLight1 = [ 25 25 25 ];
+    backgroundLight2 = [ 30 30 30 ];
+    backgroundLight3 = [ 35 35 35 ];
 
     foreground = [ 255 255 255 ];
   } // (lib.colors.genPalette base 0.0725);
