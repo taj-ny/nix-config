@@ -6,7 +6,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     darkly = {
-      url = "github:taj-ny/Darkly/FeatureDarkly";
+      url = "github:Bali10050/Darkly/FeatureDarkly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox-addons = {
