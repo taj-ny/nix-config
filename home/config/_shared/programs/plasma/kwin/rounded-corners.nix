@@ -28,5 +28,11 @@
       InactiveSecondOutlineThickness.value = 0;
       SecondOutlineThickness.value = 0;
     };
+    Shadow = {
+      ActiveShadowUseCustom.value = true;
+      ActiveShadowUsePalette.value = false;
+      InactiveShadowUseCustom.value = true;
+      InactiveShadowUsePalette.value = false;
+    };
   };
 }
