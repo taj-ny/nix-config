@@ -102,6 +102,10 @@ toolbar, toolbox, /* Top bar */
     #sidebar-header {
         display: none !important;
     }
+
+    &:not([hidden]) ~ #tabbrowser-tabbox browser {
+        border-radius: var(--corner-radius) 0 0 0;
+    }
 }
 
 #sidebar-box, #webextpanels-window {

@@ -79,7 +79,13 @@ lib.mkIf config.programs.firefox.enable
         "ui.key.menuAccessKeyFocuses" = false;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
-      userChrome = builtins.readFile ./userChrome.css;
+      userChrome = ''
+        :root {
+          --corner-radius: ${toString config.custom.programs.plasma.kwin.cornerRadius}px;
+        }
+
+        ${builtins.readFile ./userChrome.css}
+      '';
       userContent = builtins.readFile ./userContent.css;
     };
   };
