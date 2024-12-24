@@ -97,8 +97,6 @@ toolbar, toolbox, /* Top bar */
     width: 15% !important;
     max-width: 300px !important;
     min-width: 100px !important;
-    box-shadow: rgba(0, 0, 0, .2) 1px 0px 15px;
-    clip-path: inset(0 -15px 0 0);
     z-index: 1;
 
     #sidebar-header {
