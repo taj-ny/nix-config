@@ -15,13 +15,6 @@
       package = pkgs.kdePackages.breeze-gtk;
     };
   };
-  home.packages = lib.attrValues {
-    inherit (pkgs)
-      krohnkite
-      kwin-effects-geometry-change
-      plasma-panel-colorizer
-      plasma-window-title-applet;
-  };
   programs.plasma = {
     configFile = {
       baloofilerc."Basic Settings".Indexing-Enabled.value = false;

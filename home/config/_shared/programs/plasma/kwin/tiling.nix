@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   ...
 }:
 
@@ -7,6 +8,7 @@ let
   tilingGap = 15;
 in
 {
+  home.packages = [ pkgs.krohnkite ];
   programs.plasma.configFile.kwinrc = {
     Script-krohnkite = {
       enableBTreeLayout.value = true;

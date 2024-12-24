@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   ...
 }:
 
@@ -34,6 +35,7 @@
       "kwin4_effect_shapecorners"
     ];
   };
+  home.packages = [ pkgs.kwin-effects-geometry-change ];
   programs.plasma = {
     configFile.kwinrc = {
       Effect-overview.BorderActivate.value = 9;

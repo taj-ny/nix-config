@@ -1,10 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
 {
-  home.packages = [ pkgs.plasma-applet-commandoutput ];
+  home.packages = lib.attrValues {
+    inherit (pkgs)
+      plasma-applet-commandoutput
+      plasma-panel-colorizer
+      plasma-window-title-applet;
+  };
   programs.plasma.panels = [
     {
       height = 29;
