@@ -11,6 +11,7 @@ let
     "Ctrl+Shift+Meta+Alt+P" = "systemctl poweroff";
     "Ctrl+Shift+Meta+Alt+R" = "systemctl reboot";
     "Ctrl+Shift+Meta+Alt+S" = "systemctl suspend";
+    "Meta+Shift+B" = "konsole -e btop";
     "Meta+Shift+C" = "clementine";
     "Meta+Shift+F" = "firefox";
     "Meta+Shift+Return" = "konsole";

@@ -10,58 +10,58 @@ in
 {
   home.file.".local/share/konsole/konsole.colorscheme".text = ''
     [Background]
-    Color=31,31,31
+    Color=${colors.background}
 
     [BackgroundFaint]
-    Color=36,36,36
+    Color=${colors.backgroundLight1}
 
     [BackgroundIntense]
     Color=0,0,0
 
     [Color0]
-    Color=31,31,31
+    Color=${colors.background}
 
     [Color0Faint]
-    Color=36,36,36
+    Color=${colors.backgroundLight1}
 
     [Color0Intense]
     Color=127,140,141
 
     [Color1]
-    Color=${colors.redLight3}
+    Color=${colors.red}
 
     [Color1Faint]
-    Color=${colors.redLight2}
+    Color=${colors.redDark1}
 
     [Color1Intense]
-    Color=${colors.redLight4}
+    Color=${colors.redLight1}
 
     [Color2]
-    Color=${colors.greenLight2}
+    Color=${colors.green}
 
     [Color2Faint]
-    Color=${colors.greenLight1}
+    Color=${colors.greenDark1}
 
     [Color2Intense]
-    Color=${colors.greenLight3}
+    Color=${colors.greenLight1}
 
     [Color3]
-    Color=${colors.orangeLight5}
+    Color=${colors.orange}
 
     [Color3Faint]
-    Color=${colors.orangeLight4}
+    Color=${colors.orangeDark1}
 
     [Color3Intense]
-    Color=${colors.orangeLight6}
+    Color=${colors.orangeLight1}
 
     [Color4]
-    Color=${colors.blueLight5}
+    Color=${colors.blue}
 
     [Color4Faint]
-    Color=${colors.blueLight4}
+    Color=${colors.blueDark1}
 
     [Color4Intense]
-    Color=${colors.blueLight6}
+    Color=${colors.blueLight1}
 
     [Color5]
     Color=${colors.purple}
@@ -105,7 +105,7 @@ in
     ColorRandomization=false
     Description=KritaDark
     FillStyle=Tile
-    Opacity=0.75
+    Opacity=0.85
     Wallpaper=
     WallpaperFlipType=NoFlip
     WallpaperOpacity=1

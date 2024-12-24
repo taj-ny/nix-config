@@ -27,7 +27,6 @@
     DetailsMode.PreviewSize.value = 16;
     General = {
       BrowseThroughArchives.value = true;
-      GlobalViewProps.value = false;
       RememberOpenedTabs.value = false;
     };
     VersionControl.enabledPlugins.value = "Git";

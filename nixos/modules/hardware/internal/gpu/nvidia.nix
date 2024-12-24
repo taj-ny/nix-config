@@ -19,7 +19,7 @@ in
     hardware.nvidia = {
       modesetting.enable = true;
       nvidiaSettings = false;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       powerManagement.enable = true;
     };
     services.xserver.videoDrivers = [ "nvidia" ];

@@ -46,6 +46,7 @@
         startupfeedbackEnabled.value = false;
         startupfeedback_busy_cursorEnabled.value = true;
       };
+      Wayland.EnablePrimarySelection.value = false;
       Windows = {
         DelayFocusInterval.value = 0;
         FocusPolicy.value = "FocusFollowsMouse";

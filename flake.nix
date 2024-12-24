@@ -5,6 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
+    darkly = {
+      url = "github:taj-ny/Darkly/FeatureDarkly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -1,7 +1,6 @@
 {
   programs.plasma.configFile = {
-    kdeglobals.KDE.widgetStyle.value = "Lightly";
-    lightlyrc = {
+    darklyrc = {
       Common.CornerRadius.value = 8;
       Style = {
         DolphinSidebarOpacity.value = 50;
@@ -9,5 +8,6 @@
         TabDrawHighlight.value = true;
       };
     };
+    kdeglobals.KDE.widgetStyle.value = "Darkly";
   };
 }

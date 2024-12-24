@@ -18,4 +18,5 @@
     "taskExplorer.exclude": [
         "!.vscode/tasks.json"
     ],
+    "editor.cursorStyle": "line"
 }

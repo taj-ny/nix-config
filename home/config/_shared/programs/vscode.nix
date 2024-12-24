@@ -10,7 +10,13 @@ let
 in
 lib.mkIf config.programs.vscode.enable
 {
-  home.sessionVariables.NIXD_FLAGS = "--semantic-tokens=true";
+  home = {
+    packages = builtins.attrValues {
+      inherit (pkgs)
+        texliveFull;
+    };
+    sessionVariables.NIXD_FLAGS = "--semantic-tokens=true";
+  };
   persistence.directories = [
     ".config/VSCodium/User/globalStorage"
     ".config/VSCodium/User/History"
@@ -24,6 +30,7 @@ lib.mkIf config.programs.vscode.enable
       [
         vscode-taskexplorer
 
+        james-yu.latex-workshop
         jnoortheen.nix-ide
         ms-vscode.cmake-tools
         ms-vscode.cpptools
@@ -47,23 +54,33 @@ lib.mkIf config.programs.vscode.enable
         home.expr = "(builtins.getFlake \"/nix/config\").homeConfigurations.nixd.options";
         nixos.expr = "(builtins.getFlake \"/nix/config\").nixosConfigurations.andromeda.options";
       };
-      "terminal.integrated.fontFamily" = "MesloLGS NF";
+      "terminal.integrated.cursorBlinking" = true;
+      "terminal.integrated.cursorStyle" = "line";
+      "terminal.integrated.cursorStyleInactive" = "none";
+      "terminal.integrated.fontFamily" = "'MesloLGS NF'";
       "terminal.integrated.fontSize" = 13;
       "terminal.integrated.lineHeight" = 1;
       "terminal.integrated.smoothScrolling" = true;
       "workbench.colorCustomizations" = {
-        "activityBar.activeBorder" = colors.accent;
+        "activityBar.activeBorder" = colors.background;
         "activityBar.background" = colors.background;
         "activityBar.foreground" = colors.accent;
         "activityBarBadge.background" = colors.accent;
         "button.background" = colors.accent;
         "button.hoverBackground" = colors.accentDark1;
         "button.secondaryBackground" = colors.accent;
+        "editorError.foreground" = colors.redLight1;
         "editor.background" = colors.backgroundLight1;
         "editor.selectionBackground" = colors.accent;
         "files.autoSaveDelay" = 250;
         "focusBorder" = colors.accent;
+        "gitDecoration.addedResourceForeground" = colors.greenLight1;
+        "gitDecoration.modifiedResourceForeground" = colors.blueLight1;
+        "gitDecoration.untrackedResourceForeground" = colors.greenLight1;
+        "inputOption.activeBackground" = colors.accentDark2;
+        "inputOption.activeBorder" = colors.accentLight1;
         "list.activeSelectionBackground" = colors.accentDark2;
+        "list.errorForeground" = colors.red;
         "list.focusAndSelectionOutline" = colors.accent;
         "list.hoverBackground" = colors.backgroundLight1; # Also affects notifications
         "list.inactiveSelectionBackground" = colors.backgroundLight2;
@@ -73,6 +90,18 @@ lib.mkIf config.programs.vscode.enable
         "tab.activeBorder" = colors.backgroundLight1;
         "tab.activeBorderTop" = colors.backgroundLight1;
         "tab.hoverBackground" = colors.backgroundLight2;
+        "terminal.ansiBrightBlue" = colors.blueLight1;
+        "terminal.ansiBrightCyan" = colors.accentLight1;
+        "terminal.ansiBrightGreen" = colors.greenLight1;
+        "terminal.ansiBrightMagenta" = colors.purpleLight1;
+        "terminal.ansiBrightRed" = colors.redLight1;
+        "terminal.ansiBrightYellow" = colors.orangeLight1;
+        "terminal.ansiBlue" = colors.blue;
+        "terminal.ansiCyan" = colors.accent;
+        "terminal.ansiGreen" = colors.green;
+        "terminal.ansiMagenta" = colors.purple;
+        "terminal.ansiRed" = colors.red;
+        "terminal.ansiYellow" = colors.orange;
         "terminal.tab.activeBorder" = colors.accent;
         "textLink.activeForeground" = colors.accentDark1;
         "textLink.foreground" = colors.accent;

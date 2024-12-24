@@ -6,21 +6,23 @@ let
   math = import ./math.nix;
 in
 rec {
-  genPalette = hues: saturation: value: valueDelta:
+  genPalette = base: valueDelta:
     (lib.concatMapAttrs
-      (name: hue: {
-        "${name}" = [ hue saturation value ];
-        "${name}Dark1" = [ hue saturation (value - valueDelta) ];
-        "${name}Dark2" = [ hue saturation (value - valueDelta * 2) ];
-        "${name}Dark3" = [ hue saturation (value - valueDelta * 3) ];
-        "${name}Light1" = [ hue saturation (value + valueDelta) ];
-        "${name}Light2" = [ hue saturation (value + valueDelta * 2) ];
-        "${name}Light3" = [ hue saturation (value + valueDelta * 3) ];
-        "${name}Light4" = [ hue saturation (value + valueDelta * 4) ];
-        "${name}Light5" = [ hue saturation (value + valueDelta * 5) ];
-        "${name}Light6" = [ hue saturation (value + valueDelta * 6) ];
-      })
-      hues)
+      (name: hsv:
+        let
+          h = builtins.elemAt hsv 0;
+          s = builtins.elemAt hsv 1;
+          v = builtins.elemAt hsv 2;
+        in
+          {
+            "${name}" = [ h s v ];
+            "${name}Dark1" = [ h s (v - valueDelta) ];
+            "${name}Dark2" = [ h s (v - valueDelta * 2) ];
+            "${name}Dark3" = [ h s (v - valueDelta * 3) ];
+            "${name}Light1" = [ h s (v + valueDelta) ];
+            "${name}Light2" = [ h s (v + valueDelta * 2) ];
+          })
+      base)
     |> lib.mapAttrs (_: value:
       hsvToRgb (builtins.elemAt value 0) (builtins.elemAt value 1) (builtins.elemAt value 2)
     );
@@ -47,26 +49,6 @@ rec {
       ]
       (math.mod i 6))
       |> builtins.map (x: math.round(x * 255));
-
-
-
-
-    # let
-    #   c = v * s;
-    #   x = c * (1 - (math.abs (math.mod (h / 60.0) 2) - 1));
-    #   m = v - c;
-    #   rgb' = if h < 60 then { r = c; g = x; b = 0; }
-    #         else if h < 120 then { r = x; g = c; b = 0; }
-    #         else if h < 180 then { r = 0; g = c; b = x; }
-    #         else if h < 240 then { r = 0; g = x; b = c; }
-    #         else if h < 300 then { r = x; g = 0; b = c; }
-    #         else { r = c; g = 0; b = x; };
-    # in
-    #   [
-    #     (math.round ((rgb'.r + m) * 255))
-    #     (math.round ((rgb'.g + m) * 255))
-    #     (math.round ((rgb'.b + m) * 255))
-    #   ];
 
   rgbToHex = rgb:
     "${math.decToHex (builtins.elemAt rgb 0)}${math.decToHex (builtins.elemAt rgb 1)}${math.decToHex (builtins.elemAt rgb 2)}";

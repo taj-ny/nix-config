@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   ...
@@ -26,6 +27,7 @@
       };
     };
     impermanence.rootFsSize = "12G";
+    impermanence.persistentDirectories = [ "/var/lib/containers" "${config.programs.ccache.cacheDir}"];
   };
   environment = {
     etc.crypttab.text = ''
@@ -46,9 +48,11 @@
     };
   };
   hardware.nvidia.open = false;
+  hardware.nvidia-container-toolkit.enable = true;
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
   programs = {
     adb.enable = true;
+    ccache.enable = true;
     kdeconnect.enable = true;
     gamescope.enable = true;
     partition-manager.enable = true;
@@ -62,4 +66,5 @@
     };
   };
   system.stateVersion = "23.05";
+  virtualisation.podman.enable = true;
 }

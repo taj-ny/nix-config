@@ -19,6 +19,7 @@
         axel
         duf
         eza
+        distrobox
         fastfetch
         ffmpeg
         gimp
@@ -61,6 +62,7 @@
   persistence.directories = [
     ".cache"
     ".cert" # NetworkManager OpenVPN
+    ".local/share/containers"
     ".local/state/wireplumber"
     ".nuget"
     ".ssh"
