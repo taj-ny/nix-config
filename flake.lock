@@ -28,15 +28,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1735044869,
-        "narHash": "sha256-iPWsSmDndxHTTp+sgrysjhGeAqlsdVTOhJhu+Q1ct60=",
-        "owner": "taj-ny",
+        "lastModified": 1735053644,
+        "narHash": "sha256-l2kJtDc3eQYv0fubCPgo6KemGdvIVbRFbzGHHzzcVD8=",
+        "owner": "Bali10050",
         "repo": "Darkly",
-        "rev": "deae16c875b44092f320beba79ac0428d226bd51",
+        "rev": "b0d4f3d7714c440ec200f09c417b6a125cb422c1",
         "type": "github"
       },
       "original": {
-        "owner": "taj-ny",
+        "owner": "Bali10050",
         "ref": "FeatureDarkly",
         "repo": "Darkly",
         "type": "github"
