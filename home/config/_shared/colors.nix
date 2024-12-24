@@ -18,9 +18,9 @@ in
 {
   colors = {
     background = [ 20 20 20 ];
-    backgroundLight1 = [ 25 25 25 ];
-    backgroundLight2 = [ 30 30 30 ];
-    backgroundLight3 = [ 35 35 35 ];
+    backgroundLight1 = [ 23 23 23 ];
+    backgroundLight2 = [ 26 26 26 ];
+    backgroundLight3 = [ 29 29 29 ];
 
     foreground = [ 255 255 255 ];
   } // (lib.colors.genPalette base 0.0725);
