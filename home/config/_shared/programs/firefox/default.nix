@@ -73,6 +73,7 @@ lib.mkIf config.programs.firefox.enable
         "dom.security.https_only_mode" = true;
         "dom.security.https_only_mode_ever_enabled" = true;
         "extensions.formautofill.creditCards.enabled" = false;
+        "full-screen-api.warning.timeout" = 0;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
         "network.trr.mode" = 5;
