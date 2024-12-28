@@ -7,7 +7,7 @@
   home.packages = with pkgs; [ opusTools ];
   programs.beets = {
     enable = true;
-    package = pkgs.beets-unstable;
+    package = pkgs.working.beets-unstable;
     settings = {
       badfiles = {
         check_on_import = true;
