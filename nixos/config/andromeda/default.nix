@@ -13,7 +13,7 @@
 
     ../_shared/desktop
     ../_shared/optional/fs/luks-btrfs-impermanence.nix
-    ../_shared/optional/hardware/external/printers.nix
+    #../_shared/optional/hardware/external/printers.nix
     ../_shared/optional/programs/vmware.nix
     ../_shared/optional/security/u2f-pam.nix
     ../_shared/optional/services/syncthing.nix
