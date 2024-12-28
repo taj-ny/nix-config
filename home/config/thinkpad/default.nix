@@ -11,7 +11,6 @@
   ];
   programs = {
     clion.enable = true;
-    # intellij-idea-ultimate.enable = true;
     plasma = {
       configFile = {
         kcminputrc = {
@@ -57,6 +56,5 @@
         };
       };
     };
-    rider.enable = true;
   };
 }
