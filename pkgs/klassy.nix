@@ -38,6 +38,15 @@ stdenv.mkDerivation rec {
     wrapQtAppsHook
   ];
 
+  patchPhase = ''
+    runHook prePatch
+
+    substituteInPlace CMakeLists.txt \
+      --replace 'set(PROJECT_VERSION "6.2.breeze6.2.1")' 'set(PROJECT_VERSION "6.2.1")'
+
+    runHook postPatch
+  '';
+
   cmakeFlags = [
     "-DCMAKE_INSTALL_PREFIX=$out"
     "-DCMAKE_BUILD_TYPE=Release"
