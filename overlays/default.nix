@@ -4,6 +4,9 @@
   ...
 }:
 
+let
+  nixpkgsVariants = [ "stable" "working" ];
+in
 {
   additions = final: _prev: import ../pkgs {
     inherit lib;
@@ -17,10 +20,17 @@
       (builtins.pathExists ./private)
       (import ./private { inherit final prev; })
   );
-  stable = final: prev: {
-    stable = import inputs.nixpkgs-stable {
-      system = final.system;
-      config.allowUnfree = true;
-    };
-  };
+  variants = final: prev:
+    nixpkgsVariants
+    |> builtins.map
+      (
+        variant: {
+          name = variant;
+          value = import inputs."nixpkgs-${variant}" {
+            system = final.system;
+            config.allowUnfree = true;
+          };
+        }
+      )
+    |> builtins.listToAttrs;
 }
