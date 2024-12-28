@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   services = {
@@ -10,7 +13,7 @@
 
     printing = {
       enable = true;
-      drivers = with pkgs; [ hplip ];
+      drivers = [ pkgs.working.hplip ];
     };
   };
 }
