@@ -103,7 +103,7 @@ toolbar, toolbox, /* Top bar */
         display: none !important;
     }
 
-    &:not([hidden]) ~ #tabbrowser-tabbox browser {
+    html:not([inFullscreen]) &:not([hidden]) ~ #tabbrowser-tabbox browser {
         border-radius: var(--corner-radius) 0 0 0;
     }
 }
