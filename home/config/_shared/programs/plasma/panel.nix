@@ -59,7 +59,6 @@
             shown = [
               "org.kde.plasma.battery"
               "org.kde.plasma.volume"
-              "org.kde.plasma.notifications"
               "org.kde.plasma.networkmanagement"
             ];
           };
