@@ -10,13 +10,7 @@ let
 in
 lib.mkIf config.programs.vscode.enable
 {
-  home = {
-    packages = builtins.attrValues {
-      inherit (pkgs)
-        texliveFull;
-    };
-    sessionVariables.NIXD_FLAGS = "--semantic-tokens=true";
-  };
+  home.sessionVariables.NIXD_FLAGS = "--semantic-tokens=true";
   persistence.directories = [
     ".config/VSCodium/User/globalStorage"
     ".config/VSCodium/User/History"
