@@ -52,11 +52,11 @@ in
         "Switch to Desktop 3" = "Meta+3";
         "Switch to Desktop 4" = "Meta+4";
         "Switch to Desktop 5" = "Meta+5";
-        "Switch to Desktop 6" = "Meta+6";
-        "Switch to Desktop 7" = "Meta+7";
-        "Switch to Desktop 8" = "Meta+8";
-        "Switch to Desktop 9" = "Meta+9";
-        "Switch to Desktop 10" = "Meta+0";
+        "Switch to Desktop 6" = "Ctrl+Meta+1";
+        "Switch to Desktop 7" = "Ctrl+Meta+2";
+        "Switch to Desktop 8" = "Ctrl+Meta+3";
+        "Switch to Desktop 9" = "Ctrl+Meta+4";
+        "Switch to Desktop 10" = "Ctrl+Meta+5";
         "Window Close" = "Meta+Q";
         "Window Fullscreen" = "Meta+F";
         "Window to Desktop 1" = "Meta+!";
@@ -64,11 +64,11 @@ in
         "Window to Desktop 3" = "Meta+#";
         "Window to Desktop 4" = "Meta+$";
         "Window to Desktop 5" = "Meta+%";
-        "Window to Desktop 6" = "Meta+^";
-        "Window to Desktop 7" = "Meta+&";
-        "Window to Desktop 8" = "Meta+*";
-        "Window to Desktop 9" = "Meta+(";
-        "Window to Desktop 10" = "Meta+)";
+        "Window to Desktop 6" = "Ctrl+Meta+!";
+        "Window to Desktop 7" = "Ctrl+Meta+@";
+        "Window to Desktop 8" = "Ctrl+Meta+#";
+        "Window to Desktop 9" = "Ctrl+Meta+$";
+        "Window to Desktop 10" = "Ctrl+Meta+%";
       };
       plasmashell = {
         "activate application launcher" = "none";
