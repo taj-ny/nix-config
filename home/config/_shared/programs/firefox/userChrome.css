@@ -102,10 +102,6 @@ toolbar, toolbox, /* Top bar */
     #sidebar-header {
         display: none !important;
     }
-
-    html:not([inFullscreen]) &:not([hidden]) ~ #tabbrowser-tabbox browser {
-        border-radius: var(--corner-radius) 0 0 0;
-    }
 }
 
 #sidebar-box, #webextpanels-window {
@@ -114,4 +110,12 @@ toolbar, toolbox, /* Top bar */
 
 #sidebar-splitter {
     display: none !important;
+}
+
+/* Rounded browser */
+html:not([inFullscreen]):has(#sidebar-box:not([hidden])) {
+    #tabbrowser-tabbox browser, #browser {
+        border-radius: var(--corner-radius) 0 0 0;
+        overflow: hidden;
+    }
 }
