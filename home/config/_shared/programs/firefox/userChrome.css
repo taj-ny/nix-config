@@ -114,7 +114,7 @@ toolbar, toolbox, /* Top bar */
 
 /* Rounded browser */
 html:not([inFullscreen]):has(#sidebar-box:not([hidden])) {
-    #tabbrowser-tabbox browser, #browser {
+    #tabbrowser-tabbox .browserStack browser {
         border-radius: var(--corner-radius) 0 0 0;
         overflow: hidden;
     }
