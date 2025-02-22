@@ -4,11 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    # Last commit from nixos-unstable with working packages
+    # Last commit from nixos-unstable with working packages test
     nixpkgs-working.url = "github:nixos/nixpkgs/d70bd19e0a38ad4790d3913bf08fcbfc9eeca507";
 
     darkly = {
-      url = "github:Bali10050/Darkly/FeatureDarkly";
+      url = "github:Bali10050/Darkly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox-addons = {
@@ -30,7 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.1";
+      url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     plasma-manager = {

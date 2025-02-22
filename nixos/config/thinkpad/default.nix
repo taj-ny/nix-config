@@ -35,6 +35,11 @@
     gamescope.enable = true;
     partition-manager.enable = true;
     steam.enable = true;
+    
+    weylus = {
+      enable = true;
+      users = [ "marcin" ];
+    };
   };
   services.syncthing.settings.folders.music_lossy = {
     path = "/home/marcin/Music";
@@ -42,4 +47,5 @@
   };
   system.stateVersion = "23.05";
   powerManagement.cpuFreqGovernor = lib.mkForce "performance";
+  virtualisation.podman.enable = true;
 }

@@ -6,6 +6,7 @@ html, #main-window {
 
 /* Transparency */
 toolbar, toolbox, /* Top bar */
+#browser,
 #tabbrowser-tabbox, #tabbrowser-tabpanels, notification-anchor-icon
 #tab-notification-deck, .notificationbox-stack {
     background: transparent !important;

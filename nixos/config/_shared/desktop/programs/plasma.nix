@@ -8,11 +8,11 @@
   environment = {
     systemPackages = (builtins.attrValues {
       inherit (pkgs)
-        kde-rounded-corners
-        klassy;
+        kde-rounded-corners;
+        # klassy;
     }) ++ [
       inputs.kwin-better-blur.packages.${pkgs.system}.default
-      inputs.kwin-effects-startupfeedback-busy-cursor.packages.${pkgs.system}.default
+      # inputs.kwin-effects-startupfeedback-busy-cursor.packages.${pkgs.system}.default
       inputs.darkly.packages.${pkgs.system}.darkly-qt5
       inputs.darkly.packages.${pkgs.system}.darkly-qt6
     ];

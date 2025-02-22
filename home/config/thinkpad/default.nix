@@ -56,5 +56,6 @@
         };
       };
     };
+    prism-launcher.enable = true;
   };
 }
