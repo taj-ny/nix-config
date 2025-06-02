@@ -6,7 +6,7 @@ Based on [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-st
 ![Firefox](images/screenshots/firefox.png)
 ![Random stuff](images/screenshots/randomstuff.png)
 
-### [Plasma](https://github.com/taj-ny/nix-config/tree/main/home/config/_shared/programs/plasma)
+### [Plasma](home/config/_shared/programs/plasma)
 - [anametologin/krohnkite](https://github.com/anametologin/krohnkite) - Tiling
 - [Bali10050/Darkly](https://github.com/Bali10050/Darkly) - Qt application style
 - [dhruv8sh/plasma6-window-title-applet](https://github.com/dhruv8sh/plasma6-window-title-applet) - Window title on the panel
