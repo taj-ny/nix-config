@@ -57,7 +57,7 @@
   };
   nix.gc = {
     inherit (osConfig.nix.gc) automatic options;
-    frequency = osConfig.nix.gc.dates;
+    frequency = builtins.toString osConfig.nix.gc.dates;
   };
   persistence.directories = [
     ".cache"
@@ -86,17 +86,19 @@
       osConfig.services.syncthing.enable
       [ ".syncthing" ]
   );
-  programs = {
-    btop.enable = true;
+  custom.programs = {
     ccache.enable = true;
     clementine.enable = true;
-    firefox.enable = true;
-    home-manager.enable = true;
     kdeconnect.enable = true;
     keepassxc.enable = true;
     rclone.enable = true;
-    vscode.enable = true;
     yakuake.enable = true;
+  };
+  programs = {
+    btop.enable = true;
+    firefox.enable = true;
+    home-manager.enable = true;
+    vscode.enable = true;
     zsh.enable = true;
   };
   services = {

@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   pkgs,
@@ -19,9 +18,6 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "resume_offset=53848001" ];
-    extraModprobeConfig = ''
-      options thinkpad_acpi fan_control=1
-    '';
   };
   custom = {
     hardware.internal.bluetooth.enable = true;
@@ -35,17 +31,29 @@
     gamescope.enable = true;
     partition-manager.enable = true;
     steam.enable = true;
-    
+
     weylus = {
       enable = true;
       users = [ "marcin" ];
     };
   };
-  services.syncthing.settings.folders.music_lossy = {
-    path = "/home/marcin/Music";
-    devices = [ "andromeda" ];
+  services = {
+    power-profiles-daemon.enable = lib.mkForce false;
+    syncthing.settings.folders.music_lossy = {
+      path = "/home/marcin/Music";
+      devices = [ "andromeda" ];
+    };
   };
   system.stateVersion = "23.05";
-  powerManagement.cpuFreqGovernor = lib.mkForce "performance";
   virtualisation.podman.enable = true;
+
+  services.udev.packages = [
+    (pkgs.writeTextFile {
+      name = "71-touchpad.rules";
+      text = ''
+        ENV{ID_INPUT_TOUCHPAD}=="1", TAG+="uaccess"
+      '';
+      destination = "/etc/udev/rules.d/71-touchpad.rules";
+    })
+  ];
 }

@@ -1,7 +1,7 @@
 let
   general = {
     disableBdProchot = true;
-    maxTemperature = 97;
+    maxTemperature = 90;
   };
 in
 {

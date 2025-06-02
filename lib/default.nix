@@ -49,9 +49,9 @@ rec {
         }:
 
         {
-          options.programs.${optionName}.enable = lib.mkEnableOption name;
+          options.custom.programs.${optionName}.enable = lib.mkEnableOption name;
           config = lib.mkIf
-            config.programs.${optionName}.enable
+            config.custom.programs.${optionName}.enable
             (
               mkMergeRecursive
                 [

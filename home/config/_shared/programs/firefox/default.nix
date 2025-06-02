@@ -37,7 +37,7 @@ lib.mkIf config.programs.firefox.enable
       };
     };
     profiles.main = {
-      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+      extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
         keepassxc-browser
         multi-account-containers
         sidebery
@@ -48,7 +48,7 @@ lib.mkIf config.programs.firefox.enable
       ];
       search = {
         force = true;
-        default = "DuckDuckGo";
+        default = "ddg";
       };
       settings = {
         "apz.overscroll.enabled" = false;

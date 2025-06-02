@@ -6,11 +6,16 @@
 {
   home.stateVersion = "23.05";
   persistence.directories = [
+    ".local/share/Terraria"
     "Backups"
     "Music"
   ];
-  programs = {
+  custom.programs = {
+    android-studio.enable = true;
     clion.enable = true;
+    prism-launcher.enable = true;
+  };
+  programs = {
     plasma = {
       configFile = {
         kcminputrc = {
@@ -56,6 +61,5 @@
         };
       };
     };
-    prism-launcher.enable = true;
   };
 }

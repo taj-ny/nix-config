@@ -4,7 +4,7 @@
   ...
 }:
 
-lib.mkIf config.programs.yakuake.enable
+lib.mkIf config.custom.programs.yakuake.enable
 {
   programs.plasma = {
     configFile.yakuakerc = {

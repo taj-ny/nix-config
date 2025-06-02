@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   ...
 }:
@@ -9,32 +10,38 @@
   persistence.files = [ ".zsh_history" ];
   programs.zsh = {
     autosuggestion.enable = true;
-    initExtra = ''
-      bindkey "''${key[Up]}" up-line-or-search
+    initContent = lib.mkMerge [
+      (
+        lib.mkOrder 500 ''
+          if [[ $(tty) =~ /dev\/tty[1-6] ]]; then TMOUT=300; fi
 
-      # Fix slow pasting https://gist.github.com/magicdude4eva/2d4748f8ef3e6bf7b1591964c201c1ab
-      pasteinit() {
-        OLD_SELF_INSERT=''${''${(s.:.)widgets[self-insert]}[2,3]}
-        zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
-      }
+          if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+            source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+          fi
+        ''
+      )
+      (
+        lib.mkOrder 1000 ''
+          bindkey "''${key[Up]}" up-line-or-search
 
-      pastefinish() {
-        zle -N self-insert $OLD_SELF_INSERT
-      }
-      zstyle :bracketed-paste-magic paste-init pasteinit
-      zstyle :bracketed-paste-magic paste-finish pastefinish
+          # Fix slow pasting https://gist.github.com/magicdude4eva/2d4748f8ef3e6bf7b1591964c201c1ab
+          pasteinit() {
+            OLD_SELF_INSERT=''${''${(s.:.)widgets[self-insert]}[2,3]}
+            zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+          }
 
-      if zmodload zsh/terminfo && (( terminfo[colors] >= 256 )); then
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-      fi
-    '';
-    initExtraFirst = ''
-      if [[ $(tty) =~ /dev\/tty[1-6] ]]; then TMOUT=300; fi
+          pastefinish() {
+            zle -N self-insert $OLD_SELF_INSERT
+          }
+          zstyle :bracketed-paste-magic paste-init pasteinit
+          zstyle :bracketed-paste-magic paste-finish pastefinish
 
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
-    '';
+          if zmodload zsh/terminfo && (( terminfo[colors] >= 256 )); then
+            [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+          fi
+        ''
+      )
+    ];
     oh-my-zsh = {
       enable = true;
       plugins = [
