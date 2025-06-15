@@ -19,4 +19,4 @@ Based on [Misterio77's nix-starter-configs](https://github.com/Misterio77/nix-st
 
 ### Other programs
 - [Clementine](https://github.com/clementine-player/Clementine) - Music player
-- Firefox - Web browser, [mbnuqw/sidebery](https://github.com/mbnuqw/sidebery) for vertical tabs, custom CSS is at [home/config/_shared/programs/firefox](home/config/_shared/programs/firefox)
+- Firefox - Web browser, custom CSS is at [home/config/_shared/programs/firefox](home/config/_shared/programs/firefox)

@@ -65,6 +65,17 @@
         };
         match.window-types = [ "normal" "dialog" ];
       }
+      {
+        description = "Enable frame";
+        apply.noborder = {
+          apply = "force";
+          value = false;
+        };
+        match.window-class = {
+          value = "VSCodium";
+          type = "regex";
+        };
+      }
     ];
   };
 }

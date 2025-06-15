@@ -41,7 +41,8 @@ lib.mkIf config.programs.vscode.enable
         "editor.wordWrap" = "on";
         "files.autoSave" = "afterDelay";
         "files.trimTrailingWhitespace" = true;
-        "markdown-preview-enhanced.previewTheme" = "github-dark.css";
+        "markdown-preview-enhanced.codeBlockTheme" = "default.css";
+        # "markdown-preview-enhanced.previewTheme" = "github-dark.css";
         "material-icon-theme.folders.color" = colors.accent;
         "material-icon-theme.folders.theme" = "classic";
         "nix.enableLanguageServer" = true;
@@ -57,6 +58,7 @@ lib.mkIf config.programs.vscode.enable
         "terminal.integrated.fontSize" = 13;
         "terminal.integrated.lineHeight" = 1;
         "terminal.integrated.smoothScrolling" = true;
+        "window.controlsStyle" = "hidden";
         "workbench.colorCustomizations" = {
           "activityBar.activeBorder" = colors.background;
           "activityBar.background" = colors.background;

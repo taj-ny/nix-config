@@ -24,7 +24,10 @@
     impermanence.rootFsSize = "8G";
     security.secureBoot.enable = true;
   };
-  environment.variables.KWIN_FORCE_SW_CURSOR = "0";
+  environment = {
+    systemPackages = [ inputs.inputactions.packages.${pkgs.system}.default ];
+    variables.KWIN_FORCE_SW_CURSOR = "0";
+  };
   programs = {
     adb.enable = true;
     kdeconnect.enable = true;

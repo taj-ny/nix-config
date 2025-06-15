@@ -40,7 +40,6 @@ lib.mkIf config.programs.firefox.enable
       extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
         keepassxc-browser
         multi-account-containers
-        sidebery
         sponsorblock
         stylus
         ublock-origin
@@ -54,12 +53,13 @@ lib.mkIf config.programs.firefox.enable
         "apz.overscroll.enabled" = false;
         "browser.aboutConfig.showWarning" = false;
         "browser.ctrlTab.sortByRecentlyUsed" = true;
+        "browser.gesture.swipe.left" = "";
+        "browser.gesture.swipe.right" = "";
         "browser.newtabpage.enabled" = false;
         "browser.search.suggest.enabled" = false;
         "browser.sessionstore.resume_from_crash" = false;
         "browser.startup.homepage" = "chrome://browser/content/blanktab.html";
         "browser.startup.page" = 3;
-        "browser.tabs.allow_transparent_browser" = true;
         "browser.tabs.crashReporting.sendReport" = false;
         "browser.tabs.inTitlebar" = 0;
         "browser.toolbars.bookmarks.visibility" = "never";
@@ -67,6 +67,7 @@ lib.mkIf config.programs.firefox.enable
         "browser.urlbar.suggest.engines" = false;
         "browser.urlbar.suggest.history" = false;
         "browser.urlbar.suggest.topsites" = false;
+        "browser.urlbar.trimHttps" = true;
         "devtools.chrome.enabled" = true;
         "devtools.debugger.remote-enabled" = true;
         "dom.private-attribution.submission.enabled" = false;
@@ -77,6 +78,7 @@ lib.mkIf config.programs.firefox.enable
         "media.ffmpeg.vaapi.enabled" = true;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
         "network.trr.mode" = 5;
+        "sidebar.verticalTabs" = true;
         "ui.key.menuAccessKeyFocuses" = false;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };

@@ -1,7 +1,7 @@
 let
   general = {
     disableBdProchot = true;
-    maxTemperature = 90;
+    maxTemperature = 88;
   };
 in
 {
@@ -21,9 +21,9 @@ in
       };
 
       battery = {
-        cache = 100;
-        core = 100;
-        gpu = 50;
+        cache = 80;
+        core = 80;
+        gpu = 30;
       };
     };
   };

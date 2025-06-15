@@ -21,6 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
+    inputactions = {
+      url = "github:taj-ny/inputactions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     kwin-better-blur = {
       url = "github:taj-ny/kwin-effects-forceblur/window-rules";
       inputs.nixpkgs.follows = "nixpkgs";

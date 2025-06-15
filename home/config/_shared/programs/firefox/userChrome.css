@@ -1,14 +1,29 @@
+:root {
+    --corner-radius: 15px;
+    --tab-min-height: 24px !important;
 
+    --sidebar-radius: 6px;
+    --sidebar-shadow: 1px 1px 5px rgba(0, 0, 0, 0.125);
+    --sidebar-min-width: 250px;
+    --sidebar-max-width: 250px;
+    --sidebar-width: 15%;
+
+    --tab-height: 32px;
+
+    --bg-hover-overlay: #00968855;
+    --bg-active-overlay: #009688AA;
+    --bg-overlay-light-1: rgba(255, 255, 255, 0.06);
+    --bg-overlay-light-2: rgba(255, 255, 255, 0.1);
+}
 
 html, #main-window {
     background-color: rgba(25, 25, 25, 0.5) !important;
 }
 
 /* Transparency */
-toolbar, toolbox, /* Top bar */
-#browser,
-#tabbrowser-tabbox, #tabbrowser-tabpanels, notification-anchor-icon
-#tab-notification-deck, .notificationbox-stack {
+toolbar, toolbox,
+#browser, #tabbrowser-tabpanels,
+notification-anchor-icon, #tab-notification-deck, .notificationbox-stack {
     background: transparent !important;
 }
 
@@ -23,40 +38,40 @@ toolbar, toolbox, /* Top bar */
     }
 }
 
-#customizableui-special-spring1,
-#customizableui-special-spring2 {
-    max-width: unset !important;
+#navigator-toolbox {
+    min-width: var(--sidebar-min-width) !important;
+    max-width: var(--sidebar-max-width) !important;
+    width: var(--sidebar-width) !important;
 }
 
 #urlbar-container {
-    max-width: 50% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: var(--sidebar-radius) !important;
 
     #urlbar {
         #urlbar-background {
-            background-color: rgba(25, 25, 25) !important;
+            border-radius: var(--sidebar-radius) !important;
+            background-color: var(--bg-overlay-light-1) !important;
             border: none !important;
-            opacity: 0.3;
             outline: none !important;
+            box-shadow: var(--sidebar-shadow);
+        }
+
+        &:is([open]) #urlbar-background {
+            background-color: rgb(25, 25, 25) !important;
+            opacity: 1;
         }
 
         &[breakout][breakout-extend] {
-            top: 6px !important;
+            margin: unset !important;
             width: var(--urlbar-width) !important;
             margin: 0 !important;
         }
         &[breakout][breakout-extend] > #urlbar-input-container,
         &[breakout][breakout-extend] > .urlbar-input-container {
             height: var(--urlbar-height) !important;
-            padding-block: 0 !important;
-            padding-inline: var(--urlbar-container-padding) !important;
-        }
-        &urlbar[breakout][breakout-extend] > #urlbar-background {
-            animation-name: none !important;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, .05) !important;
-        }
-
-        &:is([open]) #urlbar-background {
-            opacity: 1;
         }
 
         #identity-icon-box {
@@ -70,53 +85,196 @@ toolbar, toolbox, /* Top bar */
         }
 
         #pageAction-urlbar-_testpilot-containers,
-        #reader-mode-button,
-        #star-button-box,
         #tracking-protection-icon-container,
-        .search-one-offs,
-        #downloads-button {
+        #star-button-box,
+        #blocked-permissions-container {
             display: none !important;
         }
     }
 }
 
+
 #nav-bar {
     padding: 2px 0 1px 0 !important;
 }
 
-#navigator-toolbox {
-    border-bottom: none !important;
+#urlbar input::placeholder {
+    opacity: 0 !important;
 }
 
-/* Hide horizontal tabs */
-#TabsToolbar {
+#urlbar-go-button {
     display: none !important;
 }
 
-/* Sidebar */
-#sidebar-box {
-    width: 15% !important;
-    max-width: 300px !important;
-    min-width: 100px !important;
-    z-index: 1;
+#nav-bar-customization-target {
+    z-index: 9999 !important;
+    display: grid !important;
+    grid-template-columns: auto auto auto 1fr auto auto;
+    grid-template-rows: 5px auto auto;
 
-    #sidebar-header {
+
+    #back-button {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    #forward-button {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    #stop-reload-button {
+        grid-row: 2;
+    }
+    #PanelUI-button {
+        grid-column: 3;
+        grid-row: 2 / span 1;
+    }
+    #unified-extensions-button {
+        grid-column: -1;
+        grid-row: 2;
+    }
+    #downloads-button {
+        grid-column: -2 !important;
+        grid-row: 2;
+    }
+
+    #urlbar-container {
+        grid-row: 3;
+        grid-column: 1 / 9999;
+        margin-top: 6px !important;
+    }
+}
+
+#navigator-toolbox {
+    padding: 0 10px !important;
+    position: absolute !important;
+    z-index: 9999 !important;
+}
+
+#sidebar-main {
+    margin-top: 88px !important;
+    min-width: var(--sidebar-min-width) !important;
+    max-width: var(--sidebar-max-width) !important;
+    width: var(--sidebar-width) !important;
+}
+
+.tools-and-extensions {
+    display: none !important;
+}
+
+#sidebar-button, #nav-bar-overflow-button, #PanelUI-button  {
+    display: none;
+}
+
+tab {
+    border-radius: var(--sidebar-radius) !important;
+}
+
+tab[class*="identity-"] {
+    .tab-context-line {
         display: none !important;
     }
+
+    .tab-background {
+        background-color: color-mix(in srgb, var(--identity-icon-color), transparent 75%) !important;
+    }
 }
 
-#sidebar-box, #webextpanels-window {
-    background-color: transparent !important;
+#vertical-tabs {
+    #tabbrowser-arrowscrollbox-periphery {
+        height: var(--tab-height) !important;
+    }
+
+    tab {
+        height: var(--tab-height) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 6px !important;
+
+        &[class*="identity"], &:active {
+            .tab-background {
+                box-shadow: var(--sidebar-shadow) !important;
+            }
+        }
+
+
+        &[class*="identity"]:not([selected]):hover .tab-background {
+            background-color: color-mix(in srgb, var(--identity-icon-color), transparent 60%) !important;
+        }
+
+        &[selected]:not([class*="identity-"]) .tab-background {
+            background-color: var(--bg-active-overlay) !important;
+            box-shadow: var(--sidebar-shadow) !important;
+        }
+        &[selected][class*="identity-"] .tab-background {
+            background-color: color-mix(in srgb, var(--identity-icon-color), transparent 50%) !important;
+            box-shadow: var(--sidebar-shadow) !important;
+        }
+
+        &:not([selected]):hover .tab-background {
+            background-color: var(--bg-hover-overlay) !important;
+        }
+    }
+
+    #vertical-pinned-tabs-container {
+        background-color: transparent !important;
+
+        tab {
+            .tab-background {
+                box-shadow: var(--sidebar-shadow) !important;
+            }
+
+            height: var(--tab-height);
+
+            &:not(::hover):not([selected]):not([class*="identity-"]) .tab-background {
+                background-color: var(--bg-overlay-light-1) !important;
+            }
+        }
+    }
+
+    spacer[part="overflow-start-indicator"] {
+        background-image: none !important;
+    }
 }
 
-#sidebar-splitter {
+html:not(:has(panel[role=alertdialog][panelopen=true])) {
+    #urlbar:not([focused]) {
+        .urlbar-input-box {
+            margin-left: 5px;
+        }
+
+        #identity-box, #page-action-buttons {
+            display: none !important;
+        }
+    }
+}
+
+#identity-box[pageproxystate="invalid"] {
     display: none !important;
 }
 
-/* Rounded browser */
-html:not([inFullscreen]):has(#sidebar-box:not([hidden])) {
-    #tabbrowser-tabbox .browserStack browser {
-        border-radius: var(--corner-radius) 0 0 0;
-        overflow: hidden;
+/* Fullscreen fix */
+.titlebar-buttonbox-container {
+    display: none;
+}
+
+#navigator-toolbox {
+    margin-top: 0 !important;
+}
+
+@media (max-width: 1000px) {
+    :root {
+        --sidebar-min-width: 0 !important;
     }
+
+    #downloads-button, #unified-extensions-button {
+        display: none !important;
+    }
+    #stop-reload-button {
+        grid-column: -1 !important;
+    }
+}
+
+/* Hack to get transparent background on about:blank without browser.tabs.allow_transparent_browser */
+html:has(#identity-box.localResource) browser {
+    display: none !important;
 }
